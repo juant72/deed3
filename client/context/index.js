@@ -1,4 +1,6 @@
-import React, {useEffect, useState, createContext, useContext} from 'react'
+import React, {useEffect, useState, createContext, useContext} from 'react';
+
+
 
 import {
     useAddress, 
@@ -6,7 +8,7 @@ import {
     useMetamask,
     useContractWrite,
     useContractRead,
-    useContractEvents } from "@thirdweb-dev/react";
+    useContractEvents,  } from "@thirdweb-dev/react";
 
 import {ethers} from "ethers";
 
@@ -22,8 +24,34 @@ export const StateContextProvider = ({children})=>{
 
     const realState = "Deeds3";
 
+    const {
+        mutateAsync: ListProperty, isLoading} = useContractWrite(
+            contract, 
+            "ListProperty"
+        );
+
+    const createPropertyFunction = async () => {
+        try{
+            const data = await ListProperty(
+                [
+                    address,
+                    price,
+                    _propertyTitle,
+                    _category,
+                    _images,
+                    _propertyAddress,
+                    _description,
+                ],
+            );
+            console.info("contract call success",data);
+        }   catch (err){
+            console.error("contract call failure",err);
+        }
+
+    }; 
+
     return (
-        <StateContext.Provider value={{address, connect, contract, realState}}>
+        <StateContext.Provider value={{address, connect, contract, realState, createPropertyFunction}}>
             {children}
         </StateContext.Provider>
     );
