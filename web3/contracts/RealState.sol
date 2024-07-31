@@ -135,7 +135,7 @@ contract RealEstate {
 
         Property[] memory items=new Property[](itemCount);
 
-        for (uint256 i=0; i<=itemCount; i++){
+        for (uint256 i=0; i<itemCount; i++){
             uint256 currentId=i+1;
 
             Property storage currentItem=properties[currentId];
@@ -226,11 +226,11 @@ contract RealEstate {
 
         Review[] memory userProductReviews = new Review[](totalReviews);
 
-        for (uint256 i=0; i<= userReviews[user].length ; i++) {
+        for (uint256 i=0; i< userReviews[user].length ; i++) {
             uint256 productId=userReviews[user][i];
             Review[] memory productReviews=reviews[productId];
 
-            for (uint256 j=0; j<=productReviews.length ; j++  ){
+            for (uint256 j=0; j<productReviews.length ; j++  ){
                 if (productReviews[j].reviewer==user){
                     userProductReviews[i]=productReviews[j];
                 }
@@ -252,15 +252,15 @@ contract RealEstate {
         uint256 highestRating=0;
         uint256 highestRatedProductId=0;
 
-        for (uint256 i=0; i < reviewsCounter;i ++){
-            uint256 productId = i+1;
+        for (uint256 i=0; i < propertyIndex;i++){
+            //uint256 productId = i+1;
 
             if (products[i].numReviews>0){
-                uint256 avgRating= products[productId].totalRating / products[productId].numReviews;
+                uint256 avgRating= products[i].totalRating / products[i].numReviews;
 
                 if (avgRating > highestRating){
                     highestRating=avgRating;
-                    highestRatedProductId=productId;
+                    highestRatedProductId=i;
                 }
             }
         }
