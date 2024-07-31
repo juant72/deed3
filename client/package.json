@@ -1,0 +1,21 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@thirdweb-dev/react": "^4.9.4",
+    "@thirdweb-dev/sdk": "^4.0.99",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
+    "ethers": "^5.7.2",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
