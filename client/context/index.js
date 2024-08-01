@@ -76,14 +76,30 @@ export const StateContextProvider = ({children})=>{
                 image: property.images,
                 address: property.propertyAddress,
             } ));
-
             return parsedProperties;
-      
         } catch (error) {
             console.log("Error while loading data...",error);
         }
-        
     };
+
+    //UpdateProperty
+    const {mutateAsync: updateProperty, isLoading: updatePropertyLoading} =
+        useContractWrite(contract,"updateProperty");
+    
+    const updatePropertyFunction= async (form)=> {
+        const {productId, propertyTitle, description,category,images,propertyAddress}=form;
+        try {
+            const data=await updateProperty({
+                args: [ address, 
+                    productId,
+                    propertyTitle,
+                    category,propertyAddress, description,]});
+            console.log("Property updated succesfully...",data);
+        } catch (error) {
+            console.log("Error while updating property..." + error);            
+        };
+    };
+
 
     return (
         <StateContext.Provider value={{address, connect, contract, realState, 
