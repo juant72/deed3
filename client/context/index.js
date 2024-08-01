@@ -18,7 +18,6 @@ const contractAddress=process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 
 export const StateContextProvider = ({children})=>{
     const {contract} = useContract(contractAddress);
-    console.log(contract);
     const address = useAddress();
     const connect = useMetamask();
 
@@ -60,8 +59,36 @@ export const StateContextProvider = ({children})=>{
 
     }; 
 
+    //Get property data
+    const getPropertiesData = async()=>{
+        try {
+            const properties = await contract.call("getAllProperties");
+            
+            const parsedProperties= properties.map((property, i)=>({
+                owner: property.owner,
+                title: property.title,
+                description: property.description,
+                category: property.category,
+                price: ethers.utils.formatEther( property.price.toString()),
+                productId: property.productId.toNumber(),
+                reviewers: property.reviewers,
+                reviews: property.reviews,
+                image: property.images,
+                address: property.propertyAddress,
+            } ));
+
+            return parsedProperties;
+      
+        } catch (error) {
+            console.log("Error while loading data...",error);
+        }
+        
+    };
+
     return (
-        <StateContext.Provider value={{address, connect, contract, realState, createPropertyFunction}}>
+        <StateContext.Provider value={{address, connect, contract, realState, 
+                createPropertyFunction,
+                getPropertiesData}}>
             {children}
         </StateContext.Provider>
     );

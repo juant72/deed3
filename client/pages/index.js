@@ -6,11 +6,11 @@ import {checkIfImage} from '../utils/';
 
 
 const index=()=>{
-  const {address,connect,contract,realState, createPropertyFunction} = useStateContext();
+  const {address,connect,contract,realState, createPropertyFunction,getPropertiesData} = useStateContext();
 
   //
   const [isLoading, setIsLoading] =useState(false);
-  const [properties  , setfirst] = useState([]);
+  const [properties  , setProperties] = useState([]);
   const [form, setForm] = useState({
     propertyTitle :"",
     description: "",
@@ -42,6 +42,18 @@ const index=()=>{
     });
 
   };
+
+  //get propertires data
+  const fetchProperty= async()=>{
+    setIsLoading(true);
+    const data = await getPropertiesData();
+    setProperties(data)
+    setIsLoading(false);
+  };
+
+  useEffect(()=>{
+    if (contract) fetchProperty();
+  },[address,contract]);
 
   return <div>
     <h1>{realState}</h1>
