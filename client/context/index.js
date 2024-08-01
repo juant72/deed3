@@ -30,18 +30,28 @@ export const StateContextProvider = ({children})=>{
             "ListProperty"
         );
 
-    const createPropertyFunction = async () => {
+    const createPropertyFunction = async (form) => {
+        const {
+            propertyTitle,
+            description,
+            category,
+            price,
+            images,
+            propertyAddress
+        }=form;
         try{
             const data = await ListProperty(
-                [
+                {
+                args:[
                     address,
                     price,
-                    _propertyTitle,
-                    _category,
-                    _images,
-                    _propertyAddress,
-                    _description,
-                ],
+                    propertyTitle,
+                    category,
+                    images,
+                    propertyAddress,
+                    description,
+                ]
+                },
             );
             console.info("contract call success",data);
         }   catch (err){
