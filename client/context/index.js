@@ -106,14 +106,27 @@ export const StateContextProvider = ({children})=>{
 
     const updatePriceFunction = async (form)=>{
         const {productId, price}=form;
-
         try {
             const data=await updatePrice({
+                args:[
                 address,productId, price,
+                ]
             });
             console.log("Price updated successfully",data);
         } catch (error) {
             console.log("Fail transaction...",error);            
+        }
+    };
+
+    //Buy property
+    const {mutateAsync: buyProperty, isLoading : buyPropertyLoading} = useContractWrite(contract,"buyProperty");
+    const buyPropertyFunction= async (form)=>{
+        const {productId,address}=form;
+        try {
+            const data=await buyProperty({ args:[productId,address]});
+            console.log("Property buyed successfully...",data);
+        } catch (error) {
+            console.log("Error buying property..",error);
         }
     };
 
@@ -126,6 +139,7 @@ export const StateContextProvider = ({children})=>{
                 getPropertiesData,
                 updatePropertyFunction,
                 updatePriceFunction,
+                buyProperty,
                 }}>
             {children}
         </StateContext.Provider>
