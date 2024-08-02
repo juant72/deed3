@@ -176,17 +176,38 @@ export const StateContextProvider = ({ children }) => {
   } = useContractRead(contract, "getHighestratedProduct");
 
   //GetProduct reviews
-  const getProductReviewsFunction=(productId)=>{
+  const getProductReviewsFunction = (productId) => {
     try {
-        const{data:getProductReviews, isLoading:getProductReviewsLoading}=useContractRead(contract,"getProductReviews");
-        console.log("Product reviews getting successfull");
-        return (getProductReviews, getProductReviewsLoading);        
+      const { data: getProductReviews, isLoading: getProductReviewsLoading } =
+        useContractRead(contract, "getProductReviews");
+      console.log("Product reviews getting successfull");
+      return getProductReviews, getProductReviewsLoading;
     } catch (error) {
-        console.log("Error getting product reviews...", error);
+      console.log("Error getting product reviews...", error);
     }
   };
 
-  //
+  //getProperty
+  const getPropertyFunction = (id) => {
+    try {
+      const { data: getProperty, isLoading: getPropertyLoading } =
+        useContractRead(contract, "getProperty", [id]);
+      return getProperty, getPropertyLoading;
+    } catch (error) {
+      console.log("Error getting property", error);
+    }
+  };
+
+  //getUserProperties
+  const getUserPropertiesFunction = () => {
+    try {
+      const { data: getUserProperties, isLoading: getUserPropertiesLoading } =
+        useContractRead(contract, "getUserProperties", address);
+      return getUserProperties, getUserPropertiesLoading;
+    } catch (error) {
+      console.log("Error getting user properties.", error);
+    }
+  };
 
   return (
     <StateContext.Provider
@@ -204,6 +225,8 @@ export const StateContextProvider = ({ children }) => {
         getPropertiesData,
         getHighestratedProduct,
         getProductReviewsFunction,
+        getPropertyFunction,
+        getUserPropertiesFunction,
       }}
     >
       {children}
