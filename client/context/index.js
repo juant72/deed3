@@ -100,11 +100,33 @@ export const StateContextProvider = ({children})=>{
         };
     };
 
+    //UpdatePrice
+    const {mutateAsync: updatePrice, isLoading: updatePriceLoading} =
+    useContractWrite(contract,"updatePrice");
+
+    const updatePriceFunction = async (form)=>{
+        const {productId, price}=form;
+
+        try {
+            const data=await updatePrice({
+                address,productId, price,
+            });
+            console.log("Price updated successfully",data);
+        } catch (error) {
+            console.log("Fail transaction...",error);            
+        }
+    };
+
+    
+
 
     return (
         <StateContext.Provider value={{address, connect, contract, realState, 
                 createPropertyFunction,
-                getPropertiesData}}>
+                getPropertiesData,
+                updatePropertyFunction,
+                updatePriceFunction,
+                }}>
             {children}
         </StateContext.Provider>
     );
