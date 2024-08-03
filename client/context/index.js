@@ -202,13 +202,57 @@ export const StateContextProvider = ({ children }) => {
   const getUserPropertiesFunction = () => {
     try {
       const { data: getUserProperties, isLoading: getUserPropertiesLoading } =
-        useContractRead(contract, "getUserProperties", address);
+        useContractRead(contract, "getUserProperties", [address]);
       return getUserProperties, getUserPropertiesLoading;
     } catch (error) {
       console.log("Error getting user properties.", error);
     }
   };
 
+  //GetUserReviews.
+  const getUserReviewsFunction = () => {
+    try {
+      const { data: getUserReviews, isLoading: getUserReviewsLoading } =
+        useContractRead(contract, "getUserReviews", address);
+      return getUserReviews, getUserReviewsLoading;
+    } catch (error) {
+      console.log("Error getting user reviews.", error);
+    }
+  };
+
+  //total property
+  const totalPropertyFunction = () => {
+    try {
+      const { data: totalProperty, isLoading: totalPropertyLoading } =
+        useContractRead(contract, "propertyIndex");
+      return totalProperty, totalPropertyLoading;
+    } catch (error) {
+      console.log("Error getting total property", error);
+    }
+  };
+
+  //total review
+  const totalReviewsFunction=()=>{
+    try {
+        const {data: totalReview,isLoading:totalReviewLoading}=useContractRead(contract,"reviewsCounter");
+        return (totalReview,totalReviewLoading);
+    } catch (error) {
+        console.log("Error getting total reviews.",error);        
+    }
+  };
+
+  //data with events
+  const {data: event} = useContractEvents(contract, "PropertyListed");
+
+  //get all events
+  const {data: allEvents} =useContractEvents(contract);  
+
+  //set default
+  const {data: eventWithoutListener} =useContractEvents(contract, undefined,{
+    subscribe: false,
+  });
+
+  console.log();
   return (
     <StateContext.Provider
       value={{
@@ -227,6 +271,8 @@ export const StateContextProvider = ({ children }) => {
         getProductReviewsFunction,
         getPropertyFunction,
         getUserPropertiesFunction,
+        getUserReviewsFunction,
+        totalPropertyFunction,
       }}
     >
       {children}
