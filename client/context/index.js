@@ -252,7 +252,10 @@ export const StateContextProvider = ({ children }) => {
     subscribe: false,
   });
 
-  console.log();
+  //console.log(event);
+  //console.log(allEvents);
+  //console.log(eventWithoutListener);
+
   return (
     <StateContext.Provider
       value={{
