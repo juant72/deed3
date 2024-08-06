@@ -109,7 +109,7 @@ const index = () => {
     <div className="template-color-1 nft-body-connect">
       <Header/>
       <Banner/>
-      <Live properties={properties}/>
+      <Live properties={properties}/>      
       <Service />
       <Product  properties={properties} />
       <TopSeller creators={creators}/>
