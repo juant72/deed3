@@ -28,12 +28,12 @@ const App=({Component, pageProps}) => {
     <script src="/js/vendor/jquery-appear.js"></script>
     <script src="/js/vendor/isotop.js"></script>
     <script src="/js/vendor/imageloaded.js"></script>
-    <script src="/js/vendor/backtoTop.js"></script>
+    {/* <script src="/js/vendor/backtoTop.js"></script> */}
     <script src="/js/vendor/count-down.js"></script>
     <script src="/js/vendor/feather.min.js"></script>
     <script src="/js/vendor/js.cookie.js"></script>
     <script src="/js/vendor/maralis.js"></script>
-    <script src="/js/vendor/nft.js"></script>
+    {/* <script src="/js/vendor/nft.js"></script> */}
     <script src="/js/vendor/odometer.js"></script>
     <script src="/js/vendor/particles.js"></script>
     <script src="/js/vendor/scrolltrigger.js"></script>

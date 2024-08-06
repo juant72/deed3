@@ -21,8 +21,8 @@ const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 export const StateContextProvider = ({ children }) => {
   const { contract } = useContract(contractAddress);
   const address = useAddress();
-  // const connect = useMetamask();
-  const connect = useConnect();
+  const connect = useMetamask();
+  // const connect = useConnect();
 
   //Fontend
   const disconnect = useDisconnect();

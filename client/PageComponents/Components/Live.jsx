@@ -53,20 +53,20 @@ const Live = ({ properties }) => {
                     
                     {
                       property.reviewers.length!== 0 && (
-                        <a class="more-author-text" href="#">
+                        <a className="more-author-text" href="#">
                           Interested Users
                         </a>
                       )}
                   </div>
                   <a href="product-details.html" >
-                    <span class="product-name">
+                    <span className="product-name">
                       { property.title.length >= 25 
                         ? `${property.title.slice(0,22)}...` 
                         : property.title}
                     </span>
                   </a>
                   <span className="latest-bid">Category: {property.category}</span>
-                  <div class="bid-react-area">
+                  <div className="bid-react-area">
                     <div className="last-bid">{property.price} MATIC</div>
                     <div className="react-area">
                       <svg
@@ -82,7 +82,7 @@ const Live = ({ properties }) => {
                           1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 
                           3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.34329 2.08779 7.57518L82112 14Z"
                           stroke="currentColor"
-                          stroke-width="2"
+                          strokeWidth="2"
                         ></path>
                       </svg>
                       <span className="number">{property.reviewers.length}</span>

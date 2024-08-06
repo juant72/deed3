@@ -108,7 +108,7 @@ const index = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header/>
-      <Banner/>
+      <Banner/> 
       <Live properties={properties}/>      
       <Service />
       <Product  properties={properties} />
@@ -122,55 +122,6 @@ const index = () => {
       <Footer/>
       <Copyright/>
 
-
-      {/* <h1>{realState}</h1>
-      <button onClick={() => connect()}>Connect</button>
-      <h1>Create</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            placeholder="propertyTitle"
-            onChange={(e) => handleFromFieldChange("propertyTitle", e)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="description"
-            onChange={(e) => handleFromFieldChange("description", e)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="category"
-            onChange={(e) => handleFromFieldChange("category", e)}
-          />
-        </div>
-        <div>
-          <input
-            type="number"
-            placeholder="price"
-            onChange={(e) => handleFromFieldChange("price", e)}
-          />
-        </div>
-        <div>
-          <input
-            type="url"
-            placeholder="images"
-            onChange={(e) => handleFromFieldChange("images", e)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="propertyAddress"
-            onChange={(e) => handleFromFieldChange("propertyAddress", e)}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form> */}
     </div>
   );
 };

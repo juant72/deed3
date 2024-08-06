@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-
 import {useStateContext} from "../../context";
 
 const Header = () => {
@@ -90,17 +88,17 @@ const Header = () => {
                             </a>
                           </li>
                           <li>
-                            <Link
+                            <a
                               className="live-expo"
                               href="explore-live-three.html"
                               >
                                 Live With Place Bid
-                              </Link>
+                              </a>
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <Link href="">Pages</Link>
+                        <a href="">Pages</a>
                         <ul className="submenu">
                           <li>
                             <a href="/fourm">
@@ -150,12 +148,12 @@ const Header = () => {
                         </ul>
                       </li>
                       <li>
-                        <Link className="down" href="/blog">
+                        <a className="down" href="/blog">
                         Blog
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link href="/contact">Contact</Link>
+                        <a href="/contact">Contact</a>
                       </li>
                     </ul>
                   </nav>
@@ -210,7 +208,8 @@ const Header = () => {
                         <button
                           onClick={()=>connect()}
                           className="btn btn-primary-alta btn-small"
-                          href="connect.html">
+                          // href="connect.html"
+                          >
                             Wallet connect
                           </button>
                       </div>
@@ -282,7 +281,7 @@ const Header = () => {
                               <a href="/author">My profile</a>
                             </li>
                             <li>
-                              <a href="/edit-profile">Edit Proffile</a>
+                              <a href="/edit-profile">Edit Profile</a>
                             </li>
                             <li>
                               <a href="/connect">Manage funds</a>
