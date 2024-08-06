@@ -314,7 +314,8 @@ const Header = () => {
                   <ul>
                     <li>
                       {/* <a href="javascript: void(0);" */}
-                      <a href="#" onClick={(e)=>{e.preventDefault();}}
+                      <a href="#" 
+                      // onClick={(e)=>{e.preventDefault();}}
                       data-theme="light"
                       className="setColor light">
                         <img className="sun-image" src="/icons/sun-01.svg"

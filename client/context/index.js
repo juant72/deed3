@@ -172,7 +172,7 @@ export const StateContextProvider = ({ children }) => {
 
       const parsedProperties = properties.map((property, i) => ({
         owner: property.owner,
-        title: property.title,
+        title: property.propertyTitle,
         description: property.description,
         category: property.category,
         price: ethers.utils.formatEther(property.price.toString()),
@@ -239,7 +239,7 @@ export const StateContextProvider = ({ children }) => {
         const properties = await contract.call("getUserProperties",[address]);
         const parsedProperties=properties.map((property,i)=>({
             owner: property.owner,
-            title: property.title,
+            title: property.propertyTitle,
             description: property.description,
             category: property.category,
             price: ethers.utils.formatEther(property.price.toString()),
