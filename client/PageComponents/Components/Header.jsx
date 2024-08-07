@@ -88,12 +88,9 @@ const Header = () => {
                             </a>
                           </li>
                           <li>
-                            <a
-                              className="live-expo"
-                              href="explore-live-three.html"
-                              >
+                            <a className="live-expo" href="explore-live-three.html">
                                 Live With Place Bid
-                              </a>
+                            </a>
                           </li>
                         </ul>
                       </li>
@@ -332,14 +329,14 @@ const Header = () => {
                           alt="Vector Images"/>
                       </a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a className="nav-link its new" href="/blog">
                         Blog
                       </a>
                     </li>
                     <li>
                       <a href="/contact">Contact</a>
-                    </li>
+                    </li> */}
                   </ul>
                   
                 </div>

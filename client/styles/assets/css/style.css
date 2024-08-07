@@ -11550,7 +11550,7 @@ body.sal-disabled [data-sal|="flip"] {
   }
 }
 
-.haeder-default .header-right {
+.header-default .header-right {
   justify-content: flex-end;
   display: flex;
   flex-basis: 45%;
@@ -23027,7 +23027,7 @@ tbody.ranking tr td .thumbnail img {
   border-radius: 5px;
   display: flex;
   max-width: max-content;
-  justify-content:flex-end;
+  justify-content: flex-end;
   margin: 20px 0 0 auto;
 }
 

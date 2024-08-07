@@ -10,10 +10,10 @@ const Live = ({ properties }) => {
           <div className="col-lg-12">
             <div className="section-title">
               <h3
-                className="tittle mb--00 live-bidding-title"
-                data-sal-delay="150"
-                data-sal="slide-up"
-                data-sal-duration="800"
+                className="title mb--00 live-bidding-title"
+                // data-sal-delay="150"
+                // data-sal="slide-up"
+                // data-sal-duration="800"
               >
                 Live Bidding
               </h3>
@@ -26,14 +26,16 @@ const Live = ({ properties }) => {
             <div
               key={i}
               className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
-              data-sal-delay="150"
-              data-sal="slide-up"
-              data-sal-duration="800">
+              // data-sal-delay="150"
+              // data-sal="slide-up"
+              // data-sal-duration="800"
+              >
               <div
                 className="product-style-one"
-                data-sal="slide-up"
-                data-sal-duration="800"
-                data-sal-delay="150">
+                // data-sal="slide-up"
+                // data-sal-duration="800"
+                // data-sal-delay="150"
+                >
                 <div
                   className="card-thumbnail">
                   <a href={`/detail?property=${property.productId}`}>
