@@ -8,6 +8,7 @@ import Collection from "./Collection";
 import Footer from "./Footer";
 import Copyright from "./Copyright";
 import Loader from "./Loader/Loader";
+import GlobalLoder from "./Loader";
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   Footer,
   Copyright,
   Loader,
+  GlobalLoder,
 };

@@ -11550,7 +11550,7 @@ body.sal-disabled [data-sal|="flip"] {
   }
 }
 
-.header-default .header-right {
+.haeder-default .header-right {
   justify-content: flex-end;
   display: flex;
   flex-basis: 45%;

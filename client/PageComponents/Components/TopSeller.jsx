@@ -2,12 +2,12 @@ import React from "react";
 
 const TopSeller = ({ creators }) => {
   return (
-    <div class="rn-top-top-seller-area nice-selector-transparent rn-section-gapTop">
-      <div class="container">
-        <div class="row mb--30">
-          <div class="col-12 justify-sm-center d-flex">
+    <div className="rn-top-top-seller-area nice-selector-transparent rn-section-gapTop">
+      <div className="container">
+        <div className="row mb--30">
+          <div className="col-12 justify-sm-center d-flex">
             <h3
-              class="title"
+              className="title"
               data-sal-delay="150"
               data-sal="slide-up"
               data-sal-duration="800"
@@ -16,17 +16,17 @@ const TopSeller = ({ creators }) => {
             </h3>
           </div>
         </div>
-        <div class="row justify-sm-center g-5 top-seller-list-wrapper">
+        <div className="row justify-sm-center g-5 top-seller-list-wrapper">
           {creators.map((seller, i) => (
             <div
               data-sal=""
               data-sal-delay="150"
               data-sal-duration="800"
-              class="col-5 col-lg-3 col-md-4 col-sm-6 top-seller-list"
+              className="col-5 col-lg-3 col-md-4 col-sm-6 top-seller-list"
             >
-              <div class="top-seller-inner-one">
-                <div class="top-seller-wrapper">
-                  <div class="thumbnail varified">
+              <div className="top-seller-inner-one">
+                <div className="top-seller-wrapper">
+                  <div className="thumbnail varified">
                     <a href="author.html">
                       <img
                         src={`/client/client-${i + 1}.png`}
@@ -34,11 +34,11 @@ const TopSeller = ({ creators }) => {
                       />
                     </a>
                   </div>
-                  <div class="top-seller-content">
+                  <div className="top-seller-content">
                     <a href="author.html">
-                      <h6 class="name">{seller.owner.slice(0, 10)}..</h6>
+                      <h6 className="name">{seller.owner.slice(0, 10)}..</h6>
                     </a>
-                    <span class="count-number">{seller.total} MATIC </span>
+                    <span className="count-number">{seller.total} MATIC </span>
                   </div>
                 </div>
               </div>
@@ -49,11 +49,11 @@ const TopSeller = ({ creators }) => {
               data-sal=""
               data-sal-delay="150"
               data-sal-duration="800"
-              class="col-5 col-lg-3 col-md-4 col-sm-6 top-seller-list"
+              className="col-5 col-lg-3 col-md-4 col-sm-6 top-seller-list"
             >
-              <div class="top-seller-inner-one">
-                <div class="top-seller-wrapper">
-                  <div class="thumbnail varified">
+              <div className="top-seller-inner-one">
+                <div className="top-seller-wrapper">
+                  <div className="thumbnail varified">
                     <a href="author.html">
                       <img
                         src={`/client/client-${i + 1}.png`}
@@ -61,11 +61,11 @@ const TopSeller = ({ creators }) => {
                       />
                     </a>
                   </div>
-                  <div class="top-seller-content">
+                  <div className="top-seller-content">
                     <a href="author.html">
-                      <h6 class="name">Brodband</h6>
+                      <h6 className="name">Brodband</h6>
                     </a>
-                    <span class="count-number">{`$${i + 1}500,000`} </span>
+                    <span className="count-number">{`$${i + 1}500,000`} </span>
                   </div>
                 </div>
               </div>
