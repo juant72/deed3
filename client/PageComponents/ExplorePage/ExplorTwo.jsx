@@ -2,47 +2,47 @@ import React from "react";
 
 const ExplorTwo = () => {
   return (
-    <div class="rn-product-area rn-section-gapTop masonary-wrapper-activation">
-      <div class="container">
-        <div class="row mb--30 align-items-center">
-          <div class="col-lg-4">
-            <div class="section-title">
-              <h3 class="title mb--0">Explore Product</h3>
+    <div className="rn-product-area rn-section-gapTop masonary-wrapper-activation">
+      <div className="container">
+        <div className="row mb--30 align-items-center">
+          <div className="col-lg-4">
+            <div className="section-title">
+              <h3 className="title mb--0">Explore Product</h3>
             </div>
           </div>
-          <div class="col-lg-8">
-            <div class="button-group isotop-filter filters-button-group d-flex justify-content-start justify-content-lg-end mt_md--30 mt_sm--30">
-              <button data-filter="*" class="is-checked">
-                <span class="filter-text">All Items</span>
+          <div className="col-lg-8">
+            <div className="button-group isotop-filter filters-button-group d-flex justify-content-start justify-content-lg-end mt_md--30 mt_sm--30">
+              <button data-filter="*" className="is-checked">
+                <span className="filter-text">All Items</span>
               </button>
               <button data-filter=".cat--1">
-                <span class="filter-text">Art</span>
+                <span className="filter-text">Art</span>
               </button>
               <button data-filter=".cat--2">
-                <span class="filter-text">Music</span>
+                <span className="filter-text">Music</span>
               </button>
               <button data-filter=".cat--3">
-                <span class="filter-text">Vedio</span>
+                <span className="filter-text">Vedio</span>
               </button>
               <button data-filter=".cat--4">
-                <span class="filter-text">Collectionable</span>
+                <span className="filter-text">Collectionable</span>
               </button>
               <button data-filter=".cat--5">
-                <span class="filter-text">Highest</span>
+                <span className="filter-text">Highest</span>
               </button>
               <button data-filter=".cat--6">
-                <span class="filter-text">Lowest</span>
+                <span className="filter-text">Lowest</span>
               </button>
             </div>
           </div>
         </div>
-        <div class="col-lg-12">
-          <div class="grid-metro5 mesonry-list">
-            <div class="resizer"></div>
+        <div className="col-lg-12">
+          <div className="grid-metro5 mesonry-list">
+            <div className="resizer"></div>
 
-            <div class="grid-metro-item cat--1 cat--3">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--1 cat--3">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-01.jpg"
@@ -50,24 +50,24 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="Takur">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="Takur">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="Nuron" data-tooltip="Tamim">
+                    <a href="author.html" className="Nuron" data-tooltip="Tamim">
                       <img src="/client/client-2.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="Tamin" data-tooltip="Sower">
+                    <a href="author.html" className="Tamin" data-tooltip="Sower">
                       <img src="/client/client-3.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       36+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -77,7 +77,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -88,10 +88,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -99,7 +99,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -109,18 +109,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Preatent</span>
+                  <span className="product-name">Preatent</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -128,15 +128,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat-3 cat--4">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat-3 cat--4">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-02.jpg"
@@ -144,32 +144,32 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Mr.Jone-lee"
                     >
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip=":Mr.Jone-ee"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       32+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -179,7 +179,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -190,10 +190,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -201,7 +201,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -211,18 +211,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Diamond Dog</span>
+                  <span className="product-name">Diamond Dog</span>
                 </a>
-                <span class="latest-bid">Highest bid 5/11</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.892wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 5/11</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.892wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -230,15 +230,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">420</span>
+                    <span className="number">420</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat--5 cat--6">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--5 cat--6">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-03.jpg"
@@ -246,32 +246,32 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Mr.Jone-lee"
                     >
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip=":Mr.Jone-ee"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       6+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -281,7 +281,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -292,10 +292,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -303,7 +303,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -313,18 +313,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">OrBid6</span>
+                  <span className="product-name">OrBid6</span>
                 </a>
-                <span class="latest-bid">Highest bid 2/31</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.2128wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 2/31</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.2128wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -332,15 +332,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">12</span>
+                    <span className="number">12</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat--1 cat--2">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--1 cat--2">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-04.jpg"
@@ -348,32 +348,32 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Mr.Jone-lee"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip=":Mr.Jone-ee"
                     >
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       3+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -383,7 +383,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -394,10 +394,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -405,7 +405,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -415,18 +415,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Morgan11</span>
+                  <span className="product-name">Morgan11</span>
                 </a>
-                <span class="latest-bid">Highest bid 3/16</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.265wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 3/16</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.265wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -434,15 +434,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">20</span>
+                    <span className="number">20</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat--1 cat--2">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--1 cat--2">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-05.jpg"
@@ -450,24 +450,24 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee Tus">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee Tus">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="M lee">
+                    <a href="author.html" className="avatar" data-tooltip="M lee">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip=":Favis">
+                    <a href="author.html" className="avatar" data-tooltip=":Favis">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       9+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -477,7 +477,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -488,10 +488,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -499,7 +499,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -509,18 +509,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">mAtal8</span>
+                  <span className="product-name">mAtal8</span>
                 </a>
-                <span class="latest-bid">Highest bid 6/50</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 6/50</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -528,15 +528,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">205</span>
+                    <span className="number">205</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat--1 cat--2">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--1 cat--2">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-06.jpg"
@@ -544,24 +544,24 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee Tus">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee Tus">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="M lee">
+                    <a href="author.html" className="avatar" data-tooltip="M lee">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip=":Favis">
+                    <a href="author.html" className="avatar" data-tooltip=":Favis">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       36+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -571,7 +571,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -582,10 +582,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -593,7 +593,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -603,18 +603,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Platonum</span>
+                  <span className="product-name">Platonum</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/10</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.450wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/10</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.450wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -622,15 +622,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">65</span>
+                    <span className="number">65</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat--5 cat--4">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--5 cat--4">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-07.jpg"
@@ -638,24 +638,24 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee Tus">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee Tus">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="M lee">
+                    <a href="author.html" className="avatar" data-tooltip="M lee">
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip=":Favis">
+                    <a href="author.html" className="avatar" data-tooltip=":Favis">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       15+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -665,7 +665,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -676,10 +676,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -687,7 +687,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -697,18 +697,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">PlatOrgan</span>
+                  <span className="product-name">PlatOrgan</span>
                 </a>
-                <span class="latest-bid">Highest bid 2/22</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.311wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 2/22</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.311wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -716,15 +716,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">56</span>
+                    <span className="number">56</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat--5 cat--6">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--5 cat--6">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-08.jpg"
@@ -732,24 +732,24 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee Tus">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee Tus">
                       <img src="/client/client-3.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="M lee">
+                    <a href="author.html" className="avatar" data-tooltip="M lee">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip=":Favis">
+                    <a href="author.html" className="avatar" data-tooltip=":Favis">
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       11+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -759,7 +759,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -770,10 +770,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -781,7 +781,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -791,18 +791,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Orgajis</span>
+                  <span className="product-name">Orgajis</span>
                 </a>
-                <span class="latest-bid">Highest bid 2/10</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 2/10</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -810,15 +810,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">89</span>
+                    <span className="number">89</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat--1 cat--3">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat--1 cat--3">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-01.jpg"
@@ -826,24 +826,24 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="lee Tus">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="lee Tus">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="M lee">
+                    <a href="author.html" className="avatar" data-tooltip="M lee">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip=":Favis">
+                    <a href="author.html" className="avatar" data-tooltip=":Favis">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       10+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -853,7 +853,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -864,10 +864,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -875,7 +875,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -885,18 +885,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Preatent</span>
+                  <span className="product-name">Preatent</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -904,15 +904,15 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="grid-metro-item cat-3 cat--4">
-              <div class="product-style-one no-overlay">
-                <div class="card-thumbnail">
+            <div className="grid-metro-item cat-3 cat--4">
+              <div className="product-style-one no-overlay">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-02.jpg"
@@ -920,24 +920,24 @@ const ExplorTwo = () => {
                     />
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="Tumis">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="Tumis">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Warner">
+                    <a href="author.html" className="avatar" data-tooltip="Warner">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip=":Fagars">
+                    <a href="author.html" className="avatar" data-tooltip=":Fagars">
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       25+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -947,7 +947,7 @@ const ExplorTwo = () => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -958,10 +958,10 @@ const ExplorTwo = () => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -969,7 +969,7 @@ const ExplorTwo = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -979,18 +979,18 @@ const ExplorTwo = () => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Diamond Dog</span>
+                  <span className="product-name">Diamond Dog</span>
                 </a>
-                <span class="latest-bid">Highest bid 5/11</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.892wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 5/11</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.892wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -998,7 +998,7 @@ const ExplorTwo = () => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">420</span>
+                    <span className="number">420</span>
                   </div>
                 </div>
               </div>

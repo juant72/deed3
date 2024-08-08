@@ -6,7 +6,7 @@ const Statistick = () => {
       <div class="container">
         <div class="row mb--30">
           <div class="col-12 text-center">
-            <h3>Nuron Statistics</h3>
+            <h3>Deeds3 Statistics</h3>
           </div>
         </div>
         <div class="row g-5">
@@ -15,7 +15,7 @@ const Statistick = () => {
               <h3 class="counter">
                 <span data-count="309">40</span>
               </h3>
-              <div class="botton-title">Nuron All NFT's</div>
+              <div class="botton-title">Deeds3 All NFT's</div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
@@ -31,7 +31,7 @@ const Statistick = () => {
               <h3 class="counter">
                 <span data-count="1032">700</span>
               </h3>
-              <div class="botton-title">Nuron Earning</div>
+              <div class="botton-title">Deeds3 Earning</div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">

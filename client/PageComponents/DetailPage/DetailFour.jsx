@@ -2,12 +2,12 @@ import React from "react";
 
 const DetailFour = () => {
   return (
-    <div class="rn-new-items rn-section-gapTop">
-      <div class="container">
-        <div class="row mb--30 align-items-center">
-          <div class="col-12">
+    <div className="rn-new-items rn-section-gapTop">
+      <div className="container">
+        <div className="row mb--30 align-items-center">
+          <div className="col-12">
             <h3
-              class="title mb--0"
+              className="title mb--0"
               data-sal-delay="150"
               data-sal="slide-up"
               data-sal-duration="800"
@@ -16,41 +16,41 @@ const DetailFour = () => {
             </h3>
           </div>
         </div>
-        <div class="row g-5">
+        <div className="row g-5">
           <div
             data-sal="slide-up"
             data-sal-delay="150"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-01.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone Due">
+                  <a href="author.html" className="avatar" data-tooltip="Jone Due">
                     <img src="/client/client-2.png" alt="Nft_Profile" />
                   </a>
                   <a
                     href="author.html"
-                    class="avatar"
+                    className="avatar"
                     data-tooltip="Nisat Tara"
                   >
                     <img src="/client/client-3.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     9+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -59,7 +59,7 @@ const DetailFour = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -70,10 +70,10 @@ const DetailFour = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -81,7 +81,7 @@ const DetailFour = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -91,18 +91,18 @@ const DetailFour = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Preatent</span>
+                <span className="product-name">Preatent</span>
               </a>
-              <span class="latest-bid">Highest bid 1/20</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.244wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 1/20</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.244wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -110,7 +110,7 @@ const DetailFour = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">322</span>
+                  <span className="number">322</span>
                 </div>
               </div>
             </div>
@@ -120,36 +120,36 @@ const DetailFour = () => {
             data-sal="slide-up"
             data-sal-delay="200"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-02.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-4.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Nira Ara">
+                  <a href="author.html" className="avatar" data-tooltip="Nira Ara">
                     <img src="/client/client-5.png" alt="Nft_Profile" />
                   </a>
                   <a
                     href="author.html"
-                    class="avatar"
+                    className="avatar"
                     data-tooltip="Fatima Afrafy"
                   >
                     <img src="/client/client-6.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     10+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -158,7 +158,7 @@ const DetailFour = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -169,10 +169,10 @@ const DetailFour = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -180,7 +180,7 @@ const DetailFour = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -190,18 +190,18 @@ const DetailFour = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Diamond Dog</span>
+                <span className="product-name">Diamond Dog</span>
               </a>
-              <span class="latest-bid">Highest bid 5/11</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.892wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 5/11</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.892wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -209,7 +209,7 @@ const DetailFour = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">420</span>
+                  <span className="number">420</span>
                 </div>
               </div>
             </div>
@@ -219,36 +219,36 @@ const DetailFour = () => {
             data-sal="slide-up"
             data-sal-delay="250"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-03.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Janin Ara">
+                  <a href="author.html" className="avatar" data-tooltip="Janin Ara">
                     <img src="/client/client-8.png" alt="Nft_Profile" />
                   </a>
                   <a
                     href="author.html"
-                    class="avatar"
+                    className="avatar"
                     data-tooltip="Atif Islam"
                   >
                     <img src="/client/client-9.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     10+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -257,7 +257,7 @@ const DetailFour = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -268,10 +268,10 @@ const DetailFour = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -279,7 +279,7 @@ const DetailFour = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -289,18 +289,18 @@ const DetailFour = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">OrBid6</span>
+                <span className="product-name">OrBid6</span>
               </a>
-              <span class="latest-bid">Highest bid 2/31</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.2128wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 2/31</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.2128wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -308,7 +308,7 @@ const DetailFour = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">12</span>
+                  <span className="number">12</span>
                 </div>
               </div>
             </div>
@@ -318,32 +318,32 @@ const DetailFour = () => {
             data-sal="slide-up"
             data-sal-delay="300"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-04.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-3.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-5.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     8+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -352,7 +352,7 @@ const DetailFour = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -363,10 +363,10 @@ const DetailFour = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -374,7 +374,7 @@ const DetailFour = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -384,18 +384,18 @@ const DetailFour = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Morgan11</span>
+                <span className="product-name">Morgan11</span>
               </a>
-              <span class="latest-bid">Highest bid 3/16</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.265wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 3/16</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.265wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -403,7 +403,7 @@ const DetailFour = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">20</span>
+                  <span className="number">20</span>
                 </div>
               </div>
             </div>
@@ -413,32 +413,32 @@ const DetailFour = () => {
             data-sal="slide-up"
             data-sal-delay="350"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-05.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-2.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-7.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-9.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     15+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -447,7 +447,7 @@ const DetailFour = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -458,10 +458,10 @@ const DetailFour = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -469,7 +469,7 @@ const DetailFour = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -479,18 +479,18 @@ const DetailFour = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">mAtal8</span>
+                <span className="product-name">mAtal8</span>
               </a>
-              <span class="latest-bid">Highest bid 6/50</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.244wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 6/50</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.244wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -498,7 +498,7 @@ const DetailFour = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">205</span>
+                  <span className="number">205</span>
                 </div>
               </div>
             </div>

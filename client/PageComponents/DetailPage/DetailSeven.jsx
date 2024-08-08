@@ -10,23 +10,23 @@ const DetailSeven = ({
 }) => {
   return (
     <div
-      class="rn-popup-modal report-modal-wrapper modal fade"
+      className="rn-popup-modal report-modal-wrapper modal fade"
       id="reportModal"
       tabindex="-1"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content report-content-wrapper">
-          <div class="modal-header report-modal-header">
-            <h5 class="modal-title">Update Property Price</h5>
+      <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div className="modal-content report-content-wrapper">
+          <div className="modal-header report-modal-header">
+            <h5 className="modal-title">Update Property Price</h5>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <p>
               Hey {property?.owner.slice(0, 15)}... , Kindly update your
               property price
             </p>
-            <div class="report-form-box">
-              <h6 class="title">Price</h6>
+            <div className="report-form-box">
+              <h6 className="title">Price</h6>
               <textarea
                 name="message"
                 placeholder={`Old Price: ${property?.price} MATIC`}
@@ -37,18 +37,18 @@ const DetailSeven = ({
                   })
                 }
               ></textarea>
-              <div class="report-button">
+              <div className="report-button">
                 <button
                   onClick={() => updatepropertyPrice()}
                   type="button"
-                  class="btn btn-primary mr--10 w-auto"
+                  className="btn btn-primary mr--10 w-auto"
                 >
                   {updatePriceLoading ? <Loader /> : "Update Price"}
                 </button>
 
                 <button
                   type="button"
-                  class="btn btn-primary-alta w-auto"
+                  className="btn btn-primary-alta w-auto"
                   data-bs-dismiss="modal"
                 >
                   Cancel

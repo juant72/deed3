@@ -51,7 +51,7 @@ const Banner = () => {
                   </a>
                   <div className="read-wrapper">
                     <h5>
-                      <a>@theblockchaincoders</a>
+                      <a>@encrypia</a>
                     </h5>
                     <span>Join Membership</span>
                   </div>

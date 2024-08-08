@@ -17,12 +17,11 @@ const Footer = () => {
                   </a>
                 </div>
                 <p className="rn-footer-describe">
-                  Created with the collaboration of over 60 of the world's best
-                  Nuron Artists.
+                Transform your real estate into digital assets with Deeds3: Your gateway to NFT property
                 </p>
               </div>
               <div className="widget-bottom mt--40 pt--40">
-                <h6 className="title">Get The Latest Nuron Updates</h6>
+                <h6 className="title">Get The Latest Deeds3 Updates</h6>
                 <div className="input-group">
                   <input
                     type="text"
@@ -48,7 +47,7 @@ const Footer = () => {
 
           <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_mobile--40">
             <div className="footer-widget widget-quicklink">
-              <h6 className="widget-title">Nuron</h6>
+              <h6 className="widget-title">Deeds3</h6>
               <ul className="footer-list-one">
                 <li className="single-list">
                   <a href="#">Protocol Explore</a>

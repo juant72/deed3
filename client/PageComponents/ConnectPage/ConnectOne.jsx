@@ -2,23 +2,23 @@ import React from "react";
 
 const ConnectOne = () => {
   return (
-    <div class="rn-breadcrumb-inner ptb--30">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 col-md-6 col-12">
-            <h5 class="title text-center text-md-start">
-              Make your payment easyer
+    <div className="rn-breadcrumb-inner ptb--30">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-6 col-md-6 col-12">
+            <h5 className="title text-center text-md-start">
+              Make your payment easier
             </h5>
           </div>
-          <div class="col-lg-6 col-md-6 col-12">
-            <ul class="breadcrumb-list">
-              <li class="item">
+          <div className="col-lg-6 col-md-6 col-12">
+            <ul className="breadcrumb-list">
+              <li className="item">
                 <a href="index.html">Home</a>
               </li>
-              <li class="separator">
-                {/* <i class="feather-chevron-right"></i> */}
+              <li className="separator">
+                {/* <i className="feather-chevron-right"></i> */}
               </li>
-              <li class="item current">Make your payment easyer</li>
+              <li className="item current">Make your payment easier</li>
             </ul>
           </div>
         </div>

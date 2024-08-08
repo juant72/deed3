@@ -3,64 +3,64 @@ import React from "react";
 const DetailFive = () => {
   return (
     <div
-      class="rn-popup-modal share-modal-wrapper modal fade"
+      className="rn-popup-modal share-modal-wrapper modal fade"
       id="shareModal"
       tabindex="-1"
       aria-hidden="true"
     >
       <button
         type="button"
-        class="btn-close"
+        className="btn-close"
         data-bs-dismiss="modal"
         aria-label="Close"
       >
         {/* <i data-feather="x"></i> */}
       </button>
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content share-wrapper">
-          <div class="modal-header share-area">
-            <h5 class="modal-title">Share this NFT</h5>
+      <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div className="modal-content share-wrapper">
+          <div className="modal-header share-area">
+            <h5 className="modal-title">Share this NFT</h5>
           </div>
-          <div class="modal-body">
-            <ul class="social-share-default">
+          <div className="modal-body">
+            <ul className="social-share-default">
               <li>
                 <a href="#">
-                  <span class="icon">
+                  <span className="icon">
                     {/* <i data-feather="facebook"></i> */}
                   </span>
-                  <span class="text">facebook</span>
+                  <span className="text">facebook</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <span class="icon">
+                  <span className="icon">
                     {/* <i data-feather="twitter"></i> */}
                   </span>
-                  <span class="text">twitter</span>
+                  <span className="text">twitter</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <span class="icon">
+                  <span className="icon">
                     {/* <i data-feather="linkedin"></i> */}
                   </span>
-                  <span class="text">linkedin</span>
+                  <span className="text">linkedin</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <span class="icon">
+                  <span className="icon">
                     {/* <i data-feather="instagram"></i> */}
                   </span>
-                  <span class="text">instagram</span>
+                  <span className="text">instagram</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <span class="icon">
+                  <span className="icon">
                     {/* <i data-feather="youtube"></i> */}
                   </span>
-                  <span class="text">youtube</span>
+                  <span className="text">youtube</span>
                 </a>
               </li>
             </ul>

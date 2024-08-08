@@ -2,55 +2,55 @@ import React from "react";
 
 const ContactThree = () => {
   return (
-    <div class="login-area message-area rn-section-gapTop">
-      <div class="container">
-        <div class="row g-5">
+    <div className="login-area message-area rn-section-gapTop">
+      <div className="container">
+        <div className="row g-5">
           <div
-            class="col-lg-6"
+            className="col-lg-6"
             data-sal="slide-up"
             data-sal-delay="150"
             data-sal-duration="800"
           >
-            <div class="connect-thumbnail">
-              <div class="left-image">
+            <div className="connect-thumbnail">
+              <div className="left-image">
                 <img src="/contact/contact1.png" alt="Nft_Profile" />
               </div>
             </div>
           </div>
           <div
-            class="col-lg-6"
+            className="col-lg-6"
             data-sal="slide-up"
             data-sal-delay="200"
             data-sal-duration="800"
           >
-            <div class="form-wrapper-one registration-area">
-              <h3 class="mb--30">Contact Us</h3>
+            <div className="form-wrapper-one registration-area">
+              <h3 className="mb--30">Contact Us</h3>
               <form
-                class="rwt-dynamic-form"
+                className="rwt-dynamic-form"
                 id="contact-form"
                 method="POST"
                 action="mail.php"
               >
-                <div class="mb-5">
-                  <label for="contact-name" class="form-label">
+                <div className="mb-5">
+                  <label for="contact-name" className="form-label">
                     Your Name
                   </label>
                   <input name="contact-name" id="contact-name" type="text" />
                 </div>
-                <div class="mb-5">
-                  <label for="contact-email" class="form-label">
+                <div className="mb-5">
+                  <label for="contact-email" className="form-label">
                     Email
                   </label>
                   <input id="contact-email" name="contact-email" type="email" />
                 </div>
-                <div class="mb-5">
-                  <label for="subject" class="form-label">
+                <div className="mb-5">
+                  <label for="subject" className="form-label">
                     Subject
                   </label>
                   <input id="subject" name="subject" type="text" />
                 </div>
-                <div class="mb-5">
-                  <label for="contact-message" class="form-label">
+                <div className="mb-5">
+                  <label for="contact-message" className="form-label">
                     Write Message
                   </label>
                   <textarea
@@ -59,17 +59,17 @@ const ContactThree = () => {
                     rows="3"
                   ></textarea>
                 </div>
-                <div class="mb-5 rn-check-box">
+                <div className="mb-5 rn-check-box">
                   <input
                     id="condition"
                     type="checkbox"
-                    class="rn-check-box-input"
+                    className="rn-check-box-input"
                   />
-                  <label for="condition" class="rn-check-box-label">
+                  <label for="condition" className="rn-check-box-label">
                     Allow to all tearms & condition
                   </label>
                 </div>
-                <button name="submit" type="submit" class="btn btn-primary">
+                <button name="submit" type="submit" className="btn btn-primary">
                   Send Message
                 </button>
               </form>

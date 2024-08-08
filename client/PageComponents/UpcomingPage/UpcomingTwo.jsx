@@ -2,17 +2,17 @@ import React from "react";
 
 const UpcomingTwo = () => {
   return (
-    <div class="rn-upcoming-area rn-section-gap">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="table-title-area d-flex">
+    <div className="rn-upcoming-area rn-section-gap">
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="table-title-area d-flex">
               <i data-feather="calendar"></i>
               <h3>December 18th</h3>
             </div>
 
-            <div class="box-table table-responsive">
-              <table class="table upcoming-projects">
+            <div className="box-table table-responsive">
+              <table className="table upcoming-projects">
                 <tbody>
                   <tr>
                     <th>
@@ -33,18 +33,18 @@ const UpcomingTwo = () => {
                   </tr>
                 </tbody>
                 <tbody>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Secure 25</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">100%</span>
+                      <span className="color-danger">100%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -55,30 +55,30 @@ const UpcomingTwo = () => {
                       <span>Portable Fire</span>
                     </td>
                     <td>
-                      <span class="color-green">12 PM UTC</span>
+                      <span className="color-green">12 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">10%</span>
+                      <span className="color-danger">10%</span>
                     </td>
                     <td>
-                      <span class="color-info">$190</span>
+                      <span className="color-info">$190</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Buddistras</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">900%</span>
+                      <span className="color-danger">900%</span>
                     </td>
                     <td>
-                      <span class="color-info">$200</span>
+                      <span className="color-info">$200</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -89,30 +89,30 @@ const UpcomingTwo = () => {
                       <span>Mopsquersd</span>
                     </td>
                     <td>
-                      <span class="color-green">11 PM UTC</span>
+                      <span className="color-green">11 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">200%</span>
+                      <span className="color-danger">200%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Trads562</span>
                     </td>
                     <td>
-                      <span class="color-green">2 PM UTC</span>
+                      <span className="color-green">2 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">300%</span>
+                      <span className="color-danger">300%</span>
                     </td>
                     <td>
-                      <span class="color-info">$560</span>
+                      <span className="color-info">$560</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -123,30 +123,30 @@ const UpcomingTwo = () => {
                       <span>Raresable</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">600%</span>
+                      <span className="color-danger">600%</span>
                     </td>
                     <td>
-                      <span class="color-info">$190</span>
+                      <span className="color-info">$190</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Firetab</span>
                     </td>
                     <td>
-                      <span class="color-green">6 PM UTC</span>
+                      <span className="color-green">6 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">100%</span>
+                      <span className="color-danger">100%</span>
                     </td>
                     <td>
-                      <span class="color-info">$85</span>
+                      <span className="color-info">$85</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -157,30 +157,30 @@ const UpcomingTwo = () => {
                       <span>TheEnd</span>
                     </td>
                     <td>
-                      <span class="color-green">5 PM UTC</span>
+                      <span className="color-green">5 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">85%</span>
+                      <span className="color-danger">85%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Firetab</span>
                     </td>
                     <td>
-                      <span class="color-green">6 PM UTC</span>
+                      <span className="color-green">6 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">100%</span>
+                      <span className="color-danger">100%</span>
                     </td>
                     <td>
-                      <span class="color-info">$85</span>
+                      <span className="color-info">$85</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -191,13 +191,13 @@ const UpcomingTwo = () => {
                       <span>Raresable</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">600%</span>
+                      <span className="color-danger">600%</span>
                     </td>
                     <td>
-                      <span class="color-info">$190</span>
+                      <span className="color-info">$190</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -208,15 +208,15 @@ const UpcomingTwo = () => {
             </div>
           </div>
         </div>
-        <div class="row mt--80">
-          <div class="col-12">
-            <div class="table-title-area d-flex">
+        <div className="row mt--80">
+          <div className="col-12">
+            <div className="table-title-area d-flex">
               <i data-feather="calendar"></i>
               <h3>December 19th</h3>
             </div>
 
-            <div class="box-table table-responsive">
-              <table class="table upcoming-projects">
+            <div className="box-table table-responsive">
+              <table className="table upcoming-projects">
                 <tbody>
                   <tr>
                     <th>
@@ -237,18 +237,18 @@ const UpcomingTwo = () => {
                   </tr>
                 </tbody>
                 <tbody>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Secure 25</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">100%</span>
+                      <span className="color-danger">100%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -259,30 +259,30 @@ const UpcomingTwo = () => {
                       <span>Portable Fire</span>
                     </td>
                     <td>
-                      <span class="color-green">12 PM UTC</span>
+                      <span className="color-green">12 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">10%</span>
+                      <span className="color-danger">10%</span>
                     </td>
                     <td>
-                      <span class="color-info">$190</span>
+                      <span className="color-info">$190</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Buddistras</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">900%</span>
+                      <span className="color-danger">900%</span>
                     </td>
                     <td>
-                      <span class="color-info">$200</span>
+                      <span className="color-info">$200</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -293,30 +293,30 @@ const UpcomingTwo = () => {
                       <span>Mopsquersd</span>
                     </td>
                     <td>
-                      <span class="color-green">11 PM UTC</span>
+                      <span className="color-green">11 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">200%</span>
+                      <span className="color-danger">200%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Trads562</span>
                     </td>
                     <td>
-                      <span class="color-green">2 PM UTC</span>
+                      <span className="color-green">2 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">300%</span>
+                      <span className="color-danger">300%</span>
                     </td>
                     <td>
-                      <span class="color-info">$560</span>
+                      <span className="color-info">$560</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -327,30 +327,30 @@ const UpcomingTwo = () => {
                       <span>Raresable</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">600%</span>
+                      <span className="color-danger">600%</span>
                     </td>
                     <td>
-                      <span class="color-info">$190</span>
+                      <span className="color-info">$190</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Firetab</span>
                     </td>
                     <td>
-                      <span class="color-green">6 PM UTC</span>
+                      <span className="color-green">6 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">100%</span>
+                      <span className="color-danger">100%</span>
                     </td>
                     <td>
-                      <span class="color-info">$85</span>
+                      <span className="color-info">$85</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -361,13 +361,13 @@ const UpcomingTwo = () => {
                       <span>TheEnd</span>
                     </td>
                     <td>
-                      <span class="color-green">5 PM UTC</span>
+                      <span className="color-green">5 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">85%</span>
+                      <span className="color-danger">85%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -378,15 +378,15 @@ const UpcomingTwo = () => {
             </div>
           </div>
         </div>
-        <div class="row mt--80">
-          <div class="col-12">
-            <div class="table-title-area d-flex">
+        <div className="row mt--80">
+          <div className="col-12">
+            <div className="table-title-area d-flex">
               <i data-feather="calendar"></i>
               <h3>December 20th</h3>
             </div>
 
-            <div class="box-table table-responsive">
-              <table class="table upcoming-projects">
+            <div className="box-table table-responsive">
+              <table className="table upcoming-projects">
                 <tbody>
                   <tr>
                     <th>
@@ -407,18 +407,18 @@ const UpcomingTwo = () => {
                   </tr>
                 </tbody>
                 <tbody>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Secure 25</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">100%</span>
+                      <span className="color-danger">100%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -429,30 +429,30 @@ const UpcomingTwo = () => {
                       <span>Portable Fire</span>
                     </td>
                     <td>
-                      <span class="color-green">12 PM UTC</span>
+                      <span className="color-green">12 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">10%</span>
+                      <span className="color-danger">10%</span>
                     </td>
                     <td>
-                      <span class="color-info">$190</span>
+                      <span className="color-info">$190</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Buddistras</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">900%</span>
+                      <span className="color-danger">900%</span>
                     </td>
                     <td>
-                      <span class="color-info">$200</span>
+                      <span className="color-info">$200</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -463,30 +463,30 @@ const UpcomingTwo = () => {
                       <span>Mopsquersd</span>
                     </td>
                     <td>
-                      <span class="color-green">11 PM UTC</span>
+                      <span className="color-green">11 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">200%</span>
+                      <span className="color-danger">200%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Trads562</span>
                     </td>
                     <td>
-                      <span class="color-green">2 PM UTC</span>
+                      <span className="color-green">2 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">300%</span>
+                      <span className="color-danger">300%</span>
                     </td>
                     <td>
-                      <span class="color-info">$560</span>
+                      <span className="color-info">$560</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -497,30 +497,30 @@ const UpcomingTwo = () => {
                       <span>Raresable</span>
                     </td>
                     <td>
-                      <span class="color-green">10 PM UTC</span>
+                      <span className="color-green">10 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">600%</span>
+                      <span className="color-danger">600%</span>
                     </td>
                     <td>
-                      <span class="color-info">$190</span>
+                      <span className="color-info">$190</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>Firetab</span>
                     </td>
                     <td>
-                      <span class="color-green">6 PM UTC</span>
+                      <span className="color-green">6 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">100%</span>
+                      <span className="color-danger">100%</span>
                     </td>
                     <td>
-                      <span class="color-info">$85</span>
+                      <span className="color-info">$85</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -531,13 +531,13 @@ const UpcomingTwo = () => {
                       <span>TheEnd</span>
                     </td>
                     <td>
-                      <span class="color-green">5 PM UTC</span>
+                      <span className="color-green">5 PM UTC</span>
                     </td>
                     <td>
-                      <span class="color-danger">85%</span>
+                      <span className="color-danger">85%</span>
                     </td>
                     <td>
-                      <span class="color-info">$90</span>
+                      <span className="color-info">$90</span>
                     </td>
                     <td>
                       <span>If SOL is above $200</span>
@@ -547,40 +547,40 @@ const UpcomingTwo = () => {
               </table>
             </div>
 
-            <div class="row">
+            <div className="row">
               <div
-                class="col-lg-12"
+                className="col-lg-12"
                 data-sal="slide-up"
                 data-sal-delay="550"
                 data-sal-duration="800"
               >
                 <nav
-                  class="pagination-wrapper"
+                  className="pagination-wrapper"
                   aria-label="Page navigation example"
                 >
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                  <ul className="pagination">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         Previous
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link active" href="#">
+                    <li className="page-item">
+                      <a className="page-link active" href="#">
                         1
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         2
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         3
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         Next
                       </a>
                     </li>

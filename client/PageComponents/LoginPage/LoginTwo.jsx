@@ -2,82 +2,82 @@ import React from "react";
 
 const LoginTwo = () => {
   return (
-    <div class="login-area rn-section-gapTop">
-      <div class="container">
-        <div class="row g-5">
-          <div class=" offset-2 col-lg-4 col-md-6 ml_md--0 ml_sm--0 col-sm-12">
-            <div class="form-wrapper-one">
+    <div className="login-area rn-section-gapTop">
+      <div className="container">
+        <div className="row g-5">
+          <div className=" offset-2 col-lg-4 col-md-6 ml_md--0 ml_sm--0 col-sm-12">
+            <div className="form-wrapper-one">
               <h4>Login</h4>
               <form>
-                <div class="mb-5">
-                  <label for="exampleInputEmail1" class="form-label">
+                <div className="mb-5">
+                  <label for="exampleInputEmail1" className="form-label">
                     Email address
                   </label>
                   <input type="email" id="exampleInputEmail1" />
                 </div>
-                <div class="mb-5">
-                  <label for="exampleInputPassword1" class="form-label">
+                <div className="mb-5">
+                  <label for="exampleInputPassword1" className="form-label">
                     Password
                   </label>
                   <input type="password" id="exampleInputPassword1" />
                 </div>
-                <div class="mb-5 rn-check-box">
+                <div className="mb-5 rn-check-box">
                   <input
                     type="checkbox"
-                    class="rn-check-box-input"
+                    className="rn-check-box-input"
                     id="exampleCheck1"
                   />
-                  <label class="rn-check-box-label" for="exampleCheck1">
+                  <label className="rn-check-box-label" for="exampleCheck1">
                     Remember me leter
                   </label>
                 </div>
-                <button type="submit" class="btn btn-primary mr--15">
+                <button type="submit" className="btn btn-primary mr--15">
                   Log In
                 </button>
-                <a href="sign-up.html" class="btn btn-primary-alta">
+                <a href="sign-up.html" className="btn btn-primary-alta">
                   Sign Up
                 </a>
               </form>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="social-share-media form-wrapper-one">
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="social-share-media form-wrapper-one">
               <h6>Another way to log in</h6>
               <p>
                 {" "}
                 Lorem ipsum dolor sit, amet sectetur adipisicing elit.cumque.
               </p>
-              <button class="another-login login-facebook">
+              <button className="another-login login-facebook">
                 {" "}
                 <img
-                  class="small-image"
+                  className="small-image"
                   src="assets/images/icons/google.png"
                   alt=""
                 />{" "}
                 <span>Log in with Google</span>
               </button>
-              <button class="another-login login-facebook">
+              <button className="another-login login-facebook">
                 {" "}
                 <img
-                  class="small-image"
+                  className="small-image"
                   src="assets/images/icons/facebook.png"
                   alt=""
                 />{" "}
                 <span>Log in with Facebook</span>
               </button>
-              <button class="another-login login-twitter">
+              <button className="another-login login-twitter">
                 {" "}
                 <img
-                  class="small-image"
+                  className="small-image"
                   src="assets/images/icons/tweeter.png"
                   alt=""
                 />{" "}
                 <span>Log in with Twitter</span>
               </button>
-              <button class="another-login login-linkedin">
+              <button className="another-login login-linkedin">
                 {" "}
                 <img
-                  class="small-image"
+                  className="small-image"
                   src="assets/images/icons/linkedin.png"
                   alt=""
                 />{" "}

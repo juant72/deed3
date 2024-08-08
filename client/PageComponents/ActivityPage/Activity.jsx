@@ -6,18 +6,18 @@ const Activity = ({ properties, totalReviews, popular }) => {
   // const creators = getTopCreators(properties);
   console.log(properties);
   return (
-    <div class="rn-activity-area rn-section-gapTop">
-      <div class="container">
-        <div class="row mb--30">
-          <h3 class="title">All following Acivity</h3>
+    <div className="rn-activity-area rn-section-gapTop">
+      <div className="container">
+        <div className="row mb--30">
+          <h3 className="title">All following Acivity</h3>
         </div>
-        <div class="row g-6 activity-direction">
-          <div class="col-lg-8 mb_dec--15">
+        <div className="row g-6 activity-direction">
+          <div className="col-lg-8 mb_dec--15">
             {properties?.map((activity, i) => (
-              <div class="single-activity-wrapper">
-                <div class="inner">
-                  <div class="read-content">
-                    <div class="thumbnail">
+              <div className="single-activity-wrapper">
+                <div className="inner">
+                  <div className="read-content">
+                    <div className="thumbnail">
                       <a href={`/detail?property=${activity?.productID}`}>
                         <img
                           style={{
@@ -29,18 +29,18 @@ const Activity = ({ properties, totalReviews, popular }) => {
                         />
                       </a>
                     </div>
-                    <div class="content">
+                    <div className="content">
                       <a href={`/detail?property=${activity?.productID}`}>
-                        <h6 class="title">{activity.title.slice(0, 25)}</h6>
+                        <h6 className="title">{activity.title.slice(0, 25)}</h6>
                       </a>
                       <p>{activity.owner.slice(0, 25)}...</p>
-                      <div class="time-maintane">
-                        <div class="time data">
+                      <div className="time-maintane">
+                        <div className="time data">
                           <span>
                             {i + 1}:30 PM on {i + 1}9th June,{" "}
                           </span>
                         </div>
-                        <div class="user-area data">
+                        <div className="user-area data">
                           <Link
                             href={{
                               pathname: `/category/${activity.category}`,
@@ -56,20 +56,20 @@ const Activity = ({ properties, totalReviews, popular }) => {
               </div>
             ))}
           </div>
-          <div class="col-lg-4">
-            <div class="filter-wrapper">
-              <div class="widge-wrapper rbt-sticky-top-adjust">
-                <div class="inner">
+          <div className="col-lg-4">
+            <div className="filter-wrapper">
+              <div className="widge-wrapper rbt-sticky-top-adjust">
+                <div className="inner">
                   <h3>Analytic Stats</h3>
-                  <div class="sing-filter">
+                  <div className="sing-filter">
                     <button>Total Property: {properties?.length}</button>
                     {/* <button>Users: {creators.length}</button> */}
                     <button>Reviews: {totalReviews}</button>
                   </div>
                 </div>
-                <div class="inner">
+                <div className="inner">
                   <h3>Category</h3>
-                  <div class="sing-filter">
+                  <div className="sing-filter">
                     <button>Housing</button>
                     <button>Rental</button>
                     <button>Office</button>
@@ -78,9 +78,9 @@ const Activity = ({ properties, totalReviews, popular }) => {
                     <button>Country</button>
                   </div>
                 </div>
-                <div class="inner">
+                <div className="inner">
                   <h3>Popular Property</h3>
-                  <div class="sing-filter">
+                  <div className="sing-filter">
                     <Link
                       href={{
                         pathname: `/detail`,

@@ -2,12 +2,12 @@ import React from "react";
 
 const ProductTwo = () => {
   return (
-    <div class="rn-product-area rn-section-gapTop">
-      <div class="container">
-        {/* <div class="row mb--50 align-items-center">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div className="rn-product-area rn-section-gapTop">
+      <div className="container">
+        {/* <div className="row mb--50 align-items-center">
+          <div className="col-lg-6 col-md-6 col-sm-6 col-12">
             <h3
-              class="title mb--0"
+              className="title mb--0"
               data-sal-delay="150"
               data-sal="slide-up"
               data-sal-duration="800"
@@ -15,50 +15,50 @@ const ProductTwo = () => {
               Explore Product
             </h3>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--15">
+          <div className="col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--15">
             <div
-              class="view-more-btn text-start text-sm-end"
+              className="view-more-btn text-start text-sm-end"
               data-sal-delay="150"
               data-sal="slide-up"
               data-sal-duration="800"
             >
-              <button class="discover-filter-button discover-filter-activation btn btn-primary">
-                Filter<i class="feather-filter"></i>
+              <button className="discover-filter-button discover-filter-activation btn btn-primary">
+                Filter<i className="feather-filter"></i>
               </button>
             </div>
           </div>
         </div> */}
 
-        <div class="default-exp-wrapper default-exp-expand">
-          <div class="inner">
-            <div class="filter-select-option">
-              <label class="filter-leble">LIKES</label>
+        <div className="default-exp-wrapper default-exp-expand">
+          <div className="inner">
+            <div className="filter-select-option">
+              <label className="filter-leble">LIKES</label>
             </div>
 
-            <div class="filter-select-option">
-              <label class="filter-leble">Category</label>
+            <div className="filter-select-option">
+              <label className="filter-leble">Category</label>
             </div>
 
-            <div class="filter-select-option">
-              <label class="filter-leble">Collections</label>
+            <div className="filter-select-option">
+              <label className="filter-leble">Collections</label>
             </div>
 
-            <div class="filter-select-option">
-              <label class="filter-leble">Sale type</label>
+            <div className="filter-select-option">
+              <label className="filter-leble">Sale type</label>
             </div>
 
-            <div class="filter-select-option">
-              <label class="filter-leble">Price Range</label>
-              <div class="price_filter s-filter clear">
+            <div className="filter-select-option">
+              <label className="filter-leble">Price Range</label>
+              <div className="price_filter s-filter clear">
                 <form>
-                  <div class="slider__range--output">
-                    <div class="price__output--wrap">
-                      <div class="price--output">
+                  <div className="slider__range--output">
+                    <div className="price__output--wrap">
+                      <div className="price--output">
                         <span>Price :</span>
                         <input type="text" id="amount" readonly />
                       </div>
-                      <div class="price--filter">
-                        <a class="btn btn-primary btn-small" href="#">
+                      <div className="price--filter">
+                        <a className="btn btn-primary btn-small" href="#">
                           Filter
                         </a>
                       </div>
@@ -70,37 +70,37 @@ const ProductTwo = () => {
           </div>
         </div>
 
-        <div class="row g-5">
+        <div className="row g-5">
           <div
             data-sal="slide-up"
             data-sal-delay="150"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-01.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-2.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-3.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     9+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -109,7 +109,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -120,10 +120,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -131,7 +131,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -141,18 +141,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Preatent</span>
+                <span className="product-name">Preatent</span>
               </a>
-              <span class="latest-bid">Highest bid 1/20</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.244wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 1/20</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.244wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -160,7 +160,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">322</span>
+                  <span className="number">322</span>
                 </div>
               </div>
             </div>
@@ -170,32 +170,32 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="200"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-02.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="mr. Davei">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="mr. Davei">
                     <img src="/client/client-4.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Mrs.Laumi">
+                  <a href="author.html" className="avatar" data-tooltip="Mrs.Laumi">
                     <img src="/client/client-5.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Shanon">
+                  <a href="author.html" className="avatar" data-tooltip="Shanon">
                     <img src="/client/client-6.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     11+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -204,7 +204,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -215,10 +215,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -226,7 +226,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -236,18 +236,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Diamond Dog</span>
+                <span className="product-name">Diamond Dog</span>
               </a>
-              <span class="latest-bid">Highest bid 5/11</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.892wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 5/11</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.892wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -255,7 +255,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">420</span>
+                  <span className="number">420</span>
                 </div>
               </div>
             </div>
@@ -265,32 +265,32 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="250"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-03.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="mr. Jone">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="mr. Jone">
                     <img src="/client/client-7.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Laumi">
+                  <a href="author.html" className="avatar" data-tooltip="Laumi">
                     <img src="/client/client-8.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Tom">
+                  <a href="author.html" className="avatar" data-tooltip="Tom">
                     <img src="/client/client-9.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     12+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -299,7 +299,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -310,10 +310,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -321,7 +321,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -331,18 +331,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">OrBid6</span>
+                <span className="product-name">OrBid6</span>
               </a>
-              <span class="latest-bid">Highest bid 2/31</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.2128wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 2/31</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.2128wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -350,7 +350,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">12</span>
+                  <span className="number">12</span>
                 </div>
               </div>
             </div>
@@ -360,51 +360,51 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="300"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-04.jpg" alt="NFT_portfolio" />
                 </a>
-                <div class="countdown" data-date="2022-11-09">
-                  <div class="countdown-container days">
-                    <span class="countdown-value">87</span>
-                    <span class="countdown-heading">D's</span>
+                <div className="countdown" data-date="2022-11-09">
+                  <div className="countdown-container days">
+                    <span className="countdown-value">87</span>
+                    <span className="countdown-heading">D's</span>
                   </div>
-                  <div class="countdown-container hours">
-                    <span class="countdown-value">23</span>
-                    <span class="countdown-heading">H's</span>
+                  <div className="countdown-container hours">
+                    <span className="countdown-value">23</span>
+                    <span className="countdown-heading">H's</span>
                   </div>
-                  <div class="countdown-container minutes">
-                    <span class="countdown-value">38</span>
-                    <span class="countdown-heading">Min's</span>
+                  <div className="countdown-container minutes">
+                    <span className="countdown-value">38</span>
+                    <span className="countdown-heading">Min's</span>
                   </div>
-                  <div class="countdown-container seconds">
-                    <span class="countdown-value">27</span>
-                    <span class="countdown-heading">Sec</span>
+                  <div className="countdown-container seconds">
+                    <span className="countdown-value">27</span>
+                    <span className="countdown-heading">Sec</span>
                   </div>
                 </div>
               </div>
 
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="mr. Davei">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="mr. Davei">
                     <img src="/client/client-9.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Mrs.Laumi">
+                  <a href="author.html" className="avatar" data-tooltip="Mrs.Laumi">
                     <img src="/client/client-10.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Shanon">
+                  <a href="author.html" className="avatar" data-tooltip="Shanon">
                     <img src="/client/client-11.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     13+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -413,7 +413,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -424,10 +424,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -435,7 +435,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -445,18 +445,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Morgan11</span>
+                <span className="product-name">Morgan11</span>
               </a>
-              <span class="latest-bid">Highest bid 3/16</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.265wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 3/16</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.265wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -464,7 +464,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">20</span>
+                  <span className="number">20</span>
                 </div>
               </div>
             </div>
@@ -474,32 +474,32 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="350"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-05.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Terasa">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Terasa">
                     <img src="/client/client-8.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Sakib">
+                  <a href="author.html" className="avatar" data-tooltip="Sakib">
                     <img src="/client/client-7.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Miraj">
+                  <a href="author.html" className="avatar" data-tooltip="Miraj">
                     <img src="/client/client-3.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     15+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -508,7 +508,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -519,10 +519,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -530,7 +530,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -540,18 +540,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">mAtal8</span>
+                <span className="product-name">mAtal8</span>
               </a>
-              <span class="latest-bid">Highest bid 6/50</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.244wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 6/50</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.244wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -559,7 +559,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">205</span>
+                  <span className="number">205</span>
                 </div>
               </div>
             </div>
@@ -569,32 +569,32 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="400"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-06.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Moris">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Moris">
                     <img src="/client/client-8.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jsufia">
+                  <a href="author.html" className="avatar" data-tooltip="Jsufia">
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Mordan">
+                  <a href="author.html" className="avatar" data-tooltip="Mordan">
                     <img src="/client/client-2.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     9+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -603,7 +603,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -614,10 +614,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -625,7 +625,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -635,18 +635,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Platonum</span>
+                <span className="product-name">Platonum</span>
               </a>
-              <span class="latest-bid">Highest bid 1/10</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.450wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 1/10</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.450wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -654,7 +654,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">65</span>
+                  <span className="number">65</span>
                 </div>
               </div>
             </div>
@@ -664,50 +664,50 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="450"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-07.jpg" alt="NFT_portfolio" />
                 </a>
-                <div class="countdown" data-date="2022-12-09">
-                  <div class="countdown-container days">
-                    <span class="countdown-value">35</span>
-                    <span class="countdown-heading">D's</span>
+                <div className="countdown" data-date="2022-12-09">
+                  <div className="countdown-container days">
+                    <span className="countdown-value">35</span>
+                    <span className="countdown-heading">D's</span>
                   </div>
-                  <div class="countdown-container hours">
-                    <span class="countdown-value">42</span>
-                    <span class="countdown-heading">H's</span>
+                  <div className="countdown-container hours">
+                    <span className="countdown-value">42</span>
+                    <span className="countdown-heading">H's</span>
                   </div>
-                  <div class="countdown-container minutes">
-                    <span class="countdown-value">10</span>
-                    <span class="countdown-heading">Min's</span>
+                  <div className="countdown-container minutes">
+                    <span className="countdown-value">10</span>
+                    <span className="countdown-heading">Min's</span>
                   </div>
-                  <div class="countdown-container seconds">
-                    <span class="countdown-value">23</span>
-                    <span class="countdown-heading">Sec</span>
+                  <div className="countdown-container seconds">
+                    <span className="countdown-value">23</span>
+                    <span className="countdown-heading">Sec</span>
                   </div>
                 </div>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Thinm">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Thinm">
                     <img src="/client/client-6.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jubin">
+                  <a href="author.html" className="avatar" data-tooltip="Jubin">
                     <img src="/client/client-10.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Nautial">
+                  <a href="author.html" className="avatar" data-tooltip="Nautial">
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     14+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -716,7 +716,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -727,10 +727,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -738,7 +738,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -748,18 +748,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">PlatOrgan</span>
+                <span className="product-name">PlatOrgan</span>
               </a>
-              <span class="latest-bid">Highest bid 2/22</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.311wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 2/22</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.311wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -767,7 +767,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">56</span>
+                  <span className="number">56</span>
                 </div>
               </div>
             </div>
@@ -777,32 +777,32 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="500"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-05.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Tabriz">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Tabriz">
                     <img src="/client/client-6.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Juskin">
+                  <a href="author.html" className="avatar" data-tooltip="Juskin">
                     <img src="/client/client-8.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Money">
+                  <a href="author.html" className="avatar" data-tooltip="Money">
                     <img src="/client/client-9.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     14+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -811,7 +811,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -821,10 +821,10 @@ const ProductTwo = () => {
                       ></path>
                     </svg>
                   </button>
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -832,7 +832,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -842,18 +842,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Orgajis</span>
+                <span className="product-name">Orgajis</span>
               </a>
-              <span class="latest-bid">Highest bid 2/10</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.244wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 2/10</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.244wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -861,7 +861,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">89</span>
+                  <span className="number">89</span>
                 </div>
               </div>
             </div>
@@ -871,36 +871,36 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="550"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-04.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
-                  <a href="author.html" class="avatar" data-tooltip="Morokko">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
+                  <a href="author.html" className="avatar" data-tooltip="Morokko">
                     <img src="/client/client-6.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Levnon">
+                  <a href="author.html" className="avatar" data-tooltip="Levnon">
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
                   <a
                     href="author.html"
-                    class="avatar"
+                    className="avatar"
                     data-tooltip="Trim sawdi"
                   >
                     <img src="/client/client-10.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     12+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -909,7 +909,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -920,10 +920,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -931,7 +931,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -941,18 +941,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">#720</span>
+                <span className="product-name">#720</span>
               </a>
-              <span class="latest-bid">Highest bid 1/1</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.244wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 1/1</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.244wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -960,7 +960,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">502</span>
+                  <span className="number">502</span>
                 </div>
               </div>
             </div>
@@ -970,40 +970,40 @@ const ProductTwo = () => {
             data-sal="slide-up"
             data-sal-delay="600"
             data-sal-duration="800"
-            class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
+            className="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
           >
-            <div class="product-style-one no-overlay">
-              <div class="card-thumbnail">
+            <div className="product-style-one no-overlay">
+              <div className="card-thumbnail">
                 <a href="product-details.html">
                   <img src="/portfolio/portfolio-04.jpg" alt="NFT_portfolio" />
                 </a>
               </div>
-              <div class="product-share-wrapper">
-                <div class="profile-share">
+              <div className="product-share-wrapper">
+                <div className="profile-share">
                   <a
                     href="author.html"
-                    class="avatar"
+                    className="avatar"
                     data-tooltip="Mark David"
                   >
                     <img src="/client/client-1.png" alt="Nft_Profile" />
                   </a>
                   <a
                     href="author.html"
-                    class="avatar"
+                    className="avatar"
                     data-tooltip="Sunil Satti"
                   >
                     <img src="/client/client-8.png" alt="Nft_Profile" />
                   </a>
-                  <a href="author.html" class="avatar" data-tooltip="Jone lee">
+                  <a href="author.html" className="avatar" data-tooltip="Jone lee">
                     <img src="/client/client-7.png" alt="Nft_Profile" />
                   </a>
-                  <a class="more-author-text" href="#">
+                  <a className="more-author-text" href="#">
                     5+ Place Bit.
                   </a>
                 </div>
-                <div class="share-btn share-btn-activation dropdown">
+                <div className="share-btn share-btn-activation dropdown">
                   <button
-                    class="icon"
+                    className="icon"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
@@ -1012,7 +1012,7 @@ const ProductTwo = () => {
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                      className="sc-bdnxRM sc-hKFxyN hOiKLt"
                     >
                       <path
                         fill-rule="evenodd"
@@ -1023,10 +1023,10 @@ const ProductTwo = () => {
                     </svg>
                   </button>
 
-                  <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                  <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                     <button
                       type="button"
-                      class="btn-setting-text share-text"
+                      className="btn-setting-text share-text"
                       data-bs-toggle="modal"
                       data-bs-target="#shareModal"
                     >
@@ -1034,7 +1034,7 @@ const ProductTwo = () => {
                     </button>
                     <button
                       type="button"
-                      class="btn-setting-text report-text"
+                      className="btn-setting-text report-text"
                       data-bs-toggle="modal"
                       data-bs-target="#reportModal"
                     >
@@ -1044,18 +1044,18 @@ const ProductTwo = () => {
                 </div>
               </div>
               <a href="product-details.html">
-                <span class="product-name">Orthogon#720</span>
+                <span className="product-name">Orthogon#720</span>
               </a>
-              <span class="latest-bid">Highest bid 1/1</span>
-              <div class="bid-react-area">
-                <div class="last-bid">0.244wETH</div>
-                <div class="react-area">
+              <span className="latest-bid">Highest bid 1/1</span>
+              <div className="bid-react-area">
+                <div className="last-bid">0.244wETH</div>
+                <div className="react-area">
                   <svg
                     viewBox="0 0 17 16"
                     fill="none"
                     width="16"
                     height="16"
-                    class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                    className="sc-bdnxRM sc-hKFxyN kBvkOu"
                   >
                     <path
                       d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1063,7 +1063,7 @@ const ProductTwo = () => {
                       stroke-width="2"
                     ></path>
                   </svg>
-                  <span class="number">308</span>
+                  <span className="number">308</span>
                 </div>
               </div>
             </div>

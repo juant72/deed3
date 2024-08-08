@@ -2,12 +2,12 @@ import React from "react";
 
 const PrivacyTwo = () => {
   return (
-    <div class="rn-privacy-policy-area rn-section-gapTop">
-      <div class="container">
-        <div class="row mb_dec--50">
-          <div class="offset-lg-2 col-lg-8 ">
-            <div class="privacy-wrapper">
-              <h4>Welcome to Nuron Privacy Policy</h4>
+    <div className="rn-privacy-policy-area rn-section-gapTop">
+      <div className="container">
+        <div className="row mb_dec--50">
+          <div className="offset-lg-2 col-lg-8 ">
+            <div className="privacy-wrapper">
+              <h4>Welcome to Encrypia Privacy Policy</h4>
               <ol>
                 <li>
                   Where Bitcoin was hailed as the digital answer to currency,
@@ -121,12 +121,12 @@ const PrivacyTwo = () => {
             </div>
           </div>
         </div>
-        <div class="row mt--50">
-          <div class="offset-lg-2 col-lg-8">
-            <a href="#" class="btn btn-primary mr--15 ml--25">
+        <div className="row mt--50">
+          <div className="offset-lg-2 col-lg-8">
+            <a href="#" className="btn btn-primary mr--15 ml--25">
               Accept
             </a>
-            <a href="#" class="btn btn-primary-alta">
+            <a href="#" className="btn btn-primary-alta">
               Decline
             </a>
           </div>

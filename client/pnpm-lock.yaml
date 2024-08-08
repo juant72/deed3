@@ -39,7 +39,7 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1(csstype@3.1.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       web3modal:
-        specifier: ^1.9.5
+        specifier: ^1.9.7
         version: 1.9.12(@babel/core@7.25.2)(react-is@16.13.1)
     devDependencies:
       eslint:
@@ -2439,14 +2439,14 @@ snapshots:
     dependencies:
       deep-equal: 2.2.3
 
-  babel-plugin-styled-components@2.1.4(@babel/core@7.25.2)(styled-components@5.3.11(@babel/core@7.25.2)(react-dom@16.14.0(react@16.14.0))(react-is@16.13.1)(react@16.14.0))(supports-color@5.5.0):
+  babel-plugin-styled-components@2.1.4(@babel/core@7.25.2)(styled-components@5.3.11(@babel/core@7.25.2)(react-dom@18.2.0(react@18.2.0))(react-is@16.13.1)(react@18.2.0))(supports-color@5.5.0):
     dependencies:
       '@babel/helper-annotate-as-pure': 7.24.7
       '@babel/helper-module-imports': 7.24.7(supports-color@5.5.0)
       '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.25.2)
       lodash: 4.17.21
       picomatch: 2.3.1
-      styled-components: 5.3.11(@babel/core@7.25.2)(react-dom@18.2.0(react@18.2.0))(react-is@16.13.1)(react@18.2.0)
+      styled-components: 5.3.11(@babel/core@7.25.2)(react-dom@16.14.0(react@16.14.0))(react-is@16.13.1)(react@16.14.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3753,18 +3753,18 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  styled-components@5.3.11(@babel/core@7.25.2)(react-dom@18.2.0(react@18.2.0))(react-is@16.13.1)(react@18.2.0):
+  styled-components@5.3.11(@babel/core@7.25.2)(react-dom@16.14.0(react@16.14.0))(react-is@16.13.1)(react@16.14.0):
     dependencies:
       '@babel/helper-module-imports': 7.24.7(supports-color@5.5.0)
       '@babel/traverse': 7.25.2(supports-color@5.5.0)
       '@emotion/is-prop-valid': 1.3.0
       '@emotion/stylis': 0.8.5
       '@emotion/unitless': 0.7.5
-      babel-plugin-styled-components: 2.1.4(@babel/core@7.25.2)(styled-components@5.3.11(@babel/core@7.25.2)(react-dom@16.14.0(react@16.14.0))(react-is@16.13.1)(react@16.14.0))(supports-color@5.5.0)
+      babel-plugin-styled-components: 2.1.4(@babel/core@7.25.2)(styled-components@5.3.11(@babel/core@7.25.2)(react-dom@18.2.0(react@18.2.0))(react-is@16.13.1)(react@18.2.0))(supports-color@5.5.0)
       css-to-react-native: 3.2.0
       hoist-non-react-statics: 3.3.2
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 16.14.0
+      react-dom: 16.14.0(react@16.14.0)
       react-is: 16.13.1
       shallowequal: 1.1.0
       supports-color: 5.5.0
@@ -3879,7 +3879,7 @@ snapshots:
       prop-types: 15.8.1
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
-      styled-components: 5.3.11(@babel/core@7.25.2)(react-dom@18.2.0(react@18.2.0))(react-is@16.13.1)(react@18.2.0)
+      styled-components: 5.3.11(@babel/core@7.25.2)(react-dom@16.14.0(react@16.14.0))(react-is@16.13.1)(react@16.14.0)
       tslib: 1.14.1
     transitivePeerDependencies:
       - '@babel/core'

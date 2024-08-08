@@ -2,17 +2,17 @@ import React from "react";
 
 const RankingTwo = () => {
   return (
-    <div class="rn-upcoming-area rn-section-gap">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="table-title-area d-flex">
+    <div className="rn-upcoming-area rn-section-gap">
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="table-title-area d-flex">
               {/* <i data-feather="briefcase"></i> */}
-              <h3>The top NFTs on Nuron</h3>
+              <h3>The top NFTs on Deeds3</h3>
             </div>
 
-            <div class="box-table table-responsive">
-              <table class="table upcoming-projects">
+            <div className="box-table table-responsive">
+              <table className="table upcoming-projects">
                 <thead>
                   <tr>
                     <th>
@@ -41,14 +41,14 @@ const RankingTwo = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody class="ranking">
-                  <tr class="color-light">
+                <tbody className="ranking">
+                  <tr className="color-light">
                     <td>
                       <span>1.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-05.jpg"
                             alt="Nft_Profile"
@@ -61,10 +61,10 @@ const RankingTwo = () => {
                       <span>7,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -81,8 +81,8 @@ const RankingTwo = () => {
                       <span>2.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-06.jpg"
                             alt="Nft_Profile"
@@ -95,10 +95,10 @@ const RankingTwo = () => {
                       <span>20,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-62.21%</span>
+                      <span className="color-danger">-62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -110,13 +110,13 @@ const RankingTwo = () => {
                       <span>30k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>3.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-07.jpg"
                             alt="Nft_Profile"
@@ -129,10 +129,10 @@ const RankingTwo = () => {
                       <span>11,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+560.63%</span>
+                      <span className="color-green">+560.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -149,8 +149,8 @@ const RankingTwo = () => {
                       <span>4.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-08.jpg"
                             alt="Nft_Profile"
@@ -163,10 +163,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -178,13 +178,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>5.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-01.jpg"
                             alt="Nft_Profile"
@@ -197,10 +197,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -217,8 +217,8 @@ const RankingTwo = () => {
                       <span>6.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-02.jpg"
                             alt="Nft_Profile"
@@ -231,10 +231,10 @@ const RankingTwo = () => {
                       <span>20,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-62.21%</span>
+                      <span className="color-danger">-62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -246,13 +246,13 @@ const RankingTwo = () => {
                       <span>30k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>7.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-03.jpg"
                             alt="Nft_Profile"
@@ -265,10 +265,10 @@ const RankingTwo = () => {
                       <span>11,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+560.63%</span>
+                      <span className="color-green">+560.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -285,8 +285,8 @@ const RankingTwo = () => {
                       <span>8.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-04.jpg"
                             alt="Nft_Profile"
@@ -299,10 +299,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -314,13 +314,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>9.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-05.jpg"
                             alt="Nft_Profile"
@@ -333,10 +333,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -353,8 +353,8 @@ const RankingTwo = () => {
                       <span>10.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-06.jpg"
                             alt="Nft_Profile"
@@ -367,10 +367,10 @@ const RankingTwo = () => {
                       <span>20,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-62.21%</span>
+                      <span className="color-danger">-62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -382,13 +382,13 @@ const RankingTwo = () => {
                       <span>30k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>11.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-07.jpg"
                             alt="Nft_Profile"
@@ -401,10 +401,10 @@ const RankingTwo = () => {
                       <span>11,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+560.63%</span>
+                      <span className="color-green">+560.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -421,8 +421,8 @@ const RankingTwo = () => {
                       <span>12.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-08.jpg"
                             alt="Nft_Profile"
@@ -435,10 +435,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -450,13 +450,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>13.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-01.jpg"
                             alt="Nft_Profile"
@@ -469,10 +469,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -489,8 +489,8 @@ const RankingTwo = () => {
                       <span>14.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-02.jpg"
                             alt="Nft_Profile"
@@ -503,10 +503,10 @@ const RankingTwo = () => {
                       <span>20,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-62.21%</span>
+                      <span className="color-danger">-62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -518,13 +518,13 @@ const RankingTwo = () => {
                       <span>30k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>15.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-03.jpg"
                             alt="Nft_Profile"
@@ -537,10 +537,10 @@ const RankingTwo = () => {
                       <span>11,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+560.63%</span>
+                      <span className="color-green">+560.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -557,8 +557,8 @@ const RankingTwo = () => {
                       <span>16.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-04.jpg"
                             alt="Nft_Profile"
@@ -571,10 +571,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -586,13 +586,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>17.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-05.jpg"
                             alt="Nft_Profile"
@@ -605,10 +605,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -625,8 +625,8 @@ const RankingTwo = () => {
                       <span>18.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-08.jpg"
                             alt="Nft_Profile"
@@ -639,10 +639,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -654,13 +654,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>19.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-01.jpg"
                             alt="Nft_Profile"
@@ -673,10 +673,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -693,8 +693,8 @@ const RankingTwo = () => {
                       <span>20.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-02.jpg"
                             alt="Nft_Profile"
@@ -707,10 +707,10 @@ const RankingTwo = () => {
                       <span>20,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-62.21%</span>
+                      <span className="color-danger">-62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -722,13 +722,13 @@ const RankingTwo = () => {
                       <span>30k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>21.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-03.jpg"
                             alt="Nft_Profile"
@@ -741,10 +741,10 @@ const RankingTwo = () => {
                       <span>11,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+560.63%</span>
+                      <span className="color-green">+560.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -761,8 +761,8 @@ const RankingTwo = () => {
                       <span>22.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-04.jpg"
                             alt="Nft_Profile"
@@ -775,10 +775,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -790,13 +790,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>23.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-05.jpg"
                             alt="Nft_Profile"
@@ -809,10 +809,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -829,8 +829,8 @@ const RankingTwo = () => {
                       <span>24.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-06.jpg"
                             alt="Nft_Profile"
@@ -843,10 +843,10 @@ const RankingTwo = () => {
                       <span>20,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-62.21%</span>
+                      <span className="color-danger">-62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -858,13 +858,13 @@ const RankingTwo = () => {
                       <span>30k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>25.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-07.jpg"
                             alt="Nft_Profile"
@@ -877,10 +877,10 @@ const RankingTwo = () => {
                       <span>11,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+560.63%</span>
+                      <span className="color-green">+560.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -897,8 +897,8 @@ const RankingTwo = () => {
                       <span>26.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-08.jpg"
                             alt="Nft_Profile"
@@ -911,10 +911,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -926,13 +926,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>27.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-01.jpg"
                             alt="Nft_Profile"
@@ -945,10 +945,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -965,8 +965,8 @@ const RankingTwo = () => {
                       <span>28.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-02.jpg"
                             alt="Nft_Profile"
@@ -979,10 +979,10 @@ const RankingTwo = () => {
                       <span>20,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-62.21%</span>
+                      <span className="color-danger">-62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -994,13 +994,13 @@ const RankingTwo = () => {
                       <span>30k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>29.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-03.jpg"
                             alt="Nft_Profile"
@@ -1013,10 +1013,10 @@ const RankingTwo = () => {
                       <span>11,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+560.63%</span>
+                      <span className="color-green">+560.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -1033,8 +1033,8 @@ const RankingTwo = () => {
                       <span>30.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-04.jpg"
                             alt="Nft_Profile"
@@ -1047,10 +1047,10 @@ const RankingTwo = () => {
                       <span>10,50,000</span>
                     </td>
                     <td>
-                      <span class="color-green">+310.63%</span>
+                      <span className="color-green">+310.63%</span>
                     </td>
                     <td>
-                      <span class="color-danger">-22.21%</span>
+                      <span className="color-danger">-22.21%</span>
                     </td>
                     <td>
                       <span>33.02</span>
@@ -1062,13 +1062,13 @@ const RankingTwo = () => {
                       <span>100k</span>
                     </td>
                   </tr>
-                  <tr class="color-light">
+                  <tr className="color-light">
                     <td>
                       <span>31.</span>
                     </td>
                     <td>
-                      <div class="product-wrapper d-flex align-items-center">
-                        <a href="product-details.html" class="thumbnail">
+                      <div className="product-wrapper d-flex align-items-center">
+                        <a href="product-details.html" className="thumbnail">
                           <img
                             src="/portfolio/portfolio-05.jpg"
                             alt="Nft_Profile"
@@ -1081,10 +1081,10 @@ const RankingTwo = () => {
                       <span>9,50,000</span>
                     </td>
                     <td>
-                      <span class="color-danger">-310.63%</span>
+                      <span className="color-danger">-310.63%</span>
                     </td>
                     <td>
-                      <span class="color-green">+62.21%</span>
+                      <span className="color-green">+62.21%</span>
                     </td>
                     <td>
                       <span>300.02</span>
@@ -1100,40 +1100,40 @@ const RankingTwo = () => {
               </table>
             </div>
 
-            <div class="row">
+            <div className="row">
               <div
-                class="col-lg-12"
+                className="col-lg-12"
                 data-sal="slide-up"
                 data-sal-delay="550"
                 data-sal-duration="800"
               >
                 <nav
-                  class="pagination-wrapper"
+                  className="pagination-wrapper"
                   aria-label="Page navigation example"
                 >
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                  <ul className="pagination">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         Previous
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link active" href="#">
+                    <li className="page-item">
+                      <a className="page-link active" href="#">
                         1
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         2
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         3
                       </a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
+                    <li className="page-item">
+                      <a className="page-link" href="#">
                         Next
                       </a>
                     </li>

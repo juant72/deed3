@@ -7,29 +7,29 @@ const DetailEight = ({
 }) => {
   return (
     <div
-      class="rn-popup-modal placebid-modal-wrapper modal fade"
+      className="rn-popup-modal placebid-modal-wrapper modal fade"
       id="placebidModal"
       tabindex="-1"
       aria-hidden="true"
     >
       <button
         type="button"
-        class="btn-close"
+        className="btn-close"
         data-bs-dismiss="modal"
         aria-label="Close"
       ></button>
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">Give Review</h3>
+      <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h3 className="modal-title">Give Review</h3>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <p>Kindly Provide your review for a better user Experience</p>
-            <div class="placebid-form-box">
-              <h5 class="title">Your Comment</h5>
-              <div class="bid-content">
-                <div class="bid-content-top">
-                  <div class="bid-content-left">
+            <div className="placebid-form-box">
+              <h5 className="title">Your Comment</h5>
+              <div className="bid-content">
+                <div className="bid-content-top">
+                  <div className="bid-content-left">
                     <textarea
                       name=""
                       id=""
@@ -40,23 +40,23 @@ const DetailEight = ({
                   </div>
                 </div>
 
-                <div class="bid-content-mid">
+                <div className="bid-content-mid">
                   <span>
                     Your feed back will help user of the property to provide
                     better service
                   </span>
                 </div>
               </div>
-              <div class="bit-continue-button">
+              <div className="bit-continue-button">
                 <button
                   onClick={() => createReview()}
-                  class="btn btn-primary w-100"
+                  className="btn btn-primary w-100"
                 >
                   {commentLoading ? <Loader /> : "Add Review"}
                 </button>
                 <button
                   type="button"
-                  class="btn btn-primary-alta mt--10"
+                  className="btn btn-primary-alta mt--10"
                   data-bs-dismiss="modal"
                 >
                   Cancel

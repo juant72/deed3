@@ -2,25 +2,25 @@ import React from "react";
 
 const BlogDetailTwo = () => {
   return (
-    <div class="rn-blog-area rn-blog-details-default rn-section-gapTop">
-      <div class="container">
-        <div class="row g-6">
-          <div class="col-xl-8 col-lg-8">
-            <div class="rn-blog-listen">
-              <div class="blog-content-top">
-                <h2 class="title">Digital Marketo to Their New Office.</h2>
-                <span class="date">2 Aug, 2022</span>
+    <div className="rn-blog-area rn-blog-details-default rn-section-gapTop">
+      <div className="container">
+        <div className="row g-6">
+          <div className="col-xl-8 col-lg-8">
+            <div className="rn-blog-listen">
+              <div className="blog-content-top">
+                <h2 className="title">Digital Marketo to Their New Office.</h2>
+                <span className="date">2 Aug, 2022</span>
               </div>
-              <div class="bd-thumbnail">
-                <div class="large-img mb--30">
+              <div className="bd-thumbnail">
+                <div className="large-img mb--30">
                   <img
-                    class="w-100"
+                    className="w-100"
                     src="/blog/blog-02.jpg"
                     alt="Blog Images"
                   />
                 </div>
               </div>
-              <div class="news-details">
+              <div className="news-details">
                 <p>
                   Nobis eleifend option congue nihil imperdiet doming id quod
                   mazim placerat facer possim assum. Typi non habent claritatem
@@ -59,75 +59,75 @@ const BlogDetailTwo = () => {
                   vestibulum et.
                 </p>
               </div>
-              <div class="comments-wrapper pt--40">
-                <div class="comments-area">
-                  <div class="trydo-blog-comment">
-                    <h5 class="comment-title mb--40">
+              <div className="comments-wrapper pt--40">
+                <div className="comments-area">
+                  <div className="trydo-blog-comment">
+                    <h5 className="comment-title mb--40">
                       9 replies on “Have You Heard? Agency Is Your Best Bet To
                       Grow”
                     </h5>
 
-                    <ul class="comment-list">
-                      <li class="comment parent">
-                        <div class="single-comment">
-                          <div class="comment-author comment-img">
+                    <ul className="comment-list">
+                      <li className="comment parent">
+                        <div className="single-comment">
+                          <div className="comment-author comment-img">
                             <img
-                              class="comment-avatar"
+                              className="comment-avatar"
                               src="/blog/blog-02.jpg"
                               alt="Comment Image"
                             />
-                            <div class="m-b-20">
-                              <div class="commenter">Parent</div>
-                              <div class="time-spent">
+                            <div className="m-b-20">
+                              <div className="commenter">Parent</div>
+                              <div className="time-spent">
                                 {" "}
                                 August 20, at 8:44 pm
                               </div>
                             </div>
                           </div>
-                          <div class="comment-text">
+                          <div className="comment-text">
                             <p>
                               A component that allows for easy creation of menu
                               items, quickly creating paragraphs of “Lorem
                               Ipsum” and pictures with custom sizes.
                             </p>
                           </div>
-                          <div class="reply-edit">
-                            <div class="reply">
-                              <a class="comment-reply-link" href="#">
-                                <i class="rbt feather-corner-down-right"></i>
+                          <div className="reply-edit">
+                            <div className="reply">
+                              <a className="comment-reply-link" href="#">
+                                <i className="rbt feather-corner-down-right"></i>
                                 Reply
                               </a>
                             </div>
                           </div>
                         </div>
-                        <ul class="children">
-                          <li class="comment byuser ">
-                            <div class="single-comment">
-                              <div class="comment-author comment-img">
+                        <ul className="children">
+                          <li className="comment byuser ">
+                            <div className="single-comment">
+                              <div className="comment-author comment-img">
                                 <img
-                                  class="comment-avatar"
+                                  className="comment-avatar"
                                   src="/blog/blog-02.jpg"
                                   alt="Comment Image"
                                 />
-                                <div class="m-b-20">
-                                  <div class="commenter">Admin Comment</div>
-                                  <div class="time-spent">
+                                <div className="m-b-20">
+                                  <div className="commenter">Admin Comment</div>
+                                  <div className="time-spent">
                                     {" "}
                                     August 20, at 8:44 pm
                                   </div>
                                 </div>
                               </div>
-                              <div class="comment-text">
+                              <div className="comment-text">
                                 <p>
                                   A component that allows for easy creation of
                                   menu items, quickly creating paragraphs of
                                   “Lorem Ipsum” and pictures with custom sizes.
                                 </p>
                               </div>
-                              <div class="reply-edit">
-                                <div class="reply">
-                                  <a class="comment-reply-link" href="#">
-                                    <i class="rbt feather-corner-down-right"></i>
+                              <div className="reply-edit">
+                                <div className="reply">
+                                  <a className="comment-reply-link" href="#">
+                                    <i className="rbt feather-corner-down-right"></i>
                                     Reply
                                   </a>
                                 </div>
@@ -137,93 +137,93 @@ const BlogDetailTwo = () => {
                         </ul>
                       </li>
 
-                      <li class="comment parent">
-                        <div class="single-comment">
-                          <div class="comment-author comment-img">
+                      <li className="comment parent">
+                        <div className="single-comment">
+                          <div className="comment-author comment-img">
                             <img
-                              class="comment-avatar"
+                              className="comment-avatar"
                               src="/blog/blog-02.jpg"
                               alt="Comment Image"
                             />
-                            <div class="m-b-20">
-                              <div class="commenter">Craig E. Judge</div>
-                              <div class="time-spent">
+                            <div className="m-b-20">
+                              <div className="commenter">Craig E. Judge</div>
+                              <div className="time-spent">
                                 {" "}
                                 August 20, at 8:44 pm
                               </div>
                             </div>
                           </div>
-                          <div class="comment-text">
+                          <div className="comment-text">
                             <p>
                               A component that allows for easy creation of menu
                               items, quickly creating paragraphs of “Lorem
                               Ipsum” and pictures with custom sizes.
                             </p>
                           </div>
-                          <div class="reply-edit">
-                            <div class="reply">
-                              <a class="comment-reply-link" href="#">
-                                <i class="rbt feather-corner-down-right"></i>
+                          <div className="reply-edit">
+                            <div className="reply">
+                              <a className="comment-reply-link" href="#">
+                                <i className="rbt feather-corner-down-right"></i>
                                 Reply
                               </a>
                             </div>
                           </div>
                         </div>
-                        <ul class="children">
-                          <li class="comment">
-                            <div class="single-comment">
-                              <div class="comment-author comment-img">
+                        <ul className="children">
+                          <li className="comment">
+                            <div className="single-comment">
+                              <div className="comment-author comment-img">
                                 <img
-                                  class="comment-avatar"
+                                  className="comment-avatar"
                                   src="/blog/blog-02.jpg"
                                   alt="Comment Image"
                                 />
-                                <div class="m-b-20">
-                                  <div class="commenter">
+                                <div className="m-b-20">
+                                  <div className="commenter">
                                     <a href="#">Child Comment</a>
                                   </div>
-                                  <div class="time-spent">
+                                  <div className="time-spent">
                                     {" "}
                                     August 20, at 8:44 pm
                                   </div>
                                 </div>
                               </div>
-                              <div class="comment-text">
+                              <div className="comment-text">
                                 <p>
                                   A component that allows for easy creation of
                                   menu items, quickly creating paragraphs of
                                   “Lorem Ipsum” and pictures with custom sizes.
                                 </p>
                               </div>
-                              <div class="reply-edit">
-                                <div class="reply">
-                                  <a class="comment-reply-link" href="#">
-                                    <i class="rbt feather-corner-down-right"></i>
+                              <div className="reply-edit">
+                                <div className="reply">
+                                  <a className="comment-reply-link" href="#">
+                                    <i className="rbt feather-corner-down-right"></i>
                                     Reply
                                   </a>
                                 </div>
                               </div>
                             </div>
-                            <ul class="children">
-                              <li class="comment">
-                                <div class="single-comment">
-                                  <div class="comment-author comment-img">
+                            <ul className="children">
+                              <li className="comment">
+                                <div className="single-comment">
+                                  <div className="comment-author comment-img">
                                     <img
-                                      class="comment-avatar"
+                                      className="comment-avatar"
                                       src="/blog/blog-02.jpg"
                                       alt="Comment Image"
                                     />
-                                    <div class="m-b-20">
-                                      <div class="commenter">
+                                    <div className="m-b-20">
+                                      <div className="commenter">
                                         <a href="#">Child Comment</a>
                                       </div>
-                                      <div class="time-spent">
+                                      <div className="time-spent">
                                         {" "}
                                         August 20, at 8:44 pm
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="comment-text">
+                                  <div className="comment-text">
                                     <p>
                                       A component that allows for easy creation
                                       of menu items, quickly creating paragraphs
@@ -231,10 +231,10 @@ const BlogDetailTwo = () => {
                                       sizes.
                                     </p>
                                   </div>
-                                  <div class="reply-edit">
-                                    <div class="reply">
-                                      <a class="comment-reply-link" href="#">
-                                        <i class="rbt feather-corner-down-right"></i>
+                                  <div className="reply-edit">
+                                    <div className="reply">
+                                      <a className="comment-reply-link" href="#">
+                                        <i className="rbt feather-corner-down-right"></i>
                                         Reply
                                       </a>
                                     </div>
@@ -250,34 +250,34 @@ const BlogDetailTwo = () => {
                 </div>
               </div>
 
-              <div class="rn-comment-form pt--60">
-                <div class="inner">
-                  <div class="section-title">
-                    <span class="subtitle">Have a Comment?</span>
-                    <h2 class="title">Leave a Reply</h2>
+              <div className="rn-comment-form pt--60">
+                <div className="inner">
+                  <div className="section-title">
+                    <span className="subtitle">Have a Comment?</span>
+                    <h2 className="title">Leave a Reply</h2>
                   </div>
-                  <form class="mt--40" action="#">
-                    <div class="row">
-                      <div class="col-lg-6 col-md-12 col-12">
-                        <div class="rnform-group">
+                  <form className="mt--40" action="#">
+                    <div className="row">
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <div className="rnform-group">
                           <input type="text" placeholder="Name" />
                         </div>
-                        <div class="rnform-group">
+                        <div className="rnform-group">
                           <input type="email" placeholder="Email" />
                         </div>
-                        <div class="rnform-group">
+                        <div className="rnform-group">
                           <input type="text" placeholder="Website" />
                         </div>
                       </div>
-                      <div class="col-lg-6 col-md-12 col-12">
-                        <div class="rnform-group">
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <div className="rnform-group">
                           <textarea placeholder="Comment"></textarea>
                         </div>
                       </div>
-                      <div class="col-lg-12">
-                        <div class="blog-btn">
+                      <div className="col-lg-12">
+                        <div className="blog-btn">
                           <a
-                            class="btn btn-primary-alta btn-large w-100"
+                            className="btn btn-primary-alta btn-large w-100"
                             href="#"
                           >
                             <span>SEND MESSAGE</span>
@@ -289,19 +289,19 @@ const BlogDetailTwo = () => {
                 </div>
               </div>
 
-              <div class="row g-5 pt--60">
-                <div class="col-lg-12">
-                  <h3 class="title">Related Post</h3>
+              <div className="row g-5 pt--60">
+                <div className="col-lg-12">
+                  <h3 className="title">Related Post</h3>
                 </div>
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                <div className="col-xl-4 col-lg-6 col-md-6 col-12">
                   <div
-                    class="rn-blog"
+                    className="rn-blog"
                     data-toggle="modal"
                     data-target="#exampleModalCenters"
                   >
-                    <div class="inner">
-                      <div class="thumbnail">
+                    <div className="inner">
+                      <div className="thumbnail">
                         <a href="blog-details.html">
                           <img
                             src="/blog/blog-02.jpg"
@@ -309,21 +309,21 @@ const BlogDetailTwo = () => {
                           />
                         </a>
                       </div>
-                      <div class="content">
-                        <div class="category-info">
-                          <div class="category-list">
+                      <div className="content">
+                        <div className="category-info">
+                          <div className="category-list">
                             <a href="blog-details.html">Development</a>
                           </div>
-                          <div class="meta">
+                          <div className="meta">
                             <span>
-                              <i class="feather-clock"></i> 2 hour read
+                              <i className="feather-clock"></i> 2 hour read
                             </span>
                           </div>
                         </div>
-                        <h4 class="title">
+                        <h4 className="title">
                           <a href="blog-details.html">
                             The services provide for design{" "}
-                            <i class="feather-arrow-up-right"></i>
+                            <i className="feather-arrow-up-right"></i>
                           </a>
                         </h4>
                       </div>
@@ -331,14 +331,14 @@ const BlogDetailTwo = () => {
                   </div>
                 </div>
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                <div className="col-xl-4 col-lg-6 col-md-6 col-12">
                   <div
-                    class="rn-blog"
+                    className="rn-blog"
                     data-toggle="modal"
                     data-target="#exampleModalCenters"
                   >
-                    <div class="inner">
-                      <div class="thumbnail">
+                    <div className="inner">
+                      <div className="thumbnail">
                         <a href="blog-details.html">
                           <img
                             src="/blog/blog-03.jpg"
@@ -346,21 +346,21 @@ const BlogDetailTwo = () => {
                           />
                         </a>
                       </div>
-                      <div class="content">
-                        <div class="category-info">
-                          <div class="category-list">
+                      <div className="content">
+                        <div className="category-info">
+                          <div className="category-list">
                             <a href="blog-details.html">Design</a>
                           </div>
-                          <div class="meta">
+                          <div className="meta">
                             <span>
-                              <i class="feather-clock"></i> 5 min read
+                              <i className="feather-clock"></i> 5 min read
                             </span>
                           </div>
                         </div>
-                        <h4 class="title">
+                        <h4 className="title">
                           <a href="blog-details.html">
                             More important feature for designer
-                            <i class="feather-arrow-up-right"></i>
+                            <i className="feather-arrow-up-right"></i>
                           </a>
                         </h4>
                       </div>
@@ -368,14 +368,14 @@ const BlogDetailTwo = () => {
                   </div>
                 </div>
 
-                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                <div className="col-xl-4 col-lg-6 col-md-6 col-12">
                   <div
-                    class="rn-blog"
+                    className="rn-blog"
                     data-toggle="modal"
                     data-target="#exampleModalCenters"
                   >
-                    <div class="inner">
-                      <div class="thumbnail">
+                    <div className="inner">
+                      <div className="thumbnail">
                         <a href="blog-details.html">
                           <img
                             src="/blog/blog-04.jpg"
@@ -383,21 +383,21 @@ const BlogDetailTwo = () => {
                           />
                         </a>
                       </div>
-                      <div class="content">
-                        <div class="category-info">
-                          <div class="category-list">
+                      <div className="content">
+                        <div className="category-info">
+                          <div className="category-list">
                             <a href="blog-details.html">Marketing</a>
                           </div>
-                          <div class="meta">
+                          <div className="meta">
                             <span>
-                              <i class="feather-clock"></i> 10 min read
+                              <i className="feather-clock"></i> 10 min read
                             </span>
                           </div>
                         </div>
-                        <h4 class="title">
+                        <h4 className="title">
                           <a href="blog-details.html">
                             Inavalide purpose classes & motivation.
-                            <i class="feather-arrow-up-right"></i>
+                            <i className="feather-arrow-up-right"></i>
                           </a>
                         </h4>
                       </div>
@@ -408,100 +408,100 @@ const BlogDetailTwo = () => {
             </div>
           </div>
 
-          <div class="col-xl-4 col-lg-4 mt_md--40 mt_sm--40">
-            <aside class="rwt-sidebar">
-              <div class="rbt-single-widget widget_categories">
-                <h3 class="title">Categories</h3>
-                <div class="inner">
-                  <ul class="category-list ">
+          <div className="col-xl-4 col-lg-4 mt_md--40 mt_sm--40">
+            <aside className="rwt-sidebar">
+              <div className="rbt-single-widget widget_categories">
+                <h3 className="title">Categories</h3>
+                <div className="inner">
+                  <ul className="category-list ">
                     <li>
                       <a href="#">
-                        <span class="left-content">Cripto Currency</span>
-                        <span class="count-text">300</span>
+                        <span className="left-content">Cripto Currency</span>
+                        <span className="count-text">300</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="left-content">Bit Coin</span>
-                        <span class="count-text">275</span>
+                        <span className="left-content">Bit Coin</span>
+                        <span className="count-text">275</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="left-content">Digital Art</span>
-                        <span class="count-text">625</span>
+                        <span className="left-content">Digital Art</span>
+                        <span className="count-text">625</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="left-content">UX Design</span>
-                        <span class="count-text">556</span>
+                        <span className="left-content">UX Design</span>
+                        <span className="count-text">556</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="left-content">Business</span>
-                        <span class="count-text">247</span>
+                        <span className="left-content">Business</span>
+                        <span className="count-text">247</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="left-content">App Cripto Currency</span>
-                        <span class="count-text">457</span>
+                        <span className="left-content">App Cripto Currency</span>
+                        <span className="count-text">457</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="left-content">Application</span>
-                        <span class="count-text">423</span>
+                        <span className="left-content">Application</span>
+                        <span className="count-text">423</span>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="left-content">Art</span>
-                        <span class="count-text">235</span>
+                        <span className="left-content">Art</span>
+                        <span className="count-text">235</span>
                       </a>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div class="rbt-single-widget widget_recent_entries mt--40">
-                <h3 class="title">Recent Posts</h3>
-                <div class="inner">
+              <div className="rbt-single-widget widget_recent_entries mt--40">
+                <h3 className="title">Recent Posts</h3>
+                <div className="inner">
                   <ul>
                     <li>
-                      <a class="d-block" href="#">
+                      <a className="d-block" href="#">
                         Best Corporate Tips You Will Read This Year.
                       </a>
-                      <span class="cate">Development</span>
+                      <span className="cate">Development</span>
                     </li>
                     <li>
-                      <a class="d-block" href="#">
+                      <a className="d-block" href="#">
                         Should Fixing Corporate Take 100 Steps.
                       </a>
-                      <span class="cate">UX Design</span>
+                      <span className="cate">UX Design</span>
                     </li>
                     <li>
-                      <a class="d-block" href="#">
+                      <a className="d-block" href="#">
                         The Next 100 Things To Immediately Do About.
                       </a>
-                      <span class="cate">Development</span>
+                      <span className="cate">Development</span>
                     </li>
                     <li>
-                      <a class="d-block" href="#">
+                      <a className="d-block" href="#">
                         Top 5 Lessons About Corporate To Learn Before.
                       </a>
-                      <span class="cate">Marketing</span>
+                      <span className="cate">Marketing</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div class="rbt-single-widget widget_tag_cloud mt--40">
-                <h3 class="title">Tags</h3>
-                <div class="inner mt--20">
-                  <div class="tagcloud">
+              <div className="rbt-single-widget widget_tag_cloud mt--40">
+                <h3 className="title">Tags</h3>
+                <div className="inner mt--20">
+                  <div className="tagcloud">
                     <a href="#">Digital Art</a>
                     <a href="#">Crypto</a>
                     <a href="#">NFT</a>

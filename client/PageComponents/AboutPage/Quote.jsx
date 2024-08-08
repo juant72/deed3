@@ -2,13 +2,13 @@ import React from "react";
 
 const Quote = () => {
   return (
-    <div class="rn-about-Quote-area rn-section-gapTop">
-      <div class="container">
-        <div class="row g-5 d-flex align-items-center">
-          <div class="col-lg-6">
-            <div class="rn-about-title-wrapper">
+    <div className="rn-about-Quote-area rn-section-gapTop">
+      <div className="container">
+        <div className="row g-5 d-flex align-items-center">
+          <div className="col-lg-6">
+            <div className="rn-about-title-wrapper">
               <h3
-                class="title"
+                className="title"
                 data-sal="slide-up"
                 data-sal-duration="800"
                 data-sal-delay="150"
@@ -18,9 +18,9 @@ const Quote = () => {
               </h3>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <div
-              class="rn-about-wrapper"
+              className="rn-about-wrapper"
               data-sal="slide-up"
               data-sal-duration="800"
               data-sal-delay="150"

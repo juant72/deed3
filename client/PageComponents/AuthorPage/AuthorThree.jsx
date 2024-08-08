@@ -4,15 +4,15 @@ import { Loader } from "../Components";
 
 const AuthorThree = ({ properties, author }) => {
   return (
-    <div class="rn-authore-profile-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="tab-wrapper-one">
-              <nav class="tab-button-one">
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <div className="rn-authore-profile-area">
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="tab-wrapper-one">
+              <nav className="tab-button-one">
+                <div className="nav nav-tabs" id="nav-tab" role="tablist">
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="nav-home-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#nav-home"
@@ -24,7 +24,7 @@ const AuthorThree = ({ properties, author }) => {
                     All Properties
                   </button>
                   <button
-                    class="nav-link active"
+                    className="nav-link active"
                     id="nav-profile-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#nav-profile"
@@ -36,7 +36,7 @@ const AuthorThree = ({ properties, author }) => {
                     Owned
                   </button>
                   {/* <button
-                    class="nav-link"
+                    className="nav-link"
                     id="nav-contact-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#nav-contact"
@@ -48,7 +48,7 @@ const AuthorThree = ({ properties, author }) => {
                     Created
                   </button>
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="nav-liked-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#nav-liked"
@@ -65,9 +65,9 @@ const AuthorThree = ({ properties, author }) => {
           </div>
         </div>
 
-        <div class="tab-content rn-bid-content" id="nav-tabContent">
+        <div className="tab-content rn-bid-content" id="nav-tabContent">
           <div
-            class="tab-pane row g-5 d-flex fade"
+            className="tab-pane row g-5 d-flex fade"
             id="nav-home"
             role="tabpanel"
             aria-labelledby="nav-home-tab"
@@ -77,18 +77,18 @@ const AuthorThree = ({ properties, author }) => {
             ) : (
               <>
                 {properties?.map((property, i) => (
-                  <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="product-style-one no-overlay with-placeBid">
-                      <div class="card-thumbnail">
+                  <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div className="product-style-one no-overlay with-placeBid">
+                      <div className="card-thumbnail">
                         <Link href={`/detail?property=${property.productID}`}>
                           <img src={property.image} alt="NFT_portfolio" />
                         </Link>
                       </div>
-                      <div class="product-share-wrapper">
-                        <div class="profile-share">
+                      <div className="product-share-wrapper">
+                        <div className="profile-share">
                           {property.reviewers.map((el, i) => (
                             <a
-                              class="avatar"
+                              className="avatar"
                               data-tooltip={`${el.slice(0, 15)}..`}
                             >
                               <img
@@ -98,31 +98,31 @@ const AuthorThree = ({ properties, author }) => {
                             </a>
                           ))}
                           {property.reviewers.length !== 0 && (
-                            <a class="more-author-text" href="#">
+                            <a className="more-author-text" href="#">
                               Interested Users
                             </a>
                           )}
                         </div>
                       </div>
                       <a href="#">
-                        <span class="product-name">
+                        <span className="product-name">
                           {property.title.length >= 25
                             ? `${property.title.slice(0, 22)}...`
                             : property.title}
                         </span>
                       </a>
-                      <span class="latest-bid">
+                      <span className="latest-bid">
                         Category: {property.category}
                       </span>
-                      <div class="bid-react-area">
-                        <div class="last-bid">{property.price} MATIC</div>
-                        <div class="react-area">
+                      <div className="bid-react-area">
+                        <div className="last-bid">{property.price} MATIC</div>
+                        <div className="react-area">
                           <svg
                             viewBox="0 0 17 16"
                             fill="none"
                             width="16"
                             height="16"
-                            class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                            className="sc-bdnxRM sc-hKFxyN kBvkOu"
                           >
                             <path
                               d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -130,7 +130,7 @@ const AuthorThree = ({ properties, author }) => {
                               stroke-width="2"
                             ></path>
                           </svg>
-                          <span class="number">
+                          <span className="number">
                             {property.reviewers.length}
                           </span>
                         </div>
@@ -142,7 +142,7 @@ const AuthorThree = ({ properties, author }) => {
             )}
           </div>
           <div
-            class="tab-pane row g-5 d-flex fade show active"
+            className="tab-pane row g-5 d-flex fade show active"
             id="nav-profile"
             role="tabpanel"
             aria-labelledby="nav-profile-tab"
@@ -152,24 +152,24 @@ const AuthorThree = ({ properties, author }) => {
             ) : (
               <>
                 {author?.map((property, i) => (
-                  <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <div class="product-style-one no-overlay with-placeBid">
-                      <div class="card-thumbnail">
+                  <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div className="product-style-one no-overlay with-placeBid">
+                      <div className="card-thumbnail">
                         <a href={`/detail?property=${property.productID}`}>
                           <img src={property.image} alt="NFT_portfolio" />
                         </a>
                         <a
                           href={`/update?property=${property.productID}`}
-                          class="btn btn-primary"
+                          className="btn btn-primary"
                         >
                           Update
                         </a>
                       </div>
-                      <div class="product-share-wrapper">
-                        <div class="profile-share">
+                      <div className="product-share-wrapper">
+                        <div className="profile-share">
                           {property.reviewers.map((el, i) => (
                             <a
-                              class="avatar"
+                              className="avatar"
                               data-tooltip={`${el.slice(0, 15)}..`}
                             >
                               <img
@@ -179,39 +179,39 @@ const AuthorThree = ({ properties, author }) => {
                             </a>
                           ))}
                           {property.reviewers.length !== 0 && (
-                            <a class="more-author-text" href="#">
+                            <a className="more-author-text" href="#">
                               Interested Users
                             </a>
                           )}
                         </div>
                       </div>
                       <a href="#">
-                        <span class="product-name">
+                        <span className="product-name">
                           {property.title.length >= 25
                             ? `${property.title.slice(0, 22)}...`
                             : property.title}
                         </span>
                       </a>
-                      <span class="latest-bid">
+                      <span className="latest-bid">
                         Category: {property.category}
                       </span>
-                      <div class="bid-react-area">
-                        <div class="last-bid">{property.price} MATIC</div>
-                        <div class="react-area">
+                      <div className="bid-react-area">
+                        <div className="last-bid">{property.price} MATIC</div>
+                        <div className="react-area">
                           <svg
                             viewBox="0 0 17 16"
                             fill="none"
                             width="16"
                             height="16"
-                            class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                            className="sc-bdnxRM sc-hKFxyN kBvkOu"
                           >
                             <path
                               d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
                               stroke="currentColor"
-                              stroke-width="2"
+                              strokeWidth="2"
                             ></path>
                           </svg>
-                          <span class="number">
+                          <span className="number">
                             {property.reviewers.length}
                           </span>
                         </div>
@@ -223,46 +223,46 @@ const AuthorThree = ({ properties, author }) => {
             )}
           </div>
           {/* <div
-            class="tab-pane row g-5 d-flex fade"
+            className="tab-pane row g-5 d-flex fade"
             id="nav-contact"
             role="tabpanel"
             aria-labelledby="nav-contact-tab"
           >
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-06.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Sadikur Ali"
                     >
                       <img src="/client/client-2.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Ali">
+                    <a href="author.html" className="avatar" data-tooltip="Ali">
                       <img src="/client/client-3.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sadikur">
+                    <a href="author.html" className="avatar" data-tooltip="Sadikur">
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       9+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -272,7 +272,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -283,10 +283,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -294,7 +294,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -304,18 +304,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">BadBo66</span>
+                  <span className="product-name">BadBo66</span>
                 </a>
-                <span class="latest-bid">Highest bid 6/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.234wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 6/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.234wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -323,47 +323,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-04.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Updane Jack"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Jack">
+                    <a href="author.html" className="avatar" data-tooltip="Jack">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Updane">
+                    <a href="author.html" className="avatar" data-tooltip="Updane">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       10+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -373,7 +373,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -384,10 +384,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -395,7 +395,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -405,18 +405,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Preatent</span>
+                  <span className="product-name">Preatent</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -424,51 +424,51 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-06.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Rabbanin"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Sadik Rabbanin"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sadika">
+                    <a href="author.html" className="avatar" data-tooltip="Sadika">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       10+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -478,7 +478,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -489,10 +489,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -500,7 +500,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -510,18 +510,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">ModaL6</span>
+                  <span className="product-name">ModaL6</span>
                 </a>
-                <span class="latest-bid">Highest bid 2/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.344wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 2/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.344wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -529,47 +529,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-04.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
-                    <a href="author.html" class="avatar" data-tooltip="Saladin">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
+                    <a href="author.html" className="avatar" data-tooltip="Saladin">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="David Saladin"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="David">
+                    <a href="author.html" className="avatar" data-tooltip="David">
                       <img src="/client/client-9.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       21+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -579,7 +579,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -590,10 +590,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -601,7 +601,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -611,18 +611,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Tabs38</span>
+                  <span className="product-name">Tabs38</span>
                 </a>
-                <span class="latest-bid">Highest bid 3/30</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.544wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 3/30</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.544wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -630,47 +630,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">422</span>
+                    <span className="number">422</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-05.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Jope Baiden"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Jope">
+                    <a href="author.html" className="avatar" data-tooltip="Jope">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Baiden">
+                    <a href="author.html" className="avatar" data-tooltip="Baiden">
                       <img src="/client/client-9.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       12+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -680,7 +680,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -691,10 +691,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -702,7 +702,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -712,18 +712,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">TopBad</span>
+                  <span className="product-name">TopBad</span>
                 </a>
-                <span class="latest-bid">Highest bid 6/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 6/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -731,47 +731,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">124</span>
+                    <span className="number">124</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-06.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Tawhid Sabir"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Tawhid">
+                    <a href="author.html" className="avatar" data-tooltip="Tawhid">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sabir">
+                    <a href="author.html" className="avatar" data-tooltip="Sabir">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       5+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -781,7 +781,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -792,10 +792,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -803,7 +803,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -813,18 +813,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">NameStroam</span>
+                  <span className="product-name">NameStroam</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -832,47 +832,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">532</span>
+                    <span className="number">532</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-07.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Total Mars"
                     >
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Total">
+                    <a href="author.html" className="avatar" data-tooltip="Total">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Mars">
+                    <a href="author.html" className="avatar" data-tooltip="Mars">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       9+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -882,7 +882,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -893,10 +893,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -904,7 +904,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -914,18 +914,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Scourd</span>
+                  <span className="product-name">Scourd</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -933,47 +933,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-05.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="David Worner"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Worner">
+                    <a href="author.html" className="avatar" data-tooltip="Worner">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="David">
+                    <a href="author.html" className="avatar" data-tooltip="David">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       16+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -983,7 +983,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -994,10 +994,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1005,7 +1005,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1015,18 +1015,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Resord</span>
+                  <span className="product-name">Resord</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.264wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.264wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1034,47 +1034,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">622</span>
+                    <span className="number">622</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-03.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Sobuj Shaikh"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sobuj">
+                    <a href="author.html" className="avatar" data-tooltip="Sobuj">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Shaikh">
+                    <a href="author.html" className="avatar" data-tooltip="Shaikh">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       22+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1084,7 +1084,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1095,10 +1095,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1106,7 +1106,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1116,18 +1116,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Jackpot</span>
+                  <span className="product-name">Jackpot</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1135,47 +1135,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-03.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="MArk Jone"
                     >
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="MArk">
+                    <a href="author.html" className="avatar" data-tooltip="MArk">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Jone">
+                    <a href="author.html" className="avatar" data-tooltip="Jone">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       13+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1185,7 +1185,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1196,10 +1196,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1207,7 +1207,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1217,18 +1217,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Xtreames</span>
+                  <span className="product-name">Xtreames</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1236,53 +1236,53 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">922</span>
+                    <span className="number">922</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="tab-pane row g-5 d-flex fade"
+            className="tab-pane row g-5 d-flex fade"
             id="nav-liked"
             role="tabpanel"
             aria-labelledby="nav-contact-tab"
           >
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-06.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Tawhid Sabir"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Tawhid">
+                    <a href="author.html" className="avatar" data-tooltip="Tawhid">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sabir">
+                    <a href="author.html" className="avatar" data-tooltip="Sabir">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       5+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1292,7 +1292,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1303,10 +1303,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1314,7 +1314,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1324,18 +1324,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">NameStroam</span>
+                  <span className="product-name">NameStroam</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1343,47 +1343,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">532</span>
+                    <span className="number">532</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-07.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Total Mars"
                     >
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Total">
+                    <a href="author.html" className="avatar" data-tooltip="Total">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Mars">
+                    <a href="author.html" className="avatar" data-tooltip="Mars">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       9+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1393,7 +1393,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1404,10 +1404,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1415,7 +1415,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1425,18 +1425,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Scourd</span>
+                  <span className="product-name">Scourd</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1444,47 +1444,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-05.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="David Worner"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Worner">
+                    <a href="author.html" className="avatar" data-tooltip="Worner">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="David">
+                    <a href="author.html" className="avatar" data-tooltip="David">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       16+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1494,7 +1494,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1505,10 +1505,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1516,7 +1516,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1526,18 +1526,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Resord</span>
+                  <span className="product-name">Resord</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.264wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.264wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1545,47 +1545,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">622</span>
+                    <span className="number">622</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-07.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Sobuj Shaikh"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sobuj">
+                    <a href="author.html" className="avatar" data-tooltip="Sobuj">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Shaikh">
+                    <a href="author.html" className="avatar" data-tooltip="Shaikh">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       22+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1595,7 +1595,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1606,10 +1606,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1617,7 +1617,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1627,18 +1627,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Jackpot</span>
+                  <span className="product-name">Jackpot</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1646,47 +1646,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-08.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="MArk Jone"
                     >
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="MArk">
+                    <a href="author.html" className="avatar" data-tooltip="MArk">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Jone">
+                    <a href="author.html" className="avatar" data-tooltip="Jone">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       13+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1696,7 +1696,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1707,10 +1707,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1718,7 +1718,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1728,18 +1728,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Xtreames</span>
+                  <span className="product-name">Xtreames</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1747,47 +1747,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">922</span>
+                    <span className="number">922</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-06.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Tawhid Sabir"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Tawhid">
+                    <a href="author.html" className="avatar" data-tooltip="Tawhid">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sabir">
+                    <a href="author.html" className="avatar" data-tooltip="Sabir">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       5+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1797,7 +1797,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1808,10 +1808,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1819,7 +1819,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1829,18 +1829,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">NameStroam</span>
+                  <span className="product-name">NameStroam</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1848,47 +1848,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">532</span>
+                    <span className="number">532</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-07.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Total Mars"
                     >
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Total">
+                    <a href="author.html" className="avatar" data-tooltip="Total">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Mars">
+                    <a href="author.html" className="avatar" data-tooltip="Mars">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       9+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1898,7 +1898,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -1909,10 +1909,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -1920,7 +1920,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -1930,18 +1930,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Scourd</span>
+                  <span className="product-name">Scourd</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -1949,47 +1949,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-05.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="David Worner"
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Worner">
+                    <a href="author.html" className="avatar" data-tooltip="Worner">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="David">
+                    <a href="author.html" className="avatar" data-tooltip="David">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       16+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -1999,7 +1999,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -2010,10 +2010,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -2021,7 +2021,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -2031,18 +2031,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Resord</span>
+                  <span className="product-name">Resord</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.264wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.264wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -2050,47 +2050,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">622</span>
+                    <span className="number">622</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-01.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="Sobuj Shaikh"
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Sobuj">
+                    <a href="author.html" className="avatar" data-tooltip="Sobuj">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Shaikh">
+                    <a href="author.html" className="avatar" data-tooltip="Shaikh">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       22+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -2100,7 +2100,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -2111,10 +2111,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -2122,7 +2122,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -2132,18 +2132,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Jackpot</span>
+                  <span className="product-name">Jackpot</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -2151,47 +2151,47 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">322</span>
+                    <span className="number">322</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-              <div class="product-style-one no-overlay with-placeBid">
-                <div class="card-thumbnail">
+            <div className="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="product-style-one no-overlay with-placeBid">
+                <div className="card-thumbnail">
                   <a href="product-details.html">
                     <img
                       src="/portfolio/portfolio-01.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <a href="product-details.html" class="btn btn-primary">
+                  <a href="product-details.html" className="btn btn-primary">
                     Place Bid
                   </a>
                 </div>
-                <div class="product-share-wrapper">
-                  <div class="profile-share">
+                <div className="product-share-wrapper">
+                  <div className="profile-share">
                     <a
                       href="author.html"
-                      class="avatar"
+                      className="avatar"
                       data-tooltip="MArk Jone"
                     >
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="MArk">
+                    <a href="author.html" className="avatar" data-tooltip="MArk">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" class="avatar" data-tooltip="Jone">
+                    <a href="author.html" className="avatar" data-tooltip="Jone">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
-                    <a class="more-author-text" href="#">
+                    <a className="more-author-text" href="#">
                       13+ Place Bit.
                     </a>
                   </div>
-                  <div class="share-btn share-btn-activation dropdown">
+                  <div className="share-btn share-btn-activation dropdown">
                     <button
-                      class="icon"
+                      className="icon"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -2201,7 +2201,7 @@ const AuthorThree = ({ properties, author }) => {
                         fill="none"
                         width="16"
                         height="16"
-                        class="sc-bdnxRM sc-hKFxyN hOiKLt"
+                        className="sc-bdnxRM sc-hKFxyN hOiKLt"
                       >
                         <path
                           fill-rule="evenodd"
@@ -2212,10 +2212,10 @@ const AuthorThree = ({ properties, author }) => {
                       </svg>
                     </button>
 
-                    <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                    <div className="share-btn-setting dropdown-menu dropdown-menu-end">
                       <button
                         type="button"
-                        class="btn-setting-text share-text"
+                        className="btn-setting-text share-text"
                         data-bs-toggle="modal"
                         data-bs-target="#shareModal"
                       >
@@ -2223,7 +2223,7 @@ const AuthorThree = ({ properties, author }) => {
                       </button>
                       <button
                         type="button"
-                        class="btn-setting-text report-text"
+                        className="btn-setting-text report-text"
                         data-bs-toggle="modal"
                         data-bs-target="#reportModal"
                       >
@@ -2233,18 +2233,18 @@ const AuthorThree = ({ properties, author }) => {
                   </div>
                 </div>
                 <a href="product-details.html">
-                  <span class="product-name">Xtreames</span>
+                  <span className="product-name">Xtreames</span>
                 </a>
-                <span class="latest-bid">Highest bid 1/20</span>
-                <div class="bid-react-area">
-                  <div class="last-bid">0.244wETH</div>
-                  <div class="react-area">
+                <span className="latest-bid">Highest bid 1/20</span>
+                <div className="bid-react-area">
+                  <div className="last-bid">0.244wETH</div>
+                  <div className="react-area">
                     <svg
                       viewBox="0 0 17 16"
                       fill="none"
                       width="16"
                       height="16"
-                      class="sc-bdnxRM sc-hKFxyN kBvkOu"
+                      className="sc-bdnxRM sc-hKFxyN kBvkOu"
                     >
                       <path
                         d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
@@ -2252,7 +2252,7 @@ const AuthorThree = ({ properties, author }) => {
                         stroke-width="2"
                       ></path>
                     </svg>
-                    <span class="number">922</span>
+                    <span className="number">922</span>
                   </div>
                 </div>
               </div>

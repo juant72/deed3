@@ -8,7 +8,7 @@ const Copyright = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12 col-sm-12">
               <div className="copyright-left">
-                <span>©2022 Nuron, Inc. All rights reserved.</span>
+                <span>©2024 Powered by Encrypia, Inc. All rights reserved.</span>
                 <ul className="privacy">
                   <li>
                     <a href="terms-condition.html">Terms</a>

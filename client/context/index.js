@@ -17,21 +17,56 @@ import {
 const FETCH_CONTRACT = (PROVIDER) =>
   new ethers.Contract(REAL_ESTATE_ADDRESS, REAL_ESTATE_ABI, PROVIDER);
 
-
+// console.log("ABI:" + JSON.stringify(REAL_ESTATE_ABI,null,2));
+const providerOptions = {
+  injected: {
+    display: {
+      name: "MetaMask",
+      description: "Connect with MetaMask",
+    },
+    package: true,
+    options: {
+      appName: "deeds3",
+    },
+  },
+};
 
 //CONNECTING WITH CONTRACT
 const connectingWithSmartContract = async () => {
   try {
-    const web3modal = new Web3Modal();
-    const connection = await web3modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const PROVIDER = provider.getSigner();
+    // const web3modal = new Web3Modal();
+    const web3modal = new Web3Modal({
+      cacheProvider: true,
+      providerOptions,
+      disableInjectedProvider: false,
+    });
 
-    const contract = FETCH_CONTRACT(PROVIDER);
+    const connection = await web3modal.connect();
+
+    // Verify succesfull connection
+    if (!connection) {
+      throw new Error("No connection found");
+    }
+    const provider = new ethers.providers.Web3Provider(connection);
+
+    // Verify valid provider 
+    if (!provider) {
+      throw new Error("No provider found");
+    }
+
+    const PROVIDER = provider.getSigner();
+    //Verify valid signer
+    if (!PROVIDER){
+      throw new Error("No valid signer");
+    }
+
+    const contract = FETCH_CONTRACT(PROVIDER);    
+
+    console.log("Provider: " + PROVIDER);
 
     return contract;
   } catch (error) {
-    console.log(error);
+    console.log("Error connectig with SC: ",error);
   }
 };
 
@@ -99,7 +134,7 @@ useEffect(() => {
       notifySuccess("Wallet connected successfully");
       setCount(count + 1);
     } catch (error) {
-      notifyError("Install MateMask");
+      notifyError("Install MetaMask");
       console.log(error);
     }
   };
@@ -315,7 +350,7 @@ useEffect(() => {
           description: property.description,
           category: property.category,
           price: ethers.utils.formatEther(property.price.toString()),
-          productID: property.productID.toNumber(),
+          productID: property.productId.toNumber(),
           reviewers: property.reviewers,
           reviews: property.reviews,
           image: property.images,
