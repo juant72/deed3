@@ -77,6 +77,10 @@ const Detail = () => {
   };
 
   //LIKE REVIEW
+  const [, setLikeReviews] = useState({
+    productID: "",
+    reviewIndex: "",
+  });
   const likeReviewCall = async (property, reviewIndex) => {
     await likeReviewFunction(property.productID, reviewIndex);
   };
