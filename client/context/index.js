@@ -1,7 +1,9 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
-import { createWeb3Modal, defaultConfig } from "@web3modal/ethers";
+import { createAppKit } from "@reown/appkit/react";
+import { EthersAdapter } from "@reown/appkit-adapter-ethers";
+import { mainnet, polygon, arbitrum } from "@reown/appkit/networks";
 import toast from "react-hot-toast";
 
 import {
@@ -17,7 +19,7 @@ import {
 const FETCH_CONTRACT = (PROVIDER) =>
   new ethers.Contract(REAL_ESTATE_ADDRESS, REAL_ESTATE_ABI, PROVIDER);
 
-// Web3Modal configuration
+// Reown AppKit configuration
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "demo-project-id";
 
 const metadata = {
@@ -27,48 +29,60 @@ const metadata = {
   icons: ["https://deeds3.vercel.app/logo.png"]
 };
 
-const chains = [
-  {
-    chainId: 1,
-    name: "Ethereum",
-    currency: "ETH",
-    explorerUrl: "https://etherscan.io",
-    rpcUrl: "https://cloudflare-eth.com"
-  },
-  {
-    chainId: 80001,
-    name: "Polygon Mumbai",
-    currency: "MATIC",
-    explorerUrl: "https://mumbai.polygonscan.com",
-    rpcUrl: "https://rpc-mumbai.maticvigil.com"
-  }
+// Define supported networks using Reown AppKit networks
+const networks = [
+  mainnet,
+  polygon,
+  arbitrum
 ];
 
-const ethersConfig = defaultConfig({
-  metadata,
-  enableEIP6963: true,
-  enableInjected: true,
-  enableCoinbase: true,
-  rpcUrl: "https://cloudflare-eth.com",
-  defaultChainId: 1
-});
+// Create Ethers adapter
+const ethersAdapter = new EthersAdapter();
 
-// Create Web3Modal instance
-const web3Modal = createWeb3Modal({
-  ethersConfig,
-  chains,
+// Create Reown AppKit instance
+const appKit = createAppKit({
+  adapters: [ethersAdapter],
+  networks,
+  metadata,
   projectId,
-  enableAnalytics: true
+  features: {
+    analytics: true,
+  }
 });
 
 //CONNECTING WITH CONTRACT
 const connectingWithSmartContract = async () => {
   try {
-    // Open Web3Modal
-    await web3Modal.open();
+    // Check if AppKit is connected
+    const isConnected = appKit.getIsConnected();
     
-    // Get wallet provider from Web3Modal
-    const walletProvider = web3Modal.getWalletProvider();
+    if (!isConnected) {
+      // Open AppKit modal to connect wallet
+      await appKit.open();
+      // Wait for connection
+      const checkConnection = () => {
+        return new Promise((resolve, reject) => {
+          const maxAttempts = 30; // 15 seconds max
+          let attempts = 0;
+          
+          const interval = setInterval(() => {
+            if (appKit.getIsConnected()) {
+              clearInterval(interval);
+              resolve(true);
+            } else if (attempts >= maxAttempts) {
+              clearInterval(interval);
+              reject(new Error("Connection timeout"));
+            }
+            attempts++;
+          }, 500);
+        });
+      };
+      
+      await checkConnection();
+    }
+    
+    // Get wallet provider from AppKit
+    const walletProvider = appKit.getWalletProvider();
     
     if (!walletProvider) {
       throw new Error("No wallet provider found");
@@ -120,6 +134,29 @@ export const StateContextProvider = ({ children }) => {
   //---CHECK IF WALLET IS CONNECTD
   const checkIfWalletConnected = async () => {
     try {
+      // Check AppKit connection first
+      const isConnected = appKit.getIsConnected();
+      
+      if (isConnected) {
+        const address = appKit.getAddress();
+        if (address) {
+          setCurrentAccount(address);
+          
+          // Get provider and balance
+          const walletProvider = appKit.getWalletProvider();
+          if (walletProvider) {
+            const provider = new ethers.BrowserProvider(walletProvider);
+            const getBalance = await provider.getBalance(address);
+            const convertBal = ethers.formatEther(getBalance);
+            setAccountBalance(convertBal);
+            setUserBlance(convertBal);
+          }
+          
+          return address;
+        }
+      }
+      
+      // Fallback to window.ethereum for backward compatibility
       if (!window.ethereum) return notifyError("Install MetaMask");
       const network = await handleNetworkSwitch();
 
@@ -133,40 +170,100 @@ export const StateContextProvider = ({ children }) => {
         const convertBal = ethers.formatEther(getBalance);
         setAccountBalance(convertBal);
         setUserBlance(convertBal);
+        return accounts[0];
       } else {
         console.log("NO ACCOUNT");
       }
-      return accounts[0];
     } catch (error) {
-      console.log("NO CONNACTION");
+      console.log("NO CONNECTION", error);
     }
   };
 
 useEffect(() => {
   checkIfWalletConnected();
+  
+  // Subscribe to AppKit provider changes
+  const unsubscribe = appKit.subscribeProvider(({ address, isConnected, chainId }) => {
+    if (isConnected && address) {
+      setCurrentAccount(address);
+      // Update balance when account changes
+      checkIfWalletConnected();
+    } else {
+      setCurrentAccount(null);
+      setAccountBalance(null);
+      setUserBlance(null);
+    }
+  });
+
+  // Cleanup subscription on unmount
+  return () => {
+    if (unsubscribe) {
+      unsubscribe();
+    }
+  };
 }, []);
 
 
   //---CONNECT WALLET FUNCTION
   const connectWallet = async () => {
     try {
-      if (!window.ethereum) return notifyError("Install MetaMask");
-      const network = await handleNetworkSwitch();
       setLoader(true);
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-
-      setCurrentAccount(accounts[0]);
+      
+      // Use AppKit to connect wallet
+      await appKit.open();
+      
+      // Wait for connection to be established
+      const waitForConnection = () => {
+        return new Promise((resolve, reject) => {
+          const maxAttempts = 60; // 30 seconds max
+          let attempts = 0;
+          
+          const interval = setInterval(() => {
+            const isConnected = appKit.getIsConnected();
+            const address = appKit.getAddress();
+            
+            if (isConnected && address) {
+              clearInterval(interval);
+              resolve(address);
+            } else if (attempts >= maxAttempts) {
+              clearInterval(interval);
+              reject(new Error("Connection timeout"));
+            }
+            attempts++;
+          }, 500);
+        });
+      };
+      
+      const address = await waitForConnection();
+      setCurrentAccount(address);
       setLoader(false);
       notifySuccess("Wallet connected successfully");
       setCount(count + 1);
+      
+      // Update balance
+      await checkIfWalletConnected();
+      
     } catch (error) {
-      notifyError("Install MetaMask");
-      console.log(error);
+      setLoader(false);
+      notifyError("Failed to connect wallet");
+      console.log("Connection error:", error);
     }
   };
 
+
+  //---DISCONNECT WALLET FUNCTION
+  const disconnectWallet = async () => {
+    try {
+      await appKit.disconnect();
+      setCurrentAccount(null);
+      setAccountBalance(null);
+      setUserBlance(null);
+      notifySuccess("Wallet disconnected successfully");
+    } catch (error) {
+      notifyError("Failed to disconnect wallet");
+      console.log("Disconnect error:", error);
+    }
+  };
 
   // //Frontend
   // const disconnect = useDisconnect();
@@ -575,8 +672,11 @@ useEffect(() => {
     value={{
       //CONTRACT
       connectWallet,
+      disconnectWallet,
       currentAccount,
       accountBalance,
+      //APPKIT INSTANCE
+      appKit,
       //PROPERTY
       createPropertyFunction,
       updatePropertyFunction,

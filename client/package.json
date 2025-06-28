@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@web3modal/ethers": "^4.2.3",
+    "@reown/appkit": "^1.7.11",
+    "@reown/appkit-adapter-ethers": "^1.7.11",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
