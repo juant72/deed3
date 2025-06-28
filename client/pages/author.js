@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 //INTERNAL IMPORT
 import {
@@ -21,18 +21,18 @@ const Author = () => {
     useStateContext();
 
   //GET DATA
-  const fetchProperty = async () => {
+  const fetchProperty = useCallback(async () => {
     setIsLoading(true);
     const data = await getPropertiesData();
     const dataAuthor = await getUserPropertiesFunction();
     setAuthor(dataAuthor);
     setProperties(data);
     setIsLoading(false);
-  };
+  }, [getPropertiesData, getUserPropertiesFunction]);
 
   useEffect(() => {
     fetchProperty();
-  }, []);
+  }, [fetchProperty]);
 
   return (
     <div className="template-color-1 nft-body-connect">

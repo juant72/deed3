@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 ///INTERNAL IMPORT
 import {
@@ -24,17 +24,17 @@ const Home = () => {
   const { currentAccount, getPropertiesData } = useStateContext();
 
   //GET DATA
-  const fetchProperty = async () => {
+  const fetchProperty = useCallback(async () => {
     setIsLoading(true);
     const data = await getPropertiesData();
 
     setProperties(data);
     setIsLoading(false);
-  };
+  }, [getPropertiesData]);
 
   useEffect(() => {
     fetchProperty();
-  }, []);
+  }, [fetchProperty]);
 
   //CATEGORIES
   const housing = [];

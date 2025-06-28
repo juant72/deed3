@@ -20,7 +20,20 @@ const FETCH_CONTRACT = (PROVIDER) =>
   new ethers.Contract(REAL_ESTATE_ADDRESS, REAL_ESTATE_ABI, PROVIDER);
 
 // Reown AppKit configuration
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "demo-project-id";
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
+const isValidProjectId = projectId && 
+  projectId !== "demo-project-id" && 
+  projectId !== "your_project_id_here" &&
+  projectId !== "temp-dev-id-replace-with-real-one";
+
+// Show configuration warning only once
+if (!isValidProjectId && typeof window !== 'undefined') {
+  console.warn(
+    "⚠️ Reown AppKit: Using development project ID.\n" +
+    "For production, get a real project ID from: https://cloud.reown.com\n" +
+    "Run 'npm run setup:reown' for setup help."
+  );
+}
 
 const metadata = {
   name: "Deeds3 - Real Estate NFT",
@@ -39,16 +52,35 @@ const networks = [
 // Create Ethers adapter
 const ethersAdapter = new EthersAdapter();
 
-// Create Reown AppKit instance
-const appKit = createAppKit({
+// Enhanced AppKit configuration for development
+const appKitConfig = {
   adapters: [ethersAdapter],
   networks,
   metadata,
-  projectId,
+  projectId: projectId || "temp-dev-id",
   features: {
-    analytics: true,
+    analytics: isValidProjectId, // Only enable analytics with valid project ID
+    email: false, // Disable email features for development
+    social: false, // Disable social features for development
   }
-});
+};
+
+// Create Reown AppKit instance with error handling
+let appKit;
+try {
+  appKit = createAppKit(appKitConfig);
+} catch (error) {
+  console.warn("AppKit initialization warning:", error.message);
+  // Fallback configuration for development
+  appKit = createAppKit({
+    ...appKitConfig,
+    features: {
+      analytics: false,
+      email: false,
+      social: false,
+    }
+  });
+}
 
 //CONNECTING WITH CONTRACT
 const connectingWithSmartContract = async () => {

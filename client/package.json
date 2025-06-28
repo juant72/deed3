@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "setup:reown": "node scripts/setup-reown.js",
+    "optimize:reown": "node scripts/optimize-reown.js",
+    "migrate:rainbowkit": "node scripts/migrate-to-rainbowkit.js",
+    "decision:wallet": "node scripts/wallet-decision-helper.js",
+    "debug:reown": "echo \"Run npm run dev, then use debug helpers in browser console\"",
+    "health:reown": "echo \"Check browser console for connection health status\""
   },
   "dependencies": {
     "@reown/appkit": "^1.7.11",

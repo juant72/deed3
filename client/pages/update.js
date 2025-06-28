@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import axios from "axios";
 
 //INTERNAL IMPORT
@@ -129,10 +130,13 @@ const Update = () => {
 
                 <div className="create-collection-input logo-image">
                   <div className="logo-c-image logo">
-                    <img
+                    <Image
                       id="rbtinput1"
                       src={diplayImg || "/profile/profile-01.jpg"}
                       alt="Profile-NFT"
+                      width={200}
+                      height={200}
+                      style={{ objectFit: 'cover' }}
                     />
                     <label for="fatima" title="No File Choosen">
                       <span className="text-center color-white">
@@ -165,10 +169,13 @@ const Update = () => {
                 <label className="title">Cover Image</label>
                 <div className="create-collection-input feature-image">
                   <div className="logo-c-image feature">
-                    <img
+                    <Image
                       id="rbtinput2"
                       src="/profile/cover-04.png"
                       alt="Profile-NFT"
+                      width={300}
+                      height={200}
+                      style={{ objectFit: 'cover' }}
                     />
                     <label for="nipa" title="No File Choosen">
                       <span className="text-center color-white">
@@ -188,10 +195,13 @@ const Update = () => {
                 <label className="title">Featured image</label>
                 <div className="create-collection-input feature-image">
                   <div className="logo-c-image feature">
-                    <img
+                    <Image
                       id="createfileImage"
                       src="/profile/cover-03.jpg"
                       alt="Profile-NFT"
+                      width={300}
+                      height={200}
+                      style={{ objectFit: 'cover' }}
                     />
                     <label for="createinputfile" title="No File Choosen">
                       <span className="text-center color-white">

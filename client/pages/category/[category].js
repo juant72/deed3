@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 
 ///INTERNAL IMPORT
@@ -21,16 +21,16 @@ const Category = () => {
   const { address, contract, getPropertiesData } = useStateContext();
 
   //GET DATA
-  const fetchProperty = async () => {
+  const fetchProperty = useCallback(async () => {
     setIsLoading(true);
     const data = await getPropertiesData();
     setProperties(data);
     setIsLoading(false);
-  };
+  }, [getPropertiesData]);
 
   useEffect(() => {
     fetchProperty();
-  }, []);
+  }, [fetchProperty]);
 
   //CATEGORIES
 

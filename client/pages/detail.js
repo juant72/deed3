@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
 
@@ -44,7 +44,7 @@ const Detail = () => {
   const { query } = router;
 
   //GET PROPERTY DATA
-  const fetchProperty = async () => {
+  const fetchProperty = useCallback(async () => {
     const data = await getPropertyFunction(query.property);
     const dataReviews = await getProductReviewsFunction(query.property);
     const dataProperties = await getPropertiesData();
@@ -52,11 +52,11 @@ const Detail = () => {
     setProperty(data);
     setParsedReviews(dataReviews);
     setIsLoading(false);
-  };
+  }, [query.property, getPropertyFunction, getProductReviewsFunction, getPropertiesData]);
 
   useEffect(() => {
     if (query) fetchProperty();
-  }, [query]);
+  }, [query, fetchProperty]);
 
   //ADD REVIEW
   const [review, setReview] = useState({
