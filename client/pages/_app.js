@@ -1,6 +1,6 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
-import "../styles/globals.css";
+import "../styles/tailwind.css";
 
 import { StateContextProvider } from "../context";
 

@@ -19,7 +19,7 @@ import { Loader, GlobalLoder } from "../PageComponents/Components";
 
 import { useStateContext } from "../context";
 
-const detail = () => {
+const Detail = () => {
   const [property, setProperty] = useState();
   const [parsedReviews, setParsedReviews] = useState();
   const [properties, setProperties] = useState([]);
@@ -151,4 +151,4 @@ const detail = () => {
   );
 };
 
-export default detail;
+export default Detail;

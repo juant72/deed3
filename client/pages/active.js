@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Activity } from "../PageComponents/ActivityPage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { useStateContext } from "../context";
-const active = () => {
+const Active = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
   const [totalReviews, setTotalReviews] = useState();
@@ -27,7 +27,7 @@ const active = () => {
   }, []);
 
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <Activity
         properties={properties}
@@ -40,4 +40,4 @@ const active = () => {
   );
 };
 
-export default active;
+export default Active;

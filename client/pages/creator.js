@@ -12,7 +12,7 @@ import {
   Loader,
 } from "../PageComponents/Components";
 
-const creator = () => {
+const Creator = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
 
@@ -33,7 +33,7 @@ const creator = () => {
   const creators = getTopCreators(properties);
   console.log(creators);
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <CreatorOne creators={creators} />
       <Footer />
@@ -42,4 +42,4 @@ const creator = () => {
   );
 };
 
-export default creator;
+export default Creator;

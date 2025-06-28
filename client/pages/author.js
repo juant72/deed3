@@ -12,7 +12,7 @@ import { Header, Footer, Copyright } from "../PageComponents/Components";
 
 import { useStateContext } from "../context";
 
-const author = () => {
+const Author = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
   const [author, setAuthor] = useState([]);
@@ -35,7 +35,7 @@ const author = () => {
   }, []);
 
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <AuthorOne />
       <AuthorTwo address={currentAccount} author={author} />
@@ -48,4 +48,4 @@ const author = () => {
   );
 };
 
-export default author;
+export default Author;

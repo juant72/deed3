@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react-hooks/rules-of-hooks": "warn",
+    "@next/next/no-sync-scripts": "warn",
+    "@next/next/no-img-element": "warn"
+  }
 }

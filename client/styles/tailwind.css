@@ -2,4 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Mantener imports existentes durante la migración */
+/* Importaciones CSS existentes - mantenidas durante la migración */
+@import url("./assets/css/plugins/feature.css");
+@import url("./assets/css/plugins/jquery-ui.min.css");
+@import url("./assets/css/vendor/bootstrap.min.css");
+@import url("./assets/css/vendor/nice-select.css");
+@import url("./assets/css/vendor/odometer.css");
+@import url("./assets/css/vendor/slick-theme.css");
+@import url("./assets/css/vendor/slick.css");
+@import url("./assets/css/style.css");
+
+/* ??LOADER */
+.custom-loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 0, 0, 0.259);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.custom-loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

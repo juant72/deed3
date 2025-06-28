@@ -10,9 +10,9 @@ import {
   Statistick,
 } from "../PageComponents/AboutPage";
 
-const about = () => {
+const About = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <Banner />
       <Action />
@@ -25,4 +25,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
