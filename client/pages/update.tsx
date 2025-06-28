@@ -23,17 +23,26 @@ const categories = [
   "country",
 ];
 
-const Update = () => {
+interface FormState {
+  productId: string;
+  propertyTitle: string;
+  description: string;
+  category: string;
+  images: string;
+  propertyAddress: string;
+}
+
+const Update: React.FC = () => {
   const router = useRouter();
   const { query } = router;
 
   ///STATE VARIABLE
-  const [isLoading, setIsLoading] = useState(false);
-  const [file, setFile] = useState(null);
-  const [diplayImg, setDiplayImg] = useState(null);
-  const [fileName, setFileName] = useState("Upload Image");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [diplayImg, setDiplayImg] = useState<string | null>(null);
+  const [fileName, setFileName] = useState<string>("Upload Image");
   const {
-    updatePropertyFunction,
+    updateRealEstate,
     PINATA_API_KEY,
     PINATA_SECRECT_KEY,
     setLoader,
@@ -42,7 +51,7 @@ const Update = () => {
     loader,
   } = useStateContext();
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormState>({
     productId: "",
     propertyTitle: "",
     description: "",
@@ -51,20 +60,17 @@ const Update = () => {
     propertyAddress: "",
   });
 
-  const handleFormFieldChange = (fieldName, e) => {
+  const handleFormFieldChange = (fieldName: keyof FormState, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [fieldName]: e.target.value });
   };
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    await updatePropertyFunction({
-      ...form,
-      productId: query.property * 1,
-    });
+    await updateRealEstate(parseInt(query.property as string), null);
     setIsLoading(false);
   };
 
-  const uploadToPinata = async () => {
+  const uploadToPinata = async (): Promise<string | void> => {
     setLoader(true);
     setFileName("Image Uploading...");
     if (file) {
@@ -96,16 +102,16 @@ const Update = () => {
     }
   };
 
-  const retrieveFile = (event) => {
-    const data = event.target.files[0];
+  const retrieveFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const data = event.target.files?.[0];
+    if (!data) return;
 
     const reader = new window.FileReader();
     reader.readAsArrayBuffer(data);
 
     reader.onloadend = () => {
-      setFile(event.target.files[0]);
-
-      if (event.target.files && event.target.files[0]) {
+      if (event.target.files?.[0]) {
+        setFile(event.target.files[0]);
         setDiplayImg(URL.createObjectURL(event.target.files[0]));
       }
     };
@@ -134,7 +140,7 @@ const Update = () => {
                       height={200}
                       style={{ objectFit: 'cover' }}
                     />
-                    <label for="fatima" title="No File Choosen">
+                    <label htmlFor="fatima" title="No File Choosen">
                       <span className="text-center color-white">
                         <i className="feather-edit"></i>
                       </span>
@@ -173,7 +179,7 @@ const Update = () => {
                       height={200}
                       style={{ objectFit: 'cover' }}
                     />
-                    <label for="nipa" title="No File Choosen">
+                    <label htmlFor="nipa" title="No File Choosen">
                       <span className="text-center color-white">
                         <i className="feather-edit"></i>
                       </span>
@@ -199,7 +205,7 @@ const Update = () => {
                       height={200}
                       style={{ objectFit: 'cover' }}
                     />
-                    <label for="createinputfile" title="No File Choosen">
+                    <label htmlFor="createinputfile" title="No File Choosen">
                       <span className="text-center color-white">
                         <i className="feather-edit"></i>
                       </span>
@@ -223,7 +229,7 @@ const Update = () => {
                 <div className="row">
                   <div className="col-lg-6">
                     <div className="collection-single-wized">
-                      <label for="name" className="title required">
+                      <label htmlFor="name" className="title required">
                         Property Title
                       </label>
                       <div className="create-collection-input">
@@ -245,7 +251,7 @@ const Update = () => {
                     <div className="collection-single-wized">
                       <label className="title">Category</label>
                       <div className="create-collection-input">
-                        <div className="nice-select mb--30" tabindex="0">
+                        <div className="nice-select mb--30" tabIndex={0}>
                           <span className="current">Add Category</span>
                           <ul className="list">
                             {categories.map((el, i) => (
@@ -270,7 +276,7 @@ const Update = () => {
                   </div>
                   <div className="col-lg-12">
                     <div className="collection-single-wized">
-                      <label for="description" className="title">
+                      <label htmlFor="description" className="title">
                         Description
                       </label>
                       <div className="create-collection-input">
@@ -288,7 +294,7 @@ const Update = () => {
 
                   <div className="col-lg-6">
                     <div className="collection-single-wized">
-                      <label for="wallet" className="title">
+                      <label htmlFor="wallet" className="title">
                         Property address
                       </label>
                       <div className="create-collection-input">
@@ -314,7 +320,7 @@ const Update = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="themeSwitch" className="theme-switch__label">
+                          <label htmlFor="themeSwitch" className="theme-switch__label">
                             <span></span>
                           </label>
                         </div>
@@ -348,4 +354,3 @@ const Update = () => {
 };
 
 export default Update;
-

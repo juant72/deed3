@@ -26,8 +26,6 @@ const Category: React.FC = () => {
 
   const { query } = router;
 
-  console.log(router);
-
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState<RealEstateProperty[]>([]);
 
@@ -52,7 +50,7 @@ const Category: React.FC = () => {
         title={`Category: ${query.category || 'All'}`}
       />
       <Collection 
-        category={query.category as string || "all"} 
+        category={properties} 
         isLoading={isLoading}
       />
       <Footer />

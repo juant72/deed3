@@ -76,8 +76,6 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
 
       {/* Web3 Scripts */}
       <Script src="/js/vendor/web3.min.js" strategy="lazyOnload" />
-      <Script src="/js/vendor/maralis.js" strategy="lazyOnload" />
-      <Script src="/js/vendor/nft.js" strategy="lazyOnload" />
     </>
   );
 }

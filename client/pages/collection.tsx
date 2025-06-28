@@ -41,7 +41,7 @@ const CollectionPage: React.FC = () => {
       <Header />
       <Title title="Collection" />
       <Collection 
-        category="all" 
+        category={properties} 
         isLoading={isLoading}
       />
       <Footer />

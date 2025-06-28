@@ -7,7 +7,7 @@ import {
   EditProfileTwo,
 } from "../PageComponents/EditProfilepage";
 
-const EditProfile = () => {
+const EditProfile: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />

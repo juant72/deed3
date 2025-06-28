@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Loader } from "../../PageComponents/Components";
 const Collection = ({ category, isLoading }) => {
-  console.log(category);
   return (
     <div className="rn-collection-area rn-section-gapTop">
       {isLoading ? (

@@ -17,24 +17,23 @@ import { GlobalLoder } from "../PageComponents/Components";
 
 import { useStateContext } from "../context";
 
-const Detail = () => {
-  const [property, setProperty] = useState();
-  const [parsedReviews, setParsedReviews] = useState();
-  const [properties, setProperties] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [updatePriceLoading, setUpdatePriceLoading] = useState(false);
-  const [commentLoading, setCommentLoading] = useState(false);
-  const [buyLoading, setBuyLoading] = useState(false);
+const Detail: React.FC = () => {
+  const [property, setProperty] = useState<any>();
+  const [parsedReviews, setParsedReviews] = useState<any>();
+  const [properties, setProperties] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [updatePriceLoading, setUpdatePriceLoading] = useState<boolean>(false);
+  const [commentLoading, setCommentLoading] = useState<boolean>(false);
+  const [buyLoading, setBuyLoading] = useState<boolean>(false);
 
   const {
     currentAccount,
     addReviewFunction,
     getProductReviewsFunction,
-    likeReviewFunction,
-    buyPropertyFunction,
+    buyRealEstate,
     getPropertyFunction,
     getPropertiesData,
-    updatePriceFunction,
+    updatePrice,
     loader,
   } = useStateContext();
 
@@ -43,8 +42,9 @@ const Detail = () => {
 
   //GET PROPERTY DATA
   const fetchProperty = useCallback(async () => {
-    const data = await getPropertyFunction(query.property);
-    const dataReviews = await getProductReviewsFunction(query.property);
+    const propertyIndex = parseInt(query.property as string);
+    const data = await getPropertyFunction(propertyIndex);
+    const dataReviews = await getProductReviewsFunction(query.property as string);
     const dataProperties = await getPropertiesData();
     setProperties(dataProperties);
     setProperty(data);
@@ -63,7 +63,7 @@ const Detail = () => {
     comment: "",
   });
 
-  const handleFormFieldChange = (fieldName, e) => {
+  const handleFormFieldChange = (fieldName: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setReview({ ...review, [fieldName]: e.target.value });
   };
 
@@ -76,23 +76,20 @@ const Detail = () => {
     setCommentLoading(false);
   };
 
-  //LIKE REVIEW
-  const [, setLikeReviews] = useState({
+  //LIKE REVIEW - Funcionalidad removida por ahora
+  const [likeReviews, setLikeReviews] = useState({
     productID: "",
     reviewIndex: "",
   });
-  const likeReviewCall = async (property, reviewIndex) => {
-    await likeReviewFunction(property.productID, reviewIndex);
+  const likeReviewCall = async (_property: any, _reviewIndex: number) => {
+    // Función removida - likeReviewFunction no existe en el contexto
+    // Like review functionality not implemented
   };
 
   //BUY PROPERTY
-  const buying = {
-    productID: property?.productID,
-    amount: property?.price,
-  };
   const buyingProperty = async () => {
     setBuyLoading(true);
-    await buyPropertyFunction(buying);
+    await buyRealEstate(parseInt(property?.productID), property?.price, null);
     setBuyLoading(false);
   };
 
@@ -103,16 +100,17 @@ const Detail = () => {
   });
   const updatepropertyPrice = async () => {
     setUpdatePriceLoading(true);
-    await updatePriceFunction({
-      ...updatePropertyPrice,
-      productID: property?.productID,
-    });
+    await updatePrice(
+      parseInt(property?.productID), 
+      parseFloat(updatePropertyPrice.price), 
+      null
+    );
     setUpdatePriceLoading(false);
     window.location.reload();
   };
   //
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <DetailOne />
 
@@ -120,6 +118,7 @@ const Detail = () => {
         property={property}
         parsedReviews={parsedReviews}
         setLikeReviews={setLikeReviews}
+        likeReviews={likeReviews}
         likeReviewCall={likeReviewCall}
         buyingProperty={buyingProperty}
         address={currentAccount}
@@ -133,6 +132,7 @@ const Detail = () => {
       <DetailSeven
         property={property}
         setUpdatePropertyPrice={setUpdatePropertyPrice}
+        updatePropertyPrice={updatePropertyPrice}
         updatepropertyPrice={updatepropertyPrice}
         updatePriceLoading={updatePriceLoading}
       />
