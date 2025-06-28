@@ -1,8 +1,6 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
-import { useAccount, useBalance, useConnect, useDisconnect } from 'wagmi';
-import { useConnectorClient } from 'wagmi';
 import toast from "react-hot-toast";
 
 import {
@@ -13,6 +11,9 @@ import {
   handleNetworkSwitch,
   ACTIVE_NETWORK,
 } from "./constants";
+
+// Create context
+const StateContext = createContext();
 
 //FETCH CONTRACT
 const FETCH_CONTRACT = (PROVIDER) =>
@@ -48,515 +49,333 @@ const connectingWithSmartContract = async (client) => {
   }
 };
 
-const StateContext = createContext();
+//ACCOUNT BALANCE
+const fetchAccountBalance = async (address) => {
+  try {
+    if (!address) return null;
+    
+    if (typeof window !== 'undefined' && window.ethereum) {
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const balance = await provider.getBalance(address);
+      return ethers.formatEther(balance);
+    }
+    return null;
+  } catch (error) {
+    console.log("Error fetching account balance: ", error);
+    return null;
+  }
+};
 
-const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+//CHECK IF WALLET CONNECTED
+const checkIfWalletConnected = async () => {
+  try {
+    if (typeof window === 'undefined' || !window.ethereum) {
+      console.log("Please Install MetaMask");
+      return null;
+    }
 
+    const accounts = await window.ethereum.request({
+      method: "eth_accounts",
+    });
+
+    if (accounts.length) {
+      return accounts[0];
+    } else {
+      console.log("No account found");
+      return null;
+    }
+  } catch (error) {
+    console.log("Error checking wallet connection:", error);
+    return null;
+  }
+};
+
+//CONNECT WALLET
+const connectWallet = async () => {
+  try {
+    if (typeof window === 'undefined' || !window.ethereum) {
+      console.log("Please Install MetaMask");
+      return;
+    }
+
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+
+    return accounts[0];
+  } catch (error) {
+    console.log("Error connecting wallet:", error);
+  }
+};
+
+//UPLOAD TO IPFS
+const uploadToIPFS = async (file) => {
+  try {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const metadata = JSON.stringify({
+      name: "File",
+    });
+    formData.append("pinataMetadata", metadata);
+
+    const options = JSON.stringify({
+      cidVersion: 0,
+    });
+    formData.append("pinataOptions", options);
+
+    const response = await fetch(
+      "https://api.pinata.cloud/pinning/pinFileToIPFS",
+      {
+        method: "POST",
+        headers: {
+          pinata_api_key: PINATA_API_KEY,
+          pinata_secret_api_key: PINATA_SECRECT_KEY,
+        },
+        body: formData,
+      }
+    );
+
+    const responseData = await response.json();
+    console.log("IPFS Response:", responseData);
+
+    const ImgHash = `ipfs://${responseData.IpfsHash}`;
+    return ImgHash;
+  } catch (error) {
+    console.log("Error uploading to IPFS:", error);
+    return null;
+  }
+};
+
+//CREATE REAL ESTATE
+const createRealEstate = async (
+  price,
+  title,
+  category,
+  images,
+  description,
+  address,
+  roomNumber,
+  client
+) => {
+  try {
+    const contract = await connectingWithSmartContract(client);
+    
+    const propertyPrice = ethers.parseUnits(price.toString(), "ether");
+
+    const transaction = await contract.createRealEstate(
+      propertyPrice,
+      title,
+      category,
+      images,
+      description,
+      address,
+      roomNumber
+    );
+
+    await transaction.wait();
+    console.log("Real Estate created successfully");
+    toast.success("Property created successfully!");
+    
+    return transaction;
+  } catch (error) {
+    console.log("Error creating real estate:", error);
+    toast.error("Failed to create property");
+    throw error;
+  }
+};
+
+//GET ALL REAL ESTATE
+const getAllRealEstate = async () => {
+  try {
+    if (typeof window === 'undefined' || !window.ethereum) {
+      return [];
+    }
+
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const contract = FETCH_CONTRACT(provider);
+
+    const properties = await contract.getAllRealEstate();
+    
+    const parsedProperties = properties.map((property, i) => ({
+      price: ethers.formatEther(property.price.toString()),
+      title: property.title,
+      category: property.category,
+      images: property.images,
+      description: property.description,
+      address: property.propertyAddress,
+      roomNumber: property.roomNumber.toString(),
+      owner: property.owner,
+      seller: property.seller,
+      sold: property.sold,
+      index: i,
+    }));
+
+    return parsedProperties;
+  } catch (error) {
+    console.log("Error fetching properties:", error);
+    return [];
+  }
+};
+
+//BUY REAL ESTATE
+const buyRealEstate = async (index, price, client) => {
+  try {
+    const contract = await connectingWithSmartContract(client);
+    
+    const propertyPrice = ethers.parseUnits(price.toString(), "ether");
+
+    const transaction = await contract.buyRealEstate(index, {
+      value: propertyPrice,
+    });
+
+    await transaction.wait();
+    console.log("Property purchased successfully");
+    toast.success("Property purchased successfully!");
+    
+    return transaction;
+  } catch (error) {
+    console.log("Error purchasing property:", error);
+    toast.error("Failed to purchase property");
+    throw error;
+  }
+};
+
+//UPDATE REAL ESTATE PRICE
+const updatePrice = async (index, newPrice, client) => {
+  try {
+    const contract = await connectingWithSmartContract(client);
+    
+    const propertyPrice = ethers.parseUnits(newPrice.toString(), "ether");
+
+    const transaction = await contract.updatePrice(index, propertyPrice);
+
+    await transaction.wait();
+    console.log("Price updated successfully");
+    toast.success("Price updated successfully!");
+    
+    return transaction;
+  } catch (error) {
+    console.log("Error updating price:", error);
+    toast.error("Failed to update price");
+    throw error;
+  }
+};
+
+//UPDATE REAL ESTATE STATUS
+const updateRealEstate = async (index, client) => {
+  try {
+    const contract = await connectingWithSmartContract(client);
+
+    const transaction = await contract.updateRealEstate(index);
+
+    await transaction.wait();
+    console.log("Property status updated successfully");
+    toast.success("Property status updated successfully!");
+    
+    return transaction;
+  } catch (error) {
+    console.log("Error updating property status:", error);
+    toast.error("Failed to update property status");
+    throw error;
+  }
+};
+
+//STATE CONTEXT PROVIDER
 export const StateContextProvider = ({ children }) => {
-  const router = useRouter();
-  
-  // Wagmi hooks
-  const { address, isConnected } = useAccount();
-  const { data: balance } = useBalance({ address });
-  const { connect, connectors } = useConnect();
-  const { disconnect } = useDisconnect();
-  const { data: client } = useConnectorClient();
-
-  // Local state (maintaining compatibility with existing components)
-  const [currentAccount, setCurrentAccount] = useState();
-  const [accountBalance, setAccountBalance] = useState();
-  const [userBlance, setUserBlance] = useState();
-  const [getHighestRatedProduct, setGetHighestRatedProduct] = useState();
+  const [address, setAddress] = useState("");
+  const [accountBalance, setAccountBalance] = useState("");
   const [loader, setLoader] = useState(false);
-  const [count, setCount] = useState(0);
+  const router = useRouter();
 
   // Toast notifications
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
   const notifyError = (msg) => toast.error(msg, { duration: 2000 });
 
-  // Update local state when Wagmi state changes
-  useEffect(() => {
-    if (isConnected && address) {
-      setCurrentAccount(address);
-      if (balance) {
-        const formattedBalance = ethers.formatEther(balance.value);
-        setAccountBalance(formattedBalance);
-        setUserBlance(formattedBalance);
-      }
-    } else {
-      setCurrentAccount(null);
-      setAccountBalance(null);
-      setUserBlance(null);
-    }
-  }, [isConnected, address, balance]);
-
-  // Check if wallet is connected (for compatibility)
-  const checkIfWalletConnected = async () => {
-    return isConnected ? address : null;
-  };
-
-  // Connect wallet function (RainbowKit handles the UI)
-  const connectWallet = async () => {
+  //CHECK WALLET CONNECTION
+  const fetchData = async () => {
     try {
-      setLoader(true);
-      
-      // RainbowKit handles the connection UI through the ConnectButton
-      // This function is mainly for compatibility with existing components
-      if (connectors.length > 0) {
-        connect({ connector: connectors[0] });
-      }
-      
-      setLoader(false);
-    } catch (error) {
-      setLoader(false);
-      notifyError("Failed to connect wallet");
-      console.log("Connection error:", error);
-    }
-  };
+      //CHECK NETWORK
+      await handleNetworkSwitch();
 
-  // Disconnect wallet function
-  const disconnectWallet = async () => {
-    try {
-      disconnect();
-      notifySuccess("Wallet disconnected successfully");
-    } catch (error) {
-      notifyError("Failed to disconnect wallet");
-      console.log("Disconnect error:", error);
-    }
-  };
+      //GET ACCOUNT
+      const account = await checkIfWalletConnected();
+      setAddress(account || "");
 
-  // Create property function (updated to use Wagmi client)
-  const createPropertyFunction = async (form) => {
-    const {
-      propertyTitle,
-      description,
-      category,
-      price,
-      images,
-      propertyAddress,
-    } = form;
-
-    try {
-      setLoader(true);
-      const contract = await connectingWithSmartContract(client);
-
-      const transaction = await contract.listProperty(
-        address,
-        price,
-        propertyTitle,
-        category,
-        images,
-        propertyAddress,
-        description
-      );
-
-      await transaction.wait();
-      setLoader(false);
-      notifySuccess("Transaction went successfully");
-      setCount(count + 1);
-      router.push("/author");
-      console.log("contract call success", transaction);
-    } catch (err) {
-      setLoader(false);
-      notifyError("Something went wrong");
-      console.log("contract call failure", err);
-    }
-  };
-
-  
-
-  //UpdateProperty
-  const updatePropertyFunction = async (form) => {
-    const {
-      productId,
-      propertyTitle,
-      description,
-      category,
-      images,
-      propertyAddress,
-    } = form;
-
-    try {
-      const contract = await connectingWithSmartContract();
-
-      const address = await checkIfWalletConnected();
-      const transaction = await contract.updateProperty(
-        address,
-        productId,
-        propertyTitle,
-        category,
-        images,
-        propertyAddress,
-        description
-      );
-
-      await transaction.wait();
-      setLoader(false);
-      notifySuccess("Transaction went successfully");
-      setCount(count + 1);
-      router.push("/author");
-    } catch (err) {
-      setLoader(false);
-      notifyError("Something went wrong");
-      console.log("contract call failure", err);
-      window.location.reload();
-    }
-  };
-
-  //UpdatePrice
-  const updatePriceFunction = async (form) => {
-    const { productID, price } = form;
-    try {
-      const contract = await connectingWithSmartContract();
-
-      const address = await checkIfWalletConnected();
-      const transaction = await contract.updatePrice(
-        address,
-        productID,
-        ethers.parseEther(price)
-      );
-
-      await transaction.wait();
-      setLoader(false);
-      notifySuccess("Transaction went successfully");
-      setCount(count + 1);
-      console.info("contract call successs", transaction);
-    } catch (err) {
-      setLoader(false);
-      notifyError("Something went wrong");
-      console.log("contract call failure", err);
-      window.location.reload();
-    }
-  };
-
-  //Buy property
-  const buyPropertyFunction = async (buying) => {
-    const { productID, amount } = buying;
-    const money = ethers.parseEther(amount);
-
-    try {
-      const contract = await connectingWithSmartContract();
-
-      const address = await checkIfWalletConnected();
-
-      const transaction = await contract.buyProperty(productID, address, {
-        value: money.toString(),
-      });
-      await transaction.wait();
-      console.info("contract call successs", transaction);
-      setLoader(false);
-      notifySuccess("Transaction went successfully");
-      setCount(count + 1);
-      router.push("/author");
-    } catch (err) {
-      setLoader(false);
-      notifyError("Something went wrong");
-      console.log("contract call failure", err);
-      window.location.reload();
-    }
-  };
-
-  //ADD REVIEW
-  const addReviewFunction = async (from) => {
-    const { productID, rating, comment } = from;
-
-    try {
-      const contract = await connectingWithSmartContract();
-
-      const address = await checkIfWalletConnected();
-
-      const transaction = await contract.addReview(
-        productID,
-        rating,
-        comment,
-        address
-      );
-      await transaction.wait();
-      setLoader(false);
-      notifySuccess("Transaction went successfully");
-      setCount(count + 1);
-      window.location.reload();
-    } catch (err) {
-      setLoader(false);
-      notifyError("Something went wrong");
-      console.log("contract call failure", err);
-      window.location.reload();
-    }
-  };
-
-  //LIKE REVIEW
-  const likeReviewFunction = async (productID, reviewIndex) => {
-    try {
-      const contract = await connectingWithSmartContract();
-      const address = await checkIfWalletConnected();
-      const transaction = await contract.likeReview(
-        productID,
-        reviewIndex,
-        address
-      );
-      await transaction.wait();
-      setLoader(false);
-      notifySuccess("Transaction went successfully");
-      setCount(count + 1);
-      window.location.reload();
-    } catch (err) {
-      setLoader(false);
-      notifyError("Something went wrong");
-      console.log("contract call failure", err);
-      window.location.reload();
-    }
-  };
-
-  //GETS
-  //Get property data
-  const getPropertiesData = async () => {
-    const address = await checkIfWalletConnected();
-    try {
-      if (address) {
-        const contract = await connectingWithSmartContract();
-
-        const properties = await contract?.getAllProperties();
-        console.log("Properties from contract: "+ properties);
-        
-        const parsedProperties = properties?.map((property, i) => ({
-          owner: property.owner,
-          title: property.propertyTitle,
-          description: property.description,
-          category: property.category,
-          price: ethers.formatEther(property.price.toString()),
-          productID: property.productId.toNumber(),
-          reviewers: property.reviewers,
-          reviews: property.reviews,
-          image: property.images,
-          address: property.propertyAddress,
-        }));
-        console.log(parsedProperties);
-        return parsedProperties;
+      //GET BALANCE
+      if (account) {
+        const balance = await fetchAccountBalance(account);
+        setAccountBalance(balance || "");
       }
     } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //Gethighestproduct
-  const getHighestRatedProductFunction = async () => {
-    try {
-      const address = await checkIfWalletConnected();
-      if (address) {
-        const contract = await connectingWithSmartContract();
-        const totalReviews = await contract.getHighestRatedProduct();
-
-        setGetHighestRatedProduct(totalReviews.toNumber());
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //getProductReviews()
-  const getProductReviewsFunction = async (productId) => {
-    try {
-      const address = await checkIfWalletConnected();
-      if (address) {
-        const contract = await connectingWithSmartContract();
-
-        const getProductReviews = await contract.getProductReviews(
-          Number(productId)
-        );
-
-        const parsedReviews = getProductReviews?.map((review, i) => ({
-          reviewer: review.reviewer,
-          likes: review.likes.toNumber(),
-          comment: review.comment,
-          rating: review.rating,
-          productID: review.productId.toNumber(),
-          reviewIndex: review.reviewIndex.toNumber(),
-        }));
-        return parsedReviews;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //getProperty
-  const getPropertyFunction = async (id) => {
-    try {
-      const address = await checkIfWalletConnected();
-      if (address) {
-        const contract = await connectingWithSmartContract();
-        const propertyItem = await contract.getProperty(Number(id));
-
-        const property = {
-          productID: propertyItem?.[0].toNumber(),
-          owner: propertyItem?.[1],
-          title: propertyItem?.[3],
-          category: propertyItem?.[4],
-          description: propertyItem?.[7],
-          price: ethers.formatEther(propertyItem?.[2].toString()),
-          address: propertyItem?.[6],
-          image: propertyItem?.[5],
-        };
-
-        return property;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //getUserProperties
-  const getUserPropertiesFunction = async () => {
-    try {
-      const address = await checkIfWalletConnected();
-      if (address) {
-        const contract = await connectingWithSmartContract();
-
-        const properties = await contract.getUserProperties(address);
-
-        const parsedProperties = properties.map((property, i) => ({
-          owner: property.owner,
-          title: property.propertyTitle,
-          description: property.description,
-          category: property.category,
-          price: ethers.formatEther(property.price.toString()),
-          productID: property.productID.toNumber(),
-          reviewers: property.reviewers,
-          reviews: property.reviews,
-          image: property.images,
-          address: property.propertyAddress,
-        }));
-
-        return parsedProperties;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //GetUserReviews.
-  const getUserReviewsFunction = async () => {
-    try {
-      const address = await checkIfWalletConnected();
-      if (address) {
-        const contract = await connectingWithSmartContract();
-        const getUserReviews = await contract.getUserReviews(address);
-
-        const parsedUserReviews = getUserReviews.map((property, i) => ({
-          comment: property.comment,
-          likes: property.likes.toNumber(),
-          productId: property.productId.toNumber(),
-          rating: property.rating,
-          reviewIndex: property.reviewIndex.toNumber(),
-          reviewer: property.reviewer,
-        }));
-
-        return parsedUserReviews;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //total property
-  const totalPropertyFunction = async () => {
-    try {
-      const address = await checkIfWalletConnected();
-      if (address) {
-        const contract = await connectingWithSmartContract();
-
-        const totalProperty = await contract.propertyIndex();
-
-        return totalProperty.toNumber();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //total review
-  const totalReviewsFunction = async () => {
-    try {
-      const address = await checkIfWalletConnected();
-      if (address) {
-        const contract = await connectingWithSmartContract();
-
-        const totalReviews = await contract.reviewsCounter();
-
-        return totalReviews.toNumber();
-      }
-    } catch (error) {
-      console.log(error);
+      console.log("Error fetching data:", error);
     }
   };
 
   useEffect(() => {
-    getHighestRatedProductFunction();
-    getUserReviewsFunction();
-    totalPropertyFunction();
-    totalReviewsFunction();
-  }, [currentAccount]);
+    fetchData();
+  }, []);
 
-  //data with events
-  // const { data: event } = useContractEvents(contract, "PropertyListed");
-
-  // //get all events
-  // const { data: allEvents } = useContractEvents(contract);
-
-  // //set default
-  // const { data: eventWithoutListener } = useContractEvents(
-  //   contract,
-  //   undefined,
-  //   {
-  //     subscribe: false,
-  //   }
-  // );
-
-  //console.log(event);
-  //console.log(allEvents);
-  //console.log(eventWithoutListener);
+  //CONNECT WALLET FUNCTION
+  const connectWalletFunction = async () => {
+    try {
+      const account = await connectWallet();
+      setAddress(account || "");
+      
+      if (account) {
+        const balance = await fetchAccountBalance(account);
+        setAccountBalance(balance || "");
+      }
+    } catch (error) {
+      console.log("Error connecting wallet:", error);
+    }
+  };
 
   return (
     <StateContext.Provider
-    value={{
-      //CONTRACT
-      connectWallet,
-      disconnectWallet,
-      currentAccount,
-      accountBalance,
-      //APPKIT INSTANCE
-      appKit,
-      //PROPERTY
-      createPropertyFunction,
-      updatePropertyFunction,
-      updatePriceFunction,
-      buyPropertyFunction,
-      getPropertyFunction,
-      getUserPropertiesFunction,
-      totalPropertyFunction,
-      getPropertiesData,
-      //REVIEW
-      addReviewFunction,
-      likeReviewFunction,
-      getProductReviewsFunction,
-      getUserReviewsFunction,
-      totalReviewsFunction,
-      getHighestRatedProduct,
-      //STATE VARIABLE
-      userBlance,
-      PINATA_API_KEY,
-      PINATA_SECRECT_KEY,
-      loader,
-      setLoader,
-      notifySuccess,
-      notifyError,
-    }}
+      value={{
+        // Account state
+        address,
+        accountBalance,
+        currentAccount: address,
+        userBlance: accountBalance,
+        
+        // Functions
+        connectWallet: connectWalletFunction,
+        checkIfWalletConnected,
+        uploadToIPFS,
+        createRealEstate,
+        getAllRealEstate,
+        buyRealEstate,
+        updatePrice,
+        updateRealEstate,
+        connectingWithSmartContract,
+        fetchData,
+        
+        // Contract info
+        REAL_ESTATE_ADDRESS,
+        REAL_ESTATE_ABI,
+        
+        // IPFS config
+        PINATA_API_KEY,
+        PINATA_SECRECT_KEY,
+        
+        // UI state
+        loader,
+        setLoader,
+        notifySuccess,
+        notifyError,
+      }}
     >
       {children}
     </StateContext.Provider>
   );
 };
 
-export const useStateContext = () => useContext(StateContext);
-
-
+export const useStateContext = () => {
+  const context = useContext(StateContext);
+  if (!context) {
+    throw new Error('useStateContext must be used within StateContextProvider');
+  }
+  return context;
+};

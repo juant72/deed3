@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Importaciones CSS existentes - mantenidas durante la migración */
+/* Importaciones CSS existentes - después de Tailwind para evitar conflictos */
 @import url("./assets/css/plugins/feature.css");
 @import url("./assets/css/plugins/jquery-ui.min.css");
 @import url("./assets/css/vendor/bootstrap.min.css");
@@ -12,7 +10,7 @@
 @import url("./assets/css/vendor/slick.css");
 @import url("./assets/css/style.css");
 
-/* ??LOADER */
+/* Custom Deeds3 Styles */
 .custom-loader-wrapper {
   position: fixed;
   top: 0;

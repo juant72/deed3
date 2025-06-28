@@ -2,6 +2,7 @@ import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect } from "wagmi";
+import Image from "next/image";
 
 /**
  * SocialAuth Component
@@ -68,9 +69,11 @@ const SocialAuth = ({
           {session?.user && (
             <div className="flex items-center gap-2">
               {session.user.image && (
-                <img 
-                  src={session.user.image} 
-                  alt={session.user.name || "User"} 
+                <Image
+                  src={session.user.image}
+                  alt={session.user.name || "User"}
+                  width={32}
+                  height={32}
                   className="w-8 h-8 rounded-full"
                 />
               )}
