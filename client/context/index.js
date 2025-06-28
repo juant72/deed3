@@ -1,9 +1,8 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
-import { createAppKit } from "@reown/appkit/react";
-import { EthersAdapter } from "@reown/appkit-adapter-ethers";
-import { mainnet, polygon, arbitrum } from "@reown/appkit/networks";
+import { useAccount, useBalance, useConnect, useDisconnect } from 'wagmi';
+import { useConnectorClient } from 'wagmi';
 import toast from "react-hot-toast";
 
 import {
@@ -19,109 +18,15 @@ import {
 const FETCH_CONTRACT = (PROVIDER) =>
   new ethers.Contract(REAL_ESTATE_ADDRESS, REAL_ESTATE_ABI, PROVIDER);
 
-// Reown AppKit configuration
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
-const isValidProjectId = projectId && 
-  projectId !== "demo-project-id" && 
-  projectId !== "your_project_id_here" &&
-  projectId !== "temp-dev-id-replace-with-real-one";
-
-// Show configuration warning only once
-if (!isValidProjectId && typeof window !== 'undefined') {
-  console.warn(
-    "⚠️ Reown AppKit: Using development project ID.\n" +
-    "For production, get a real project ID from: https://cloud.reown.com\n" +
-    "Run 'npm run setup:reown' for setup help."
-  );
-}
-
-const metadata = {
-  name: "Deeds3 - Real Estate NFT",
-  description: "Decentralized Real Estate Platform",
-  url: "https://deeds3.vercel.app",
-  icons: ["https://deeds3.vercel.app/logo.png"]
-};
-
-// Define supported networks using Reown AppKit networks
-const networks = [
-  mainnet,
-  polygon,
-  arbitrum
-];
-
-// Create Ethers adapter
-const ethersAdapter = new EthersAdapter();
-
-// Enhanced AppKit configuration for development
-const appKitConfig = {
-  adapters: [ethersAdapter],
-  networks,
-  metadata,
-  projectId: projectId || "temp-dev-id",
-  features: {
-    analytics: isValidProjectId, // Only enable analytics with valid project ID
-    email: false, // Disable email features for development
-    social: false, // Disable social features for development
-  }
-};
-
-// Create Reown AppKit instance with error handling
-let appKit;
-try {
-  appKit = createAppKit(appKitConfig);
-} catch (error) {
-  console.warn("AppKit initialization warning:", error.message);
-  // Fallback configuration for development
-  appKit = createAppKit({
-    ...appKitConfig,
-    features: {
-      analytics: false,
-      email: false,
-      social: false,
-    }
-  });
-}
-
-//CONNECTING WITH CONTRACT
-const connectingWithSmartContract = async () => {
+//CONNECTING WITH CONTRACT using Wagmi
+const connectingWithSmartContract = async (client) => {
   try {
-    // Check if AppKit is connected
-    const isConnected = appKit.getIsConnected();
-    
-    if (!isConnected) {
-      // Open AppKit modal to connect wallet
-      await appKit.open();
-      // Wait for connection
-      const checkConnection = () => {
-        return new Promise((resolve, reject) => {
-          const maxAttempts = 30; // 15 seconds max
-          let attempts = 0;
-          
-          const interval = setInterval(() => {
-            if (appKit.getIsConnected()) {
-              clearInterval(interval);
-              resolve(true);
-            } else if (attempts >= maxAttempts) {
-              clearInterval(interval);
-              reject(new Error("Connection timeout"));
-            }
-            attempts++;
-          }, 500);
-        });
-      };
-      
-      await checkConnection();
-    }
-    
-    // Get wallet provider from AppKit
-    const walletProvider = appKit.getWalletProvider();
-    
-    if (!walletProvider) {
-      throw new Error("No wallet provider found");
+    if (!client) {
+      throw new Error("No wallet client available");
     }
 
-    // Create ethers provider
-    const provider = new ethers.BrowserProvider(walletProvider);
+    // Create ethers provider from wagmi client
+    const provider = new ethers.BrowserProvider(client);
     
     if (!provider) {
       throw new Error("No provider found");
@@ -136,7 +41,6 @@ const connectingWithSmartContract = async () => {
     const contract = FETCH_CONTRACT(signer);    
 
     console.log("Provider connected successfully");
-
     return contract;
   } catch (error) {
     console.log("Error connecting with Smart Contract: ", error);
@@ -144,14 +48,21 @@ const connectingWithSmartContract = async () => {
   }
 };
 
-
 const StateContext = createContext();
 
 const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 
 export const StateContextProvider = ({ children }) => {
   const router = useRouter();
-  //STATE VARIABLE
+  
+  // Wagmi hooks
+  const { address, isConnected } = useAccount();
+  const { data: balance } = useBalance({ address });
+  const { connect, connectors } = useConnect();
+  const { disconnect } = useDisconnect();
+  const { data: client } = useConnectorClient();
+
+  // Local state (maintaining compatibility with existing components)
   const [currentAccount, setCurrentAccount] = useState();
   const [accountBalance, setAccountBalance] = useState();
   const [userBlance, setUserBlance] = useState();
@@ -159,122 +70,43 @@ export const StateContextProvider = ({ children }) => {
   const [loader, setLoader] = useState(false);
   const [count, setCount] = useState(0);
 
-  //NOTIFICATION
+  // Toast notifications
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
   const notifyError = (msg) => toast.error(msg, { duration: 2000 });
 
-  //---CHECK IF WALLET IS CONNECTD
-  const checkIfWalletConnected = async () => {
-    try {
-      // Check AppKit connection first
-      const isConnected = appKit.getIsConnected();
-      
-      if (isConnected) {
-        const address = appKit.getAddress();
-        if (address) {
-          setCurrentAccount(address);
-          
-          // Get provider and balance
-          const walletProvider = appKit.getWalletProvider();
-          if (walletProvider) {
-            const provider = new ethers.BrowserProvider(walletProvider);
-            const getBalance = await provider.getBalance(address);
-            const convertBal = ethers.formatEther(getBalance);
-            setAccountBalance(convertBal);
-            setUserBlance(convertBal);
-          }
-          
-          return address;
-        }
-      }
-      
-      // Fallback to window.ethereum for backward compatibility
-      if (!window.ethereum) return notifyError("Install MetaMask");
-      const network = await handleNetworkSwitch();
-
-      const accounts = await window.ethereum.request({
-        method: "eth_accounts",
-      });
-      if (accounts.length) {
-        setCurrentAccount(accounts[0]);
-        const provider = new ethers.BrowserProvider(window.ethereum);
-        const getBalance = await provider.getBalance(accounts[0]);
-        const convertBal = ethers.formatEther(getBalance);
-        setAccountBalance(convertBal);
-        setUserBlance(convertBal);
-        return accounts[0];
-      } else {
-        console.log("NO ACCOUNT");
-      }
-    } catch (error) {
-      console.log("NO CONNECTION", error);
-    }
-  };
-
-useEffect(() => {
-  checkIfWalletConnected();
-  
-  // Subscribe to AppKit provider changes
-  const unsubscribe = appKit.subscribeProvider(({ address, isConnected, chainId }) => {
+  // Update local state when Wagmi state changes
+  useEffect(() => {
     if (isConnected && address) {
       setCurrentAccount(address);
-      // Update balance when account changes
-      checkIfWalletConnected();
+      if (balance) {
+        const formattedBalance = ethers.formatEther(balance.value);
+        setAccountBalance(formattedBalance);
+        setUserBlance(formattedBalance);
+      }
     } else {
       setCurrentAccount(null);
       setAccountBalance(null);
       setUserBlance(null);
     }
-  });
+  }, [isConnected, address, balance]);
 
-  // Cleanup subscription on unmount
-  return () => {
-    if (unsubscribe) {
-      unsubscribe();
-    }
+  // Check if wallet is connected (for compatibility)
+  const checkIfWalletConnected = async () => {
+    return isConnected ? address : null;
   };
-}, []);
 
-
-  //---CONNECT WALLET FUNCTION
+  // Connect wallet function (RainbowKit handles the UI)
   const connectWallet = async () => {
     try {
       setLoader(true);
       
-      // Use AppKit to connect wallet
-      await appKit.open();
+      // RainbowKit handles the connection UI through the ConnectButton
+      // This function is mainly for compatibility with existing components
+      if (connectors.length > 0) {
+        connect({ connector: connectors[0] });
+      }
       
-      // Wait for connection to be established
-      const waitForConnection = () => {
-        return new Promise((resolve, reject) => {
-          const maxAttempts = 60; // 30 seconds max
-          let attempts = 0;
-          
-          const interval = setInterval(() => {
-            const isConnected = appKit.getIsConnected();
-            const address = appKit.getAddress();
-            
-            if (isConnected && address) {
-              clearInterval(interval);
-              resolve(address);
-            } else if (attempts >= maxAttempts) {
-              clearInterval(interval);
-              reject(new Error("Connection timeout"));
-            }
-            attempts++;
-          }, 500);
-        });
-      };
-      
-      const address = await waitForConnection();
-      setCurrentAccount(address);
       setLoader(false);
-      notifySuccess("Wallet connected successfully");
-      setCount(count + 1);
-      
-      // Update balance
-      await checkIfWalletConnected();
-      
     } catch (error) {
       setLoader(false);
       notifyError("Failed to connect wallet");
@@ -282,14 +114,10 @@ useEffect(() => {
     }
   };
 
-
-  //---DISCONNECT WALLET FUNCTION
+  // Disconnect wallet function
   const disconnectWallet = async () => {
     try {
-      await appKit.disconnect();
-      setCurrentAccount(null);
-      setAccountBalance(null);
-      setUserBlance(null);
+      disconnect();
       notifySuccess("Wallet disconnected successfully");
     } catch (error) {
       notifyError("Failed to disconnect wallet");
@@ -297,15 +125,7 @@ useEffect(() => {
     }
   };
 
-  // //Frontend
-  // const disconnect = useDisconnect();
-  // const signer = useSigner();
-
-  // //State vars
-  // const [ userBalance, setUserBalance ] = useState(0);
-
-  
-  //CREATE PROPERTY
+  // Create property function (updated to use Wagmi client)
   const createPropertyFunction = async (form) => {
     const {
       propertyTitle,
@@ -318,9 +138,7 @@ useEffect(() => {
 
     try {
       setLoader(true);
-      const contract = await connectingWithSmartContract();
-
-      const address = await checkIfWalletConnected();
+      const contract = await connectingWithSmartContract(client);
 
       const transaction = await contract.listProperty(
         address,
@@ -337,12 +155,11 @@ useEffect(() => {
       notifySuccess("Transaction went successfully");
       setCount(count + 1);
       router.push("/author");
-      console.log("contract call successs", transaction);
+      console.log("contract call success", transaction);
     } catch (err) {
       setLoader(false);
       notifyError("Something went wrong");
       console.log("contract call failure", err);
-      window.location.reload();
     }
   };
 

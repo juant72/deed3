@@ -1,17 +1,39 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Script from "next/script";
+import { SessionProvider } from "next-auth/react";
+import { WagmiProvider } from "wagmi";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
+
 import "../styles/tailwind.css";
+import "@rainbow-me/rainbowkit/styles.css";
 
 import { StateContextProvider } from "../context";
+import { wagmiConfig } from "../lib/wagmi-config";
+import { rainbowKitTheme } from "../lib/rainbowkit-theme";
 
-export default function App({ Component, pageProps }) {
+// Create a client for React Query
+const queryClient = new QueryClient();
+
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
-      <StateContextProvider>
-        <Component {...pageProps} />
-        <Toaster />
-      </StateContextProvider>
+      <WagmiProvider config={wagmiConfig}>
+        <QueryClientProvider client={queryClient}>
+          <SessionProvider session={session}>
+            <RainbowKitSiweNextAuthProvider>
+              <RainbowKitProvider theme={rainbowKitTheme}>
+                <StateContextProvider>
+                  <Component {...pageProps} />
+                  <Toaster />
+                </StateContextProvider>
+              </RainbowKitProvider>
+            </RainbowKitSiweNextAuthProvider>
+          </SessionProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
 
       {/* Vendor Scripts - Loaded with Next.js Script optimization */}
       <Script src="/js/vendor/jquery.js" strategy="lazyOnload" />

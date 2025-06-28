@@ -16,8 +16,7 @@
     "health:reown": "echo \"Check browser console for connection health status\""
   },
   "dependencies": {
-    "@reown/appkit": "^1.7.11",
-    "@reown/appkit-adapter-ethers": "^1.7.11",
+    "@rainbow-me/rainbowkit-siwe-next-auth": "^0.5.0",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -26,10 +25,12 @@
     "ethers": "^6.14.4",
     "lucide-react": "^0.525.0",
     "next": "15.3.4",
+    "next-auth": "^4.24.11",
     "react": "19.1.0",
     "react-countdown": "^2.3.5",
     "react-dom": "19.1.0",
     "react-hot-toast": "^2.4.1",
+    "siwe": "^3.0.0",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

@@ -7,13 +7,13 @@ Complete setup for RainbowKit with social authentication using NextAuth.js
 
 ```bash
 # RainbowKit stack
-npm install @rainbow-me/rainbowkit wagmi viem @tanstack/react-query
+pnpm add @rainbow-me/rainbowkit wagmi viem @tanstack/react-query
 
 # NextAuth with RainbowKit integration
-npm install next-auth @rainbow-me/rainbowkit-siwe-next-auth
+pnpm add next-auth @rainbow-me/rainbowkit-siwe-next-auth
 
 # Social providers (optional, choose what you need)
-npm install @auth/google-provider @auth/twitter-provider @auth/github-provider
+pnpm add @auth/google-provider @auth/twitter-provider @auth/github-provider
 ```
 
 ## 1. NextAuth Configuration
