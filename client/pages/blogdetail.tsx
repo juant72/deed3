@@ -1,4 +1,5 @@
 import React from "react";
+import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { BlogDetailOne, BlogDetailTwo } from "../PageComponents/BlogDetail";
@@ -16,4 +17,13 @@ const BlogDetail: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default BlogDetail;
+
+

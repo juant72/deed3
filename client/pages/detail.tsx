@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
@@ -149,4 +150,13 @@ const Detail: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default Detail;
+
+

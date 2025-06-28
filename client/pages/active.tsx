@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { Activity } from "../PageComponents/ActivityPage";
@@ -50,6 +51,13 @@ const Active: React.FC = () => {
       <Copyright />
     </div>
   );
+};
+
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
 };
 
 export default Active;

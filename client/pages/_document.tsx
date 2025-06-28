@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
   return (
@@ -18,8 +19,6 @@ export default function Document() {
         {/* CSS Vendor Files - Next.js will optimize these automatically */}
         {/* Note: These are kept for legacy vendor script compatibility */}
         {/* eslint-disable-next-line @next/next/no-css-tags */}
-        <link rel="stylesheet" href="/styles/assets/css/vendor/bootstrap.min.css" />
-        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link rel="stylesheet" href="/styles/assets/css/vendor/slick.css" />
         {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link rel="stylesheet" href="/styles/assets/css/vendor/slick-theme.css" />
@@ -37,6 +36,9 @@ export default function Document() {
         {/* Main CSS */}
         {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link rel="stylesheet" href="/styles/assets/css/style.css" />
+
+        {/* Core jQuery - Must load before interactive scripts */}
+        <Script src="/js/vendor/jquery.js" strategy="beforeInteractive" />
       </Head>
       <body>
         <Main />

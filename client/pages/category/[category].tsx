@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
 
 ///INTERNAL IMPORT
 import { Title, Collection } from "../../PageComponents/CollectionPage";
@@ -57,6 +58,12 @@ const Category: React.FC = () => {
       <Copyright />
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
 };
 
 export default Category;

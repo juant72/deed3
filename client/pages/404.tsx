@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
@@ -15,9 +16,9 @@ const PageNotFound: React.FC = () => {
                 <h2 className="large-title">404</h2>
                 <h3 className="title">Page not found!</h3>
                 <p>The page you are looking for not available.</p>
-                <a href="index.html" className="btn btn-primary btn-large">
+                <Link href="/" className="btn btn-primary btn-large">
                   Go Back To Home
-                </a>
+                </Link>
               </div>
             </div>
           </div>

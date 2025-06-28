@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useContext, ReactNode } from "react";
+import React, { useEffect, useState, createContext, useContext, ReactNode, useMemo } from "react";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
 import toast from "react-hot-toast";
@@ -482,7 +482,7 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
     setAccountBalance("");
   };
 
-  const contextValue: ExtendedAppContextType = {
+  const contextValue: ExtendedAppContextType = useMemo(() => ({
     // Account state
     address,
     accountBalance,
@@ -526,7 +526,7 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
     setLoader,
     notifySuccess,
     notifyError,
-  };
+  }), [address, accountBalance, loader]);
 
   return (
     <StateContext.Provider value={contextValue}>

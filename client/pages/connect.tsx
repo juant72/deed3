@@ -1,4 +1,5 @@
 import React from "react";
+import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { ConnectOne, ConnectTwo } from "../PageComponents/ConnectPage";
@@ -16,5 +17,14 @@ const Connect: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default Connect;
+
+
 

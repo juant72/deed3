@@ -1,4 +1,5 @@
 import React from "react";
+import { GetServerSideProps } from "next";
 import { useAccount, useDisconnect } from "wagmi";
 
 const TestAuth: React.FC = () => {
@@ -90,4 +91,13 @@ const TestAuth: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default TestAuth;
+
+

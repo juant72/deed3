@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { Title, Collection } from "../PageComponents/CollectionPage";
@@ -50,5 +51,14 @@ const CollectionPage: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default CollectionPage;
+
+
 

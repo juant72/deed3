@@ -1,4 +1,5 @@
 import React from "react";
+import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import {
@@ -19,4 +20,13 @@ const Create: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default Create;
+
+

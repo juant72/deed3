@@ -1,4 +1,5 @@
 import React from "react";
+import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
@@ -17,5 +18,14 @@ const News: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default News;
+
+
 

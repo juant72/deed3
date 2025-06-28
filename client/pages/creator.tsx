@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { CreatorOne } from "../PageComponents/CreatorPage";
@@ -51,4 +52,13 @@ const Creator: React.FC = () => {
   );
 };
 
+// Force SSR to avoid Wagmi hook errors during build
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 export default Creator;
+
+

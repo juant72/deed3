@@ -9,11 +9,12 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
 
-import "../styles/globals.css";
+import "../styles/tailwind.css";
 
 import { StateContextProvider } from "../context";
 import { wagmiConfig } from "../lib/wagmi-config";
 import { rainbowKitTheme } from "../lib/rainbowkit-theme";
+import ClientOnly from "../components/ClientOnly";
 
 interface MyAppProps extends AppProps {
   pageProps: {
@@ -23,6 +24,69 @@ interface MyAppProps extends AppProps {
 }
 
 export default function App({ Component, pageProps: { session, ...pageProps } }: MyAppProps) {
+  // Suppress common extension errors in development
+  React.useEffect(() => {
+    const isExtensionError = (error: any) => {
+      const message = error?.message || error?.toString?.() || '';
+      return (
+        message.includes('chrome.runtime.sendMessage') ||
+        message.includes('Extension ID') ||
+        message.includes('opfgelmcmbiajamepnmloijbpoleiama') ||
+        message.includes('inpage.js') ||
+        message.includes('chrome-extension://') ||
+        message.includes('runtime.sendMessage')
+      );
+    };
+
+    // Suppress console errors
+    const originalError = console.error;
+    console.error = (...args) => {
+      const message = args[0]?.toString?.() || '';
+      if (isExtensionError({ message })) {
+        return; // Suppress this error
+      }
+      originalError.apply(console, args);
+    };
+
+    // Suppress console warnings
+    const originalWarn = console.warn;
+    console.warn = (...args) => {
+      const message = args[0]?.toString?.() || '';
+      if (isExtensionError({ message })) {
+        return; // Suppress this warning
+      }
+      originalWarn.apply(console, args);
+    };
+
+    // Suppress unhandled errors and rejections
+    const handleError = (event: ErrorEvent): boolean => {
+      if (isExtensionError(event.error)) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      }
+      return true;
+    };
+
+    const handleRejection = (event: PromiseRejectionEvent): boolean => {
+      if (isExtensionError(event.reason)) {
+        event.preventDefault();
+        return false;
+      }
+      return true;
+    };
+
+    window.addEventListener('error', handleError);
+    window.addEventListener('unhandledrejection', handleRejection);
+
+    return () => {
+      console.error = originalError;
+      console.warn = originalWarn;
+      window.removeEventListener('error', handleError);
+      window.removeEventListener('unhandledrejection', handleRejection);
+    };
+  }, []);
+
   // Create a client for React Query inside the component
   const [queryClient] = React.useState(() => new QueryClient({
     defaultOptions: {
@@ -34,25 +98,24 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
   
   return (
     <>
-      <WagmiProvider config={wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
-          <SessionProvider session={session || null}>
-            <RainbowKitSiweNextAuthProvider>
-              <RainbowKitProvider theme={rainbowKitTheme}>
-                <StateContextProvider>
-                  <Component {...pageProps} />
-                  <Toaster />
-                </StateContextProvider>
-              </RainbowKitProvider>
-            </RainbowKitSiweNextAuthProvider>
-          </SessionProvider>
-        </QueryClientProvider>
-      </WagmiProvider>
+      <ClientOnly fallback={<div>Loading...</div>}>
+        <WagmiProvider config={wagmiConfig}>
+          <QueryClientProvider client={queryClient}>
+            <SessionProvider session={session || null}>
+              <RainbowKitSiweNextAuthProvider>
+                <RainbowKitProvider theme={rainbowKitTheme}>
+                  <StateContextProvider>
+                    <Component {...pageProps} />
+                    <Toaster />
+                  </StateContextProvider>
+                </RainbowKitProvider>
+              </RainbowKitSiweNextAuthProvider>
+            </SessionProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
+      </ClientOnly>
 
       {/* Vendor Scripts - Loaded with Next.js Script optimization */}
-      {/* Core jQuery - Load first */}
-      <Script src="/js/vendor/jquery.js" strategy="beforeInteractive" />
-      
       {/* jQuery plugins - Load after jQuery */}
       <Script src="/js/vendor/jquery.nice-select.min.js" strategy="afterInteractive" />
       <Script src="/js/vendor/jquery-ui.js" strategy="afterInteractive" />
