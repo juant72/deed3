@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import axios from "axios";
@@ -13,7 +13,6 @@ import {
   GlobalLoder,
 } from "../PageComponents/Components";
 import { useStateContext } from "../context";
-import { checkIfImage } from "../utils";
 
 const categories = [
   "Housing",
@@ -30,13 +29,10 @@ const Update = () => {
 
   ///STATE VARIABLE
   const [isLoading, setIsLoading] = useState(false);
-  const [properties, setProperties] = useState([]);
   const [file, setFile] = useState(null);
   const [diplayImg, setDiplayImg] = useState(null);
   const [fileName, setFileName] = useState("Upload Image");
   const {
-    address,
-    contract,
     updatePropertyFunction,
     PINATA_API_KEY,
     PINATA_SECRECT_KEY,
@@ -93,7 +89,7 @@ const Update = () => {
         setFileName("Image Uploaded");
         setLoader(false);
         return ImgHash;
-      } catch (error) {
+      } catch {
         setLoader(false);
         notifyError("Unable to upload image to Pinata, Check API Key");
       }

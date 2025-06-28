@@ -9,21 +9,17 @@ import {
   Header,
   Footer,
   Copyright,
-  Loader,
 } from "../PageComponents/Components";
 
 const Creator = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
 
   const { getPropertiesData } = useStateContext();
 
   //GET DATA
   const fetchProperty = async () => {
-    setIsLoading(true);
     const data = await getPropertiesData();
     setProperties(data);
-    setIsLoading(false);
   };
 
   useEffect(() => {

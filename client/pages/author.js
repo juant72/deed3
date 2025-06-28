@@ -13,7 +13,6 @@ import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { useStateContext } from "../context";
 
 const Author = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
   const [author, setAuthor] = useState([]);
 
@@ -22,12 +21,10 @@ const Author = () => {
 
   //GET DATA
   const fetchProperty = useCallback(async () => {
-    setIsLoading(true);
     const data = await getPropertiesData();
     const dataAuthor = await getUserPropertiesFunction();
     setAuthor(dataAuthor);
     setProperties(data);
-    setIsLoading(false);
   }, [getPropertiesData, getUserPropertiesFunction]);
 
   useEffect(() => {

@@ -96,14 +96,14 @@ export default async function auth(req, res) {
         session.user.address = token.sub;
         return session;
       },
-      async jwt({ token, account, profile }) {
+      async jwt({ token, account, _profile }) {
         // Persist additional data in the JWT token
         if (account) {
           token.chainId = account.chainId;
         }
         return token;
       },
-      async signIn({ user, account, profile }) {
+      async signIn({ _user, _account, _profile }) {
         // Custom sign-in logic can be added here
         return true;
       },
@@ -113,7 +113,7 @@ export default async function auth(req, res) {
       error: "/auth/error", // Error code passed in query string as ?error=
     },
     events: {
-      async signIn({ user, account, profile, isNewUser }) {
+      async signIn({ user, account, _profile, _isNewUser }) {
         console.log("User signed in:", { user: user.id, account: account?.provider });
       },
       async signOut({ session, token }) {

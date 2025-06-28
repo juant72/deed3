@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { ethers } from "ethers";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
@@ -7,7 +6,6 @@ import { Header, Footer, Copyright } from "../PageComponents/Components";
 import {
   DetailEight,
   DetailFive,
-  DetailFour,
   DetailOne,
   DetailSeven,
   DetailSix,
@@ -15,7 +13,7 @@ import {
   DetailTwo,
 } from "../PageComponents/DetailPage";
 
-import { Loader, GlobalLoder } from "../PageComponents/Components";
+import { GlobalLoder } from "../PageComponents/Components";
 
 import { useStateContext } from "../context";
 
@@ -71,7 +69,7 @@ const Detail = () => {
 
   const createReview = async () => {
     setCommentLoading(true);
-    const data = await addReviewFunction({
+    await addReviewFunction({
       ...review,
       productID: property.productID,
     });
@@ -79,12 +77,8 @@ const Detail = () => {
   };
 
   //LIKE REVIEW
-  const [likeReviews, setLikeReviews] = useState({
-    productID: "",
-    reviewIndex: "",
-  });
   const likeReviewCall = async (property, reviewIndex) => {
-    const data = await likeReviewFunction(property.productID, reviewIndex);
+    await likeReviewFunction(property.productID, reviewIndex);
   };
 
   //BUY PROPERTY
@@ -94,7 +88,7 @@ const Detail = () => {
   };
   const buyingProperty = async () => {
     setBuyLoading(true);
-    const data = await buyPropertyFunction(buying);
+    await buyPropertyFunction(buying);
     setBuyLoading(false);
   };
 
@@ -105,7 +99,7 @@ const Detail = () => {
   });
   const updatepropertyPrice = async () => {
     setUpdatePriceLoading(true);
-    const data = await updatePriceFunction({
+    await updatePriceFunction({
       ...updatePropertyPrice,
       productID: property?.productID,
     });

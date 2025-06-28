@@ -18,7 +18,7 @@ const Category = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
 
-  const { address, contract, getPropertiesData } = useStateContext();
+  const { getPropertiesData } = useStateContext();
 
   //GET DATA
   const fetchProperty = useCallback(async () => {

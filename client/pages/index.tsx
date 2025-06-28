@@ -7,7 +7,6 @@ import {
   Live,
   Service,
   Product,
-  TopSeller,
   Collection,
   Footer,
   Copyright,
@@ -15,34 +14,34 @@ import {
 
 ///INTERNAL IMPORT
 import { useStateContext } from "../context";
-import { getTopCreators } from "../utils";
+import { RealEstateProperty } from "../types/global";
 
-const Home = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [properties, setProperties] = useState([]);
+const Home: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [properties, setProperties] = useState<RealEstateProperty[]>([]);
 
-  const { currentAccount, getPropertiesData } = useStateContext();
+  const { getAllRealEstate } = useStateContext();
 
   //GET DATA
   const fetchProperty = useCallback(async () => {
     setIsLoading(true);
-    const data = await getPropertiesData();
+    const data = await getAllRealEstate();
 
     setProperties(data);
     setIsLoading(false);
-  }, [getPropertiesData]);
+  }, [getAllRealEstate]);
 
   useEffect(() => {
     fetchProperty();
   }, [fetchProperty]);
 
   //CATEGORIES
-  const housing = [];
-  const rental = [];
-  const farmhouse = [];
-  const office = [];
-  const commercial = [];
-  const country = [];
+  const housing: RealEstateProperty[] = [];
+  const rental: RealEstateProperty[] = [];
+  const farmhouse: RealEstateProperty[] = [];
+  const office: RealEstateProperty[] = [];
+  const commercial: RealEstateProperty[] = [];
+  const country: RealEstateProperty[] = [];
 
   if (!isLoading) {
     properties?.map((el) => {
@@ -59,6 +58,7 @@ const Home = () => {
       } else if (el.category === "Housing") {
         housing.push(el);
       }
+      return el;
     });
   }
 
@@ -72,7 +72,6 @@ const Home = () => {
       <Live properties={properties} />
       <Service />
       <Product properties={properties} />
-      {/* <TopSeller creators={creators} /> */}
 
       <Collection
         housing={housing?.length}

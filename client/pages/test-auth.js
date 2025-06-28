@@ -1,6 +1,7 @@
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import SocialAuth from "../components/SocialAuth";
+import SiweAuth from "../components/SiweAuth";
 import { useAuth } from "../hooks/useAuth";
 
 export default function TestAuth() {
@@ -62,6 +63,21 @@ export default function TestAuth() {
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-2">Wallet Connection</h3>
             <ConnectButton />
+          </div>
+          
+          {/* SIWE Authentication */}
+          <div className="mb-6">
+            <h3 className="text-lg font-medium mb-2">SIWE (Sign-In with Ethereum)</h3>
+            <SiweAuth 
+              onSuccess={(result) => {
+                console.log('SIWE success:', result);
+                alert('SIWE authentication successful!');
+              }}
+              onError={(error) => {
+                console.error('SIWE error:', error);
+                alert(`SIWE error: ${error.error}`);
+              }}
+            />
           </div>
           
           {/* Social Authentication Component */}

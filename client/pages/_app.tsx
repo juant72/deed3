@@ -1,5 +1,7 @@
 import React from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { AppProps } from "next/app";
+import { Session } from "next-auth";
+import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
 import { WagmiProvider } from "wagmi";
@@ -7,22 +9,34 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
 
-import "../styles/tailwind.css";
-import "@rainbow-me/rainbowkit/styles.css";
+import "../styles/globals.css";
 
 import { StateContextProvider } from "../context";
 import { wagmiConfig } from "../lib/wagmi-config";
 import { rainbowKitTheme } from "../lib/rainbowkit-theme";
 
-// Create a client for React Query
-const queryClient = new QueryClient();
+interface MyAppProps extends AppProps {
+  pageProps: {
+    session?: Session | null | undefined;
+    [key: string]: any;
+  };
+}
 
-export default function App({ Component, pageProps: { session, ...pageProps } }) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: MyAppProps) {
+  // Create a client for React Query inside the component
+  const [queryClient] = React.useState(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+      },
+    },
+  }));
+  
   return (
     <>
       <WagmiProvider config={wagmiConfig}>
         <QueryClientProvider client={queryClient}>
-          <SessionProvider session={session}>
+          <SessionProvider session={session || null}>
             <RainbowKitSiweNextAuthProvider>
               <RainbowKitProvider theme={rainbowKitTheme}>
                 <StateContextProvider>
