@@ -3,24 +3,26 @@ import React from "react";
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import {
-  FourmFour,
-  FourmOne,
-  FourmThree,
-  FourmTwo,
-} from "../PageComponents/FourmPage";
+  Banner,
+  Action,
+  Blog,
+  Quote,
+  Statistick,
+} from "../PageComponents/AboutPage";
 
-const Forum = () => {
+const About: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <FourmOne />
-      <FourmTwo />
-      <FourmThree />
-      <FourmFour />
+      <Banner />
+      <Action />
+      <Blog />
+      <Quote />
+      <Statistick />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Forum;
+export default About;

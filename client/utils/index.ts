@@ -1,17 +1,28 @@
-export const daysLeft = (deadline) => {
+interface RealEstateProperty {
+  owner: string;
+  price: string;
+  [key: string]: any;
+}
+
+interface Creator {
+  owner: string;
+  total: number;
+}
+
+export const daysLeft = (deadline: string | Date): string => {
   const difference = new Date(deadline).getTime() - Date.now();
   const remainingDays = difference / (1000 * 3600 * 24);
 
   return remainingDays.toFixed(0);
 };
 
-export const calculateBarPercentage = (goal, raisedAmount) => {
+export const calculateBarPercentage = (goal: number, raisedAmount: number): number => {
   const percentage = Math.round((raisedAmount * 100) / goal);
 
   return percentage;
 };
 
-export const checkIfImage = (url, callback) => {
+export const checkIfImage = (url: string, callback: (isValid: boolean) => void): void => {
   const img = new Image();
   img.src = url;
 
@@ -21,10 +32,10 @@ export const checkIfImage = (url, callback) => {
   img.onerror = () => callback(false);
 };
 
-export const getTopCreators = (creators) => {
-  const finalCreators = [];
+export const getTopCreators = (creators: RealEstateProperty[]): Creator[] => {
+  const finalCreators: Creator[] = [];
 
-  const finalResults = creators.reduce((index, currentValue) => {
+  const finalResults = creators.reduce((index: Record<string, RealEstateProperty[]>, currentValue) => {
     (index[currentValue.owner] = index[currentValue.owner] || []).push(
       currentValue
     );

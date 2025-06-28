@@ -1,19 +1,19 @@
 import React from "react";
 
 //INTERNAL IMPORT
+import { BlogDetailOne, BlogDetailTwo } from "../PageComponents/BlogDetail";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
-import { RankingOne, RankingTwo } from "../PageComponents/RankingPage";
 
-const Ranking = () => {
+const BlogDetail: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <RankingOne />
-      <RankingTwo />
+      <BlogDetailOne />
+      <BlogDetailTwo />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Ranking;
+export default BlogDetail;

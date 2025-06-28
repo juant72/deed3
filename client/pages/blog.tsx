@@ -2,18 +2,18 @@ import React from "react";
 
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
-import { PrivacyOne, PrivacyTwo } from "../PageComponents/PrivacyPage";
+import { BlogOne, BlogTwo } from "../PageComponents/BlogPage";
 
-const Privacy = () => {
+const Blog: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <PrivacyOne />
-      <PrivacyTwo />
+      <BlogOne />
+      <BlogTwo />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Privacy;
+export default Blog;

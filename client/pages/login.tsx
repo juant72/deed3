@@ -1,19 +1,19 @@
 import React from "react";
 
 //INTERNAL IMPORT
-import { ConnectOne, ConnectTwo } from "../PageComponents/ConnectPage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { LoginOne, LoginTwo } from "../PageComponents/LoginPage";
 
-const Connect = () => {
+const Login: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <ConnectOne />
-      <ConnectTwo />
+      <LoginOne />
+      <LoginTwo />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Connect;
+export default Login;

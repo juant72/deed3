@@ -3,24 +3,25 @@ import React from "react";
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import {
-  ProductFour,
-  ProductOne,
-  ProductThree,
-  ProductTwo,
-} from "../PageComponents/ProductPAge";
+  ExplorFour,
+  ExplorOne,
+  ExplorThree,
+  ExplorTwo,
+} from "../PageComponents/ExplorePage";
 
-const Product = () => {
+const Explor: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <ProductOne />
-      <ProductTwo />
-      <ProductThree />
-      <ProductFour />
+      <ExplorOne />
+      <ExplorTwo />
+      <ExplorThree />
+      <ExplorFour />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Product;
+export default Explor;
+

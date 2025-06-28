@@ -1,26 +1,20 @@
 import React from "react";
 
 //INTERNAL IMPORT
-import {
-  ContactFour,
-  ContactOne,
-  ContactThree,
-  ContactTwo,
-} from "../PageComponents/ContactPage";
+import { Title, Collection } from "../PageComponents/CollectionPage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 
-const Contact = () => {
+const CollectionPage: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <ContactOne />
-      <ContactTwo />
-      <ContactThree />
-      <ContactFour />
+      <Title title="Collection" />
+      <Collection category="all" isLoading={false} />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Contact;
+export default CollectionPage;
+

@@ -4,7 +4,7 @@ import React from "react";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { UpcomingOne, UpcomingTwo } from "../PageComponents/UpcomingPage";
 
-const Upcoming = () => {
+const Upcoming: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
@@ -17,3 +17,4 @@ const Upcoming = () => {
 };
 
 export default Upcoming;
+

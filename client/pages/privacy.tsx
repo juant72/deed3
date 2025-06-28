@@ -2,25 +2,19 @@ import React from "react";
 
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
-import {
-  ForgetFour,
-  ForgetOne,
-  ForgetThree,
-  ForgetTwo,
-} from "../PageComponents/ForgetPage";
+import { PrivacyOne, PrivacyTwo } from "../PageComponents/PrivacyPage";
 
-const Forget = () => {
+const Privacy: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <ForgetOne />
-      <ForgetTwo />
-      <ForgetThree />
-      <ForgetFour />
+      <PrivacyOne />
+      <PrivacyTwo />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Forget;
+export default Privacy;
+

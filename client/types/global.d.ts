@@ -77,4 +77,21 @@ declare global {
   }
 }
 
+// Common component interfaces
+interface PageProps {
+  [key: string]: any;
+}
+
+// Component prop types
+interface ComponentWithProperties {
+  properties?: RealEstateProperty[];
+  totalReviews?: number;
+  popular?: RealEstateProperty[];
+}
+
+interface ComponentWithAuthor {
+  author?: RealEstateProperty[];
+  address?: string | null;
+}
+
 export {};

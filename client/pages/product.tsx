@@ -2,18 +2,26 @@ import React from "react";
 
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
-import { LoginOne, LoginTwo } from "../PageComponents/LoginPage";
+import {
+  ProductFour,
+  ProductOne,
+  ProductThree,
+  ProductTwo,
+} from "../PageComponents/ProductPAge";
 
-const Login = () => {
+const Product: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <LoginOne />
-      <LoginTwo />
+      <ProductOne />
+      <ProductTwo />
+      <ProductThree />
+      <ProductFour />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Login;
+export default Product;
+

@@ -2,27 +2,18 @@ import React from "react";
 
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
-import {
-  Banner,
-  Action,
-  Blog,
-  Quote,
-  Statistick,
-} from "../PageComponents/AboutPage";
+import { SignUpOne, SignUpTwo } from "../PageComponents/SignUpPage";
 
-const About = () => {
+const SignUp: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <Banner />
-      <Action />
-      <Blog />
-      <Quote />
-      <Statistick />
+      <SignUpOne />
+      <SignUpTwo />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default About;
+export default SignUp;

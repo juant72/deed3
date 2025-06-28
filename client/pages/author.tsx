@@ -12,9 +12,22 @@ import { Header, Footer, Copyright } from "../PageComponents/Components";
 
 import { useStateContext } from "../context";
 
-const Author = () => {
-  const [properties, setProperties] = useState([]);
-  const [author, setAuthor] = useState([]);
+interface RealEstateProperty {
+  id: string;
+  title: string;
+  category: string;
+  price: string;
+  location: string;
+  images: string[];
+  owner: string;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const Author: React.FC = () => {
+  const [properties, setProperties] = useState<RealEstateProperty[]>([]);
+  const [author, setAuthor] = useState<RealEstateProperty[]>([]);
 
   const { currentAccount, getUserPropertiesFunction, getPropertiesData } =
     useStateContext();
@@ -22,10 +35,10 @@ const Author = () => {
   //GET DATA
   const fetchProperty = useCallback(async () => {
     const data = await getPropertiesData();
-    const dataAuthor = await getUserPropertiesFunction();
+    const dataAuthor = await getUserPropertiesFunction(currentAccount || "");
     setAuthor(dataAuthor);
     setProperties(data);
-  }, [getPropertiesData, getUserPropertiesFunction]);
+  }, [getPropertiesData, getUserPropertiesFunction, currentAccount]);
 
   useEffect(() => {
     fetchProperty();

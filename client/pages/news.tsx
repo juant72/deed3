@@ -1,23 +1,21 @@
 import React from "react";
 
 //INTERNAL IMPORT
-import {
-  CreateOne,
-  CreateTwo,
-} from "../PageComponents/CreatePage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { NewsOne, NewsThree, NewsTwo } from "../PageComponents/NewsPage";
 
-const Create = () => {
+const News: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <CreateOne title="Create Property" />
-      <CreateTwo />
-      {/* <CreateThree /> */}
+      <NewsOne />
+      <NewsTwo />
+      <NewsThree />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default Create;
+export default News;
+

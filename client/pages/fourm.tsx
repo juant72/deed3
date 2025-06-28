@@ -1,19 +1,27 @@
 import React from "react";
 
 //INTERNAL IMPORT
-import { Title, Collection } from "../PageComponents/CollectionPage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
+import {
+  FourmFour,
+  FourmOne,
+  FourmThree,
+  FourmTwo,
+} from "../PageComponents/FourmPage";
 
-const CollectionPage = () => {
+const Forum: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <Title />
-      <Collection />
+      <FourmOne />
+      <FourmTwo />
+      <FourmThree />
+      <FourmFour />
       <Footer />
       <Copyright />
     </div>
   );
 };
 
-export default CollectionPage;
+export default Forum;
+

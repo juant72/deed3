@@ -3,7 +3,7 @@ import React from "react";
 //INTERNAL IMPORT
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 
-const pageNotFound = () => {
+const PageNotFound: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
@@ -27,7 +27,7 @@ const pageNotFound = () => {
       <div
         className="rn-popup-modal share-modal-wrapper modal fade"
         id="shareModal"
-        tabindex="-1"
+        tabIndex={-1}
         aria-hidden="true"
       >
         <button
@@ -95,7 +95,7 @@ const pageNotFound = () => {
       <div
         className="rn-popup-modal report-modal-wrapper modal fade"
         id="reportModal"
-        tabindex="-1"
+        tabIndex={-1}
         aria-hidden="true"
       >
         <button
@@ -142,5 +142,4 @@ const pageNotFound = () => {
   );
 };
 
-export default pageNotFound;
-
+export default PageNotFound;
