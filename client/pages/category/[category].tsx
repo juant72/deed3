@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/router";
+
+///INTERNAL IMPORT
+import { Title, Collection } from "../../PageComponents/CollectionPage";
+import { Header, Footer, Copyright } from "../../PageComponents/Components";
 
 //INTERNAL IMPORT
-import { Title, Collection } from "../PageComponents/CollectionPage";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
-import { useStateContext } from "../context";
+import { useStateContext } from "../../context";
 
 interface RealEstateProperty {
   id: string;
@@ -18,7 +21,13 @@ interface RealEstateProperty {
   updatedAt: Date;
 }
 
-const CollectionPage: React.FC = () => {
+const Category: React.FC = () => {
+  const router = useRouter();
+
+  const { query } = router;
+
+  console.log(router);
+
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState<RealEstateProperty[]>([]);
 
@@ -39,9 +48,11 @@ const CollectionPage: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <Title title="Collection" />
+      <Title 
+        title={`Category: ${query.category || 'All'}`}
+      />
       <Collection 
-        category="all" 
+        category={query.category as string || "all"} 
         isLoading={isLoading}
       />
       <Footer />
@@ -50,5 +61,4 @@ const CollectionPage: React.FC = () => {
   );
 };
 
-export default CollectionPage;
-
+export default Category;
