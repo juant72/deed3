@@ -73,7 +73,7 @@ const CreateTwo = () => {
     if (images || propertyTitle || price || category || description) {
       await createPropertyFunction({
         ...form,
-        price: ethers.utils.parseUnits(form.price, 18),
+        price: ethers.parseEther(form.price),
       });
       setIsLoading(false);
     } else {

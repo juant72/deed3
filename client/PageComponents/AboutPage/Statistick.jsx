@@ -2,44 +2,44 @@ import React from "react";
 
 const Statistick = () => {
   return (
-    <div class="rn-statistick-area rn-section-gapTop">
-      <div class="container">
-        <div class="row mb--30">
-          <div class="col-12 text-center">
+    <div className="rn-statistick-area rn-section-gapTop">
+      <div className="container">
+        <div className="row mb--30">
+          <div className="col-12 text-center">
             <h3>Deeds3 Statistics</h3>
           </div>
         </div>
-        <div class="row g-5">
-          <div class="offset-lg-2 col-lg-4 col-md-6">
-            <div class="single-counter-up text-center">
-              <h3 class="counter">
+        <div className="row g-5">
+          <div className="offset-lg-2 col-lg-4 col-md-6">
+            <div className="single-counter-up text-center">
+              <h3 className="counter">
                 <span data-count="309">40</span>
               </h3>
-              <div class="botton-title">Deeds3 All NFT's</div>
+              <div className="botton-title">Deeds3 All NFT's</div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-counter-up text-center">
-              <h3 class="counter">
+          <div className="col-lg-4 col-md-6">
+            <div className="single-counter-up text-center">
+              <h3 className="counter">
                 <span data-count="508">200</span>
               </h3>
-              <div class="botton-title">All Creators</div>
+              <div className="botton-title">All Creators</div>
             </div>
           </div>
-          <div class="offset-lg-2 col-lg-4 col-md-6">
-            <div class="single-counter-up text-center">
-              <h3 class="counter">
+          <div className="offset-lg-2 col-lg-4 col-md-6">
+            <div className="single-counter-up text-center">
+              <h3 className="counter">
                 <span data-count="1032">700</span>
               </h3>
-              <div class="botton-title">Deeds3 Earning</div>
+              <div className="botton-title">Deeds3 Earning</div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-counter-up text-center">
-              <h3 class="counter">
+          <div className="col-lg-4 col-md-6">
+            <div className="single-counter-up text-center">
+              <h3 className="counter">
                 <span data-count="650">1000</span>
               </h3>
-              <div class="botton-title">Level One Seller</div>
+              <div className="botton-title">Level One Seller</div>
             </div>
           </div>
         </div>
@@ -49,3 +49,5 @@ const Statistick = () => {
 };
 
 export default Statistick;
+
+

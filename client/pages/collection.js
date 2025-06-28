@@ -4,7 +4,7 @@ import React from "react";
 import { Title, Collection } from "../PageComponents/CollectionPage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 
-const Collection = () => {
+const CollectionPage = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
@@ -16,4 +16,4 @@ const Collection = () => {
   );
 };
 
-export default Collection;
+export default CollectionPage;

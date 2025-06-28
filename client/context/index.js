@@ -377,7 +377,7 @@ useEffect(() => {
           title: property.propertyTitle,
           description: property.description,
           category: property.category,
-          price: ethers.utils.formatEther(property.price.toString()),
+          price: ethers.formatEther(property.price.toString()),
           productID: property.productId.toNumber(),
           reviewers: property.reviewers,
           reviews: property.reviews,
@@ -447,7 +447,7 @@ useEffect(() => {
           title: propertyItem?.[3],
           category: propertyItem?.[4],
           description: propertyItem?.[7],
-          price: ethers.utils.formatEther(propertyItem?.[2].toString()),
+          price: ethers.formatEther(propertyItem?.[2].toString()),
           address: propertyItem?.[6],
           image: propertyItem?.[5],
         };
@@ -473,7 +473,7 @@ useEffect(() => {
           title: property.propertyTitle,
           description: property.description,
           category: property.category,
-          price: ethers.utils.formatEther(property.price.toString()),
+          price: ethers.formatEther(property.price.toString()),
           productID: property.productID.toNumber(),
           reviewers: property.reviewers,
           reviews: property.reviews,
@@ -609,4 +609,5 @@ useEffect(() => {
 };
 
 export const useStateContext = () => useContext(StateContext);
+
 

@@ -8,7 +8,7 @@ import { Header, Footer, Copyright } from "../../PageComponents/Components";
 //INTERNAL IMPORT
 import { useStateContext } from "../../context";
 
-const Collection = () => {
+const Category = () => {
   const router = useRouter();
 
   const { query } = router;
@@ -57,4 +57,4 @@ const Collection = () => {
   );
 };
 
-export default Collection;
+export default Category;
