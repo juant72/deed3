@@ -4,9 +4,9 @@ import React from "react";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { BlogOne, BlogTwo } from "../PageComponents/BlogPage";
 
-const blog = () => {
+const Blog = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <BlogOne />
       <BlogTwo />
@@ -16,4 +16,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default Blog;

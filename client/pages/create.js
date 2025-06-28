@@ -8,9 +8,9 @@ import {
 } from "../PageComponents/CreatePage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 
-const create = () => {
+const Create = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <CreateOne title="Create Property" />
       <CreateTwo />
@@ -21,4 +21,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Create;

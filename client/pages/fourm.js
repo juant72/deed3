@@ -9,9 +9,9 @@ import {
   FourmTwo,
 } from "../PageComponents/FourmPage";
 
-const forget = () => {
+const Forum = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <FourmOne />
       <FourmTwo />
@@ -23,4 +23,4 @@ const forget = () => {
   );
 };
 
-export default forget;
+export default Forum;

@@ -7,9 +7,9 @@ import {
   EditProfileTwo,
 } from "../PageComponents/EditProfilepage";
 
-const editProfile = () => {
+const EditProfile = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <EditProfileOne />
       <EditProfileTwo />
@@ -19,4 +19,4 @@ const editProfile = () => {
   );
 };
 
-export default editProfile;
+export default EditProfile;

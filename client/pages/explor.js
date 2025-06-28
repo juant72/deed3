@@ -9,9 +9,9 @@ import {
   ExplorTwo,
 } from "../PageComponents/ExplorePage";
 
-const explor = () => {
+const Explor = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <ExplorOne />
       <ExplorTwo />
@@ -23,4 +23,4 @@ const explor = () => {
   );
 };
 
-export default explor;
+export default Explor;

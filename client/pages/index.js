@@ -17,7 +17,7 @@ import {
 import { useStateContext } from "../context";
 import { getTopCreators } from "../utils";
 
-const index = () => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
 
@@ -87,4 +87,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Home;

@@ -4,9 +4,9 @@ import React from "react";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { SignUpOne, SignUpTwo } from "../PageComponents/SignUpPage";
 
-const signup = () => {
+const SignUp = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <SignUpOne />
       <SignUpTwo />
@@ -16,4 +16,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default SignUp;

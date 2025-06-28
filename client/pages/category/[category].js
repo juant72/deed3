@@ -8,7 +8,7 @@ import { Header, Footer, Copyright } from "../../PageComponents/Components";
 //INTERNAL IMPORT
 import { useStateContext } from "../../context";
 
-const collection = () => {
+const Collection = () => {
   const router = useRouter();
 
   const { query } = router;
@@ -47,7 +47,7 @@ const collection = () => {
   console.log(category);
 
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <Title title={query.name} />
       <Collection category={category} isLoading={isLoading} />
@@ -57,4 +57,4 @@ const collection = () => {
   );
 };
 
-export default collection;
+export default Collection;

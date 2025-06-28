@@ -9,9 +9,9 @@ import {
   ForgetTwo,
 } from "../PageComponents/ForgetPage";
 
-const forget = () => {
+const Forget = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <ForgetOne />
       <ForgetTwo />
@@ -23,4 +23,4 @@ const forget = () => {
   );
 };
 
-export default forget;
+export default Forget;

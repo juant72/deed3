@@ -4,9 +4,9 @@ import React from "react";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { LoginOne, LoginTwo } from "../PageComponents/LoginPage";
 
-const login = () => {
+const Login = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <LoginOne />
       <LoginTwo />
@@ -16,4 +16,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

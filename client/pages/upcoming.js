@@ -4,9 +4,9 @@ import React from "react";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { UpcomingOne, UpcomingTwo } from "../PageComponents/UpcomingPage";
 
-const upcoming = () => {
+const Upcoming = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <UpcomingOne />
       <UpcomingTwo />
@@ -16,4 +16,4 @@ const upcoming = () => {
   );
 };
 
-export default upcoming;
+export default Upcoming;

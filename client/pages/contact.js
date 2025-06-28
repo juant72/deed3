@@ -9,9 +9,9 @@ import {
 } from "../PageComponents/ContactPage";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 
-const contact = () => {
+const Contact = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <ContactOne />
       <ContactTwo />

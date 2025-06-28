@@ -4,9 +4,9 @@ import React from "react";
 import { BlogDetailOne, BlogDetailTwo } from "../PageComponents/BlogDetail";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 
-const blogDetail = () => {
+const BlogDetail = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <BlogDetailOne />
       <BlogDetailTwo />
@@ -16,4 +16,5 @@ const blogDetail = () => {
   );
 };
 
-export default blogDetail;
+export default BlogDetail;
+

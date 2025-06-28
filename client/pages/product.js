@@ -9,9 +9,9 @@ import {
   ProductTwo,
 } from "../PageComponents/ProductPAge";
 
-const about = () => {
+const Product = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <ProductOne />
       <ProductTwo />
@@ -23,4 +23,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default Product;

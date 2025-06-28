@@ -4,9 +4,9 @@ import React from "react";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { NewsOne, NewsThree, NewsTwo } from "../PageComponents/NewsPage";
 
-const news = () => {
+const News = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <NewsOne />
       <NewsTwo />
@@ -17,4 +17,4 @@ const news = () => {
   );
 };
 
-export default news;
+export default News;

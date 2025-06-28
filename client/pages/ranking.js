@@ -4,9 +4,9 @@ import React from "react";
 import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { RankingOne, RankingTwo } from "../PageComponents/RankingPage";
 
-const ranking = () => {
+const Ranking = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <RankingOne />
       <RankingTwo />
@@ -16,4 +16,4 @@ const ranking = () => {
   );
 };
 
-export default ranking;
+export default Ranking;
