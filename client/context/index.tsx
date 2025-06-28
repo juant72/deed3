@@ -85,10 +85,10 @@ const connectingWithSmartContract = async (client: any): Promise<ethers.Contract
 
     const contract = FETCH_CONTRACT(signer);    
 
-    console.log("Provider connected successfully");
+    // Provider connected successfully
     return contract;
   } catch (error) {
-    console.log("Error connecting with Smart Contract: ", error);
+    // Error connecting with Smart Contract
     throw error;
   }
 };
@@ -105,7 +105,7 @@ const fetchAccountBalance = async (address: string): Promise<string | null> => {
     }
     return null;
   } catch (error) {
-    console.log("Error fetching account balance: ", error);
+    // Error fetching account balance
     return null;
   }
 };
@@ -114,7 +114,7 @@ const fetchAccountBalance = async (address: string): Promise<string | null> => {
 const checkIfWalletConnected = async (): Promise<string | null> => {
   try {
     if (typeof window === 'undefined' || !window.ethereum) {
-      console.log("Please Install MetaMask");
+      // Debug log removed
       return null;
     }
 
@@ -125,11 +125,11 @@ const checkIfWalletConnected = async (): Promise<string | null> => {
     if (accounts.length) {
       return accounts[0];
     } else {
-      console.log("No account found");
+      // Debug log removed
       return null;
     }
   } catch (error) {
-    console.log("Error checking wallet connection:", error);
+    // Debug log removed
     return null;
   }
 };
@@ -138,7 +138,7 @@ const checkIfWalletConnected = async (): Promise<string | null> => {
 const connectWallet = async (): Promise<string | undefined> => {
   try {
     if (typeof window === 'undefined' || !window.ethereum) {
-      console.log("Please Install MetaMask");
+      // Debug log removed
       return undefined;
     }
 
@@ -148,7 +148,7 @@ const connectWallet = async (): Promise<string | undefined> => {
 
     return accounts[0];
   } catch (error) {
-    console.log("Error connecting wallet:", error);
+    // Debug log removed
     return undefined;
   }
 };
@@ -186,12 +186,12 @@ const uploadToIPFS = async (file: File): Promise<string | null> => {
     );
 
     const responseData = await response.json();
-    console.log("IPFS Response:", responseData);
+    // Debug log removed
 
     const ImgHash = `ipfs://${responseData.IpfsHash}`;
     return ImgHash;
   } catch (error) {
-    console.log("Error uploading to IPFS:", error);
+    // Debug log removed
     return null;
   }
 };
@@ -223,12 +223,12 @@ const createRealEstate = async (
     );
 
     await transaction.wait();
-    console.log("Real Estate created successfully");
+    // Debug log removed
     toast.success("Property created successfully!");
     
     return transaction;
   } catch (error) {
-    console.log("Error creating real estate:", error);
+    // Debug log removed
     toast.error("Failed to create property");
     throw error;
   }
@@ -262,7 +262,7 @@ const getAllRealEstate = async (): Promise<RealEstateProperty[]> => {
 
     return parsedProperties;
   } catch (error) {
-    console.log("Error fetching properties:", error);
+    // Debug log removed
     return [];
   }
 };
@@ -279,12 +279,12 @@ const buyRealEstate = async (index: number, price: number, client: any): Promise
     });
 
     await transaction.wait();
-    console.log("Property purchased successfully");
+    // Debug log removed
     toast.success("Property purchased successfully!");
     
     return transaction;
   } catch (error) {
-    console.log("Error purchasing property:", error);
+    // Debug log removed
     toast.error("Failed to purchase property");
     throw error;
   }
@@ -300,12 +300,12 @@ const updatePrice = async (index: number, newPrice: number, client: any): Promis
     const transaction = await (contract as any).updatePrice(index, propertyPrice);
 
     await transaction.wait();
-    console.log("Price updated successfully");
+    // Debug log removed
     toast.success("Price updated successfully!");
     
     return transaction;
   } catch (error) {
-    console.log("Error updating price:", error);
+    // Debug log removed
     toast.error("Failed to update price");
     throw error;
   }
@@ -319,12 +319,12 @@ const updateRealEstate = async (index: number, client: any): Promise<any> => {
     const transaction = await (contract as any).updateRealEstate(index);
 
     await transaction.wait();
-    console.log("Property status updated successfully");
+    // Debug log removed
     toast.success("Property status updated successfully!");
     
     return transaction;
   } catch (error) {
-    console.log("Error updating property status:", error);
+    // Debug log removed
     toast.error("Failed to update property status");
     throw error;
   }
@@ -337,7 +337,7 @@ const totalReviewsFunction = async (propertyId: string): Promise<number> => {
     // For now returning 0 to prevent errors
     return 0;
   } catch (error) {
-    console.log("Error getting total reviews:", error);
+    // Debug log removed
     return 0;
   }
 };
@@ -349,7 +349,7 @@ const totalRatingFunction = async (propertyId: string): Promise<number> => {
     // For now returning 0 to prevent errors
     return 0;
   } catch (error) {
-    console.log("Error getting total rating:", error);
+    // Debug log removed
     return 0;
   }
 };
@@ -361,7 +361,7 @@ const getHighestRatedProduct = async (): Promise<RealEstateProperty[]> => {
     // For now returning empty array to prevent errors
     return [];
   } catch (error) {
-    console.log("Error getting highest rated product:", error);
+    // Debug log removed
     return [];
   }
 };
@@ -372,7 +372,7 @@ const getSinglePropertyFunction = async (index: number): Promise<RealEstatePrope
     const allProperties = await getAllRealEstate();
     return allProperties[index] || null;
   } catch (error) {
-    console.log("Error getting single property:", error);
+    // Debug log removed
     return null;
   }
 };
@@ -386,18 +386,18 @@ const getProductReviewsFunction = async (productId: string): Promise<Review[]> =
     // Placeholder - would fetch reviews for specific property
     return [];
   } catch (error) {
-    console.log("Error getting product reviews:", error);
+    // Debug log removed
     return [];
   }
 };
 
 const addReviewFunction = async (review: any): Promise<any> => {
   try {
-    console.log("Review functionality not yet implemented:", review);
+    // Debug log removed
     toast.success("Review functionality will be implemented soon!");
     return null;
   } catch (error) {
-    console.log("Error adding review:", error);
+    // Debug log removed
     toast.error("Failed to add review");
     return null;
   }
@@ -433,7 +433,7 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
       
       return userProperties;
     } catch (error) {
-      console.log("Error getting user properties:", error);
+      // Debug log removed
       return [];
     }
   };
@@ -454,7 +454,7 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
         setAccountBalance(balance || "");
       }
     } catch (error) {
-      console.log("Error fetching data:", error);
+      // Debug log removed
     }
   };
 
@@ -473,7 +473,7 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
         setAccountBalance(balance || "");
       }
     } catch (error) {
-      console.log("Error connecting wallet:", error);
+      // Debug log removed
     }
   };
 
@@ -542,3 +542,4 @@ export const useStateContext = (): ExtendedAppContextType => {
   }
   return context;
 };
+
