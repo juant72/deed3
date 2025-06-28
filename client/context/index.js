@@ -1,7 +1,7 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
-import Web3Modal from "web3modal";
+import { createWeb3Modal, defaultConfig } from "@web3modal/ethers";
 import toast from "react-hot-toast";
 
 import {
@@ -17,56 +17,84 @@ import {
 const FETCH_CONTRACT = (PROVIDER) =>
   new ethers.Contract(REAL_ESTATE_ADDRESS, REAL_ESTATE_ABI, PROVIDER);
 
-// console.log("ABI:" + JSON.stringify(REAL_ESTATE_ABI,null,2));
-const providerOptions = {
-  injected: {
-    display: {
-      name: "MetaMask",
-      description: "Connect with MetaMask",
-    },
-    package: true,
-    options: {
-      appName: "deeds3",
-    },
-  },
+// Web3Modal configuration
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "demo-project-id";
+
+const metadata = {
+  name: "Deeds3 - Real Estate NFT",
+  description: "Decentralized Real Estate Platform",
+  url: "https://deeds3.vercel.app",
+  icons: ["https://deeds3.vercel.app/logo.png"]
 };
+
+const chains = [
+  {
+    chainId: 1,
+    name: "Ethereum",
+    currency: "ETH",
+    explorerUrl: "https://etherscan.io",
+    rpcUrl: "https://cloudflare-eth.com"
+  },
+  {
+    chainId: 80001,
+    name: "Polygon Mumbai",
+    currency: "MATIC",
+    explorerUrl: "https://mumbai.polygonscan.com",
+    rpcUrl: "https://rpc-mumbai.maticvigil.com"
+  }
+];
+
+const ethersConfig = defaultConfig({
+  metadata,
+  enableEIP6963: true,
+  enableInjected: true,
+  enableCoinbase: true,
+  rpcUrl: "https://cloudflare-eth.com",
+  defaultChainId: 1
+});
+
+// Create Web3Modal instance
+const web3Modal = createWeb3Modal({
+  ethersConfig,
+  chains,
+  projectId,
+  enableAnalytics: true
+});
 
 //CONNECTING WITH CONTRACT
 const connectingWithSmartContract = async () => {
   try {
-    // const web3modal = new Web3Modal();
-    const web3modal = new Web3Modal({
-      cacheProvider: true,
-      providerOptions,
-      disableInjectedProvider: false,
-    });
-
-    const connection = await web3modal.connect();
-
-    // Verify succesfull connection
-    if (!connection) {
-      throw new Error("No connection found");
+    // Open Web3Modal
+    await web3Modal.open();
+    
+    // Get wallet provider from Web3Modal
+    const walletProvider = web3Modal.getWalletProvider();
+    
+    if (!walletProvider) {
+      throw new Error("No wallet provider found");
     }
-    const provider = new ethers.providers.Web3Provider(connection);
 
-    // Verify valid provider 
+    // Create ethers provider
+    const provider = new ethers.BrowserProvider(walletProvider);
+    
     if (!provider) {
       throw new Error("No provider found");
     }
 
-    const PROVIDER = provider.getSigner();
-    //Verify valid signer
-    if (!PROVIDER){
+    const signer = await provider.getSigner();
+    
+    if (!signer) {
       throw new Error("No valid signer");
     }
 
-    const contract = FETCH_CONTRACT(PROVIDER);    
+    const contract = FETCH_CONTRACT(signer);    
 
-    console.log("Provider: " + PROVIDER);
+    console.log("Provider connected successfully");
 
     return contract;
   } catch (error) {
-    console.log("Error connectig with SC: ",error);
+    console.log("Error connecting with Smart Contract: ", error);
+    throw error;
   }
 };
 
@@ -100,9 +128,9 @@ export const StateContextProvider = ({ children }) => {
       });
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const provider = new ethers.BrowserProvider(window.ethereum);
         const getBalance = await provider.getBalance(accounts[0]);
-        const convertBal = ethers.utils.formatEther(getBalance);
+        const convertBal = ethers.formatEther(getBalance);
         setAccountBalance(convertBal);
         setUserBlance(convertBal);
       } else {
@@ -239,7 +267,7 @@ useEffect(() => {
       const transaction = await contract.updatePrice(
         address,
         productID,
-        ethers.utils.parseEther(price)
+        ethers.parseEther(price)
       );
 
       await transaction.wait();
@@ -258,7 +286,7 @@ useEffect(() => {
   //Buy property
   const buyPropertyFunction = async (buying) => {
     const { productID, amount } = buying;
-    const money = ethers.utils.parseEther(amount);
+    const money = ethers.parseEther(amount);
 
     try {
       const contract = await connectingWithSmartContract();
@@ -581,3 +609,4 @@ useEffect(() => {
 };
 
 export const useStateContext = () => useContext(StateContext);
+
