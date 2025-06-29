@@ -8,7 +8,6 @@ import {
   User,
   Plus
 } from 'lucide-react';
-import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 
 interface BottomNavigationProps {
   notifications?: number;
@@ -16,7 +15,6 @@ interface BottomNavigationProps {
 
 const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }) => {
   const router = useRouter();
-  const { shouldReduceMotion, vibrate } = useUIOptimizations();
 
   const navItems = [
     { 
@@ -57,8 +55,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }
     }
   ];
 
-  const handleNavigation = (href, _id) => {
-    vibrate([5, 2, 5]);
+  const handleNavigation = (href: string, _id: string) => {
     router.push(href);
   };
 
@@ -67,8 +64,8 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: shouldReduceMotion ? { duration: 0 } : {
-        type: "spring",
+      transition: {
+        type: "spring" as const,
         stiffness: 300,
         damping: 30,
         staggerChildren: 0.05
@@ -81,8 +78,8 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: shouldReduceMotion ? { duration: 0 } : {
-        type: "spring",
+      transition: {
+        type: "spring" as const,
         stiffness: 400,
         damping: 30
       }
@@ -112,13 +109,13 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }
             `}
             onClick={() => handleNavigation(item.href, item.id)}
             variants={itemVariants}
-            whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+            whileTap={{ scale: 0.95 }}
             aria-label={`Navigate to ${item.label}`}
           >
             {/* Icon */}
             <motion.div
               className="relative"
-              animate={shouldReduceMotion ? {} : (item.isActive ? { 
+              animate={(item.isActive ? { 
                 scale: [1, 1.1, 1],
                 rotate: [0, 5, -5, 0]
               } : {})}
@@ -130,8 +127,8 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }
               {item.id === 'profile' && notifications > 0 && (
                 <motion.span
                   className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
-                  initial={shouldReduceMotion ? {} : { scale: 0 }}
-                  animate={shouldReduceMotion ? {} : { scale: 1 }}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
                   transition={{ delay: 0.2 }}
                 >
                   {notifications > 9 ? '9+' : notifications}
@@ -151,8 +148,8 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }
             {item.isActive && !item.isSpecial && (
               <motion.div
                 className="absolute -bottom-1 w-1 h-1 bg-blue-400 rounded-full"
-                initial={shouldReduceMotion ? {} : { scale: 0, opacity: 0 }}
-                animate={shouldReduceMotion ? {} : { scale: 1, opacity: 1 }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
                 transition={{ 
                   type: "spring", 
                   stiffness: 400, 
@@ -165,7 +162,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }
             <motion.div
               className="absolute inset-0 rounded-xl bg-white/10"
               initial={{ scale: 0, opacity: 0 }}
-              whileTap={shouldReduceMotion ? {} : { 
+              whileTap={{ 
                 scale: 1.5, 
                 opacity: [0, 0.3, 0] 
               }}

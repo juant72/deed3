@@ -1,13 +1,26 @@
 /**
  * PostCSS plugin to suppress specific warnings
  */
-const suppressWarnings = () => {
+interface HelperResult {
+  warn: (text: string, opts?: any) => void;
+}
+
+interface Helpers {
+  result: HelperResult;
+}
+
+interface PostCSSPlugin {
+  postcssPlugin: string;
+  OnceExit: (root: any, helpers: Helpers) => void;
+}
+
+const suppressWarnings = (): PostCSSPlugin => {
   return {
     postcssPlugin: 'suppress-warnings',
-    OnceExit(root, helpers) {
+    OnceExit(root: any, helpers: Helpers) {
       // Suprimir warnings específicos
       const originalWarn = helpers.result.warn;
-      helpers.result.warn = function(text, opts = {}) {
+      helpers.result.warn = function(text: string, opts: any = {}) {
         // Filtrar warnings de color-adjust y otros deprecated
         if (
           text.includes('color-adjust') ||
@@ -23,6 +36,6 @@ const suppressWarnings = () => {
   };
 };
 
-suppressWarnings.postcss = true;
+(suppressWarnings as any).postcss = true;
 
-module.exports = suppressWarnings;
+export default suppressWarnings;

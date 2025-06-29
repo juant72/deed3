@@ -1,6 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from 'framer-motion';
-import { useUIOptimizations } from '../../hooks/useUIOptimizations';
+
+// Declare global type for window
+declare global {
+  interface Window {
+    announceToScreenReader?: (message: string, priority?: string) => void;
+  }
+}
 
 interface SkipLinkProps {
   href?: string;
@@ -8,15 +14,13 @@ interface SkipLinkProps {
 }
 
 const SkipLink: React.FC<SkipLinkProps> = ({ href = "#main-content", children = "Skip to main content" }) => {
-  const { shouldReduceMotion } = useUIOptimizations();
-  
   return (
     <motion.a
       href={href}
       className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-blue-600 text-white px-4 py-2 rounded-lg font-medium shadow-lg"
-      initial={shouldReduceMotion ? {} : { y: -50, opacity: 0 }}
-      whileFocus={shouldReduceMotion ? {} : { y: 0, opacity: 1 }}
-      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
+      initial={{ y: -50, opacity: 0 }}
+      whileFocus={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.2 }}
     >
       {children}
     </motion.a>
@@ -30,21 +34,21 @@ interface FocusTrapProps {
 
 const FocusTrap: React.FC<FocusTrapProps> = ({ children, isActive = true }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const firstFocusableRef = useRef<HTMLElement | null>(null);
-  const lastFocusableRef = useRef<HTMLElement | null>(null);
+  const firstFocusableRef = useRef<HTMLElement>(null);
+  const lastFocusableRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!isActive || !containerRef.current) return;
 
     const container = containerRef.current;
-    const focusableElements = container.querySelectorAll<HTMLElement>(
+    const focusableElements = container.querySelectorAll(
       'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     );
 
     if (focusableElements.length === 0) return;
 
-    firstFocusableRef.current = focusableElements[0] || null;
-    lastFocusableRef.current = focusableElements[focusableElements.length - 1] || null;
+    firstFocusableRef.current = focusableElements[0] as HTMLElement;
+    lastFocusableRef.current = focusableElements[focusableElements.length - 1] as HTMLElement;
 
     const handleTabKey = (e: KeyboardEvent) => {
       if (e.key !== 'Tab') return;
@@ -90,14 +94,13 @@ const FocusTrap: React.FC<FocusTrapProps> = ({ children, isActive = true }) => {
 
 interface ScreenReaderOnlyProps {
   children: React.ReactNode;
-  as?: React.ElementType;
 }
 
-const ScreenReaderOnly: React.FC<ScreenReaderOnlyProps> = ({ children, as: Component = 'span' }) => {
+const ScreenReaderOnly: React.FC<ScreenReaderOnlyProps> = ({ children }) => {
   return (
-    <Component className="sr-only">
+    <span className="sr-only">
       {children}
-    </Component>
+    </span>
   );
 };
 
@@ -107,8 +110,6 @@ interface HighContrastToggleProps {
 }
 
 const HighContrastToggle: React.FC<HighContrastToggleProps> = ({ onToggle, isHighContrast = false }) => {
-  const { shouldReduceMotion } = useUIOptimizations();
-
   useEffect(() => {
     document.documentElement.classList.toggle('high-contrast', isHighContrast);
   }, [isHighContrast]);
@@ -124,7 +125,7 @@ const HighContrastToggle: React.FC<HighContrastToggleProps> = ({ onToggle, isHig
         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
       `}
       onClick={onToggle}
-      whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+      whileTap={{ scale: 0.95 }}
       aria-label={`${isHighContrast ? 'Disable' : 'Enable'} high contrast mode`}
       aria-pressed={isHighContrast}
     >
@@ -152,7 +153,7 @@ const HighContrastToggle: React.FC<HighContrastToggleProps> = ({ onToggle, isHig
 const AccessibilityAnnouncer: React.FC = () => {
   const announceRef = useRef<HTMLDivElement>(null);
 
-  const announce = (message: string, priority: 'polite' | 'assertive' = 'polite') => {
+  const announce = (message: string, priority: string = 'polite') => {
     if (!announceRef.current) return;
     
     announceRef.current.setAttribute('aria-live', priority);
@@ -168,10 +169,10 @@ const AccessibilityAnnouncer: React.FC = () => {
 
   // Expose announce function globally for easy access
   useEffect(() => {
-    (window as any).announceToScreenReader = announce;
+    window.announceToScreenReader = announce;
     
     return () => {
-      delete (window as any).announceToScreenReader;
+      delete window.announceToScreenReader;
     };
   }, []);
 
@@ -194,14 +195,16 @@ const KeyboardNavigation: React.FC<KeyboardNavigationProps> = ({ children }) => 
     const handleKeyNavigation = (e: KeyboardEvent) => {
       // Handle arrow key navigation for custom components
       if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
-        const focusableElements = document.querySelectorAll<HTMLElement>(
+        const focusableElements = document.querySelectorAll(
           '[data-keyboard-nav="true"]:not([disabled])'
         );
         
-        const currentIndex = Array.from(focusableElements).indexOf(document.activeElement as HTMLElement);
+        if (!document.activeElement) return;
+        
+        const currentIndex = Array.from(focusableElements).indexOf(document.activeElement);
         if (currentIndex === -1) return;
 
-        let nextIndex: number;
+        let nextIndex: number | undefined;
         switch (e.key) {
           case 'ArrowUp':
           case 'ArrowLeft':
@@ -211,12 +214,12 @@ const KeyboardNavigation: React.FC<KeyboardNavigationProps> = ({ children }) => 
           case 'ArrowRight':
             nextIndex = currentIndex < focusableElements.length - 1 ? currentIndex + 1 : 0;
             break;
-          default:
-            return;
         }
 
-        e.preventDefault();
-        focusableElements[nextIndex]?.focus();
+        if (nextIndex !== undefined) {
+          e.preventDefault();
+          (focusableElements[nextIndex] as HTMLElement)?.focus();
+        }
       }
     };
 
@@ -232,8 +235,8 @@ const KeyboardNavigation: React.FC<KeyboardNavigationProps> = ({ children }) => 
 
 // Custom hook for accessibility features
 export const useA11y = () => {
-  const [isHighContrast, setIsHighContrast] = React.useState(false);
-  const [reducedMotion, setReducedMotion] = React.useState(false);
+  const [isHighContrast, setIsHighContrast] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     // Check user preferences
@@ -259,22 +262,22 @@ export const useA11y = () => {
     };
   }, []);
 
-  const announce = (message: string, priority: 'polite' | 'assertive' = 'polite') => {
-    if ((window as any).announceToScreenReader) {
-      (window as any).announceToScreenReader(message, priority);
+  const announce = (message: string, priority: string = 'polite') => {
+    if (window.announceToScreenReader) {
+      window.announceToScreenReader(message, priority);
     }
   };
 
   const focusManagement = {
     focusElement: (selector: string) => {
-      const element = document.querySelector<HTMLElement>(selector);
+      const element = document.querySelector(selector) as HTMLElement;
       if (element) {
         element.focus();
         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     },
     
-    restoreFocus: (previousElement: HTMLElement | null) => {
+    restoreFocus: (previousElement: HTMLElement) => {
       if (previousElement && previousElement.focus) {
         previousElement.focus();
       }
