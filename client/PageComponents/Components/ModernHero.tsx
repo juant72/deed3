@@ -1,25 +1,8 @@
-/**
- * ModernHero - TypeScript version with proper prop types
- * Sprint 4: Mobile-First Optimization
- */
-
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-// Type definitions
-export interface MarketData {
-  totalVolume: string;
-  avgROI: string;
-  activeProperties: number;
-}
-
-export interface ModernHeroProps {
-  marketData?: MarketData;
-  propertyCount?: number;
-}
-
-const ModernHero: React.FC<ModernHeroProps> = React.memo(({ marketData, propertyCount }) => {
+const ModernHero = React.memo(({ marketData, propertyCount }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isConnecting, setIsConnecting] = useState(false);
 
@@ -47,275 +30,221 @@ const ModernHero: React.FC<ModernHeroProps> = React.memo(({ marketData, property
       description: "Institutional-grade liquidity for real estate investments worldwide",
       cta: "Explore Market",
       image: "/portfolio/hero-marketplace.jpg",
-      stats: { label: "Daily Volume", value: "$8.2M" }
+      stats: { label: "Daily Volume", value: "$2.4M" }
     }
   ], []);
 
-  // Auto-slide functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+  const marketStats = useMemo(() => [
+    { label: "Market Cap", value: "$1.2B", change: "+12.4%" },
+    { label: "Properties", value: propertyCount?.toString() || "15,847", change: "+247" },
+    { label: "Active Investors", value: "89,234", change: "+5.7%" },
+    { label: "Avg ROI", value: "18.6%", change: "+2.1%" }
+  ], [propertyCount]);
 
-    return () => clearInterval(interval);
+  // Memoize slide change function
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   }, [heroSlides.length]);
 
-  const handleSlideChange = useCallback((index: number) => {
-    setCurrentSlide(index);
-  }, []);
-
-  const handleConnect = useCallback(() => {
-    setIsConnecting(true);
-    // Simulate connection process
-    setTimeout(() => setIsConnecting(false), 2000);
-  }, []);
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6 }
-    }
-  };
-
-  const currentHero = heroSlides[currentSlide];
-
-  // Safety check to prevent undefined access
-  if (!currentHero) {
-    return null;
-  }
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
 
   return (
-    <motion.section 
-      className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      {/* Animated background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('/bg/pattern-grid.svg')] opacity-30"></div>
-        <motion.div 
-          className="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-        />
-        <motion.div 
-          className="absolute top-0 -right-4 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-        />
-        <motion.div 
-          className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-        />
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-emerald-600/10 animate-pulse"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float-delayed"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content Side */}
+      <div className="relative container mx-auto px-4 pt-24 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+          
+          {/* Left Content */}
           <motion.div 
-            className="text-center lg:text-left space-y-8"
-            variants={itemVariants}
+            className="space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            {/* Slide indicator */}
-            <div className="flex space-x-2 justify-center lg:justify-start mb-4">
-              {heroSlides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleSlideChange(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-purple-400 w-8' : 'bg-gray-600'
-                  }`}
-                />
-              ))}
+            {/* Main Headline */}
+            <div className="space-y-4">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-block"
+              >
+                <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent text-sm font-semibold tracking-wide uppercase">
+                  {heroSlides[currentSlide].subtitle}
+                </span>
+              </motion.div>
+              
+              <motion.h1
+                key={`title-${currentSlide}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+              >
+                {heroSlides[currentSlide].title.split(' ').map((word, i) => (
+                  <span key={i} className={i === 1 ? "text-transparent bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text" : ""}>
+                    {word}{' '}
+                  </span>
+                ))}
+              </motion.h1>
+
+              <motion.p
+                key={`desc-${currentSlide}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-xl text-gray-300 max-w-lg leading-relaxed"
+              >
+                {heroSlides[currentSlide].description}
+              </motion.p>
             </div>
 
-            {/* Main content */}
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+            {/* CTAs */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <h1 className="text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight">
-                {currentHero.title}
-              </h1>
-              <h2 className="text-xl lg:text-2xl text-purple-300 mb-6 font-medium">
-                {currentHero.subtitle}
-              </h2>
-              <p className="text-lg text-gray-300 mb-8 max-w-xl">
-                {currentHero.description}
-              </p>
+              <Link href="/create" className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <span className="absolute inset-0 bg-white/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></span>
+                <span className="relative">{heroSlides[currentSlide].cta}</span>
+                <svg className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+
+              <button className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-300 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl hover:bg-white/20 hover:text-white transition-all duration-300">
+                <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Learn More
+              </button>
             </motion.div>
 
-            {/* Market stats */}
-            {marketData && (
-              <motion.div 
-                className="grid grid-cols-3 gap-6 py-6 border-t border-b border-gray-700"
-                variants={itemVariants}
-              >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white">{marketData.totalVolume}</div>
-                  <div className="text-sm text-gray-400">Total Volume</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-400">{marketData.avgROI}</div>
-                  <div className="text-sm text-gray-400">Avg ROI</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400">{marketData.activeProperties}</div>
-                  <div className="text-sm text-gray-400">Active Properties</div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* CTA Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-              variants={itemVariants}
+            {/* Live Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8"
             >
-              <Link href="/explor">
-                <motion.button
-                  className="btn-primary px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {currentHero.cta}
-                </motion.button>
-              </Link>
-              
-              <motion.button
-                onClick={handleConnect}
-                disabled={isConnecting}
-                className="btn-secondary px-8 py-4 border-2 border-purple-400 text-purple-400 rounded-lg font-semibold hover:bg-purple-400 hover:text-white transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isConnecting ? (
-                  <span className="flex items-center gap-2">
-                    <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
-                    Connecting...
-                  </span>
-                ) : (
-                  'Connect Wallet'
-                )}
-              </motion.button>
+              {marketStats.map((stat, i) => (
+                <div key={i} className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                  <div className="text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div className="text-xs text-emerald-400">{stat.change}</div>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Visual Side */}
+          {/* Right Visual */}
           <motion.div 
             className="relative"
-            variants={itemVariants}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              {/* Property Card Mockup */}
-              <div className="relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-2xl">
-                <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl mb-4 flex items-center justify-center">
-                  <div className="text-white/60 text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-white/20 rounded-lg flex items-center justify-center">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                      </svg>
-                    </div>
-                    <div className="text-sm">Property Visualization</div>
-                  </div>
-                </div>
+            <div className="relative">
+              {/* Main Property Showcase */}
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 p-8">
+                <motion.img
+                  key={currentSlide}
+                  src={heroSlides[currentSlide].image}
+                  alt="Featured Property"
+                  className="w-full h-80 object-cover rounded-2xl"
+                  initial={{ scale: 1.1, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                />
                 
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-white font-semibold">Luxury Villa</span>
-                    <span className="text-green-400 font-bold">$2.4M</span>
-                  </div>
-                  
-                  <div className="flex justify-between text-sm text-gray-300">
-                    <span>ROI: 12.5%</span>
-                    <span>{currentHero.stats.value}</span>
-                  </div>
-                  
-                  <div className="flex space-x-2">
-                    <div className="flex-1 bg-purple-500/20 rounded-full h-2">
-                      <div className="bg-purple-500 h-2 rounded-full w-3/4"></div>
+                {/* Property Overlay Info */}
+                <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-xl p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-white font-semibold">Featured Property</div>
+                      <div className="text-gray-300 text-sm">Modern Villa • Miami, FL</div>
                     </div>
-                    <span className="text-xs text-gray-400">75% funded</span>
+                    <div className="text-right">
+                      <div className="text-emerald-400 font-bold">$2.4M</div>
+                      <div className="text-gray-400 text-sm">100 Tokens</div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Floating elements */}
+              {/* Floating Stats Card */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
+                className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 shadow-2xl"
                 animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <div className="text-white">
+                  <div className="text-2xl font-bold">{heroSlides[currentSlide].stats.value}</div>
+                  <div className="text-sm opacity-90">{heroSlides[currentSlide].stats.label}</div>
+                </div>
+              </motion.div>
+
+              {/* Blockchain Badge */}
+              <motion.div
+                className="absolute -bottom-4 -left-4 bg-emerald-600 rounded-xl p-4 shadow-2xl"
+                animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                +12.5% ROI
+                <div className="flex items-center space-x-2 text-white">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                  <span className="font-semibold">Blockchain Verified</span>
+                </div>
               </motion.div>
-              
-              <motion.div
-                className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity }}
-              >
-                {propertyCount || 0} Properties
-              </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
+        </div>
+
+        {/* Slide Indicators */}
+        <div className="flex justify-center space-x-2 mt-8">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                i === currentSlide ? 'bg-blue-400 w-8' : 'bg-white/30'
+              }`}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2"></div>
-        </div>
-      </motion.div>
-    </motion.section>
+      {/* CSS for animations */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        @keyframes float-delayed {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-30px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+          animation: float-delayed 8s ease-in-out infinite 2s;
+        }
+      `}</style>
+    </div>
   );
 });
 
