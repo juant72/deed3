@@ -1,5 +1,5 @@
 import React from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn, signOut, SignInResponse } from "next-auth/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect } from "wagmi";
 import Image from "next/image";
@@ -10,7 +10,28 @@ import Image from "next/image";
  * Provides a unified interface for wallet connection and social authentication.
  * Supports both Web3 wallet connection via RainbowKit and social login via NextAuth.
  */
-const SocialAuth = ({ 
+
+interface AuthSuccessEvent {
+  type: 'social';
+  provider: string;
+  session: SignInResponse;
+}
+
+interface AuthErrorEvent {
+  type: 'social' | 'signout';
+  provider?: string;
+  error: string;
+}
+
+interface SocialAuthProps {
+  showSocialOptions?: boolean;
+  showWalletConnect?: boolean;
+  className?: string;
+  onAuthSuccess?: (event: AuthSuccessEvent) => void;
+  onAuthError?: (event: AuthErrorEvent) => void;
+}
+
+const SocialAuth: React.FC<SocialAuthProps> = ({ 
   showSocialOptions = true, 
   showWalletConnect = true,
   className = "",
@@ -21,7 +42,7 @@ const SocialAuth = ({
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
 
-  const handleSocialSignIn = async (provider) => {
+  const handleSocialSignIn = async (provider: string): Promise<void> => {
     try {
       const result = await signIn(provider, { 
         redirect: false,
@@ -33,7 +54,7 @@ const SocialAuth = ({
       } else if (result?.error && onAuthError) {
         onAuthError({ type: 'social', provider, error: result.error });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error(`Error signing in with ${provider}:`, error);
       if (onAuthError) {
         onAuthError({ type: 'social', provider, error: error.message });
@@ -41,7 +62,7 @@ const SocialAuth = ({
     }
   };
 
-  const handleSignOut = async () => {
+  const handleSignOut = async (): Promise<void> => {
     try {
       // Sign out from social auth
       if (session) {
@@ -52,7 +73,7 @@ const SocialAuth = ({
       if (isConnected) {
         disconnect();
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error signing out:", error);
       if (onAuthError) {
         onAuthError({ type: 'signout', error: error.message });

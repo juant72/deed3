@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAccount, useSignMessage } from "wagmi";
-import { getCsrfToken, signIn } from "next-auth/react";
+import { getCsrfToken, signIn, SignInResponse } from "next-auth/react";
 import { SiweMessage } from "siwe";
 
 /**
@@ -12,13 +12,28 @@ import { SiweMessage } from "siwe";
  * 3. Submit to NextAuth for verification
  * 4. Create authenticated session
  */
-const SiweAuth = ({ onSuccess, onError, className = "" }) => {
+
+interface SiweAuthProps {
+  onSuccess?: (data: {
+    type: 'siwe';
+    address: string;
+    chainId: number;
+    session: SignInResponse;
+  }) => void;
+  onError?: (error: {
+    type: 'siwe';
+    error: string;
+  }) => void;
+  className?: string;
+}
+
+const SiweAuth: React.FC<SiweAuthProps> = ({ onSuccess, onError, className = "" }) => {
   const { address, isConnected, chainId } = useAccount();
   const { signMessageAsync } = useSignMessage();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleSiweSignIn = async () => {
-    if (!address || !isConnected) {
+  const handleSiweSignIn = async (): Promise<void> => {
+    if (!address || !isConnected || !chainId) {
       const error = "Wallet not connected";
       console.error(error);
       if (onError) onError({ type: 'siwe', error });
@@ -75,7 +90,7 @@ const SiweAuth = ({ onSuccess, onError, className = "" }) => {
         throw new Error(result?.error || "SIWE authentication failed");
       }
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("SIWE authentication error:", error);
       if (onError) {
         onError({ 
