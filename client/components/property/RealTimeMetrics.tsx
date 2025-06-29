@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { usePropertyMetrics } from '../../hooks/usePropertyMetrics';
 
-const RealTimeMetrics: React.FC<{ propertyId, compact = false }> = ({ propertyId, compact = false }) => {
+const RealTimeMetrics: React.FC<any> = ({ propertyId, compact = false }) => {
   const { metrics, isConnected } = usePropertyMetrics(propertyId);
 
-  const MetricCard: React.FC<{ icon, label, value, change, suffix = '', isPositive = null }> = ({ icon, label, value, change, suffix = '', isPositive = null }) => (
+  const MetricCard: React.FC<any> = ({ icon, label, value, change, suffix = '', isPositive = null }) => (
     <motion.div
       className={`${compact ? 'p-2' : 'p-3'} bg-slate-800/50 backdrop-blur-sm rounded-lg border border-white/10`}
       whileHover={{ scale: 1.02 }}
@@ -42,7 +42,7 @@ const RealTimeMetrics: React.FC<{ propertyId, compact = false }> = ({ propertyId
     </motion.div>
   );
 
-  const PulsingDot: React.FC = () => (
+  const PulsingDot = () => (
     <motion.div
       className="w-2 h-2 bg-emerald-400 rounded-full"
       animate={{

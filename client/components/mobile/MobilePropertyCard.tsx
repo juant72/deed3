@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
 import { 
   Heart, 
@@ -17,14 +17,7 @@ import { useTouch } from '../../hooks/useTouch';
 import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 import { ScreenReaderOnly } from '../a11y/AccessibilityComponents';
 
-const MobilePropertyCard: React.FC<{ 
-  property, 
-  onFavorite, 
-  onShare, 
-  onView,
-  isFavorited = false,
-  className = ''
-}> = ({ 
+const MobilePropertyCard: React.FC<any> = ({ 
   property, 
   onFavorite, 
   onShare, 

@@ -1,4 +1,5 @@
-import { useCallback, useRef, useEffect } from 'react';
+import React, { useCallback, useRef, useEffect, useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 
 // Hook para optimizaciones GPU y micro-interacciones
 export const useGPUOptimization = () => {
@@ -285,3 +286,21 @@ export const additionalAnimations = `
     -webkit-overflow-scrolling: touch;
   }
 `;
+
+// Combined hook that exports all UI optimizations
+export const useUIOptimizations = () => {
+  const gpu = useGPUOptimization();
+  const interactions = useMicroInteractions();
+  const loading = useLoadingStates();
+  const images = useImageOptimization();
+  
+  return {
+    ...gpu,
+    ...interactions,
+    ...loading,
+    ...images,
+    shouldReduceMotion: false, // Default value
+    vibrate: () => {}, // Default function
+    prefersHighContrast: false // Default value
+  };
+};

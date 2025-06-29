@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
 import { 
   Shield, 
@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import PropertyVisualization from './PropertyVisualization';
 
-const PropertyDetails: React.FC<{ property, isDetailPage = false }> = ({ property, isDetailPage = false }) => {
+const PropertyDetails: React.FC<any> = ({ property, isDetailPage = false }) => {
   const [isFavorited, setIsFavorited] = useState(false);
   const [isFullscreenVisualization, setIsFullscreenVisualization] = useState(false);
   const [verificationStatus, setVerificationStatus] = useState('verified');

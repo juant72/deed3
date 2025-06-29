@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Menu, 
@@ -15,7 +15,12 @@ import {
 } from 'lucide-react';
 import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 
-const MobileHeader: React.FC<{ user, notifications = 0 }> = ({ user, notifications = 0 }) => {
+interface MobileHeaderProps {
+  user?: any;
+  notifications?: number;
+}
+
+const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { shouldReduceMotion, vibrate } = useUIOptimizations();
@@ -32,12 +37,12 @@ const MobileHeader: React.FC<{ user, notifications = 0 }> = ({ user, notificatio
     return () => document.removeEventListener('touchstart', handleClickOutside);
   }, [isMenuOpen]);
 
-  const toggleMenu: React.FC = () => {
+  const toggleMenu = () => {
     vibrate([10, 5, 10]);
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleSearch: React.FC = () => {
+  const toggleSearch = () => {
     vibrate([5]);
     setIsSearchOpen(!isSearchOpen);
   };

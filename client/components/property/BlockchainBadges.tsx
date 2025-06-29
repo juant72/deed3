@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useBlockchainStatus } from '../../hooks/usePropertyMetrics';
 
-const BlockchainBadges: React.FC<{ contractAddress, tokenStandard = 'ERC-1155', compact = false }> = ({ contractAddress, tokenStandard = 'ERC-1155', compact = false }) => {
+const BlockchainBadges: React.FC<any> = ({ contractAddress, tokenStandard = 'ERC-1155', compact = false }) => {
   const blockchainStatus = useBlockchainStatus(contractAddress);
 
   const badges = [
@@ -101,7 +101,7 @@ const BlockchainBadges: React.FC<{ contractAddress, tokenStandard = 'ERC-1155', 
 };
 
 // Componente para mostrar información detallada del contrato
-export const ContractInfo: React.FC<{ contractAddress, compact = false }> = ({ contractAddress, compact = false }) => {
+export const ContractInfo: React.FC<any> = ({ contractAddress, compact = false }) => {
   const blockchainStatus = useBlockchainStatus(contractAddress);
 
   if (blockchainStatus.isLoading) {
@@ -210,7 +210,7 @@ export const ContractInfo: React.FC<{ contractAddress, compact = false }> = ({ c
 };
 
 // Componente para mostrar estado de verificación simple
-export const VerificationBadge: React.FC<{ isVerified = true, size = 'md' }> = ({ isVerified = true, size = 'md' }) => {
+export const VerificationBadge: React.FC<any> = ({ isVerified = true, size = 'md' }) => {
   const sizeClasses = {
     sm: 'w-4 h-4 text-xs',
     md: 'w-5 h-5 text-sm',

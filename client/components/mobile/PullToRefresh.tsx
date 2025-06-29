@@ -1,15 +1,9 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { RotateCcw, ArrowDown } from 'lucide-react';
 import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 
-const PullToRefresh: React.FC<{ 
-  children, 
-  onRefresh, 
-  threshold = 80,
-  disabled = false,
-  className = ''
-}> = ({ 
+const PullToRefresh: React.FC<any> = ({ 
   children, 
   onRefresh, 
   threshold = 80,

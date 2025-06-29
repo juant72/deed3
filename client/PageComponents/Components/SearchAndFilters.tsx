@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, 
@@ -17,7 +17,7 @@ import {
   SortDesc
 } from 'lucide-react';
 
-const SearchAndFilters: React.FC<{ onSearchChange, onFiltersChange, className = '' }> = ({ onSearchChange, onFiltersChange, className = '' }) => {
+const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, className = '' }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'map'
@@ -93,7 +93,7 @@ const SearchAndFilters: React.FC<{ onSearchChange, onFiltersChange, className = 
     }));
   };
 
-  const clearFilters: React.FC = () => {
+  const clearFilters = () => {
     setFilters({
       priceRange: [0, 1000000],
       bedrooms: '',
