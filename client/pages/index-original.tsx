@@ -16,8 +16,6 @@ import {
 } from "../PageComponents/Components";
 
 import LiveFixed from "../PageComponents/Components/LiveFixed";
-import ProductSimple from "../PageComponents/Components/ProductSimple";
-import SearchAndFiltersSimple from "../PageComponents/Components/SearchAndFiltersSimple";
 
 ///INTERNAL IMPORT
 import { useStateContext } from "../context";
@@ -98,7 +96,7 @@ const Home: React.FC = () => {
 
       {/* Enhanced Search and Filters Section */}
       <div className="container mx-auto px-4 py-8">
-        <SearchAndFiltersSimple 
+        <SearchAndFilters 
           onSearchChange={handleSearchChange}
           onFiltersChange={handleFiltersChange}
         />
@@ -106,7 +104,7 @@ const Home: React.FC = () => {
 
       <LiveFixed properties={properties} />
       <Service />
-      <ProductSimple properties={properties} />
+      <Product properties={properties} />
       <TokenomicsSection />
 
       <Collection

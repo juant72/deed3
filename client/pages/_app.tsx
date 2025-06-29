@@ -64,7 +64,14 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes, viewport-fit=cover" />
       </Head>
-      <ClientOnly fallback={<div>Loading...</div>}>
+      <ClientOnly fallback={
+        <div className="min-h-screen bg-white flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading Deeds3...</p>
+          </div>
+        </div>
+      }>
         <WagmiProvider config={wagmiConfig}>
           <QueryClientProvider client={queryClient}>
             <SessionProvider session={session || null}>

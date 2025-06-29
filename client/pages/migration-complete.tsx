@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import { AuthorCarousel, CategoryCarousel, TopSellerCarousel } from '@/components/ui/specialized-carousels'
-import { ModernSelect, SortSelect, CategorySelect, PriceRangeSelect } from '@/components/ui/modern-select'
+import { SortSelect, CategorySelect, PriceRangeSelect } from '@/components/ui/modern-select'
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/animate-on-scroll'
 import { Counter } from '@/components/ui/counter'
 import { Card, CardContent } from '@/components/ui/card'

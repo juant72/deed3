@@ -15,6 +15,19 @@ import {
 
 import { AppContextType, RealEstateProperty, Review } from "../types/global";
 
+// Import mock data for development
+import { 
+  mockGetAllRealEstate, 
+  mockGetUserProperties, 
+  mockGetPropertyReviews,
+  mockTotalReviews,
+  mockAverageRating 
+} from "../lib/mock-data";
+
+// Development mode flag
+const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
+const USE_MOCK_DATA = IS_DEVELOPMENT && !process.env.DISABLE_MOCK_DATA;
+
 // Extended context type
 interface ExtendedAppContextType extends AppContextType {
   address: string;
@@ -244,9 +257,15 @@ const createRealEstate = async (
   }
 };
 
-//GET ALL REAL ESTATE
+//GET ALL REAL ESTATE - Enhanced with mock data for development
 const getAllRealEstate = async (): Promise<RealEstateProperty[]> => {
   try {
+    // Use mock data in development mode
+    if (USE_MOCK_DATA) {
+      return await mockGetAllRealEstate();
+    }
+
+    // Production Web3 logic
     if (typeof window === 'undefined' || !window.ethereum) {
       return [];
     }
@@ -272,7 +291,11 @@ const getAllRealEstate = async (): Promise<RealEstateProperty[]> => {
 
     return parsedProperties;
   } catch (error) {
-    // Debug log removed
+    // If Web3 fails in development, fallback to mock data
+    if (IS_DEVELOPMENT) {
+      console.warn('Web3 failed, using mock data:', error);
+      return await mockGetAllRealEstate();
+    }
     return [];
   }
 };
@@ -340,9 +363,14 @@ const updateRealEstate = async (index: number, client: any): Promise<any> => {
   }
 };
 
-//TOTAL REVIEWS FUNCTION (placeholder)
+//TOTAL REVIEWS FUNCTION - Enhanced with mock data
 const totalReviewsFunction = async (propertyId: string): Promise<number> => {
   try {
+    // Use mock data in development mode
+    if (USE_MOCK_DATA) {
+      return await mockTotalReviews(propertyId);
+    }
+
     // This would normally fetch from the contract
     // For now returning 0 to prevent errors
     return 0;
@@ -352,9 +380,14 @@ const totalReviewsFunction = async (propertyId: string): Promise<number> => {
   }
 };
 
-//TOTAL RATING FUNCTION (placeholder)
+//TOTAL RATING FUNCTION - Enhanced with mock data
 const totalRatingFunction = async (propertyId: string): Promise<number> => {
   try {
+    // Use mock data in development mode
+    if (USE_MOCK_DATA) {
+      return await mockAverageRating(propertyId);
+    }
+
     // This would normally fetch and calculate average rating
     // For now returning 0 to prevent errors
     return 0;
@@ -431,6 +464,13 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
   //GET USER PROPERTIES (moved inside component to access address state)
   const getUserPropertiesFunction = async (userAddress?: string): Promise<RealEstateProperty[]> => {
     try {
+      // Use mock data in development mode
+      if (USE_MOCK_DATA) {
+        const currentAddress = userAddress || address;
+        return await mockGetUserProperties(currentAddress);
+      }
+
+      // Production logic
       const allProperties = await getAllRealEstate();
       const currentAddress = userAddress || address;
       
@@ -443,7 +483,11 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
       
       return userProperties;
     } catch (error) {
-      // Debug log removed
+      // If Web3 fails in development, use mock data
+      if (IS_DEVELOPMENT) {
+        const currentAddress = userAddress || address;
+        return await mockGetUserProperties(currentAddress);
+      }
       return [];
     }
   };

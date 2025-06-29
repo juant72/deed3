@@ -69,8 +69,6 @@ interface EthereumProvider {
 // Window extensions for legacy scripts and Ethereum
 declare global {
   interface Window {
-    jQuery: any;
-    $: any;
     Cookies: any;
     VanillaTilt: any;
     ethereum?: EthereumProvider;
