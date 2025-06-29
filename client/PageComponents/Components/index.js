@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Banner from "./Banner";
-import ModernHero from "./ModernHero";
+import ModernHero from "./ModernHero.tsx";
 import TokenomicsSection from "./TokenomicsSection";
 import AdvancedWalletConnect from "./AdvancedWalletConnect";
 import PropertyCard3D from "./PropertyCard3D";
