@@ -3,14 +3,14 @@
  * Sprint 4: Mobile-First Optimization
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { usePWA } from '@/hooks/usePWA';
 
 const OfflineExperience = () => {
   const [isOnline, setIsOnline] = useState(true);
   const [offlineActions, setOfflineActions] = useState([]);
   const [syncStatus, setSyncStatus] = useState('idle');
-  const { isInstalled, canInstall } = usePWA();
+  // const { isInstalled, canInstall } = usePWA(); // Commented out as not used yet
 
   // Detectar estado de conexión
   useEffect(() => {
@@ -31,10 +31,27 @@ const OfflineExperience = () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
+  }, [syncOfflineActions]);
+
+  // Procesar acción offline individual
+  const processOfflineAction = useCallback(async (action) => {
+    switch (action.type) {
+      case 'property_favorite':
+        await syncPropertyFavorite(action.data);
+        break;
+      case 'wallet_connect':
+        await syncWalletConnection(action.data);
+        break;
+      case 'form_submission':
+        await syncFormData(action.data);
+        break;
+      default:
+        console.warn('Unknown offline action type:', action.type);
+    }
   }, []);
 
   // Sincronizar acciones offline cuando vuelve la conexión
-  const syncOfflineActions = async () => {
+  const syncOfflineActions = useCallback(async () => {
     if (offlineActions.length === 0) return;
 
     setSyncStatus('syncing');
@@ -55,24 +72,7 @@ const OfflineExperience = () => {
       setSyncStatus('error');
       showSyncNotification('error');
     }
-  };
-
-  // Procesar acción offline individual
-  const processOfflineAction = async (action) => {
-    switch (action.type) {
-      case 'property_favorite':
-        await syncPropertyFavorite(action.data);
-        break;
-      case 'wallet_connect':
-        await syncWalletConnection(action.data);
-        break;
-      case 'form_submission':
-        await syncFormData(action.data);
-        break;
-      default:
-        console.warn('Unknown offline action type:', action.type);
-    }
-  };
+  }, [offlineActions, processOfflineAction]);
 
   // Sincronizar favoritos de propiedades
   const syncPropertyFavorite = async (data) => {
@@ -200,7 +200,7 @@ const OfflineExperience = () => {
   );
 
   // Cache de datos críticos para offline
-  const CacheManager = {
+  const CacheManager = useCallback(() => ({
     // Cachear propiedades visitadas
     cacheProperty: (property) => {
       const cached = JSON.parse(localStorage.getItem('cachedProperties') || '{}');
@@ -230,12 +230,12 @@ const OfflineExperience = () => {
       
       localStorage.setItem('cachedProperties', JSON.stringify(cached));
     }
-  };
+  }), []);
 
   // Auto-limpiar cache en mount
   useEffect(() => {
-    CacheManager.cleanOldCache();
-  }, []);
+    CacheManager().cleanOldCache();
+  }, [CacheManager]);
 
   return (
     <>

@@ -17,7 +17,7 @@ const MobileLighthouseOptimizer = ({ children }) => {
   });
 
   const { optimizeImages } = useImageOptimization();
-  const { performanceMetrics } = usePerformance();
+  // const { performanceMetrics } = usePerformance(); // Commented out as not used yet
 
   // Optimización de imágenes para móvil
   useEffect(() => {
@@ -195,7 +195,7 @@ const MobileLighthouseOptimizer = ({ children }) => {
             // Cargar componente lazy
             if (element.dataset.lazyComponent) {
               import(`@/components/${element.dataset.lazyComponent}`)
-                .then(Component => {
+                .then(_Component => {
                   // Renderizar componente dinámicamente
                   console.log('Lazy loaded:', element.dataset.lazyComponent);
                 })

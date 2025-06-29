@@ -3,7 +3,7 @@
  * Sprint 4: Mobile-First Optimization
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useTouch } from '@/hooks/useTouch';
 import { usePerformance } from '@/hooks/usePerformance';
 
@@ -137,7 +137,7 @@ const DeviceTestSuite = ({ onTestComplete }) => {
   };
 
   // Ejecutar suite completa de tests
-  const runTestSuite = async () => {
+  const runTestSuite = useCallback(async () => {
     setIsRunning(true);
     const results = {};
 
@@ -174,10 +174,10 @@ const DeviceTestSuite = ({ onTestComplete }) => {
     } finally {
       setIsRunning(false);
     }
-  };
+  }, [onTestComplete, testViewport, testTouchCapabilities, testPerformance, testAccessibility, testCompatibility, generateReport]);
 
   // Generar reporte de resultados
-  const generateReport = (results) => {
+  const generateReport = useCallback((results) => {
     const allTests = Object.values(results);
     const passedTests = allTests.filter(test => test.status === 'passed').length;
     const warningTests = allTests.filter(test => test.status === 'warning').length;
@@ -203,7 +203,7 @@ const DeviceTestSuite = ({ onTestComplete }) => {
       },
       recommendations: generateRecommendations(results)
     };
-  };
+  }, []);
 
   // Generar recomendaciones basadas en resultados
   const generateRecommendations = (results) => {
@@ -233,7 +233,7 @@ const DeviceTestSuite = ({ onTestComplete }) => {
     if (process.env.NODE_ENV === 'development') {
       runTestSuite();
     }
-  }, []);
+  }, [runTestSuite]);
 
   return (
     <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border max-w-sm">

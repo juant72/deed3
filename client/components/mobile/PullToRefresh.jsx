@@ -19,7 +19,6 @@ const PullToRefresh = ({
   const pullDistance = useMotionValue(0);
   
   // Transform values for animations
-  const pullProgress = useTransform(pullDistance, [0, threshold], [0, 1]);
   const indicatorRotation = useTransform(pullDistance, [0, threshold], [0, 360]);
   const indicatorScale = useTransform(pullDistance, [0, threshold], [0, 1]);
   const containerY = useTransform(pullDistance, [0, threshold], [0, threshold]);

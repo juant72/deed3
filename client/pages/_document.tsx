@@ -70,6 +70,7 @@ export default function Document() {
         
         {/* CSS Vendor Files - Next.js will optimize these automatically */}
         {/* Note: These are kept for legacy vendor script compatibility */}
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link rel="stylesheet" href="/styles/accessibility.css" />
       </Head>
       <body>

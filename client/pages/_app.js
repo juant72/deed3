@@ -1,5 +1,5 @@
 import React from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
 import { WagmiProvider } from "wagmi";

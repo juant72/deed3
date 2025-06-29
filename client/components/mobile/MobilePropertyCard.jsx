@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Heart, 
@@ -11,8 +11,7 @@ import {
   Eye,
   ChevronRight,
   Verified,
-  Clock,
-  DollarSign
+  Clock
 } from 'lucide-react';
 import { useTouch } from '../../hooks/useTouch';
 import { useUIOptimizations } from '../../hooks/useUIOptimizations';
@@ -29,7 +28,6 @@ const MobilePropertyCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const { shouldReduceMotion, vibrate } = useUIOptimizations();
-  const cardRef = useRef(null);
 
   const { bindTouch } = useTouch({
     onTap: () => {
@@ -112,6 +110,7 @@ const MobilePropertyCard = ({
           <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-slate-700 dark:to-slate-600 animate-pulse" />
         )}
         
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={property.image || '/placeholder-property.jpg'}
           alt={`${property.title} exterior view`}

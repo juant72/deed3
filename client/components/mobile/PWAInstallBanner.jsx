@@ -212,7 +212,7 @@ const PWAInstallBanner = () => {
                 <div className="mt-3 p-3 bg-slate-800/50 rounded-xl border border-white/10">
                   <div className="flex items-center space-x-2 text-sm text-gray-300">
                     <ArrowDown className="w-4 h-4" />
-                    <span>Tap the share button in Safari, then scroll down and tap "Add to Home Screen"</span>
+                    <span>Tap the share button in Safari, then scroll down and tap &ldquo;Add to Home Screen&rdquo;</span>
                   </div>
                 </div>
               )}

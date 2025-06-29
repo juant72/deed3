@@ -4,11 +4,9 @@ import { useRouter } from 'next/router';
 import { 
   Home, 
   Search, 
-  Bookmark, 
   TrendingUp, 
   User,
-  Plus,
-  Bell
+  Plus
 } from 'lucide-react';
 import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 
@@ -55,7 +53,7 @@ const BottomNavigation = ({ notifications = 0 }) => {
     }
   ];
 
-  const handleNavigation = (href, id) => {
+  const handleNavigation = (href, _id) => {
     vibrate([5, 2, 5]);
     router.push(href);
   };
