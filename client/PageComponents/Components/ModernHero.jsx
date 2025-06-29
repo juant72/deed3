@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const ModernHero = ({ marketData, propertyCount }) => {
+const ModernHero = React.memo(({ marketData, propertyCount }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isConnecting, setIsConnecting] = useState(false);
 
-  const heroSlides = [
+  // Memoize static data to prevent re-renders
+  const heroSlides = useMemo(() => [
     {
       title: "Encrypia Deeds3",
       subtitle: "Next-Generation Real Estate Tokenization",
@@ -31,21 +32,24 @@ const ModernHero = ({ marketData, propertyCount }) => {
       image: "/portfolio/hero-marketplace.jpg",
       stats: { label: "Daily Volume", value: "$2.4M" }
     }
-  ];
+  ], []);
 
-  const marketStats = [
+  const marketStats = useMemo(() => [
     { label: "Market Cap", value: "$1.2B", change: "+12.4%" },
-    { label: "Properties", value: "15,847", change: "+247" },
+    { label: "Properties", value: propertyCount?.toString() || "15,847", change: "+247" },
     { label: "Active Investors", value: "89,234", change: "+5.7%" },
     { label: "Avg ROI", value: "18.6%", change: "+2.1%" }
-  ];
+  ], [propertyCount]);
+
+  // Memoize slide change function
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, [heroSlides.length]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [nextSlide]);
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
@@ -242,6 +246,8 @@ const ModernHero = ({ marketData, propertyCount }) => {
       `}</style>
     </div>
   );
-};
+});
+
+ModernHero.displayName = 'ModernHero';
 
 export default ModernHero;

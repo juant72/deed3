@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true npm run build",
+    "build:performance": "npm run type-check && npm run lint && npm run build",
+    "clean": "rm -rf .next node_modules/.cache",
     "setup:reown": "node scripts/setup-reown.js",
     "optimize:reown": "node scripts/optimize-reown.js",
     "migrate:rainbowkit": "node scripts/migrate-to-rainbowkit.js",
@@ -16,6 +20,7 @@
     "health:reown": "echo \"Check browser console for connection health status\""
   },
   "dependencies": {
+    "@axe-core/react": "^4.10.2",
     "@heroicons/react": "^2.2.0",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
@@ -34,15 +39,18 @@
     "lucide-react": "^0.525.0",
     "next": "15.3.4",
     "next-auth": "^4.24.11",
+    "next-pwa": "^5.6.0",
     "react": "19.1.0",
     "react-countdown": "^2.3.5",
     "react-dom": "19.1.0",
     "react-hot-toast": "^2.4.1",
+    "react-intersection-observer": "^9.16.0",
     "siwe": "^3.0.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "viem": "^2.31.4",
-    "wagmi": "^2.15.6"
+    "wagmi": "^2.15.6",
+    "workbox-webpack-plugin": "^7.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.0",

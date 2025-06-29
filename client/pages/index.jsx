@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import Head from "next/head";
 
 ///INTERNAL IMPORT
 import {
@@ -21,8 +22,8 @@ import { useStateContext } from "../context";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchFilters, setSearchFilters] = useState(null);
+  // const [searchTerm, setSearchTerm] = useState(''); // Ready for Sprint 4 search
+  // const [searchFilters, setSearchFilters] = useState(null); // Ready for Sprint 4 filters
 
   const { getAllRealEstate } = useStateContext();
 
@@ -77,7 +78,13 @@ const Home = () => {
   // const creators = getTopCreators(properties);
 
   return (
-    <div className="template-color-1 nft-body-connect">
+    <>
+      <Head>
+        <title>Encrypia Deeds3 - Web3 Real Estate Revolution</title>
+        <meta name="description" content="The institutional-grade platform for Web3 real estate investment and tokenization" />
+      </Head>
+      
+      <div className="template-color-1 nft-body-connect">
       <Header />
       <MobileNavigation />
       <ModernHero marketData={{}} propertyCount={properties?.length || 0} />
@@ -104,7 +111,8 @@ const Home = () => {
 
       <Footer />
       <Copyright />
-    </div>
+      </div>
+    </>
   );
 };
 

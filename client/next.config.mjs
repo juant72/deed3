@@ -1,13 +1,45 @@
 /** @type {import('next').NextConfig} */
+
+import withPWA from 'next-pwa';
+
 const nextConfig = {
   reactStrictMode: false, // Temporarily disabled to avoid WalletConnect double init
-  // Optimizaciones de rendimiento
+  
+  // Performance optimizations
   experimental: {
-    optimizePackageImports: ['ethers', 'wagmi'],
+    optimizePackageImports: ['ethers', 'wagmi', 'framer-motion'],
   },
+  
+  // Image optimization
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
   // Configuración para evitar SSG en páginas con hooks de Wagmi
   trailingSlash: false,
   poweredByHeader: false,
+  
+  // Bundle analyzer
+  ...(process.env.ANALYZE === 'true' && {
+    webpack: (config) => {
+      const { BundleAnalyzerPlugin } = require('@next/bundle-analyzer')();
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
+        })
+      );
+      return config;
+    },
+  }),
+  
   // Deshabilitar ISR y SSG para evitar errores con hooks de Wagmi
   generateBuildId: async () => {
     return 'wagmi-client-build';
@@ -82,4 +114,25 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// PWA Configuration
+const pwaConfig = withPWA({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+  runtimeCaching: [
+    {
+      urlPattern: /^https?.*/,
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'offlineCache',
+        expiration: {
+          maxEntries: 200,
+          maxAgeSeconds: 24 * 60 * 60 // 24 hours
+        }
+      }
+    }
+  ]
+});
+
+export default pwaConfig(nextConfig);
