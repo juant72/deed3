@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, X, Smartphone, Monitor, ArrowDown } from 'lucide-react';
 import { usePWA } from '../../hooks/usePWA';
+
+interface DeviceInfo {
+  isMobile: boolean;
+  isIOS: boolean;
+  isAndroid: boolean;
+  isDesktop: boolean;
+  standalone: boolean;
+}
+
 const PWAInstallBanner: React.FC = () => {
   const { isInstallable, isInstalled, installApp, getDeviceInfo } = usePWA();
   const shouldReduceMotion = false;
   const [showBanner, setShowBanner] = useState(false);
   const [isInstalling, setIsInstalling] = useState(false);
-  const [deviceInfo, setDeviceInfo] = useState(null);
+  const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
 
   useEffect(() => {
     const info = getDeviceInfo();
@@ -37,7 +46,7 @@ const PWAInstallBanner: React.FC = () => {
     }
   };
 
-  const handleDismiss: React.FC = () => {
+  const handleDismiss = () => {
     setShowBanner(false);
     // Don't show again for this session
     sessionStorage.setItem('pwa-banner-dismissed', 'true');
@@ -63,7 +72,7 @@ const PWAInstallBanner: React.FC = () => {
       opacity: 1,
       scale: 1,
       transition: shouldReduceMotion ? { duration: 0 } : {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 30
       }
@@ -78,8 +87,8 @@ const PWAInstallBanner: React.FC = () => {
     }
   };
 
-  const getInstallInstructions: React.FC = () => {
-    if (deviceInfo.isIOS) {
+  const getInstallInstructions = () => {
+    if (deviceInfo?.isIOS) {
       return {
         icon: ArrowDown,
         title: "Add to Home Screen",
@@ -97,7 +106,7 @@ const PWAInstallBanner: React.FC = () => {
   };
 
   const instructions = getInstallInstructions();
-  const DeviceIcon = deviceInfo.isMobile ? Smartphone : Monitor;
+  const DeviceIcon = deviceInfo?.isMobile ? Smartphone : Monitor;
 
   return (
     <AnimatePresence>

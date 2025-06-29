@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { RotateCcw, ArrowDown } from 'lucide-react';
 const PullToRefresh: React.FC<any> = ({ 
@@ -83,7 +83,7 @@ const PullToRefresh: React.FC<any> = ({
       opacity: 1, 
       scale: 1,
       transition: shouldReduceMotion ? { duration: 0 } : {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 30
       }
@@ -96,7 +96,7 @@ const PullToRefresh: React.FC<any> = ({
       transition: {
         duration: 1,
         repeat: Infinity,
-        ease: "linear"
+        ease: "linear" as const
       }
     }
   };
