@@ -70,13 +70,13 @@ const Home: React.FC = () => {
     });
   }
 
-  const handleSearchChange = (term: string) => {
+  const handleSearchChange = useCallback((term: string) => {
     setSearchTerm(term);
-  };
+  }, []);
 
-  const handleFiltersChange = (filters: any) => {
+  const handleFiltersChange = useCallback((filters: any) => {
     setSearchFilters(filters);
-  };
+  }, []);
 
   // const creators = getTopCreators(properties);
 

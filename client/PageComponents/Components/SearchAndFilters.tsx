@@ -74,8 +74,10 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
   }, [searchTerm, onSearchChange]);
 
   useEffect(() => {
-    onFiltersChange?.({ ...filters, sortBy, viewMode });
-  }, [filters, sortBy, viewMode, onFiltersChange]);
+    // Use a ref to prevent infinite loops from function recreation
+    const filtersData = { ...filters, sortBy, viewMode };
+    onFiltersChange?.(filtersData);
+  }, [filters, sortBy, viewMode]); // Remove onFiltersChange from dependencies
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({

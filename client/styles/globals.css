@@ -1,11 +1,7 @@
 @import "tailwindcss";
 
 @import url("./assets/css/plugins/feature.css");
-@import url("./assets/css/plugins/jquery-ui.min.css");
-@import url("./assets/css/vendor/nice-select.css");
-@import url("./assets/css/vendor/odometer.css");
-@import url("./assets/css/vendor/slick-theme.css");
-@import url("./assets/css/vendor/slick.css");
+/* jQuery CSS imports removed - replaced with modern React components */
 @import url("./assets/css/style.css");
 
 /* ??LOADER */

@@ -57,13 +57,14 @@
   }
 }
 
-/* Importaciones CSS legacy - después de Tailwind para permitir overrides */
+/* Importaciones CSS legacy - reducidas después de migración a React */
 @import url("./assets/css/plugins/feature.css");
-@import url("./assets/css/plugins/jquery-ui.min.css");
-@import url("./assets/css/vendor/nice-select.css");
-@import url("./assets/css/vendor/odometer.css");
-@import url("./assets/css/vendor/slick-theme.css");
-@import url("./assets/css/vendor/slick.css");
+/* Removed jQuery-dependent styles - replaced with React components:
+   - slick.css & slick-theme.css → Embla Carousel
+   - nice-select.css → Shadcn/ui Select
+   - odometer.css → React CountUp
+   - jquery-ui.min.css → Headless UI components
+*/
 @import url("./assets/css/style.css");
 
 /* Custom Deeds3 Styles */
