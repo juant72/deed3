@@ -1,11 +1,38 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
+// Extend Navigator interface for TypeScript
+declare global {
+  interface Navigator {
+    connection?: {
+      effectiveType?: string;
+      downlink?: number;
+      rtt?: number;
+    };
+    deviceMemory?: number;
+  }
+}
+
+// Extend PerformanceEntry for Web Vitals
+interface LayoutShift extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
+
+interface FirstInputDelay extends PerformanceEntry {
+  processingStart: number;
+}
+
+interface PerformanceNavigationTiming extends PerformanceEntry {
+  responseStart: number;
+  requestStart: number;
+}
+
 export const useImageOptimization = () => {
   const [deviceCapabilities, setDeviceCapabilities] = useState({
     supportsWebP: false,
     supportsAVIF: false,
     connectionSpeed: 'unknown',
-    deviceMemory: 'unknown',
+    deviceMemory: 'unknown' as string | number,
     screenDensity: 1
   });
 
@@ -15,12 +42,12 @@ export const useImageOptimization = () => {
         supportsWebP: false,
         supportsAVIF: false,
         connectionSpeed: 'unknown',
-        deviceMemory: 'unknown',
+        deviceMemory: 'unknown' as string | number,
         screenDensity: window.devicePixelRatio || 1
       };
 
       // Detect WebP support
-      const webpSupport = await new Promise((resolve) => {
+      const webpSupport = await new Promise<boolean>((resolve) => {
         const webP = new Image();
         webP.onload = webP.onerror = () => resolve(webP.height === 2);
         webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
@@ -28,7 +55,7 @@ export const useImageOptimization = () => {
       capabilities.supportsWebP = webpSupport;
 
       // Detect AVIF support
-      const avifSupport = await new Promise((resolve) => {
+      const avifSupport = await new Promise<boolean>((resolve) => {
         const avif = new Image();
         avif.onload = avif.onerror = () => resolve(avif.height === 2);
         avif.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgABogQEAwgMg8f8D///8WfhwB8+ErK42A=';
@@ -36,13 +63,12 @@ export const useImageOptimization = () => {
       capabilities.supportsAVIF = avifSupport;
 
       // Detect connection speed
-      if ('connection' in navigator) {
-        const connection = navigator.connection;
-        capabilities.connectionSpeed = connection.effectiveType || 'unknown';
+      if ('connection' in navigator && navigator.connection) {
+        capabilities.connectionSpeed = navigator.connection.effectiveType || 'unknown';
       }
 
       // Detect device memory
-      if ('deviceMemory' in navigator) {
+      if ('deviceMemory' in navigator && navigator.deviceMemory) {
         capabilities.deviceMemory = navigator.deviceMemory;
       }
 
@@ -111,10 +137,15 @@ export const useImageOptimization = () => {
   };
 };
 
-export const useLazyLoading = (options = {}) => {
+interface LazyLoadingOptions {
+  threshold?: number;
+  rootMargin?: string;
+}
+
+export const useLazyLoading = (options: LazyLoadingOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
 
   const { threshold = 0.1, rootMargin = '50px' } = options;
 
@@ -164,7 +195,7 @@ export const useImagePreloader = () => {
 
     setLoadingImages(prev => new Set([...prev, src]));
 
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       const img = new Image();
       
       img.onload = () => {
@@ -230,7 +261,10 @@ export const usePerformanceMonitoring = () => {
     const fidObserver = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       entries.forEach(entry => {
-        setMetrics(prev => ({ ...prev, fid: entry.processingStart - entry.startTime }));
+        const fidEntry = entry as FirstInputDelay;
+        if (fidEntry.processingStart) {
+          setMetrics(prev => ({ ...prev, fid: fidEntry.processingStart - fidEntry.startTime }));
+        }
       });
     });
     
@@ -246,8 +280,9 @@ export const usePerformanceMonitoring = () => {
       const entries = list.getEntries();
       
       entries.forEach(entry => {
-        if (!entry.hadRecentInput) {
-          clsValue += entry.value;
+        const layoutShift = entry as LayoutShift;
+        if (layoutShift.hadRecentInput !== undefined && !layoutShift.hadRecentInput && layoutShift.value) {
+          clsValue += layoutShift.value;
         }
       });
       
@@ -263,8 +298,10 @@ export const usePerformanceMonitoring = () => {
     // Time to First Byte
     const navigationEntries = performance.getEntriesByType('navigation');
     if (navigationEntries.length > 0) {
-      const nav = navigationEntries[0];
-      setMetrics(prev => ({ ...prev, ttfb: nav.responseStart - nav.requestStart }));
+      const nav = navigationEntries[0] as PerformanceNavigationTiming;
+      if (nav.responseStart && nav.requestStart) {
+        setMetrics(prev => ({ ...prev, ttfb: nav.responseStart - nav.requestStart }));
+      }
     }
 
     return () => {

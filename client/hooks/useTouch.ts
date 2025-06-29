@@ -1,5 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
+interface TouchOptions {
+  onSwipe?: (direction: string, distance: number) => void;
+  onPinch?: (scale: number) => void;
+  onTap?: (x: number, y: number) => void;
+  onDoubleTap?: (x: number, y: number) => void;
+  onLongPress?: (x: number, y: number) => void;
+  threshold?: number;
+  longPressDelay?: number;
+}
+
 export const useTouch = ({ 
   onSwipe, 
   onPinch, 
@@ -8,7 +18,7 @@ export const useTouch = ({
   onLongPress,
   threshold = 50,
   longPressDelay = 500 
-} = {}) => {
+}: TouchOptions = {}) => {
   const [touchData, setTouchData] = useState({
     startX: 0,
     startY: 0,
@@ -99,22 +109,14 @@ export const useTouch = ({
     if (onLongPress) {
       timeoutRef.current = setTimeout(() => {
         vibrate([20, 10, 20]);
-        onLongPress({
-          x: touch.clientX,
-          y: touch.clientY,
-          target: e.target
-        });
+        onLongPress(touch.clientX, touch.clientY);
       }, longPressDelay);
     }
 
     // Detect double tap
     if (onDoubleTap && now - lastTapRef.current < 300) {
       vibrate([5, 5, 5]);
-      onDoubleTap({
-        x: touch.clientX,
-        y: touch.clientY,
-        target: e.target
-      });
+      onDoubleTap(touch.clientX, touch.clientY);
       lastTapRef.current = 0;
     } else {
       lastTapRef.current = now;
@@ -149,14 +151,7 @@ export const useTouch = ({
         rotation
       }));
 
-      onPinch({
-        scale,
-        rotation,
-        centerX: (touch1.clientX + touch2.clientX) / 2,
-        centerY: (touch1.clientY + touch2.clientY) / 2,
-        deltaScale: scale - gestureRef.current.lastScale,
-        deltaRotation: rotation - gestureRef.current.lastRotation
-      });
+      onPinch(scale);
 
       gestureRef.current.lastScale = scale;
       gestureRef.current.lastRotation = rotation;
@@ -190,25 +185,13 @@ export const useTouch = ({
     // Handle swipe gestures
     if (direction && onSwipe && distance >= threshold) {
       vibrate([10]);
-      onSwipe({
-        direction,
-        distance,
-        startX,
-        startY,
-        endX,
-        endY,
-        velocity: distance / (e.timeStamp - (e.timeStamp - 300)) // Approximate velocity
-      });
+      onSwipe(direction, distance);
     }
 
     // Handle tap
     if (!direction && onTap && distance < 10) {
       vibrate([5]);
-      onTap({
-        x: endX,
-        y: endY,
-        target: e.target
-      });
+      onTap(endX, endY);
     }
 
     // Reset gesture state
@@ -257,18 +240,22 @@ export const useTouch = ({
   }, []);
 
   // Touch utility functions
-  const bindTouch = useCallback((callbacks = {}) => {
+  const bindTouch = useCallback((callbacks: {
+    onTouchStart?: (e: TouchEvent) => void;
+    onTouchMove?: (e: TouchEvent) => void;
+    onTouchEnd?: (e: TouchEvent) => void;
+  } = {}) => {
     return {
       ref: touchRef,
-      onTouchStart: (e) => {
+      onTouchStart: (e: TouchEvent) => {
         handleTouchStart(e);
         callbacks.onTouchStart?.(e);
       },
-      onTouchMove: (e) => {
+      onTouchMove: (e: TouchEvent) => {
         handleTouchMove(e);
         callbacks.onTouchMove?.(e);
       },
-      onTouchEnd: (e) => {
+      onTouchEnd: (e: TouchEvent) => {
         handleTouchEnd(e);
         callbacks.onTouchEnd?.(e);
       }

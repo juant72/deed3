@@ -1,11 +1,26 @@
 import { useState, useEffect, useCallback } from 'react';
 
+// Extend Navigator interface for PWA properties
+declare global {
+  interface Navigator {
+    standalone?: boolean;
+  }
+  interface Window {
+    MSStream?: any;
+  }
+}
+
+interface BeforeInstallPromptEvent extends Event {
+  prompt(): Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+
 export const usePWA = () => {
   const [isInstallable, setIsInstallable] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const [updateAvailable, setUpdateAvailable] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
     // Check if app is installed
@@ -17,7 +32,7 @@ export const usePWA = () => {
     };
 
     // Handle install prompt
-    const handleBeforeInstallPrompt = (e) => {
+    const handleBeforeInstallPrompt = (e: BeforeInstallPromptEvent) => {
       e.preventDefault();
       setDeferredPrompt(e);
       setIsInstallable(true);

@@ -1,8 +1,21 @@
 import { useState, useEffect, useMemo } from 'react';
 
+interface PropertyMetrics {
+  tokenPrice: number;
+  priceChange24h: number;
+  totalValue: number;
+  liquidityPool: number;
+  tradingVolume: number;
+  holders: number;
+  marketCap: number;
+  apy: number;
+  isLoading: boolean;
+  lastUpdate: Date | null;
+}
+
 // Hook para métricas de propiedades en tiempo real
-export const usePropertyMetrics = (propertyId) => {
-  const [metrics, setMetrics] = useState({
+export const usePropertyMetrics = (propertyId: string) => {
+  const [metrics, setMetrics] = useState<PropertyMetrics>({
     tokenPrice: 0,
     priceChange24h: 0,
     totalValue: 0,
@@ -23,15 +36,15 @@ export const usePropertyMetrics = (propertyId) => {
       setIsConnected(true);
       
       // Simular datos iniciales
-      const initialData = {
-        tokenPrice: (Math.random() * 0.01 + 0.001).toFixed(6),
-        priceChange24h: (Math.random() * 20 - 10).toFixed(2),
-        totalValue: (Math.random() * 1000000 + 500000).toFixed(0),
-        liquidityPool: (Math.random() * 50000 + 10000).toFixed(0),
-        tradingVolume: (Math.random() * 100000 + 5000).toFixed(0),
+      const initialData: PropertyMetrics = {
+        tokenPrice: parseFloat((Math.random() * 0.01 + 0.001).toFixed(6)),
+        priceChange24h: parseFloat((Math.random() * 20 - 10).toFixed(2)),
+        totalValue: parseFloat((Math.random() * 1000000 + 500000).toFixed(0)),
+        liquidityPool: parseFloat((Math.random() * 50000 + 10000).toFixed(0)),
+        tradingVolume: parseFloat((Math.random() * 100000 + 5000).toFixed(0)),
         holders: Math.floor(Math.random() * 500 + 100),
-        marketCap: (Math.random() * 5000000 + 1000000).toFixed(0),
-        apy: (Math.random() * 15 + 5).toFixed(1),
+        marketCap: parseFloat((Math.random() * 5000000 + 1000000).toFixed(0)),
+        apy: parseFloat((Math.random() * 15 + 5).toFixed(1)),
         isLoading: false,
         lastUpdate: new Date()
       };
@@ -44,9 +57,9 @@ export const usePropertyMetrics = (propertyId) => {
       if (isConnected) {
         setMetrics(prev => ({
           ...prev,
-          tokenPrice: (parseFloat(prev.tokenPrice) * (1 + (Math.random() * 0.02 - 0.01))).toFixed(6),
-          priceChange24h: (parseFloat(prev.priceChange24h) + (Math.random() * 0.4 - 0.2)).toFixed(2),
-          tradingVolume: (parseFloat(prev.tradingVolume) * (1 + (Math.random() * 0.01 - 0.005))).toFixed(0),
+          tokenPrice: parseFloat((prev.tokenPrice * (1 + (Math.random() * 0.02 - 0.01))).toFixed(6)),
+          priceChange24h: parseFloat((prev.priceChange24h + (Math.random() * 0.4 - 0.2)).toFixed(2)),
+          tradingVolume: parseFloat((prev.tradingVolume * (1 + (Math.random() * 0.01 - 0.005))).toFixed(0)),
           lastUpdate: new Date()
         }));
       }
@@ -64,16 +77,16 @@ export const usePropertyMetrics = (propertyId) => {
 
   // Métricas calculadas
   const calculatedMetrics = useMemo(() => {
-    const roi = ((parseFloat(metrics.tokenPrice) * 1000 - 1000) / 1000 * 100).toFixed(1);
-    const momentum = parseFloat(metrics.priceChange24h) > 0 ? 'bullish' : 'bearish';
-    const liquidityRatio = (parseFloat(metrics.liquidityPool) / parseFloat(metrics.totalValue) * 100).toFixed(1);
+    const roi = ((metrics.tokenPrice * 1000 - 1000) / 1000 * 100).toFixed(1);
+    const momentum = metrics.priceChange24h > 0 ? 'bullish' : 'bearish';
+    const liquidityRatio = (metrics.liquidityPool / metrics.totalValue * 100).toFixed(1);
     
     return {
       ...metrics,
       roi,
       momentum,
       liquidityRatio,
-      isPositiveChange: parseFloat(metrics.priceChange24h) >= 0
+      isPositiveChange: metrics.priceChange24h >= 0
     };
   }, [metrics]);
 
@@ -129,12 +142,14 @@ export const usePerformanceOptimization = () => {
         return;
       }
 
-      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-      const renderer = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : '';
+      // Type assertion for WebGL context
+      const webglContext = gl as WebGLRenderingContext;
+      const debugInfo = webglContext.getExtension('WEBGL_debug_renderer_info');
+      const renderer = debugInfo ? webglContext.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : '';
       
       // Detectar dispositivos móviles o GPUs de bajo rendimiento
       const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-      const isLowEndGPU = /PowerVR|Adreno [1-4]|Mali-[1-4]/i.test(renderer);
+      const isLowEndGPU = /PowerVR|Adreno [1-4]|Mali-[1-4]/i.test(String(renderer));
       
       setIsHighPerformance(!isMobile && !isLowEndGPU);
     };
