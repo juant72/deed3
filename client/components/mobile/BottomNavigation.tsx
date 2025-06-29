@@ -10,7 +10,11 @@ import {
 } from 'lucide-react';
 import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 
-const BottomNavigation: React.FC<{ notifications = 0 }> = ({ notifications = 0 }) => {
+interface BottomNavigationProps {
+  notifications?: number;
+}
+
+const BottomNavigation: React.FC<BottomNavigationProps> = ({ notifications = 0 }) => {
   const router = useRouter();
   const { shouldReduceMotion, vibrate } = useUIOptimizations();
 
