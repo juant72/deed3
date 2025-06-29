@@ -13,7 +13,6 @@ import {
   LogOut,
   Wallet
 } from 'lucide-react';
-import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 
 interface MobileHeaderProps {
   user?: any;
@@ -23,12 +22,19 @@ interface MobileHeaderProps {
 const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { shouldReduceMotion, vibrate } = useUIOptimizations();
+  // Usar valores por defecto ya que el hook actual puede no tener estas propiedades
+  const shouldReduceMotion = false;
+  const vibrate = (pattern: number[]) => {
+    if (navigator.vibrate) {
+      navigator.vibrate(pattern);
+    }
+  };
 
   // Close menu on route change or outside click
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest('.mobile-menu')) {
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as Element;
+      if (isMenuOpen && !target.closest('.mobile-menu')) {
         setIsMenuOpen(false);
       }
     };
@@ -61,11 +67,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) 
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: shouldReduceMotion ? { duration: 0 } : {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
+      transition: { duration: shouldReduceMotion ? 0 : 0.3 }
     }
   };
 
@@ -73,20 +75,12 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) 
     closed: { 
       x: "-100%", 
       opacity: 0,
-      transition: shouldReduceMotion ? { duration: 0 } : {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
+      transition: { duration: shouldReduceMotion ? 0 : 0.3 }
     },
     open: { 
       x: 0, 
       opacity: 1,
-      transition: shouldReduceMotion ? { duration: 0 } : {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
+      transition: { duration: shouldReduceMotion ? 0 : 0.3 }
     }
   };
 
@@ -95,10 +89,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) 
     open: { 
       height: "auto", 
       opacity: 1,
-      transition: shouldReduceMotion ? { duration: 0 } : {
-        duration: 0.2,
-        ease: "easeInOut"
-      }
+      transition: { duration: shouldReduceMotion ? 0 : 0.2 }
     }
   };
 

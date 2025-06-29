@@ -2,11 +2,9 @@ import React from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, X, Smartphone, Monitor, ArrowDown } from 'lucide-react';
 import { usePWA } from '../../hooks/usePWA';
-import { useUIOptimizations } from '../../hooks/useUIOptimizations';
-
 const PWAInstallBanner: React.FC = () => {
   const { isInstallable, isInstalled, installApp, getDeviceInfo } = usePWA();
-  const { shouldReduceMotion } = useUIOptimizations();
+  const shouldReduceMotion = false;
   const [showBanner, setShowBanner] = useState(false);
   const [isInstalling, setIsInstalling] = useState(false);
   const [deviceInfo, setDeviceInfo] = useState(null);

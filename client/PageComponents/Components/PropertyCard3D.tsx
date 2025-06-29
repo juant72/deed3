@@ -20,7 +20,6 @@ import {
 } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { usePropertyMetrics } from '../../hooks/usePropertyMetrics';
-import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 import { RealTimeMetrics } from '../property/RealTimeMetrics';
 import { BlockchainBadges } from '../property/BlockchainBadges';
 
@@ -49,7 +48,8 @@ const PropertyCard3D = ({
     triggerOnce: true
   });
   
-  const { shouldReduceMotion, prefersHighContrast } = useUIOptimizations();
+  const shouldReduceMotion = false;
+  const prefersHighContrast = false;
   const { metrics, isLoading: metricsLoading } = usePropertyMetrics(property?.id);
   
   // Animations

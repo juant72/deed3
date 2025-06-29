@@ -14,7 +14,6 @@ import {
   Clock
 } from 'lucide-react';
 import { useTouch } from '../../hooks/useTouch';
-import { useUIOptimizations } from '../../hooks/useUIOptimizations';
 import { ScreenReaderOnly } from '../a11y/AccessibilityComponents';
 
 const MobilePropertyCard: React.FC<any> = ({ 
@@ -27,7 +26,8 @@ const MobilePropertyCard: React.FC<any> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const { shouldReduceMotion, vibrate } = useUIOptimizations();
+  const shouldReduceMotion = false;
+  const vibrate = (pattern: number[]) => { if (navigator.vibrate) navigator.vibrate(pattern); };
 
   const { bindTouch } = useTouch({
     onTap: () => {

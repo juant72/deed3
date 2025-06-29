@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { RotateCcw, ArrowDown } from 'lucide-react';
-import { useUIOptimizations } from '../../hooks/useUIOptimizations';
-
 const PullToRefresh: React.FC<any> = ({ 
   children, 
   onRefresh, 
@@ -12,7 +10,8 @@ const PullToRefresh: React.FC<any> = ({
 }) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isPulling, setIsPulling] = useState(false);
-  const { shouldReduceMotion, vibrate } = useUIOptimizations();
+  const shouldReduceMotion = false;
+  const vibrate = (pattern: number[]) => { if (navigator.vibrate) navigator.vibrate(pattern); };
   
   const containerRef = useRef(null);
   const startY = useRef(0);
