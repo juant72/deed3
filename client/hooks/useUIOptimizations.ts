@@ -31,6 +31,8 @@ export const useGPUOptimization = () => {
         }
       };
     }
+    // Explicitly return undefined for the case when elementRef.current is null
+    return undefined;
   }, [enableGPUAcceleration, disableGPUAcceleration]);
 
   return {
@@ -82,8 +84,21 @@ export const useMicroInteractions = () => {
 
     const rect = element.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
-    const x = ('clientX' in event ? event.clientX : event.touches[0].clientX) - rect.left - size / 2;
-    const y = ('clientY' in event ? event.clientY : event.touches[0].clientY) - rect.top - size / 2;
+    
+    let clientX: number, clientY: number;
+    
+    if ('clientX' in event) {
+      clientX = event.clientX;
+      clientY = event.clientY;
+    } else {
+      const touch = event.touches[0];
+      if (!touch) return; // Guard against undefined
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+    }
+    
+    const x = clientX - rect.left - size / 2;
+    const y = clientY - rect.top - size / 2;
 
     const ripple = document.createElement('div');
     ripple.style.cssText = `
