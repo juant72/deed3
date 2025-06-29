@@ -1,0 +1,52 @@
+{
+  "typescript.preferences.maxInlayHintLength": 30,
+  "typescript.suggest.maxSize": 5000,
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.preferences.includeCompletionsWithInsertText": false,
+  "typescript.preferences.includeCompletionsForImportStatements": false,
+  
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.next/**": true,
+    "**/coverage/**": true,
+    "**/tmp/**": true,
+    "**/.cache/**": true,
+    "**/*.log": true
+  },
+  
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/coverage": true,
+    "**/tmp": true,
+    "**/.cache": true,
+    "**/*.log": true
+  },
+  
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "typescript.suggest.autoImports": false,
+  "typescript.suggest.paths": false,
+  "typescript.suggest.completeFunctionCalls": false,
+  
+  "editor.maxTokenizationLineLength": 2000,
+  "editor.semanticHighlighting.enabled": false,
+  
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  
+  "files.maxMemoryForLargeFilesMB": 4096,
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.enableExperiments": false
+}
