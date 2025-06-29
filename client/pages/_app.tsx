@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { AppProps } from "next/app";
 import { Session } from "next-auth";
 import { Toaster } from "react-hot-toast";
@@ -139,17 +140,20 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
     };
   }, []);
 
-  // Create a client for React Query inside the component
-  const [queryClient] = React.useState(() => new QueryClient({
+  // Create a client for React Query - MOVED OUTSIDE to prevent recreation
+  const queryClient = React.useMemo(() => new QueryClient({
     defaultOptions: {
       queries: {
         staleTime: 60 * 1000,
       },
     },
-  }));
+  }), []);
   
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes, viewport-fit=cover" />
+      </Head>
       <ClientOnly fallback={<div>Loading...</div>}>
         <WagmiProvider config={wagmiConfig}>
           <QueryClientProvider client={queryClient}>
@@ -172,7 +176,9 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
         </WagmiProvider>
       </ClientOnly>
 
-      {/* Vendor Scripts - Loaded with Next.js Script optimization */}
+      {/* Vendor Scripts - Load jQuery FIRST, then plugins */}
+      <Script src="/js/vendor/jquery.js" strategy="beforeInteractive" />
+      
       {/* jQuery plugins - Load after jQuery */}
       <Script src="/js/vendor/jquery.nice-select.min.js" strategy="afterInteractive" />
       <Script src="/js/vendor/jquery-ui.js" strategy="afterInteractive" />

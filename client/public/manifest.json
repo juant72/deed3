@@ -86,12 +86,6 @@
   ],
   "related_applications": [],
   "prefer_related_applications": false,
-  "protocol_handlers": [
-    {
-      "protocol": "web+deeds3",
-      "url": "/?property=%s"
-    }
-  ],
   "edge_side_panel": {
     "preferred_width": 400
   },

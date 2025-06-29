@@ -4,6 +4,14 @@ import { metaMask, walletConnect, coinbaseWallet } from 'wagmi/connectors';
 
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
+// Get the correct base URL for the current environment
+const getBaseUrl = () => {
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+  return process.env.NEXT_PUBLIC_BASE_URL || 'https://deeds3.vercel.app';
+};
+
 if (!projectId || projectId === 'demo') {
   console.warn('Using demo WalletConnect Project ID. Please get your project ID from https://cloud.walletconnect.com');
 }
@@ -19,14 +27,14 @@ export const wagmiConfig = createConfig({
         metadata: {
           name: "Deeds3 - Real Estate NFT",
           description: "Decentralized Real Estate Platform",
-          url: "https://deeds3.vercel.app",
-          icons: ["https://deeds3.vercel.app/logo.png"]
+          url: getBaseUrl(),
+          icons: [`${getBaseUrl()}/logo.png`]
         }
       })
     ] : []),
     coinbaseWallet({
       appName: "Deeds3",
-      appLogoUrl: "https://deeds3.vercel.app/logo.png"
+      appLogoUrl: `${getBaseUrl()}/logo.png`
     })
   ],
   transports: {

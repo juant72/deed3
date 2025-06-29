@@ -3,8 +3,11 @@ import Script from 'next/script';
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
+        {/* Warning suppression for development */}
+        <Script src="/js/suppress-warnings.js" strategy="beforeInteractive" />
+        
         {/* Meta tag required by main.js for theme mode */}
         <meta name="theme-style-mode" content="1" />
         
@@ -25,9 +28,6 @@ export default function Document() {
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="theme-color" content="#3b82f6" />
         
-        {/* Viewport with safe areas for mobile */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes, viewport-fit=cover" />
-        
         {/* Manifest */}
         <link rel="manifest" href="/manifest.json" />
         
@@ -40,6 +40,9 @@ export default function Document() {
         {/* Performance hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Accessibility CSS */}
+        <link rel="stylesheet" href="/styles/accessibility.css" />
         
         {/* SEO and Open Graph */}
         <meta property="og:type" content="website" />
@@ -67,11 +70,6 @@ export default function Document() {
             }
           `
         }} />
-        
-        {/* CSS Vendor Files - Next.js will optimize these automatically */}
-        {/* Note: These are kept for legacy vendor script compatibility */}
-        {/* eslint-disable-next-line @next/next/no-css-tags */}
-        <link rel="stylesheet" href="/styles/accessibility.css" />
       </Head>
       <body>
         {/* Loading screen */}
@@ -81,9 +79,6 @@ export default function Document() {
         
         <Main />
         <NextScript />
-        
-        {/* Legacy JS files - loaded asynchronously for compatibility */}
-        <Script src="/js/main.js" strategy="beforeInteractive" />
       </body>
     </Html>
   );
