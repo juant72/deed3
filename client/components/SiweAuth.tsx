@@ -66,6 +66,7 @@ const SiweAuth: React.FC<SiweAuthProps> = ({ onSuccess, onError, className = "" 
 
       // Request signature from user
       const signature = await signMessageAsync({ 
+        account: address,
         message: messageText 
       });
 

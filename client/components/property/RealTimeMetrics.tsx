@@ -89,7 +89,7 @@ const RealTimeMetrics: React.FC<any> = ({ propertyId, compact = false }) => {
         
         {metrics.lastUpdate && (
           <span className="text-xs text-slate-400">
-            Updated {Math.floor((new Date() - metrics.lastUpdate) / 1000)}s ago
+            Updated {Math.floor((new Date().getTime() - new Date(metrics.lastUpdate).getTime()) / 1000)}s ago
           </span>
         )}
       </div>

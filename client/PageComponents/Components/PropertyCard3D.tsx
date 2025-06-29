@@ -3,7 +3,7 @@
  * Sprint 3: Property Cards Revolution - Final Version
  */
 
-import React from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { motion, useTransform, useSpring, useAnimation } from 'framer-motion';
 import { 
   Heart, 
@@ -20,16 +20,16 @@ import {
 } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { usePropertyMetrics } from '../../hooks/usePropertyMetrics';
-import { RealTimeMetrics } from '../property/RealTimeMetrics';
-import { BlockchainBadges } from '../property/BlockchainBadges';
+import RealTimeMetrics from '../../components/property/RealTimeMetrics';
+import BlockchainBadges from '../../components/property/BlockchainBadges';
 
 const PropertyCard3D = ({ 
   property,
   index = 0,
   isHovered = false,
   onHover = () => {},
-  onFavorite = () => {},
-  onClick = () => {},
+  onFavorite = (id, favorited) => {},
+  onClick = (property) => {},
   className = '',
   variant = 'default' // 'default', 'featured', 'compact'
 }) => {
@@ -50,7 +50,7 @@ const PropertyCard3D = ({
   
   const shouldReduceMotion = false;
   const prefersHighContrast = false;
-  const { metrics, isLoading: metricsLoading } = usePropertyMetrics(property?.id);
+  const { metrics } = usePropertyMetrics(property?.id);
   
   // Animations
   const controls = useAnimation();
@@ -239,10 +239,10 @@ const PropertyCard3D = ({
           </div>
           
           {/* View count */}
-          {metrics?.views && (
+          {(property?.views || metrics?.tradingVolume) && (
             <div className="absolute bottom-3 right-3 flex items-center space-x-1 text-white text-xs bg-black/30 rounded-full px-2 py-1 backdrop-blur-sm">
               <Eye size={12} />
-              <span>{metrics.views}</span>
+              <span>{property?.views || Math.floor(metrics?.tradingVolume || 0)}</span>
             </div>
           )}
         </div>

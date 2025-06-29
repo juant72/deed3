@@ -5,8 +5,54 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
+// Types for device testing
+interface DeviceInfo {
+  type: string;
+  os: string;
+  browser: string;
+  viewport: {
+    width: number;
+    height: number;
+    pixelRatio?: number;
+  };
+  capabilities: Record<string, any>;
+  userAgent?: string;
+  performance?: Record<string, any>;
+  compatibility?: Record<string, any>;
+}
+
+interface TestResult {
+  score: number;
+  timestamp: string;
+  [key: string]: any;
+}
+
+interface TestResults {
+  responsive: TestResult | null;
+  touch: TestResult | null;
+  performance: TestResult | null;
+  accessibility: TestResult | null;
+  features: TestResult | null;
+}
+
+interface FullTestResults {
+  device?: any;
+  responsive?: TestResult;
+  touch?: TestResult;
+  performance?: TestResult;
+  accessibility?: TestResult;
+  features?: TestResult;
+  overall: {
+    score: number;
+    passed: number;
+    warnings: number;
+    failed: number;
+    timestamp: string;
+  };
+}
+
 export const useDeviceTesting = () => {
-  const [deviceInfo, setDeviceInfo] = useState({
+  const [deviceInfo, setDeviceInfo] = useState<DeviceInfo>({
     type: 'unknown',
     os: 'unknown',
     browser: 'unknown',
@@ -16,7 +62,7 @@ export const useDeviceTesting = () => {
     compatibility: {}
   });
 
-  const [testResults, setTestResults] = useState({
+  const [testResults, setTestResults] = useState<TestResults>({
     responsive: null,
     touch: null,
     performance: null,
@@ -164,7 +210,7 @@ export const useDeviceTesting = () => {
     document.body.removeChild(testDiv);
 
     // Métricas de memoria (si están disponibles)
-    const memory = performance.memory || {};
+    const memory = (performance as any).memory || {};
     
     const result = {
       renderTime: Math.round(renderTime),
@@ -183,7 +229,7 @@ export const useDeviceTesting = () => {
   }, []);
 
   // Medir FPS
-  const measureFPS = () => {
+  const measureFPS = (): Promise<number> => {
     return new Promise((resolve) => {
       let frames = 0;
       const startTime = performance.now();
@@ -304,12 +350,12 @@ export const useDeviceTesting = () => {
   }, []);
 
   // Ejecutar suite completa de tests
-  const runFullTestSuite = useCallback(async () => {
+  const runFullTestSuite = useCallback(async (): Promise<FullTestResults | null> => {
     if (!isTestingEnabled) return null;
 
     console.log('🧪 Ejecutando suite completa de tests...');
     
-    const results = {};
+    const results: Partial<FullTestResults> = {};
     
     try {
       results.device = detectDevice();
@@ -320,15 +366,16 @@ export const useDeviceTesting = () => {
       results.features = await testFeatures();
       
       // Calcular score general
-      const scores = Object.values(results)
-        .filter(r => r && typeof r.score === 'number')
+      const testResults = [results.responsive, results.touch, results.performance, results.accessibility, results.features];
+      const scores = testResults
+        .filter((r): r is TestResult => r !== null && r !== undefined && typeof r.score === 'number')
         .map(r => r.score);
       
       const overallScore = scores.length > 0 
         ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
         : 0;
 
-      const finalResults = {
+      const finalResults: FullTestResults = {
         ...results,
         overall: {
           score: overallScore,

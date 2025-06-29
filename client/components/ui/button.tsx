@@ -2,9 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 // Utility function for class merging (simple version)
-const cn = (...classes) => {
+const cn = (...classes: (string | undefined | null | boolean)[]) => {
   return classes.filter(Boolean).join(' ');
 };
+
+// Button prop types
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'web3';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  loading?: boolean;
+  asChild?: boolean;
+}
 
 // Button variants using design tokens
 const buttonVariants = {
@@ -44,7 +52,7 @@ const buttonVariants = {
   }
 };
 
-const Button = React.forwardRef(({
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   variant = 'primary', 
   size = 'md', 
   loading = false,
@@ -77,13 +85,10 @@ const Button = React.forwardRef(({
     }
 
     return (
-      <motion.button
+      <button
         ref={ref}
         className={buttonClasses}
         disabled={disabled || loading}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        transition={{ duration: 0.15 }}
         {...props}
       >
         {loading && (
@@ -109,7 +114,7 @@ const Button = React.forwardRef(({
           </svg>
         )}
         {children}
-      </motion.button>
+      </button>
     );
   }
 );
