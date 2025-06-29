@@ -1,12 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+const { designTokens } = require('./styles/design-tokens.js');
+
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './PageComponents/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './pages/**/*.{js,jsx,ts,tsx}',
+    './PageComponents/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
+    './app/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.{js,jsx,ts,tsx}',
   ],
   prefix: "",
   theme: {
@@ -17,7 +19,19 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    
+    // Import design tokens
+    colors: designTokens.colors,
+    fontFamily: designTokens.typography.fontFamily,
+    fontSize: designTokens.typography.fontSize,
+    fontWeight: designTokens.typography.fontWeight,
+    spacing: designTokens.spacing,
+    borderRadius: designTokens.borderRadius,
+    boxShadow: designTokens.boxShadow,
+    screens: designTokens.screens,
+    
     extend: {
+      // Legacy shadcn colors for compatibility
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

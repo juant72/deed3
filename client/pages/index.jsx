@@ -21,8 +21,8 @@ import { useStateContext } from "../context";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
-  const [searchFilters, setSearchFilters] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchFilters, setSearchFilters] = useState(null);
 
   const { getAllRealEstate } = useStateContext();
 

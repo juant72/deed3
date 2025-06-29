@@ -15,7 +15,13 @@ const Header = () => {
             <div className="flex items-center flex-1 max-w-[55%]">
               <div className="relative pr-8 mr-4 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-9 after:bg-white/10">
                 <Link className="block" href="/">
-                  <img src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" />
+                  <div className="flex items-center space-x-3">
+                    <img src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" />
+                    <div className="flex flex-col">
+                      <span className="text-white text-lg font-bold leading-none">Encrypia</span>
+                      <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
+                    </div>
+                  </div>
                 </Link>
               </div>
               <div className="mainmenu-wrapper">

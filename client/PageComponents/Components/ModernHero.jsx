@@ -8,25 +8,25 @@ const ModernHero = ({ marketData, propertyCount }) => {
 
   const heroSlides = [
     {
-      title: "Tokenize Real Estate",
-      subtitle: "Transform Properties into Digital Assets",
-      description: "The future of real estate investment through blockchain technology",
-      cta: "Start Tokenizing",
+      title: "Encrypia Deeds3",
+      subtitle: "Next-Generation Real Estate Tokenization",
+      description: "The institutional-grade platform for Web3 real estate investment and tokenization",
+      cta: "Start Investing",
       image: "/portfolio/hero-tokenize.jpg",
       stats: { label: "Properties Tokenized", value: "2,847" }
     },
     {
       title: "Fractional Ownership",
       subtitle: "Own Premium Real Estate from $100",
-      description: "Invest in high-value properties through fractionalized NFTs",
+      description: "Invest in high-value properties through fractionalized tokens on Encrypia",
       cta: "Browse Assets",
       image: "/portfolio/hero-fractional.jpg",
       stats: { label: "Total Value Locked", value: "$124.8M" }
     },
     {
       title: "Global Marketplace",
-      subtitle: "Trade Property Tokens Instantly",
-      description: "24/7 liquidity for real estate investments worldwide",
+      subtitle: "Trade Property Tokens 24/7",
+      description: "Institutional-grade liquidity for real estate investments worldwide",
       cta: "Explore Market",
       image: "/portfolio/hero-marketplace.jpg",
       stats: { label: "Daily Volume", value: "$2.4M" }

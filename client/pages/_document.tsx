@@ -11,7 +11,8 @@ export default function Document() {
         {/* Other meta tags */}
         <meta charSet="utf-8" />
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Deeds3 - Real Estate NFT Marketplace" />
+        <meta name="description" content="Encrypia Deeds3 - Next-Generation Real Estate Tokenization Platform" />
+        <title>Encrypia Deeds3 - Web3 Real Estate Revolution</title>
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />

@@ -9,16 +9,20 @@ const Footer = () => {
             <div className="space-y-6">
               <div>
                 <div className="mb-6">
-                  <a href="index.html">
-                    <img src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" />
+                  <a href="/" className="flex items-center space-x-3">
+                    <img src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" />
+                    <div className="flex flex-col">
+                      <span className="text-white text-lg font-bold leading-none">Encrypia</span>
+                      <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
+                    </div>
                   </a>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
-                  Transform your real estate into digital assets with Deeds3: Your gateway to NFT property
+                  Encrypia Deeds3: The institutional-grade platform for Web3 real estate tokenization and investment.
                 </p>
               </div>
               <div className="pt-6 border-t border-white/10">
-                <h6 className="text-white font-semibold mb-4">Get The Latest Deeds3 Updates</h6>
+                <h6 className="text-white font-semibold mb-4">Get The Latest Encrypia Deeds3 Updates</h6>
                 <div className="flex">
                   <input
                     type="text"
