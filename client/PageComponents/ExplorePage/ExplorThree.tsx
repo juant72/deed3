@@ -5,7 +5,7 @@ const ExplorThree: React.FC = () => {
     <div
       className="rn-popup-modal share-modal-wrapper modal fade"
       id="shareModal"
-      tabindex="-1"
+      tabIndex={-1}
       aria-hidden="true"
     >
       <button

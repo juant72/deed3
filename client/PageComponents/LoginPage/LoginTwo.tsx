@@ -10,13 +10,13 @@ const LoginTwo: React.FC = () => {
               <h4>Login</h4>
               <form>
                 <div className="mb-5">
-                  <label for="exampleInputEmail1" className="form-label">
+                  <label htmlFor="exampleInputEmail1" className="form-label">
                     Email address
                   </label>
                   <input type="email" id="exampleInputEmail1" />
                 </div>
                 <div className="mb-5">
-                  <label for="exampleInputPassword1" className="form-label">
+                  <label htmlFor="exampleInputPassword1" className="form-label">
                     Password
                   </label>
                   <input type="password" id="exampleInputPassword1" />
@@ -27,7 +27,7 @@ const LoginTwo: React.FC = () => {
                     className="rn-check-box-input"
                     id="exampleCheck1"
                   />
-                  <label className="rn-check-box-label" for="exampleCheck1">
+                  <label className="rn-check-box-label" htmlFor="exampleCheck1">
                     Remember me leter
                   </label>
                 </div>

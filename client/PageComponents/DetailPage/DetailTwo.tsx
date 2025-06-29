@@ -22,7 +22,7 @@ const DetailTwo: React.FC<{
   isLoading,
   buyLoading,
 }) => {
-  const timeComment = new Date(new Date() - Math.random() * 1e12);
+  const timeComment = new Date(Date.now() - Math.random() * 1e12);
 
   return (
     <div className="product-details-area rn-section-gapTop">

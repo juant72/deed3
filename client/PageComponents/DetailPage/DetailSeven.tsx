@@ -18,7 +18,7 @@ const DetailSeven: React.FC<{
     <div
       className="rn-popup-modal report-modal-wrapper modal fade"
       id="reportModal"
-      tabindex="-1"
+      tabIndex={-1}
       aria-hidden="true"
     >
       <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">

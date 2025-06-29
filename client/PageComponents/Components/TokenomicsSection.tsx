@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 
 // Create a simple, stable tokenomics component without charts to avoid the infinite loop

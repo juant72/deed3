@@ -5,7 +5,7 @@ const CreateThree: React.FC<{ data, handleSubmit }> = ({ data, handleSubmit }) =
     <div
       className="rn-popup-modal upload-modal-wrapper modal fade"
       id="collectionModal"
-      tabindex="-1"
+      tabIndex={-1}
       aria-hidden="true"
     >
       <button

@@ -17,7 +17,7 @@ const ForgetTwo: React.FC = () => {
               </div>
 
               <div className="mb-5">
-                <label for="exampleInputEmail1" className="form-label">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Email address
                 </label>
                 <input
@@ -32,7 +32,7 @@ const ForgetTwo: React.FC = () => {
                   className="rn-check-box-input"
                   id="exampleCheck1"
                 />
-                <label className="rn-check-box-label" for="exampleCheck1">
+                <label className="rn-check-box-label" htmlFor="exampleCheck1">
                   I agree to the{" "}
                   <a href="privacy-policy.html">privacy policy</a>{" "}
                 </label>

@@ -13,7 +13,7 @@ const DetailEight: React.FC<{
     <div
       className="rn-popup-modal placebid-modal-wrapper modal fade"
       id="placebidModal"
-      tabindex="-1"
+      tabIndex={-1}
       aria-hidden="true"
     >
       <button
@@ -37,8 +37,8 @@ const DetailEight: React.FC<{
                     <textarea
                       name=""
                       id=""
-                      cols="30"
-                      rows="5"
+                      cols={30}
+                      rows={5}
                       onChange={(e) => handleFormFieldChange("comment", e)}
                     ></textarea>
                   </div>

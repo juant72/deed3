@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const ModernHero = React.memo(({ marketData, propertyCount }) => {
+interface ModernHeroProps {
+  marketData?: any;
+  propertyCount?: number;
+}
+
+const ModernHero = React.memo<ModernHeroProps>(({ marketData, propertyCount }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isConnecting, setIsConnecting] = useState(false);
 

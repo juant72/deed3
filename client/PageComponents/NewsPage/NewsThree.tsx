@@ -5,7 +5,7 @@ const NewsThree: React.FC = () => {
     <div
       className="rn-popup-modal upload-modal-wrapper modal fade"
       id="uploadModal"
-      tabindex="-1"
+      tabIndex={-1}
       aria-hidden="true"
     >
       <button

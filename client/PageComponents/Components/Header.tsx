@@ -169,7 +169,7 @@ const Header: React.FC = () => {
               {/* CONNECT WALLET */}
               {currentAccount ? null : (
                 <div className="flex items-center">
-                  <AdvancedWalletConnect />
+                  <AdvancedWalletConnect onClose={() => {}} />
                 </div>
               )}
 

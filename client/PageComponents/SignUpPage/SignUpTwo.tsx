@@ -10,31 +10,31 @@ const SignUpTwo: React.FC = () => {
               <h4>Sign up</h4>
               <form>
                 <div className="mb-5">
-                  <label for="firstName" className="form-label">
+                  <label htmlFor="firstName" className="form-label">
                     First name
                   </label>
                   <input type="text" id="firstName" />
                 </div>
                 <div className="mb-5">
-                  <label for="sastName" className="form-label">
+                  <label htmlFor="sastName" className="form-label">
                     Last name
                   </label>
                   <input type="email" id="sastName" />
                 </div>
                 <div className="mb-5">
-                  <label for="exampleInputEmail1" className="form-label">
+                  <label htmlFor="exampleInputEmail1" className="form-label">
                     Email address
                   </label>
                   <input type="email" id="exampleInputEmail1" />
                 </div>
                 <div className="mb-5">
-                  <label for="newPassword" className="form-label">
+                  <label htmlFor="newPassword" className="form-label">
                     Create Password
                   </label>
                   <input type="password" id="newPassword" />
                 </div>
                 <div className="mb-5">
-                  <label for="exampleInputPassword1" className="form-label">
+                  <label htmlFor="exampleInputPassword1" className="form-label">
                     Re Password
                   </label>
                   <input type="password" id="exampleInputPassword1" />
@@ -45,7 +45,7 @@ const SignUpTwo: React.FC = () => {
                     className="rn-check-box-input"
                     id="exampleCheck1"
                   />
-                  <label className="rn-check-box-label" for="exampleCheck1">
+                  <label className="rn-check-box-label" htmlFor="exampleCheck1">
                     Allow to all tearms & condition
                   </label>
                 </div>

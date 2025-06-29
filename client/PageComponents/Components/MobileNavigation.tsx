@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Menu, 
@@ -52,11 +52,11 @@ const MobileNavigation: React.FC = () => {
     }
   }, []);
 
-  const toggleMenu: React.FC = () => {
+  const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleTabClick = (tabId) => {
+  const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
     setIsMenuOpen(false);
   };

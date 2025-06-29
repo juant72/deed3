@@ -42,7 +42,7 @@ const FocusTrap: React.FC<FocusTrapProps> = ({ children, isActive = true }) => {
 
     const container = containerRef.current;
     const focusableElements = container.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      'button, [href], input, select, textarea, [tabindex]:not([tabIndex={-1}])'
     );
 
     if (focusableElements.length === 0) return;

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import PropertyCard3D from "./PropertyCard3D";
 
-const Product: React.FC<{ properties }> = ({ properties }) => {
+interface ProductProps {
+  properties?: any[];
+}
+
+const Product: React.FC<ProductProps> = ({ properties }) => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const categories = ["all", "housing", "office", "rental", "farmhouse", "country", "commercial"];

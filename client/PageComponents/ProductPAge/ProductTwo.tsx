@@ -55,7 +55,7 @@ const ProductTwo: React.FC = () => {
                     <div className="price__output--wrap">
                       <div className="price--output">
                         <span>Price :</span>
-                        <input type="text" id="amount" readonly />
+                        <input type="text" id="amount" readOnly />
                       </div>
                       <div className="price--filter">
                         <a className="btn btn-primary btn-small" href="#">

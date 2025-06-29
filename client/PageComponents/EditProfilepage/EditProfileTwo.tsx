@@ -96,7 +96,7 @@ const EditProfileTwo: React.FC = () => {
                         <div className="brows-file-wrapper">
                           <input name="fatima" id="fatima" type="file" />
 
-                          <label for="fatima" title="No File Choosen">
+                          <label htmlFor="fatima" title="No File Choosen">
                             <span className="text-center color-white">
                               Upload Profile
                             </span>
@@ -118,7 +118,7 @@ const EditProfileTwo: React.FC = () => {
                         <div className="brows-file-wrapper">
                           <input name="nipa" id="nipa" type="file" />
 
-                          <label for="nipa" title="No File Choosen">
+                          <label htmlFor="nipa" title="No File Choosen">
                             <span className="text-center color-white">
                               Upload Cover
                             </span>
@@ -140,7 +140,7 @@ const EditProfileTwo: React.FC = () => {
                   <div className="profile-form-wrapper">
                     <div className="input-two-wrapper mb--15">
                       <div className="first-name half-wid">
-                        <label for="contact-name" className="form-label">
+                        <label htmlFor="contact-name" className="form-label">
                           First Name
                         </label>
                         <input
@@ -151,7 +151,7 @@ const EditProfileTwo: React.FC = () => {
                         />
                       </div>
                       <div className="last-name half-wid">
-                        <label for="contact-name-last" className="form-label">
+                        <label htmlFor="contact-name-last" className="form-label">
                           Last Name
                         </label>
                         <input
@@ -163,7 +163,7 @@ const EditProfileTwo: React.FC = () => {
                       </div>
                     </div>
                     <div className="email-area">
-                      <label for="Email" className="form-label">
+                      <label htmlFor="Email" className="form-label">
                         Edit Your Email
                       </label>
                       <input
@@ -176,7 +176,7 @@ const EditProfileTwo: React.FC = () => {
                   </div>
 
                   <div className="edit-bio-area mt--20">
-                    <label for="Discription" className="form-label">
+                    <label htmlFor="Discription" className="form-label">
                       Edit Your Bio
                     </label>
                     <textarea id="Discription">
@@ -186,7 +186,7 @@ const EditProfileTwo: React.FC = () => {
 
                   <div className="input-two-wrapepr-prifile">
                     <div className="role-area mt--15">
-                      <label for="Role" className="form-label mb--10">
+                      <label htmlFor="Role" className="form-label mb--10">
                         Your Role
                       </label>
                       <input
@@ -201,7 +201,7 @@ const EditProfileTwo: React.FC = () => {
                   <div className="input-two-wrapper mt--15">
                     <div className="half-wid currency"></div>
                     <div className="half-wid phone-number">
-                      <label for="PhoneNumber" className="form-label">
+                      <label htmlFor="PhoneNumber" className="form-label">
                         Phone Number
                       </label>
                       <input
@@ -215,7 +215,7 @@ const EditProfileTwo: React.FC = () => {
                   <div className="input-two-wrapper mt--15">
                     <div className="half-wid currency"></div>
                     <div className="half-wid phone-number">
-                      <label for="PhoneNumbers" className="form-label">
+                      <label htmlFor="PhoneNumbers" className="form-label">
                         Address
                       </label>
                       <input
@@ -230,14 +230,20 @@ const EditProfileTwo: React.FC = () => {
                     <a
                       href="#"
                       className="btn btn-primary-alta mr--15"
-                      onclick="customAlert.alert('Cancel Edit Profile?')"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        alert('Cancel Edit Profile?');
+                      }}
                     >
                       Cancel
                     </a>
                     <a
                       href="#"
                       className="btn btn-primary"
-                      onclick="customAlert.alert('Successfully Saved Your Profile?')"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        alert('Successfully Saved Your Profile?');
+                      }}
                     >
                       Save
                     </a>
@@ -262,7 +268,7 @@ const EditProfileTwo: React.FC = () => {
                     </p>
                     <hr />
                     <div className="email-area">
-                      <label for="Email2" className="form-label">
+                      <label htmlFor="Email2" className="form-label">
                         Enter Email
                       </label>
                       <input name="email" id="Email2" type="email" value="" />
@@ -270,20 +276,20 @@ const EditProfileTwo: React.FC = () => {
                   </div>
                   <div className="input-two-wrapper mt--15">
                     <div className="old-password half-wid">
-                      <label for="oldPass" className="form-label">
+                      <label htmlFor="oldPass" className="form-label">
                         Enter Old Password
                       </label>
                       <input name="pass" id="oldPass" type="password" />
                     </div>
                     <div className="new-password half-wid">
-                      <label for="NewPass" className="form-label">
+                      <label htmlFor="NewPass" className="form-label">
                         Create New Password
                       </label>
                       <input name="password" id="NewPass" type="password" />
                     </div>
                   </div>
                   <div className="email-area mt--15">
-                    <label for="rePass" className="form-label">
+                    <label htmlFor="rePass" className="form-label">
                       Confirm Password
                     </label>
                     <input
@@ -296,7 +302,10 @@ const EditProfileTwo: React.FC = () => {
                   <a
                     href="#"
                     className="btn btn-primary save-btn-edit"
-                    onclick="customAlert.alert('Successfully Changed Password?')"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      alert('Successfully Changed Password?');
+                    }}
                   >
                     Save
                   </a>
@@ -330,7 +339,7 @@ const EditProfileTwo: React.FC = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="themeSwitch" className="theme-switch__label">
+                          <label htmlFor="themeSwitch" className="theme-switch__label">
                             <span></span>
                           </label>
                         </div>
@@ -347,7 +356,7 @@ const EditProfileTwo: React.FC = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="themeSwitchs" className="theme-switch__label">
+                          <label htmlFor="themeSwitchs" className="theme-switch__label">
                             <span></span>
                           </label>
                         </div>
@@ -364,7 +373,7 @@ const EditProfileTwo: React.FC = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="OrderNotice" className="theme-switch__label">
+                          <label htmlFor="OrderNotice" className="theme-switch__label">
                             <span></span>
                           </label>
                         </div>
@@ -381,7 +390,7 @@ const EditProfileTwo: React.FC = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="newPAy" className="theme-switch__label">
+                          <label htmlFor="newPAy" className="theme-switch__label">
                             <span></span>
                           </label>
                         </div>
@@ -398,7 +407,7 @@ const EditProfileTwo: React.FC = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="EndBid" className="theme-switch__label">
+                          <label htmlFor="EndBid" className="theme-switch__label">
                             <span></span>
                           </label>
                         </div>
@@ -415,7 +424,7 @@ const EditProfileTwo: React.FC = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="Approve" className="theme-switch__label">
+                          <label htmlFor="Approve" className="theme-switch__label">
                             <span></span>
                           </label>
                         </div>
@@ -431,7 +440,10 @@ const EditProfileTwo: React.FC = () => {
                   <a
                     href="#"
                     className="btn btn-primary save-btn-edit"
-                    onclick="customAlert.alert('Successfully saved Your Notificationm setting')"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      alert('Successfully saved Your Notification setting');
+                    }}
                   >
                     Save
                   </a>

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const AdvancedWalletConnect = React.memo(({ onClose }) => {
+interface AdvancedWalletConnectProps {
+  onClose: () => void;
+}
+
+const AdvancedWalletConnect = React.memo<AdvancedWalletConnectProps>(({ onClose }) => {
   const [isConnecting, setIsConnecting] = useState(false);
   const [showModal, setShowModal] = useState(false);
 

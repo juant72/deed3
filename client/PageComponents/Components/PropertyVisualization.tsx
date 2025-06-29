@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Maximize, RotateCcw, Eye, Map, BarChart3, Camera, Home, Activity } from 'lucide-react';
 
-const PropertyVisualization = React.memo(({ property, isFullscreen = false, onFullscreenToggle }) => {
+interface PropertyVisualizationProps {
+  property: any;
+  isFullscreen?: boolean;
+  onFullscreenToggle: () => void;
+}
+
+const PropertyVisualization = React.memo<PropertyVisualizationProps>(({ property, isFullscreen = false, onFullscreenToggle }) => {
   const [activeView, setActiveView] = useState('3d');
   const [isLoading, setIsLoading] = useState(false);
   const [vrMode, setVrMode] = useState(false);
-  const [analyticsData, setAnalyticsData] = useState(null);
+  const [analyticsData, setAnalyticsData] = useState<any>(null);
 
   // Memoize analytics data to prevent infinite re-renders
   const defaultAnalytics = useMemo(() => ({
@@ -53,7 +59,7 @@ const PropertyVisualization = React.memo(({ property, isFullscreen = false, onFu
     setIsLoading(false);
   }, []);
 
-  const renderContent: React.FC = () => {
+  const renderContent = () => {
     switch (activeView) {
       case '3d':
         return (
