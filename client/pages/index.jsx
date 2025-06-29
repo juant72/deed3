@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { GetServerSideProps } from "next";
 
 ///INTERNAL IMPORT
 import {
   Header,
-  Banner,
+  ModernHero,
+  TokenomicsSection,
+  MobileNavigation,
+  SearchAndFilters,
   Live,
   Service,
   Product,
@@ -15,11 +17,12 @@ import {
 
 ///INTERNAL IMPORT
 import { useStateContext } from "../context";
-import { RealEstateProperty } from "../types/global";
 
-const Home: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [properties, setProperties] = useState<RealEstateProperty[]>([]);
+const Home = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [properties, setProperties] = useState([]);
+  const [searchFilters, setSearchFilters] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const { getAllRealEstate } = useStateContext();
 
@@ -37,12 +40,12 @@ const Home: React.FC = () => {
   }, [fetchProperty]);
 
   //CATEGORIES
-  const housing: RealEstateProperty[] = [];
-  const rental: RealEstateProperty[] = [];
-  const farmhouse: RealEstateProperty[] = [];
-  const office: RealEstateProperty[] = [];
-  const commercial: RealEstateProperty[] = [];
-  const country: RealEstateProperty[] = [];
+  const housing = [];
+  const rental = [];
+  const farmhouse = [];
+  const office = [];
+  const commercial = [];
+  const country = [];
 
   if (!isLoading) {
     properties?.map((el) => {
@@ -63,16 +66,34 @@ const Home: React.FC = () => {
     });
   }
 
+  const handleSearchChange = (term) => {
+    setSearchTerm(term);
+  };
+
+  const handleFiltersChange = (filters) => {
+    setSearchFilters(filters);
+  };
+
   // const creators = getTopCreators(properties);
 
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <Banner />
+      <MobileNavigation />
+      <ModernHero marketData={{}} propertyCount={properties?.length || 0} />
+
+      {/* Enhanced Search and Filters Section */}
+      <div className="container mx-auto px-4 py-8">
+        <SearchAndFilters 
+          onSearchChange={handleSearchChange}
+          onFiltersChange={handleFiltersChange}
+        />
+      </div>
 
       <Live properties={properties} />
       <Service />
       <Product properties={properties} />
+      <TokenomicsSection />
 
       <Collection
         housing={housing?.length}
@@ -88,7 +109,7 @@ const Home: React.FC = () => {
 };
 
 // Force SSR to avoid Wagmi hook errors during build
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps = async () => {
   return {
     props: {},
   };

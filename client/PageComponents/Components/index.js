@@ -1,5 +1,13 @@
 import Header from "./Header";
 import Banner from "./Banner";
+import ModernHero from "./ModernHero";
+import TokenomicsSection from "./TokenomicsSection";
+import AdvancedWalletConnect from "./AdvancedWalletConnect";
+import PropertyCard3D from "./PropertyCard3D";
+import PropertyVisualization from "./PropertyVisualization";
+import PropertyDetails from "./PropertyDetails";
+import MobileNavigation from "./MobileNavigation";
+import SearchAndFilters from "./SearchAndFilters";
 import Live from "./Live";
 import Service from "./Service";
 import Product from "./Product";
@@ -13,6 +21,14 @@ import GlobalLoder from "./Loader";
 export {
   Header,
   Banner,
+  ModernHero,
+  TokenomicsSection,
+  AdvancedWalletConnect,
+  PropertyCard3D,
+  PropertyVisualization,
+  PropertyDetails,
+  MobileNavigation,
+  SearchAndFilters,
   Live,
   Service,
   Product,

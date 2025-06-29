@@ -34,4 +34,7 @@ export const wagmiConfig = createConfig({
     [polygon.id]: http(),
     [arbitrum.id]: http(),
   },
+  // Disable automatic reconnection to prevent unwanted wallet prompts
+  ssr: false,
+  multiInjectedProviderDiscovery: false,
 });

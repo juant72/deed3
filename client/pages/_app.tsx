@@ -8,6 +8,7 @@ import { WagmiProvider } from "wagmi";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
+import { mainnet } from "wagmi/chains";
 
 import "../styles/tailwind.css";
 
@@ -24,45 +25,81 @@ interface MyAppProps extends AppProps {
 }
 
 export default function App({ Component, pageProps: { session, ...pageProps } }: MyAppProps) {
-  // Suppress common extension errors in development
+  // Enhanced extension error suppression
   React.useEffect(() => {
     const isExtensionError = (error: any) => {
-      const message = error?.message || error?.toString?.() || '';
-      return (
-        message.includes('chrome.runtime.sendMessage') ||
-        message.includes('Extension ID') ||
-        message.includes('opfgelmcmbiajamepnmloijbpoleiama') ||
-        message.includes('inpage.js') ||
-        message.includes('chrome-extension://') ||
-        message.includes('runtime.sendMessage')
+      if (!error) return false;
+      
+      const message = String(error?.message || error?.toString?.() || error || '');
+      const stack = String(error?.stack || '');
+      const fileName = String(error?.filename || error?.fileName || '');
+      
+      // Common extension error patterns
+      const extensionPatterns = [
+        // Chrome extension errors
+        'chrome.runtime.sendMessage',
+        'chrome-extension://',
+        'Extension ID',
+        'opfgelmcmbiajamepnmloijbpoleiama',
+        'runtime.sendMessage',
+        'Error in invocation of runtime.sendMessage',
+        'Cannot access contents of the page',
+        'Extension context invalidated',
+        
+        // MetaMask/Web3 extension errors
+        'inpage.js',
+        'contentscript.js',
+        'MetaMask',
+        '_metamask',
+        'ethereum.request',
+        'window.ethereum',
+        
+        // Generic extension patterns
+        'moz-extension://',
+        'safari-extension://',
+        'ms-browser-extension://',
+        
+        // WalletConnect/RainbowKit extension-related errors
+        'EIP-1193',
+        'provider not found',
+        'No Ethereum provider was found',
+        'User rejected the request',
+      ];
+      
+      return extensionPatterns.some(pattern => 
+        message.toLowerCase().includes(pattern.toLowerCase()) ||
+        stack.toLowerCase().includes(pattern.toLowerCase()) ||
+        fileName.toLowerCase().includes(pattern.toLowerCase())
       );
     };
 
-    // Suppress console errors
+    // Store original methods
     const originalError = console.error;
+    const originalWarn = console.warn;
+    const originalLog = console.log;
+
+    // Override console methods with smart filtering
     console.error = (...args) => {
-      const message = args[0]?.toString?.() || '';
-      if (isExtensionError({ message })) {
-        return; // Suppress this error
-      }
+      if (args.some(arg => isExtensionError(arg))) return;
       originalError.apply(console, args);
     };
 
-    // Suppress console warnings
-    const originalWarn = console.warn;
     console.warn = (...args) => {
-      const message = args[0]?.toString?.() || '';
-      if (isExtensionError({ message })) {
-        return; // Suppress this warning
-      }
+      if (args.some(arg => isExtensionError(arg))) return;
       originalWarn.apply(console, args);
     };
 
-    // Suppress unhandled errors and rejections
+    console.log = (...args) => {
+      if (args.some(arg => isExtensionError(arg))) return;
+      originalLog.apply(console, args);
+    };
+
+    // Enhanced error event handlers
     const handleError = (event: ErrorEvent): boolean => {
-      if (isExtensionError(event.error)) {
+      if (isExtensionError(event.error) || isExtensionError(event.message)) {
         event.preventDefault();
         event.stopPropagation();
+        event.stopImmediatePropagation();
         return false;
       }
       return true;
@@ -71,19 +108,34 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
     const handleRejection = (event: PromiseRejectionEvent): boolean => {
       if (isExtensionError(event.reason)) {
         event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
         return false;
       }
       return true;
     };
 
-    window.addEventListener('error', handleError);
-    window.addEventListener('unhandledrejection', handleRejection);
+    // Enhanced global error handler
+    const handleGlobalError = (message: any, source?: string, lineno?: number, colno?: number, error?: Error) => {
+      if (isExtensionError({ message, stack: error?.stack, filename: source })) {
+        return true; // Prevent default error handling
+      }
+      return false;
+    };
 
+    // Add event listeners
+    window.addEventListener('error', handleError, true);
+    window.addEventListener('unhandledrejection', handleRejection, true);
+    window.onerror = handleGlobalError;
+
+    // Cleanup function
     return () => {
       console.error = originalError;
       console.warn = originalWarn;
-      window.removeEventListener('error', handleError);
-      window.removeEventListener('unhandledrejection', handleRejection);
+      console.log = originalLog;
+      window.removeEventListener('error', handleError, true);
+      window.removeEventListener('unhandledrejection', handleRejection, true);
+      window.onerror = null;
     };
   }, []);
 
@@ -103,7 +155,12 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
           <QueryClientProvider client={queryClient}>
             <SessionProvider session={session || null}>
               <RainbowKitSiweNextAuthProvider>
-                <RainbowKitProvider theme={rainbowKitTheme}>
+                <RainbowKitProvider 
+                  theme={rainbowKitTheme}
+                  initialChain={mainnet}
+                  showRecentTransactions={true}
+                  coolMode={false}
+                >
                   <StateContextProvider>
                     <Component {...pageProps} />
                     <Toaster />

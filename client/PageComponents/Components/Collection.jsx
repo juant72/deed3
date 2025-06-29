@@ -24,80 +24,78 @@ const Collection = ({ housing, rental, farmhouse, office }) => {
       item: rental,
     },
   ];
+  
   return (
-    <div className="rn-collection-area rn-section-gapTop">
-      <div className="container">
-        <div className="row mb--50 align-items-center">
-          <div className="col-lg-6 col-md-6 col-sm-6 col-12">
-            <h3
-              className="title mb--0"
-              data-sal-delay="150"
-              data-sal="slide-up"
-              data-sal-duration="800"
-            >
+    <div className="py-20 bg-slate-900/50">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12">
+          <div className="mb-4 md:mb-0">
+            <h3 className="text-3xl font-bold text-white">
               Top Collection
             </h3>
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--15">
-            <div
-              className="view-more-btn text-start text-sm-end"
-              data-sal-delay="150"
-              data-sal="slide-up"
-              data-sal-duration="800"
-            >
-              <a className="btn-transparent" href="#">
-                VIEW ALL
-              </a>
-            </div>
+          <div>
+            <a className="inline-flex items-center px-6 py-3 bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-lg transition-all duration-300 font-medium" href="#">
+              VIEW ALL
+            </a>
           </div>
         </div>
 
-        <div className="row g-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {topCollection.map((collection, i) => (
-            <div
-              key={i + 1}
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-duration="800"
-              className="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-12"
-            >
+            <div key={i + 1} className="group">
               <Link
                 href={{
                   pathname: `/category${collection.link}`,
                   query: { name: `${collection.name}` },
                 }}
-                className="rn-collection-inner-one"
+                className="block"
               >
-                <div className="collection-wrapper">
-                  <div className="collection-big-thumbnail">
-                    <img
-                      src={`/portfolio/portfolio-${i + 15}.jpg`}
-                      alt="Nft_Profile"
-                    />
+                <div className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-blue-400/50 transition-all duration-300 group-hover:transform group-hover:scale-105">
+                  <div className="relative mb-4">
+                    <div className="w-full h-48 rounded-xl overflow-hidden mb-3">
+                      <img
+                        src={`/portfolio/portfolio-${i + 15}.jpg`}
+                        alt="Nft_Profile"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="h-16 rounded-lg overflow-hidden">
+                        <img
+                          src={`/portfolio/portfolio-${i + 16}.jpg`}
+                          alt="Nft_Profile"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="h-16 rounded-lg overflow-hidden">
+                        <img
+                          src={`/portfolio/portfolio-${i + 17}.jpg`}
+                          alt="Nft_Profile"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="h-16 rounded-lg overflow-hidden">
+                        <img
+                          src={`/portfolio/portfolio-${i + 11}.jpg`}
+                          alt="Nft_Profile"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+                      <div className="w-12 h-12 rounded-full border-4 border-slate-800 overflow-hidden bg-slate-700">
+                        <img
+                          src={`/client/client-${i + 1}.png`}
+                          alt="Nft_Profile"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div className="collenction-small-thumbnail">
-                    <img
-                      src={`/portfolio/portfolio-${i + 16}.jpg`}
-                      alt="Nft_Profile"
-                    />
-                    <img
-                      src={`/portfolio/portfolio-${i + 17}.jpg`}
-                      alt="Nft_Profile"
-                    />
-                    <img
-                      src={`/portfolio/portfolio-${i + 11}.jpg`}
-                      alt="Nft_Profile"
-                    />
-                  </div>
-                  <div className="collection-profile">
-                    <img
-                      src={`/client/client-${i + 1}.png`}
-                      alt="Nft_Profile"
-                    />
-                  </div>
-                  <div className="collection-deg">
-                    <h6 className="title">{collection.name}</h6>
-                    <span className="items">{collection.item} Items</span>
+                  <div className="text-center pt-8">
+                    <h6 className="text-white font-semibold text-lg mb-2">{collection.name}</h6>
+                    <span className="text-gray-400 text-sm">{collection.item} Items</span>
                   </div>
                 </div>
               </Link>

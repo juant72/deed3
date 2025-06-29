@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright, PropertyDetails, MobileNavigation } from "../PageComponents/Components";
 import {
   DetailEight,
   DetailFive,
@@ -113,6 +113,13 @@ const Detail: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
+      <MobileNavigation />
+      
+      {/* Enhanced Property Details Section */}
+      <div className="container mx-auto px-4 py-8">
+        <PropertyDetails property={property} isDetailPage={true} />
+      </div>
+
       <DetailOne />
 
       <DetailTwo

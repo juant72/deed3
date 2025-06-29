@@ -2,124 +2,123 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import { useStateContext } from "../../context";
+import AdvancedWalletConnect from "./AdvancedWalletConnect";
 
 const Header = () => {
   const { currentAccount, connectWallet, userBlance } = useStateContext();
 
   return (
     <>
-      <header className="rn-header haeder-default header--sticky">
-        <div className="container">
-          <div className="header-inner">
-            <div className="header-left">
-              <div className="logo-thumbnail logo-custom-css">
-                <Link className="logo-light" href="/">
-                  <img src="/logo/logo-white.png" alt="nft-logo" />
-                </Link>
-                <Link className="logo-dark" href="/">
-                  <img src="/logo/logo-dark.png" alt="nft-logo" />
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-slate-900/80 to-slate-800/80 backdrop-blur-md transition-all duration-500">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-3">
+            <div className="flex items-center flex-1 max-w-[55%]">
+              <div className="relative pr-8 mr-4 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-9 after:bg-white/10">
+                <Link className="block" href="/">
+                  <img src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" />
                 </Link>
               </div>
               <div className="mainmenu-wrapper">
-                <nav id="sideNav" className="mainmenu-nav d-none d-xl-block">
-                  <ul className="mainmenu">
-                    <li>
-                      <a href="/">Home</a>
+                <nav id="sideNav" className="hidden xl:block">
+                  <ul className="flex items-center space-x-2">
+                    <li className="relative group">
+                      <a href="/" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Home</a>
                     </li>
-                    <li>
-                      <a href="/about">About</a>
+                    <li className="relative group">
+                      <a href="/about" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">About</a>
                     </li>
-                    <li>
-                      <a>Explore</a>
-                      <ul className="submenu">
+                    <li className="relative group">
+                      <a className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors cursor-pointer">Explore</a>
+                      <ul className="absolute left-0 top-full min-w-[230px] bg-slate-800 border border-white/10 rounded-b-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <li>
-                          <Link href="/active">
-                            Activity<i className="feather-fast-forward"></i>
+                          <Link href="/active" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
+                            Activity
+                            <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
                           </Link>
                         </li>
-
                         <li>
-                          <a href="/creator">
+                          <a href="/creator" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
                             Creator
-                            <i className="feather-fast-forward"></i>
+                            <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/explor">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/explor">
                             Explore
                           </a>
                         </li>
                       </ul>
                     </li>
-                    <li>
-                      <a href="/contact">Contact</a>
+                    <li className="relative group">
+                      <a href="/contact" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Contact</a>
                     </li>
-                    <li>
-                      <a>Other Pages</a>
-                      <ul className="submenu">
+                    <li className="relative group">
+                      <a className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors cursor-pointer">Other Pages</a>
+                      <ul className="absolute left-0 top-full min-w-[230px] bg-slate-800 border border-white/10 rounded-b-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <li>
-                          <Link href="/ranking">
-                            Ranking<i className="feather-fast-forward"></i>
+                          <Link href="/ranking" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
+                            Ranking
+                            <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
                           </Link>
                         </li>
                         <li>
-                          <a href="/product">
+                          <a href="/product" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
                             Product
-                            <i className="feather-fast-forward"></i>
+                            <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/privacy">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/privacy">
                             Privacy
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/news">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/news">
                             News
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/fourm">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/fourm">
                             Fourm
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/connect">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/connect">
                             Connect
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/collection">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/collection">
                             Collection
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/blog">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/blog">
                             Blog
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/blogdetail">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/blogdetail">
                             Blogdetail
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/error">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/error">
                             404
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/forget">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/forget">
                             Forget
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/login">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/login">
                             Login
                           </a>
                         </li>
                         <li>
-                          <a className="live-expo" href="/signup">
+                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/signup">
                             Signup
                           </a>
                         </li>
@@ -129,176 +128,158 @@ const Header = () => {
                 </nav>
               </div>
             </div>
-            <div className="header-right">
-              <div className="setting-option d-none d-lg-block">
-                <form className="search-form-wrapper" action="#">
+            <div className="flex items-center space-x-4">
+              <div className="hidden lg:block">
+                <form className="relative" action="#">
                   <input
                     type="search"
                     placeholder="Search Here"
                     aria-label="Search"
+                    className="bg-slate-700/50 border border-white/10 rounded-lg px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
-                  <div className="search-icon">
-                    <button>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                    <button type="submit" className="text-gray-400 hover:text-blue-400 transition-colors">
                       <i className="feather-search"></i>
                     </button>
                   </div>
                 </form>
               </div>
-              <div className="setting-option rn-icon-list d-block d-lg-none">
-                <div className="icon-box search-mobile-icon">
-                  <button>
+              <div className="block lg:hidden">
+                <div className="p-2">
+                  <button className="text-gray-400 hover:text-blue-400 transition-colors">
                     <i className="feather-search"></i>
                   </button>
                 </div>
-                <form id="header-search-1" className="large-mobile-blog-search">
-                  <div className="rn-search-mobile form-group">
-                    <button type="submit" className="search-button">
+                <form id="header-search-1" className="hidden absolute top-full left-0 w-full bg-slate-800 p-4">
+                  <div className="flex items-center">
+                    <button type="submit" className="text-gray-400 hover:text-blue-400 transition-colors mr-3">
                       <i className="feather-search"></i>
                     </button>
-                    <input type="text" placeholder="Search ..." />
+                    <input type="text" placeholder="Search ..." className="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none" />
                   </div>
                 </form>
               </div>
 
-              {/* //CONNECT WALLET */}
-
-              {currentAccount ? (
-                ""
-              ) : (
-                <div
-                  className="setting-option header-btn rbt-site-header"
-                  id="rbt-site-header"
-                >
-                  <div className="icon-box">
-                    <button
-                      onClick={() => connectWallet()}
-                      className="btn btn-primary-alta btn-small"
-                    >
-                      Wallet connect
-                    </button>
-                  </div>
+              {/* CONNECT WALLET */}
+              {currentAccount ? null : (
+                <div className="flex items-center">
+                  <AdvancedWalletConnect />
                 </div>
               )}
 
-              {/* //END CONNECT WALLET */}
-              <div className="setting-option rn-icon-list notification-badge">
-                <div className="icon-box">
-                  <a href={`/active`}>
-                    <i className="feather-bell"></i>
-                    <span className="badge">6</span>
-                  </a>
-                </div>
+              {/* NOTIFICATION */}
+              <div className="relative">
+                <a href={`/active`} className="relative p-2 text-gray-400 hover:text-blue-400 transition-colors">
+                  <i className="feather-bell text-xl"></i>
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center text-center leading-5">6</span>
+                </a>
               </div>
 
+              {/* USER DROPDOWN */}
               {currentAccount ? (
-                <div>
-                  <div className="setting-option rn-icon-list user-account">
-                    <div className="icon-box">
-                      <a>
-                        <img src="/icons/boy-avater.png" alt="Images" />
-                      </a>
-                      <div className="rn-dropdown">
-                        <div className="rn-inner-top">
-                          <h4 className="title">
-                            <a href="/author">
-                              {currentAccount.slice(0, 15)}...
-                            </a>
-                          </h4>
-                          <span>
-                            <a href="#">Set Display Name</a>
-                          </span>
-                        </div>
-                        <div className="rn-product-inner">
-                          <ul className="product-list">
-                            <li className="single-product-list">
-                              <div className="thumbnail">
-                                <a href="product-details.html">
-                                  <img
-                                    src="/portfolio/portfolio-07.jpg"
-                                    alt="Nft Product Images"
-                                  />
-                                </a>
-                              </div>
-                              <div className="content">
-                                <h6 className="title">
-                                  <Link className="live-expo" href="/author">
-                                    Balance
-                                  </Link>
-                                </h6>
-                                <span className="price">
-                                  {userBlance?.slice(0, 6)} MATIC
-                                </span>
-                              </div>
-                              <div className="button"></div>
-                            </li>
-                            <li className="single-product-list">
-                              <div className="thumbnail">
-                                <Link className="live-expo" href="/author">
-                                  <img
-                                    src="/portfolio/portfolio-01.jpg"
-                                    alt="Nft Product Images"
-                                  />
+                <div className="relative group">
+                  <div className="flex items-center cursor-pointer">
+                    <img src="/icons/boy-avater.png" alt="User Avatar" className="w-10 h-10 rounded-full border-2 border-gray-600 hover:border-blue-400 transition-colors" />
+                    <div className="absolute right-0 top-full mt-2 w-80 bg-slate-800 border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                      <div className="p-4 border-b border-white/10">
+                        <h4 className="text-white font-semibold mb-1">
+                          <a href="/author" className="hover:text-blue-400 transition-colors">
+                            {currentAccount.slice(0, 15)}...
+                          </a>
+                        </h4>
+                        <span className="text-gray-400 text-sm">
+                          <a href="#" className="hover:text-blue-400 transition-colors">Set Display Name</a>
+                        </span>
+                      </div>
+                      <div className="p-4">
+                        <ul className="space-y-3 mb-4">
+                          <li className="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
+                            <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                              <a href="product-details.html">
+                                <img
+                                  src="/portfolio/portfolio-07.jpg"
+                                  alt="Nft Product Images"
+                                  className="w-full h-full object-cover"
+                                />
+                              </a>
+                            </div>
+                            <div className="flex-1">
+                              <h6 className="text-white font-medium">
+                                <Link className="hover:text-blue-400 transition-colors" href="/author">
+                                  Balance
                                 </Link>
-                              </div>
-                              <div className="content">
-                                <h6 className="title">
-                                  <Link className="live-expo" href="/author">
-                                    Profile
-                                  </Link>
-                                </h6>
-                                <span className="price">Active One</span>
-                              </div>
-                              <div className="button"></div>
-                            </li>
-                            <li className="single-product-list">
-                              <div className="thumbnail">
-                                <Link className="live-expo" href="/author">
-                                  <img
-                                    src="/portfolio/portfolio-04.jpg"
-                                    alt="Nft Product Images"
-                                  />
+                              </h6>
+                              <span className="text-gray-400 text-sm">
+                                {userBlance?.slice(0, 6)} MATIC
+                              </span>
+                            </div>
+                          </li>
+                          <li className="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
+                            <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                              <Link href="/author">
+                                <img
+                                  src="/portfolio/portfolio-01.jpg"
+                                  alt="Nft Product Images"
+                                  className="w-full h-full object-cover"
+                                />
+                              </Link>
+                            </div>
+                            <div className="flex-1">
+                              <h6 className="text-white font-medium">
+                                <Link className="hover:text-blue-400 transition-colors" href="/author">
+                                  Profile
                                 </Link>
-                              </div>
-                              <div className="content">
-                                <h6 className="title">
-                                  <Link className="live-expo" href="/create">
-                                    Create
-                                  </Link>
-                                </h6>
-                                <span className="price">Property</span>
-                              </div>
-                              <div className="button"></div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="add-fund-button mt--20 pb--20">
-                          <a className="btn btn-primary-alta w-100" href="/connect">
+                              </h6>
+                              <span className="text-gray-400 text-sm">Active One</span>
+                            </div>
+                          </li>
+                          <li className="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
+                            <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                              <Link href="/create">
+                                <img
+                                  src="/portfolio/portfolio-04.jpg"
+                                  alt="Nft Product Images"
+                                  className="w-full h-full object-cover"
+                                />
+                              </Link>
+                            </div>
+                            <div className="flex-1">
+                              <h6 className="text-white font-medium">
+                                <Link className="hover:text-blue-400 transition-colors" href="/create">
+                                  Create
+                                </Link>
+                              </h6>
+                              <span className="text-gray-400 text-sm">Property</span>
+                            </div>
+                          </li>
+                        </ul>
+                        <div className="mb-4">
+                          <a className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 text-center block" href="/connect">
                             Add Your More Funds
                           </a>
                         </div>
-                        <ul className="list-inner">
+                        <ul className="space-y-2">
                           <li>
-                            <a href="/author">My Profile</a>
+                            <a href="/author" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">My Profile</a>
                           </li>
                           <li>
-                            <a href="/edit-profile">Edit Profile</a>
+                            <a href="/edit-profile" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">Edit Profile</a>
                           </li>
                           <li>
-                            <a href="/connect">Manage funds</a>
+                            <a href="/connect" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">Manage funds</a>
                           </li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </div>
-              ) : (
-                ""
-              )}
+              ) : null}
 
-              <div className="setting-option mobile-menu-bar d-block d-xl-none">
-                <div className="hamberger">
-                  <button className="hamberger-button">
-                    <i className="feather-menu"></i>
+              {/* MOBILE MENU BUTTON */}
+              <div className="xl:hidden">
+                <div className="p-2">
+                  <button className="text-gray-400 hover:text-blue-400 transition-colors">
+                    <i className="feather-menu text-xl"></i>
                   </button>
                 </div>
               </div>
@@ -308,50 +289,47 @@ const Header = () => {
       </header>
 
       {/* MOBILE MENU */}
-      <div className="popup-mobile-menu">
-        <div className="inner">
-          <div className="header-top">
-            <div className="logo logo-custom-css">
-              <a className="logo-light" href="index.html">
-                <img src="/logo/logo-white.png" alt="nft-logo" />
-              </a>
-              <a className="logo-dark" href="index.html">
-                <img src="/logo/logo-dark.png" alt="nft-logo" />
-              </a>
+      <div className="fixed inset-0 z-50 bg-slate-900 transform translate-x-full transition-transform duration-300 xl:hidden">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between p-4 border-b border-white/10">
+            <div className="flex items-center">
+              <Link href="/">
+                <img src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" />
+              </Link>
             </div>
-            <div className="close-menu">
-              <button className="close-button">
-                <i className="feather-x"></i>
+            <div>
+              <button className="text-gray-400 hover:text-blue-400 transition-colors">
+                <i className="feather-x text-xl"></i>
               </button>
             </div>
           </div>
-          <nav>
-            <ul className="mainmenu">
+          <nav className="flex-1 p-4">
+            <ul className="space-y-4">
               <li>
-                <a className="nav-link its_new" href="/">
+                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about">About</a>
+                <a href="/about" className="block text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
               </li>
               <li>
-                <a className="nav-link its_new" href="/explor">
+                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/explor">
                   Explore
                 </a>
               </li>
               <li>
-                <a className="nav-link its_new" href="/">
+                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/">
                   Pages
                 </a>
               </li>
               <li>
-                <a className="nav-link its_new" href="/blog">
+                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/blog">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <a href="/contact" className="block text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
               </li>
             </ul>
           </nav>

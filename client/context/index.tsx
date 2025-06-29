@@ -110,45 +110,55 @@ const fetchAccountBalance = async (address: string): Promise<string | null> => {
   }
 };
 
-//CHECK IF WALLET CONNECTED
+//CHECK IF WALLET CONNECTED - Enhanced to prevent unwanted prompts
 const checkIfWalletConnected = async (): Promise<string | null> => {
   try {
     if (typeof window === 'undefined' || !window.ethereum) {
-      // Debug log removed
       return null;
     }
 
+    // Use eth_accounts instead of eth_requestAccounts to avoid prompts
     const accounts = await window.ethereum.request({
       method: "eth_accounts",
     });
 
-    if (accounts.length) {
+    if (accounts && accounts.length > 0) {
       return accounts[0];
     } else {
-      // Debug log removed
       return null;
     }
-  } catch (error) {
-    // Debug log removed
+  } catch (error: any) {
+    // Silently handle errors to avoid extension noise
     return null;
   }
 };
 
-//CONNECT WALLET
+//CONNECT WALLET - Enhanced to prevent automatic triggering
 const connectWallet = async (): Promise<string | undefined> => {
   try {
     if (typeof window === 'undefined' || !window.ethereum) {
-      // Debug log removed
+      // No ethereum provider available
       return undefined;
     }
 
+    // Only request accounts when explicitly called (user action)
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
 
-    return accounts[0];
-  } catch (error) {
-    // Debug log removed
+    if (accounts && accounts.length > 0) {
+      return accounts[0];
+    }
+    
+    return undefined;
+  } catch (error: any) {
+    // Handle user rejection gracefully
+    if (error?.code === 4001 || error?.message?.includes('User rejected')) {
+      // User cancelled the connection request
+      return undefined;
+    }
+    
+    // For other errors, don't log to avoid extension noise
     return undefined;
   }
 };
@@ -459,21 +469,29 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
   };
 
   useEffect(() => {
-    fetchData();
+    // Only fetch data if explicitly requested, avoid auto-connection
+    // fetchData();
   }, []);
 
-  //CONNECT WALLET FUNCTION
+  //CONNECT WALLET FUNCTION - Enhanced with better error handling
   const connectWalletFunction = async (): Promise<void> => {
     try {
+      // Only proceed if user explicitly requests connection
       const account = await connectWallet();
-      setAddress(account || "");
       
       if (account) {
+        setAddress(account);
+        
+        // Fetch balance only after successful connection
         const balance = await fetchAccountBalance(account);
         setAccountBalance(balance || "");
       }
-    } catch (error) {
-      // Debug log removed
+    } catch (error: any) {
+      // Handle errors gracefully without logging extension noise
+      if (error?.code !== 4001 && !error?.message?.includes('User rejected')) {
+        // Only show errors that aren't user rejections or extension issues
+        console.error('Wallet connection error:', error);
+      }
     }
   };
 
