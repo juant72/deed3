@@ -23,7 +23,9 @@ import { RealEstateProperty } from "../types/global";
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [properties, setProperties] = useState<RealEstateProperty[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchFilters, setSearchFilters] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const { getAllRealEstate } = useStateContext();

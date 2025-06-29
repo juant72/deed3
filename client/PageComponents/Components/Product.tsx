@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import PropertyCard3D from "./PropertyCard3D";
 
 interface ProductProps {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { RotateCcw, ArrowDown } from 'lucide-react';
 const PullToRefresh: React.FC<any> = ({ 
@@ -11,7 +11,10 @@ const PullToRefresh: React.FC<any> = ({
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isPulling, setIsPulling] = useState(false);
   const shouldReduceMotion = false;
-  const vibrate = (pattern: number[]) => { if (navigator.vibrate) navigator.vibrate(pattern); };
+  
+  const vibrate = useCallback((pattern: number[]) => { 
+    if (navigator.vibrate) navigator.vibrate(pattern); 
+  }, []);
   
   const containerRef = useRef(null);
   const startY = useRef(0);

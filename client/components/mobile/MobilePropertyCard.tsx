@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   Heart, 
@@ -109,14 +110,15 @@ const MobilePropertyCard: React.FC<MobilePropertyCardProps> = ({
           <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-slate-700 dark:to-slate-600 animate-pulse" />
         )}
         
-        <img
+        <Image
           src={property.image || '/images/property-placeholder.jpg'}
           alt={property.title}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          fill
+          className={`object-cover transition-opacity duration-300 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={() => setImageLoaded(true)}
-          loading="lazy"
+          priority={false}
         />
 
         {/* Price Tag */}

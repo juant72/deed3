@@ -3,7 +3,7 @@
  * Focus: Mobile-First Optimization and testing
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDeviceTesting } from '../../hooks/useDeviceTesting';
 
 interface ValidationResult {
@@ -36,7 +36,7 @@ const Sprint4Validator: React.FC<Sprint4ValidatorProps> = ({
   const [isRunning, setIsRunning] = useState(false);
   const [overallStatus, setOverallStatus] = useState<'pass' | 'fail' | 'warning'>('pass');
 
-  const runValidation = async () => {
+  const runValidation = useCallback(async () => {
     setIsRunning(true);
     setIsTestingEnabled(true);
 
@@ -130,13 +130,13 @@ const Sprint4Validator: React.FC<Sprint4ValidatorProps> = ({
     }
 
     setIsRunning(false);
-  };
+  }, [runFullTestSuite, deviceInfo, setIsTestingEnabled]);
 
   useEffect(() => {
     if (autoRun && isTestingEnabled) {
       runValidation();
     }
-  }, [autoRun, isTestingEnabled]);
+  }, [autoRun, isTestingEnabled, runValidation]);
 
   const getStatusColor = (status: string) => {
     switch (status) {
