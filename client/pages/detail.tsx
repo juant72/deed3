@@ -3,7 +3,9 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright, PropertyDetails, MobileNavigation } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
+import PropertyDetails from "../PageComponents/Components/PropertyDetails";
+import MobileNavigation from "../components/layout/MobileNavigation";
 import {
   DetailEight,
   DetailFive,
@@ -102,8 +104,8 @@ const Detail: React.FC = () => {
   const updatepropertyPrice = async () => {
     setUpdatePriceLoading(true);
     await updatePrice(
-      parseInt(property?.productID), 
-      parseFloat(updatePropertyPrice.price), 
+      parseInt(property?.productID),
+      parseFloat(updatePropertyPrice.price),
       null
     );
     setUpdatePriceLoading(false);
@@ -114,7 +116,7 @@ const Detail: React.FC = () => {
     <div className="template-color-1 nft-body-connect">
       <Header />
       <MobileNavigation />
-      
+
       {/* Enhanced Property Details Section */}
       <div className="container mx-auto px-4 py-8">
         <PropertyDetails property={property} isDetailPage={true} />

@@ -5,10 +5,8 @@ const nextConfig = {
     reactStrictMode: true,
 
     // Turbopack config (Next.js 15+)
-    turbopack: {
-        enabled: true,
-        rules: {},
-    },
+    turbopack: {},
+
     // React 19 concurrent features
     experimental: {
         ppr: false, // Partial prerendering
