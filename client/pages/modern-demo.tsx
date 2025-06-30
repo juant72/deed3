@@ -7,6 +7,7 @@ import { Counter } from '@/components/ui/counter'
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/animate-on-scroll'
 import { ThemeSwitcher } from '@/hooks/useTheme'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import Image from 'next/image'
 
 // Demo page to showcase the migrated components
 export default function ModernComponentsDemo() {
@@ -117,9 +118,11 @@ export default function ModernComponentsDemo() {
                   <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
                     <CardContent className="p-0">
                       <div className="relative overflow-hidden rounded-lg">
-                        <img
+                        <Image
                           src={product.image}
                           alt={product.title}
+                          width={400}
+                          height={256}
                           className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />

@@ -28,10 +28,13 @@ const Header: React.FC = () => {
                 <nav id="sideNav" className="hidden xl:block">
                   <ul className="flex items-center space-x-2">
                     <li className="relative group">
-                      <a href="/" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Home</a>
+                      <Link href="/" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Home</Link>
                     </li>
                     <li className="relative group">
-                      <a href="/about" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">About</a>
+                      <Link href="/about" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">About</Link>
+                    </li>
+                    <li className="relative group">
+                      <Link href="/roadmap" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Roadmap</Link>
                     </li>
                     <li className="relative group">
                       <a className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors cursor-pointer">Explore</a>
@@ -43,20 +46,20 @@ const Header: React.FC = () => {
                           </Link>
                         </li>
                         <li>
-                          <a href="/creator" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
+                          <Link href="/creator" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
                             Creator
                             <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/explor">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/explor">
                             Explore
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li className="relative group">
-                      <a href="/contact" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Contact</a>
+                      <Link href="/contact" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Contact</Link>
                     </li>
                     <li className="relative group">
                       <a className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors cursor-pointer">Other Pages</a>
@@ -68,65 +71,67 @@ const Header: React.FC = () => {
                           </Link>
                         </li>
                         <li>
-                          <a href="/product" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
+                          <Link href="/product" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
                             Product
                             <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/privacy">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/privacy">
                             Privacy
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/news">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/news">
                             News
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/fourm">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/fourm">
                             Fourm
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/connect">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/connect">
                             Connect
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/collection">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/collection">
                             Collection
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/blog">
+                          <Link href="/blog" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
                             Blog
-                          </a>
+                            <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/blogdetail">
+                          <Link href="/blogdetail" className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all group/item">
                             Blogdetail
-                          </a>
+                            <i className="feather-fast-forward opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/error">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/error">
                             404
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/forget">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/forget">
                             Forget
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/login">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/login">
                             Login
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/signup">
+                          <Link className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-black/30 rounded transition-all" href="/signup">
                             Signup
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
@@ -169,16 +174,16 @@ const Header: React.FC = () => {
               {/* CONNECT WALLET */}
               {currentAccount ? null : (
                 <div className="flex items-center">
-                  <AdvancedWalletConnect onClose={() => {}} />
+                  <AdvancedWalletConnect onClose={() => { }} />
                 </div>
               )}
 
               {/* NOTIFICATION */}
               <div className="relative">
-                <a href={`/active`} className="relative p-2 text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href={`/active`} className="relative p-2 text-gray-400 hover:text-blue-400 transition-colors">
                   <i className="feather-bell text-xl"></i>
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center text-center leading-5">6</span>
-                </a>
+                </Link>
               </div>
 
               {/* USER DROPDOWN */}
@@ -189,12 +194,12 @@ const Header: React.FC = () => {
                     <div className="absolute right-0 top-full mt-2 w-80 bg-slate-800 border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                       <div className="p-4 border-b border-white/10">
                         <h4 className="text-white font-semibold mb-1">
-                          <a href="/author" className="hover:text-blue-400 transition-colors">
+                          <Link href="/author" className="hover:text-blue-400 transition-colors">
                             {currentAccount.slice(0, 15)}...
-                          </a>
+                          </Link>
                         </h4>
                         <span className="text-gray-400 text-sm">
-                          <a href="#" className="hover:text-blue-400 transition-colors">Set Display Name</a>
+                          <Link href="#" className="hover:text-blue-400 transition-colors">Set Display Name</Link>
                         </span>
                       </div>
                       <div className="p-4">
