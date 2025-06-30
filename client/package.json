@@ -18,7 +18,8 @@
     "migrate:rainbowkit": "node scripts/migrate-to-rainbowkit.js",
     "decision:wallet": "node scripts/wallet-decision-helper.js",
     "debug:reown": "echo \"Run npm run dev, then use debug helpers in browser console\"",
-    "health:reown": "echo \"Check browser console for connection health status\""
+    "health:reown": "echo \"Check browser console for connection health status\"",
+    "test": "jest"
   },
   "dependencies": {
     "@axe-core/react": "^4.10.2",
@@ -78,6 +79,7 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11",
     "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "pnpm": {
