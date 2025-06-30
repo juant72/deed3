@@ -5,12 +5,7 @@ import { GetServerSideProps } from "next";
 import { CreatorOne } from "../PageComponents/CreatorPage";
 import { useStateContext } from "../context";
 import { getTopCreators } from "../utils";
-
-import {
-  Header,
-  Footer,
-  Copyright,
-} from "../PageComponents/Components";
+import Layout from "../components/layout/Layout";
 
 interface RealEstateProperty {
   id: string;
@@ -41,14 +36,11 @@ const Creator: React.FC = () => {
   });
 
   return (
-    <div className="template-color-1 nft-body-connect">
-      <Header />
-      <CreatorOne
-        creators={getTopCreators(properties)}
-      />
-      <Footer />
-      <Copyright />
-    </div>
+    <Layout>
+      <div className="template-color-1 nft-body-connect">
+        <CreatorOne creators={getTopCreators(properties)} />
+      </div>
+    </Layout>
   );
 };
 

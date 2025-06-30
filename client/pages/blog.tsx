@@ -2,18 +2,17 @@ import React from "react";
 import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { BlogOne, BlogTwo } from "../PageComponents/BlogPage";
+import Layout from "../components/layout/Layout";
 
 const Blog: React.FC = () => {
   return (
-    <div className="template-color-1 nft-body-connect">
-      <Header />
-      <BlogOne />
-      <BlogTwo />
-      <Footer />
-      <Copyright />
-    </div>
+    <Layout>
+      <div className="template-color-1 nft-body-connect">
+        <BlogOne />
+        <BlogTwo />
+      </div>
+    </Layout>
   );
 };
 

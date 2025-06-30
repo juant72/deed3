@@ -9,7 +9,7 @@ import {
   AuthorThree,
   AuthorTwo,
 } from "../PageComponents/AuthorPage";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import Layout from "../components/layout/Layout";
 
 import { useStateContext } from "../context";
 
@@ -46,16 +46,15 @@ const Author: React.FC = () => {
   }, [fetchProperty]);
 
   return (
-    <div className="template-color-1 nft-body-connect">
-      <Header />
-      <AuthorOne />
-      <AuthorTwo address={currentAccount} author={author} />
-      <AuthorThree properties={properties} author={author} />
-      <AuthorFour />
-      <AuthorFive />
-      <Footer />
-      <Copyright />
-    </div>
+    <Layout>
+      <div className="template-color-1 nft-body-connect">
+        <AuthorOne />
+        <AuthorTwo address={currentAccount} author={author} />
+        <AuthorThree properties={properties} author={author} />
+        <AuthorFour />
+        <AuthorFive />
+      </div>
+    </Layout>
   );
 };
 
