@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { GetServerSideProps } from "next";
+import type { NextPage } from "next";
 
 ///INTERNAL IMPORT
 import {
@@ -21,7 +21,7 @@ import LiveFixed from "../PageComponents/Components/LiveFixed";
 import { useStateContext } from "../context";
 import { RealEstateProperty } from "../types/global";
 
-const Home: React.FC = () => {
+const Home: NextPage = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [properties, setProperties] = useState<RealEstateProperty[]>([]);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

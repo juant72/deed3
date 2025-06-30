@@ -7,9 +7,7 @@ import {
   ModernHero,
   TokenomicsSection,
   MobileNavigation,
-  SearchAndFilters,
   Service,
-  Product,
   Collection,
   Footer,
   Copyright,
@@ -87,18 +85,18 @@ const Home: React.FC = () => {
     <div className="template-color-1 nft-body-connect">
       <Header />
       <MobileNavigation />
-      <ModernHero 
+      <ModernHero
         marketData={{
           totalVolume: '$2.4B',
           avgROI: '12.5%',
           activeProperties: properties?.length || 0
-        }} 
-        propertyCount={properties?.length || 0} 
+        }}
+        propertyCount={properties?.length || 0}
       />
 
       {/* Enhanced Search and Filters Section */}
       <div className="container mx-auto px-4 py-8">
-        <SearchAndFiltersSimple 
+        <SearchAndFiltersSimple
           onSearchChange={handleSearchChange}
           onFiltersChange={handleFiltersChange}
         />

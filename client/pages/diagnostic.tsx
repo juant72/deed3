@@ -1,12 +1,13 @@
 import React from "react";
+import Head from "next/head";
 
 export default function DiagnosticPage() {
     return (
-        <html>
-            <head>
+        <>
+            <Head>
                 <title>DIAGNOSTIC PAGE WORKING</title>
-            </head>
-            <body style={{
+            </Head>
+            <div style={{
                 margin: 0,
                 padding: 0,
                 backgroundColor: '#ff0000',
@@ -19,14 +20,14 @@ export default function DiagnosticPage() {
             }}>
                 <div style={{
                     textAlign: 'center',
-                    fontSize: '48px',
+                    border: '5px solid white',
+                    padding: '50px',
+                    fontSize: '4rem',
                     fontWeight: 'bold'
                 }}>
-                    🔥 DIAGNOSTIC PAGE FUNCIONANDO 🔥
-                    <br />
-                    {new Date().toLocaleString()}
+                    DIAGNOSTIC PAGE WORKING
                 </div>
-            </body>
-        </html>
+            </div>
+        </>
     );
 }

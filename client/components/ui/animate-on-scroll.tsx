@@ -13,45 +13,11 @@ interface AnimateOnScrollProps extends Omit<MotionProps, 'variants' | 'initial' 
   delay?: number
   threshold?: number
   triggerOnce?: boolean
-  offset?: string
+  offset?: '0px'
   stagger?: boolean
   staggerChildren?: number
   distance?: number
 }
-
-const animations: Record<string, Variants> = {
-  fadeIn: {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  },
-  slideUp: {
-    hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0 },
-  },
-  slideDown: {
-    hidden: { opacity: 0, y: -60 },
-    visible: { opacity: 1, y: 0 },
-  },
-  slideLeft: {
-    hidden: { opacity: 0, x: 60 },
-    visible: { opacity: 1, x: 0 },
-  },
-  slideRight: {
-    hidden: { opacity: 0, x: -60 },
-    visible: { opacity: 1, x: 0 },
-  },
-  scaleIn: {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
-  },
-  rotateIn: {
-    hidden: { opacity: 0, rotate: -10, scale: 0.9 },
-    visible: { opacity: 1, rotate: 0, scale: 1 },
-  },
-}
-
-// Unused in current implementation, but kept for future reference
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 const AnimateOnScroll = forwardRef<HTMLDivElement, AnimateOnScrollProps>(
   ({

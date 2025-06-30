@@ -33,7 +33,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
         className="w-full max-w-7xl mx-auto"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <CarouselItem key={product.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
               <StaggerItem>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
