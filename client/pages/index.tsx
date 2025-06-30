@@ -1,134 +1,68 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { GetServerSideProps } from "next";
+import React from "react";
 
-///INTERNAL IMPORT
-import {
-  Header,
-  ModernHero,
-  TokenomicsSection,
-  MobileNavigation,
-  SearchAndFilters,
-  Service,
-  Product,
-  Collection,
-  Footer,
-  Copyright,
-} from "../PageComponents/Components";
+export default function Home() {
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+            <div className="text-center space-y-6">
+                {/* Logo */}
+                <div className="flex justify-center mb-8">
+                    <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                            <span className="text-white font-bold text-xl">E</span>
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-white text-2xl font-bold leading-none">Encrypia</span>
+                            <span className="text-blue-400 text-sm font-medium leading-none">Deeds3</span>
+                        </div>
+                    </div>
+                </div>
 
-import LiveFixed from "../PageComponents/Components/LiveFixed";
-import ProductSimple from "../PageComponents/Components/ProductSimple";
-import SearchAndFiltersSimple from "../PageComponents/Components/SearchAndFiltersSimple";
+                {/* Mensaje de estado */}
+                <div className="space-y-4">
+                    <h1 className="text-4xl font-bold text-white">
+                        🚀 Sistema Iniciando
+                    </h1>
+                    <p className="text-xl text-gray-300">
+                        Plataforma de Real Estate descentralizada
+                    </p>
+                    <div className="text-green-400 font-mono text-sm">
+                        ✅ Fase 1: Base mínima cargada exitosamente
+                    </div>
+                </div>
 
-///INTERNAL IMPORT
-import { useStateContext } from "../context";
-import { RealEstateProperty } from "../types/global";
+                {/* Indicador de carga */}
+                <div className="flex justify-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-400"></div>
+                </div>
 
-const Home: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [properties, setProperties] = useState<RealEstateProperty[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [searchFilters, setSearchFilters] = useState<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [searchTerm, setSearchTerm] = useState<string>('');
+                {/* Estado del sistema */}
+                <div className="bg-black/20 rounded-lg p-4 max-w-md mx-auto">
+                    <h3 className="text-white font-semibold mb-2">Estado del Sistema:</h3>
+                    <div className="space-y-1 text-sm">
+                        <div className="flex justify-between">
+                            <span className="text-gray-400">Next.js:</span>
+                            <span className="text-green-400">✅ Funcionando</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className="text-gray-400">React:</span>
+                            <span className="text-green-400">✅ Funcionando</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className="text-gray-400">Tailwind:</span>
+                            <span className="text-green-400">✅ Funcionando</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className="text-gray-400">Web3:</span>
+                            <span className="text-yellow-400">⏳ Pendiente</span>
+                        </div>
+                    </div>
+                </div>
 
-  const { getAllRealEstate } = useStateContext();
-
-  //GET DATA
-  const fetchProperty = useCallback(async () => {
-    setIsLoading(true);
-    const data = await getAllRealEstate();
-
-    setProperties(data);
-    setIsLoading(false);
-  }, [getAllRealEstate]);
-
-  useEffect(() => {
-    fetchProperty();
-  }, [fetchProperty]);
-
-  //CATEGORIES
-  const housing: RealEstateProperty[] = [];
-  const rental: RealEstateProperty[] = [];
-  const farmhouse: RealEstateProperty[] = [];
-  const office: RealEstateProperty[] = [];
-  const commercial: RealEstateProperty[] = [];
-  const country: RealEstateProperty[] = [];
-
-  if (!isLoading) {
-    properties?.map((el: RealEstateProperty) => {
-      if (el.category === "country") {
-        country.push(el);
-      } else if (el.category === "Commercial") {
-        commercial.push(el);
-      } else if (el.category === "Office") {
-        office.push(el);
-      } else if (el.category === "Farmhouse") {
-        farmhouse.push(el);
-      } else if (el.category === "Rental") {
-        rental.push(el);
-      } else if (el.category === "Housing") {
-        housing.push(el);
-      }
-      return el;
-    });
-  }
-
-  const handleSearchChange = useCallback((term: string) => {
-    setSearchTerm(term);
-  }, []);
-
-  const handleFiltersChange = useCallback((filters: any) => {
-    setSearchFilters(filters);
-  }, []);
-
-  // const creators = getTopCreators(properties);
-
-  return (
-    <div className="template-color-1 nft-body-connect">
-      <Header />
-      <MobileNavigation />
-      <ModernHero 
-        marketData={{
-          totalVolume: '$2.4B',
-          avgROI: '12.5%',
-          activeProperties: properties?.length || 0
-        }} 
-        propertyCount={properties?.length || 0} 
-      />
-
-      {/* Enhanced Search and Filters Section */}
-      <div className="container mx-auto px-4 py-8">
-        <SearchAndFiltersSimple 
-          onSearchChange={handleSearchChange}
-          onFiltersChange={handleFiltersChange}
-        />
-      </div>
-
-      <LiveFixed properties={properties} />
-      <Service />
-      <ProductSimple properties={properties} />
-      <TokenomicsSection />
-
-      <Collection
-        housing={housing?.length}
-        rental={rental?.length}
-        farmhouse={farmhouse?.length}
-        office={office?.length}
-      />
-
-      <Footer />
-      <Copyright />
-    </div>
-  );
-};
-
-// Force SSR to avoid Wagmi hook errors during build
-export const getServerSideProps: GetServerSideProps = async () => {
-  return {
-    props: {},
-  };
-};
-
-export default Home;
-
-
+                {/* Siguiente paso */}
+                <div className="text-gray-400 text-sm">
+                    Próximo: Agregar layout básico y navegación
+                </div>
+            </div>
+        </div>
+    );
+}
