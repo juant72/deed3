@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
 import { AnimateOnScroll } from '@/components/ui/animate-on-scroll'
@@ -35,16 +36,18 @@ export function AuthorCarousel({ authors, className }: AuthorCarouselProps) {
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {authors.map((author) => (
-            <CarouselItem 
-              key={author.id} 
+            <CarouselItem
+              key={author.id}
               className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/4"
             >
               <Card className="border-0 bg-transparent">
                 <CardContent className="p-6 text-center">
                   <div className="relative mx-auto w-20 h-20 mb-4">
-                    <img
+                    <Image
                       src={author.avatar || "/images/client/client-2.png"}
                       alt={author.name}
+                      width={80}
+                      height={80}
                       className="w-full h-full rounded-full object-cover"
                     />
                     {author.verified && (
@@ -57,8 +60,8 @@ export function AuthorCarousel({ authors, className }: AuthorCarouselProps) {
                   </div>
                   <h4 className="text-lg font-semibold mb-2">{author.name}</h4>
                   <p className="text-sm text-gray-500">
-                    <Counter 
-                      end={author.sales} 
+                    <Counter
+                      end={author.sales}
                       suffix=" NFTs sold"
                       className="font-medium"
                     />
@@ -102,24 +105,26 @@ export function CategoryCarousel({ categories, className }: CategoryCarouselProp
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {categories.map((category) => (
-            <CarouselItem 
-              key={category.id} 
+            <CarouselItem
+              key={category.id}
               className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
             >
               <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
                 <CardContent className="p-4 text-center">
                   <div className="relative mb-4 overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src={category.image || "/images/portfolio/portfolio-01.jpg"}
                       alt={category.name}
+                      width={200}
+                      height={96}
                       className="w-full h-24 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <h4 className="text-base font-semibold mb-1">{category.name}</h4>
                   <p className="text-sm text-gray-500">
-                    <Counter 
-                      end={category.count} 
+                    <Counter
+                      end={category.count}
                       suffix=" items"
                       className="text-xs"
                     />
@@ -163,8 +168,8 @@ export function TopSellerCarousel({ sellers, className }: TopSellerCarouselProps
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {sellers.map((seller) => (
-            <CarouselItem 
-              key={seller.id} 
+            <CarouselItem
+              key={seller.id}
               className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3"
             >
               <Card className="border hover:shadow-lg transition-all duration-300">
@@ -174,9 +179,11 @@ export function TopSellerCarousel({ sellers, className }: TopSellerCarouselProps
                       <span className="absolute -top-2 -left-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                         {seller.rank}
                       </span>
-                      <img
+                      <Image
                         src={seller.avatar || "/images/client/client-1.png"}
                         alt={seller.name}
+                        width={48}
+                        height={48}
                         className="w-12 h-12 rounded-full object-cover"
                       />
                     </div>
@@ -184,8 +191,8 @@ export function TopSellerCarousel({ sellers, className }: TopSellerCarouselProps
                       <h4 className="font-semibold text-sm">{seller.name}</h4>
                       <div className="flex items-center justify-between text-xs text-gray-500 mt-1">
                         <span>
-                          <Counter 
-                            end={seller.volume} 
+                          <Counter
+                            end={seller.volume}
                             suffix=" ETH"
                             decimals={2}
                             className="font-medium"

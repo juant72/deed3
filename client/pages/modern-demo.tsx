@@ -38,7 +38,7 @@ export default function ModernComponentsDemo() {
       </header>
 
       <div className="container mx-auto px-4 space-y-16">
-        
+
         {/* Hero Section with Animation */}
         <section className="text-center py-16">
           <AnimateOnScroll animation="slideUp">
@@ -57,7 +57,7 @@ export default function ModernComponentsDemo() {
           <AnimateOnScroll animation="slideUp" className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">Migration Overview</h3>
           </AnimateOnScroll>
-          
+
           <StaggerContainer className="grid md:grid-cols-2 gap-8">
             <StaggerItem>
               <Card className="bg-red-500/10 border-red-500/30 p-6">
@@ -74,7 +74,7 @@ export default function ModernComponentsDemo() {
                 </div>
               </Card>
             </StaggerItem>
-            
+
             <StaggerItem>
               <Card className="bg-green-500/10 border-green-500/30 p-6">
                 <div className="text-center">
@@ -100,7 +100,7 @@ export default function ModernComponentsDemo() {
               🎠 Modern Carousel
             </h3>
             <p className="text-gray-300">
-              Replaces: <code className="bg-slate-700 px-2 py-1 rounded">$('.slick-activation-01').slick()</code>
+              Replaces: <code className="bg-slate-700 px-2 py-1 rounded">$(&apos;.slick-activation-01&apos;).slick()</code>
             </p>
           </AnimateOnScroll>
 
@@ -131,11 +131,11 @@ export default function ModernComponentsDemo() {
                       <div className="p-6">
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-green-400">
-                            <Counter 
-                              end={product.price} 
-                              duration={1.5} 
-                              prefix="$" 
-                              separator="," 
+                            <Counter
+                              end={product.price}
+                              duration={1.5}
+                              prefix="$"
+                              separator=","
                             />
                           </span>
                           <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -160,7 +160,7 @@ export default function ModernComponentsDemo() {
               🔢 Animated Counters
             </h3>
             <p className="text-gray-300">
-              Replaces: <code className="bg-slate-700 px-2 py-1 rounded">$('.odometer').odometer()</code>
+              Replaces: <code className="bg-slate-700 px-2 py-1 rounded">$(&apos;.odometer&apos;).odometer()</code>
             </p>
           </AnimateOnScroll>
 
@@ -170,11 +170,11 @@ export default function ModernComponentsDemo() {
                 <Card className="bg-slate-800/50 border-slate-700 p-6 text-center hover:bg-slate-800/70 transition-colors">
                   <div className="text-4xl mb-3">{stat.icon}</div>
                   <div className="text-4xl font-bold text-white mb-2">
-                    <Counter 
-                      end={stat.value} 
-                      duration={2.5} 
+                    <Counter
+                      end={stat.value}
+                      duration={2.5}
                       suffix={stat.suffix}
-                      separator="," 
+                      separator=","
                       triggerOnView={true}
                     />
                   </div>
@@ -192,7 +192,7 @@ export default function ModernComponentsDemo() {
               🎛️ Modern Select Components
             </h3>
             <p className="text-gray-300">
-              Replaces: <code className="bg-slate-700 px-2 py-1 rounded">$('.nice-select').niceSelect()</code>
+              Replaces: <code className="bg-slate-700 px-2 py-1 rounded">$(&apos;.nice-select&apos;).niceSelect()</code>
             </p>
           </AnimateOnScroll>
 

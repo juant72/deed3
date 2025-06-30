@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
 import { Counter } from '@/components/ui/counter'
@@ -38,9 +39,11 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden rounded-lg">
-                      <img
+                      <Image
                         src={product.image}
                         alt={product.title}
+                        width={400}
+                        height={256}
                         className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -52,11 +55,11 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
                     <div className="p-4">
                       <div className="flex items-center justify-between">
                         <span className="text-2xl font-bold text-primary">
-                          <Counter 
-                            end={product.price} 
-                            duration={1} 
-                            prefix="$" 
-                            separator="," 
+                          <Counter
+                            end={product.price}
+                            duration={1}
+                            prefix="$"
+                            separator=","
                           />
                         </span>
                         <button className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
@@ -102,11 +105,11 @@ export function StatsSection({ stats }: StatsProps) {
                 </div>
               )}
               <div className="text-4xl font-bold text-gray-900 mb-2">
-                <Counter 
-                  end={stat.value} 
-                  duration={2} 
+                <Counter
+                  end={stat.value}
+                  duration={2}
                   suffix={stat.suffix}
-                  separator="," 
+                  separator=","
                 />
               </div>
               <p className="text-gray-600 font-medium">{stat.label}</p>
@@ -148,10 +151,12 @@ export function BannerSlider({ banners }: BannerSliderProps) {
         {banners.map((banner) => (
           <CarouselItem key={banner.id} className="relative">
             <div className="relative h-[500px] md:h-[600px] overflow-hidden rounded-2xl">
-              <img
+              <Image
                 src={banner.image}
                 alt={banner.title}
-                className="w-full h-full object-cover"
+                layout="fill"
+                objectFit="cover"
+                className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20" />
               <div className="absolute inset-0 flex items-center">
