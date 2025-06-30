@@ -3,7 +3,6 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../components/layout";
 import PropertyDetails from "../PageComponents/Components/PropertyDetails";
 import MobileNavigation from "../components/layout/MobileNavigation";
 import {
@@ -15,8 +14,8 @@ import {
   DetailThree,
   DetailTwo,
 } from "../PageComponents/DetailPage";
-
-import { GlobalLoder } from "../PageComponents/Components";
+import Loader from "../PageComponents/Components/Loader/Loader";
+import Layout from "../components/layout/Layout";
 
 import { useStateContext } from "../context";
 
@@ -113,49 +112,48 @@ const Detail: React.FC = () => {
   };
   //
   return (
-    <div className="template-color-1 nft-body-connect">
-      <Header />
-      <MobileNavigation />
+    <Layout>
+      <div className="template-color-1 nft-body-connect">
+        <MobileNavigation />
 
-      {/* Enhanced Property Details Section */}
-      <div className="container mx-auto px-4 py-8">
-        <PropertyDetails property={property} isDetailPage={true} />
+        {/* Enhanced Property Details Section */}
+        <div className="container mx-auto px-4 py-8">
+          <PropertyDetails property={property} isDetailPage={true} />
+        </div>
+
+        <DetailOne />
+
+        <DetailTwo
+          property={property}
+          parsedReviews={parsedReviews}
+          setLikeReviews={setLikeReviews}
+          likeReviews={likeReviews}
+          likeReviewCall={likeReviewCall}
+          buyingProperty={buyingProperty}
+          address={currentAccount}
+          isLoading={isLoading}
+          buyLoading={buyLoading}
+        />
+
+        <DetailThree properties={properties} />
+        <DetailFive />
+        <DetailSix />
+        <DetailSeven
+          property={property}
+          setUpdatePropertyPrice={setUpdatePropertyPrice}
+          updatePropertyPrice={updatePropertyPrice}
+          updatepropertyPrice={updatepropertyPrice}
+          updatePriceLoading={updatePriceLoading}
+        />
+        <DetailEight
+          createReview={createReview}
+          handleFormFieldChange={handleFormFieldChange}
+          commentLoading={commentLoading}
+        />
+
+        {loader && <Loader />}
       </div>
-
-      <DetailOne />
-
-      <DetailTwo
-        property={property}
-        parsedReviews={parsedReviews}
-        setLikeReviews={setLikeReviews}
-        likeReviews={likeReviews}
-        likeReviewCall={likeReviewCall}
-        buyingProperty={buyingProperty}
-        address={currentAccount}
-        isLoading={isLoading}
-        buyLoading={buyLoading}
-      />
-
-      <DetailThree properties={properties} />
-      <DetailFive />
-      <DetailSix />
-      <DetailSeven
-        property={property}
-        setUpdatePropertyPrice={setUpdatePropertyPrice}
-        updatePropertyPrice={updatePropertyPrice}
-        updatepropertyPrice={updatepropertyPrice}
-        updatePriceLoading={updatePriceLoading}
-      />
-      <DetailEight
-        createReview={createReview}
-        handleFormFieldChange={handleFormFieldChange}
-        commentLoading={commentLoading}
-      />
-
-      <Footer />
-      <Copyright />
-      {loader && <GlobalLoder />}
-    </div>
+    </Layout>
   );
 };
 

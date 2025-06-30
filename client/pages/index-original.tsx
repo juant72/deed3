@@ -3,23 +3,19 @@ import { GetServerSideProps } from "next";
 
 ///INTERNAL IMPORT
 import {
-  Header,
   ModernHero,
   TokenomicsSection,
-  MobileNavigation,
   SearchAndFilters,
   Service,
-  Product,
   Collection,
-  Footer,
-  Copyright,
 } from "../PageComponents/Components";
 
 import LiveFixed from "../PageComponents/Components/LiveFixed";
-
-///INTERNAL IMPORT
+import MobileNavigation from "../components/layout/MobileNavigation";
+import Product from "../PageComponents/Components/Product";
 import { useStateContext } from "../context";
 import { RealEstateProperty } from "../types/global";
+import Layout from "../components/layout/Layout";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -82,21 +78,20 @@ const Home: React.FC = () => {
   // const creators = getTopCreators(properties);
 
   return (
-    <div className="template-color-1 nft-body-connect">
-      <Header />
+    <Layout>
       <MobileNavigation />
-      <ModernHero 
+      <ModernHero
         marketData={{
           totalVolume: '$2.4B',
           avgROI: '12.5%',
           activeProperties: properties?.length || 0
-        }} 
-        propertyCount={properties?.length || 0} 
+        }}
+        propertyCount={properties?.length || 0}
       />
 
       {/* Enhanced Search and Filters Section */}
       <div className="container mx-auto px-4 py-8">
-        <SearchAndFilters 
+        <SearchAndFilters
           onSearchChange={handleSearchChange}
           onFiltersChange={handleFiltersChange}
         />
@@ -113,10 +108,7 @@ const Home: React.FC = () => {
         farmhouse={farmhouse?.length}
         office={office?.length}
       />
-
-      <Footer />
-      <Copyright />
-    </div>
+    </Layout>
   );
 };
 
