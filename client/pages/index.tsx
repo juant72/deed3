@@ -113,7 +113,7 @@ const Home: React.FC = () => {
 
             <TokenomicsSection />
 
-            <LiveFixed />
+            <LiveFixed properties={properties} />
             <Footer />
             <Copyright />
         </div>
