@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import Layout from "../components/layout/Layout";
 
 const PageNotFound: React.FC = () => {
   return (
-    <div className="template-color-1 nft-body-connect">
+    <Layout>
       <div className="rn-not-found-area rn-section-gapTop">
         <div className="container">
           <div className="row">
@@ -20,7 +21,7 @@ const PageNotFound: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

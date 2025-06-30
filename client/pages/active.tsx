@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { GetServerSideProps } from "next";
+import Layout from "../components/layout/Layout";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../components/layout";
 import { Activity } from "../PageComponents/ActivityPage";
 import { useStateContext } from "../context";
 
@@ -40,13 +40,15 @@ const Active: React.FC = () => {
   }, [fetchProperty]);
 
   return (
-    <div className="template-color-1 nft-body-connect">
-      <Activity
-        properties={properties}
-        totalReviews={totalReviews}
-        popular={getHighestRatedProduct}
-      />
-    </div>
+    <Layout>
+      <div className="template-color-1 nft-body-connect">
+        <Activity
+          properties={properties}
+          totalReviews={totalReviews}
+          popular={getHighestRatedProduct}
+        />
+      </div>
+    </Layout>
   );
 };
 
