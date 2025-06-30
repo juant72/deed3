@@ -4,8 +4,7 @@ import TokenomicsSection from "./TokenomicsSection";
 import AdvancedWalletConnect from "./AdvancedWalletConnect";
 import PropertyCard3D from "./PropertyCard3D";
 import PropertyVisualization from "./PropertyVisualization";
-import Loader from "./Loader/Loader";
-import GlobalLoder from "./Loader";
+import Loader from "./Loader";
 import LiveFixed from "./LiveFixed";
 import ProductSimple from "./ProductSimple";
 import SearchAndFilters from "./SearchAndFilters";
@@ -21,7 +20,6 @@ export {
   PropertyCard3D,
   PropertyVisualization,
   Loader,
-  GlobalLoder,
   LiveFixed,
   ProductSimple,
   SearchAndFilters,
