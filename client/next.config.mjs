@@ -15,7 +15,7 @@ const nextConfig = {
     },
 
     // Output configuration for better performance
-    output: 'standalone',
+    // output: 'standalone',
 
     // Disable unnecessary features for minimal setup
     poweredByHeader: false,

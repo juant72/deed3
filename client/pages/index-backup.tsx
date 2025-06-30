@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 // Simple home page without Web3 context for debugging
 const Home: React.FC = () => {
@@ -13,9 +14,9 @@ const Home: React.FC = () => {
               <span className="text-xl font-bold">Encrypia Deeds3</span>
             </div>
             <nav className="hidden md:flex space-x-6">
-              <a href="/" className="text-gray-300 hover:text-white">Home</a>
-              <a href="/about" className="text-gray-300 hover:text-white">About</a>
-              <a href="/explore" className="text-gray-300 hover:text-white">Explore</a>
+              <Link href="/" className="text-gray-300 hover:text-white">Home</Link>
+              <Link href="/about" className="text-gray-300 hover:text-white">About</Link>
+              <Link href="/explore" className="text-gray-300 hover:text-white">Explore</Link>
             </nav>
           </div>
         </div>
@@ -30,7 +31,7 @@ const Home: React.FC = () => {
           <p className="text-xl text-gray-300 mb-8">
             La migración jQuery → React está completa
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
             <div className="bg-green-600/20 border border-green-500/30 rounded-lg p-6">
               <div className="text-3xl mb-4">✅</div>
@@ -39,7 +40,7 @@ const Home: React.FC = () => {
                 Todos los scripts jQuery han sido eliminados completamente
               </p>
             </div>
-            
+
             <div className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-6">
               <div className="text-3xl mb-4">⚡</div>
               <h3 className="text-blue-400 font-bold mb-2">React Moderno</h3>
@@ -47,7 +48,7 @@ const Home: React.FC = () => {
                 Componentes modernos con Tailwind CSS y TypeScript
               </p>
             </div>
-            
+
             <div className="bg-purple-600/20 border border-purple-500/30 rounded-lg p-6">
               <div className="text-3xl mb-4">🚀</div>
               <h3 className="text-purple-400 font-bold mb-2">Performance</h3>
@@ -72,7 +73,7 @@ const Home: React.FC = () => {
       <section className="py-16 px-4 bg-slate-800/50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Properties Preview</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
               <div key={i} className="bg-slate-700/50 rounded-lg overflow-hidden">

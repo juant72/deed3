@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 // Simple test page to verify the app is working
 const TestPage: React.FC = () => {
@@ -32,12 +33,12 @@ const TestPage: React.FC = () => {
           </div>
         </div>
         <div className="mt-8">
-          <a 
-            href="/" 
+          <Link
+            href="/"
             className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Ver Página Principal
-          </a>
+          </Link>
         </div>
       </div>
     </div>
