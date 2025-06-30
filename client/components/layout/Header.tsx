@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { useStateContext } from "../../context";
 import AdvancedWalletConnect from "../../PageComponents/Components/AdvancedWalletConnect";
 
 const Header: React.FC = () => {
-  const { currentAccount, connectWallet, userBlance } = useStateContext();
+  const { currentAccount, userBlance } = useStateContext();
 
   return (
     <>
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
               <div className="relative pr-8 mr-4 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-9 after:bg-white/10">
                 <Link className="block" href="/">
                   <div className="flex items-center space-x-3">
-                    <img src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" />
+                    <Image src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" width={32} height={32} />
                     <div className="flex flex-col">
                       <span className="text-white text-lg font-bold leading-none">Encrypia</span>
                       <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
@@ -190,7 +191,7 @@ const Header: React.FC = () => {
               {currentAccount ? (
                 <div className="relative group">
                   <div className="flex items-center cursor-pointer">
-                    <img src="/icons/boy-avater.png" alt="User Avatar" className="w-10 h-10 rounded-full border-2 border-gray-600 hover:border-blue-400 transition-colors" />
+                    <Image src="/icons/boy-avater.png" alt="User Avatar" className="w-10 h-10 rounded-full border-2 border-gray-600 hover:border-blue-400 transition-colors" width={40} height={40} />
                     <div className="absolute right-0 top-full mt-2 w-80 bg-slate-800 border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                       <div className="p-4 border-b border-white/10">
                         <h4 className="text-white font-semibold mb-1">
@@ -207,10 +208,12 @@ const Header: React.FC = () => {
                           <li className="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
                             <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                               <a href="product-details.html">
-                                <img
+                                <Image
                                   src="/portfolio/portfolio-07.jpg"
                                   alt="Nft Product Images"
                                   className="w-full h-full object-cover"
+                                  width={64}
+                                  height={64}
                                 />
                               </a>
                             </div>
@@ -228,10 +231,12 @@ const Header: React.FC = () => {
                           <li className="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
                             <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                               <Link href="/author">
-                                <img
+                                <Image
                                   src="/portfolio/portfolio-01.jpg"
                                   alt="Nft Product Images"
                                   className="w-full h-full object-cover"
+                                  width={64}
+                                  height={64}
                                 />
                               </Link>
                             </div>
@@ -247,10 +252,12 @@ const Header: React.FC = () => {
                           <li className="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
                             <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                               <Link href="/create">
-                                <img
+                                <Image
                                   src="/portfolio/portfolio-04.jpg"
                                   alt="Nft Product Images"
                                   className="w-full h-full object-cover"
+                                  width={64}
+                                  height={64}
                                 />
                               </Link>
                             </div>
