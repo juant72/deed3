@@ -10,9 +10,8 @@ import {
   Header,
   Footer,
   Copyright,
-  Loader,
-  GlobalLoder,
-} from "../PageComponents/Components";
+} from "../components/layout";
+import { Loader, GlobalLoder } from "../PageComponents/Components";
 import { useStateContext } from "../context";
 
 const categories = [

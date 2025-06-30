@@ -3,15 +3,12 @@ import { GetServerSideProps } from "next";
 
 ///INTERNAL IMPORT
 import {
-  Header,
   ModernHero,
   TokenomicsSection,
-  MobileNavigation,
-  Service,
-  Collection,
-  Footer,
-  Copyright,
 } from "../PageComponents/Components";
+import { Header, Footer, Copyright, MobileNavigation } from "../components/layout";
+import Service from "../PageComponents/Components/Service";
+import Collection from "../PageComponents/Components/Collection";
 
 import LiveFixed from "../PageComponents/Components/LiveFixed";
 import ProductSimple from "../PageComponents/Components/ProductSimple";

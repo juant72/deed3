@@ -2,7 +2,7 @@ import React from "react";
 import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
 import { LoginOne, LoginTwo } from "../PageComponents/LoginPage";
 
 const Login: React.FC = () => {

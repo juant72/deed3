@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Search, 
-  Filter, 
-  X, 
-  MapPin, 
-  DollarSign, 
-  Home, 
+import {
+  Search,
+  Filter,
+  X,
+  MapPin,
+  DollarSign,
+  Home,
   TrendingUp,
   Calendar,
   Star,
@@ -118,10 +118,10 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
   }, 0);
 
   return (
-    <div className={`space-y-4 ${className}`}>
+    <div className={`space-y-6 bg-slate-900/80 rounded-xl shadow-lg p-6 ${className}`}>
       {/* Main Search Bar */}
       <div className="relative">
-        <div className="flex items-center space-x-3">
+        <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-3 md:space-y-0">
           <div className="flex-1 relative">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -129,18 +129,16 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
               placeholder="Search by location, property type, or features..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-12 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
             />
           </div>
-          
           {/* Filter Toggle */}
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className={`relative p-3 rounded-lg border transition-colors ${
-              showFilters || activeFiltersCount > 0
+            className={`relative p-3 rounded-lg border transition-colors mt-2 md:mt-0 ${showFilters || activeFiltersCount > 0
                 ? 'bg-blue-600 border-blue-600 text-white'
                 : 'bg-slate-800 border-slate-700 text-gray-400 hover:text-white'
-            }`}
+              }`}
           >
             <Filter className="w-5 h-5" />
             {activeFiltersCount > 0 && (
@@ -149,22 +147,19 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
               </span>
             )}
           </button>
-
           {/* View Mode Toggle */}
-          <div className="flex bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
+          <div className="flex bg-slate-800 border border-slate-700 rounded-lg overflow-hidden ml-0 md:ml-2">
             <button
               onClick={() => setViewMode('grid')}
-              className={`p-3 transition-colors ${
-                viewMode === 'grid' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`p-3 transition-colors ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <Grid3X3 className="w-5 h-5" />
             </button>
             <button
               onClick={() => setViewMode('map')}
-              className={`p-3 transition-colors ${
-                viewMode === 'map' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`p-3 transition-colors ${viewMode === 'map' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <Map className="w-5 h-5" />
             </button>
@@ -173,7 +168,7 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
       </div>
 
       {/* Quick Filters */}
-      <div className="flex items-center space-x-2 overflow-x-auto pb-2">
+      <div className="flex flex-wrap items-center gap-2 overflow-x-auto pb-2">
         <span className="text-sm text-gray-400 whitespace-nowrap">Quick Filters:</span>
         {['Verified', 'Tokenized', 'New Listings', 'High ROI'].map((filter) => (
           <button
@@ -182,11 +177,10 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
               if (filter === 'Verified') handleFilterChange('verified', !filters.verified);
               if (filter === 'Tokenized') handleFilterChange('tokenized', !filters.tokenized);
             }}
-            className={`px-3 py-1 rounded-full text-sm whitespace-nowrap transition-colors ${
-              (filter === 'Verified' && filters.verified) || (filter === 'Tokenized' && filters.tokenized)
+            className={`px-4 py-2 rounded-full text-sm whitespace-nowrap font-medium transition-colors shadow-sm ${(filter === 'Verified' && filters.verified) || (filter === 'Tokenized' && filters.tokenized)
                 ? 'bg-blue-600 text-white'
-                : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
-            }`}
+                : 'bg-slate-700 text-gray-200 hover:bg-blue-700 hover:text-white'
+              }`}
           >
             {filter}
           </button>
@@ -194,13 +188,13 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
       </div>
 
       {/* Sort Options */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div className="flex items-center space-x-2">
           <span className="text-sm text-gray-400">Sort by:</span>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
           >
             {sortOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -209,11 +203,10 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
             ))}
           </select>
         </div>
-        
         {activeFiltersCount > 0 && (
           <button
             onClick={clearFilters}
-            className="text-sm text-red-400 hover:text-red-300 transition-colors"
+            className="text-sm text-red-400 hover:text-red-300 transition-colors font-medium"
           >
             Clear all filters
           </button>
@@ -347,11 +340,10 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
                   <button
                     key={feature}
                     onClick={() => toggleFeature(feature)}
-                    className={`px-3 py-2 rounded-lg text-sm transition-colors ${
-                      filters.features.includes(feature)
+                    className={`px-3 py-2 rounded-lg text-sm transition-colors ${filters.features.includes(feature)
                         ? 'bg-blue-600 text-white'
                         : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
-                    }`}
+                      }`}
                   >
                     {feature}
                   </button>
@@ -370,7 +362,7 @@ const SearchAndFilters: React.FC<any> = ({ onSearchChange, onFiltersChange, clas
                 />
                 <span className="text-gray-300">Tokenized Properties Only</span>
               </label>
-              
+
               <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"

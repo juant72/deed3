@@ -4,13 +4,13 @@ import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
 import { useStateContext } from "../context";
 
 const TestWalletConnection: React.FC = () => {
   const { address, isConnected } = useAccount();
   const { connectWallet, currentAccount, userBlance } = useStateContext();
-  
+
   const [testResult, setTestResult] = useState<string[]>([]);
 
   const addResult = (message: string) => {
@@ -52,7 +52,7 @@ const TestWalletConnection: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      
+
       <div className="rn-author-bg-area bg_image--9 bg_image ptb--150">
         <div className="container">
           <div className="row">
@@ -80,26 +80,26 @@ const TestWalletConnection: React.FC = () => {
                   <p><strong>Context Account:</strong> {currentAccount || 'Not connected'}</p>
                   <p><strong>Context Balance:</strong> {userBlance || 'Not available'}</p>
                 </div>
-                
+
                 <div className="wallet-buttons mt-4">
                   <h4>RainbowKit Connect Button:</h4>
                   <ConnectButton />
-                  
+
                   <div className="mt-3">
                     <h4>Manual Connection Tests:</h4>
-                    <button 
+                    <button
                       className="btn btn-primary mr-3 mb-2"
                       onClick={testWagmiConnection}
                     >
                       Test Wagmi
                     </button>
-                    <button 
+                    <button
                       className="btn btn-secondary mr-3 mb-2"
                       onClick={testContextConnection}
                     >
                       Test Context
                     </button>
-                    <button 
+                    <button
                       className="btn btn-danger mb-2"
                       onClick={clearResults}
                     >
@@ -109,11 +109,11 @@ const TestWalletConnection: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="col-lg-6">
               <div className="test-results">
                 <h3>Test Results</h3>
-                <div 
+                <div
                   className="results-log bg-light p-3 rounded"
                   style={{ height: '400px', overflowY: 'auto', fontFamily: 'monospace' }}
                 >

@@ -4,13 +4,13 @@ const nextConfig = {
     // React 19 + Next 15 best practices
     reactStrictMode: true,
 
-    // Experimental features for Next 15
+    // Turbopack config (Next.js 15+)
+    turbopack: {
+        enabled: true,
+        rules: {},
+    },
+    // React 19 concurrent features
     experimental: {
-        turbo: {
-            // Enable Turbopack for faster builds
-            rules: {},
-        },
-        // React 19 concurrent features
         ppr: false, // Partial prerendering
     },
 
