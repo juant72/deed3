@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu,
@@ -25,13 +25,13 @@ const MobileNavigation: React.FC = () => {
   const [notifications] = useState(3);
   const { currentAccount } = useStateContext();
 
-  const mainTabs = [
+  const mainTabs = useMemo(() => [
     { id: 'home', label: 'Home', icon: Home, href: '/' },
     { id: 'search', label: 'Search', icon: Search, href: '/explor' },
     { id: 'create', label: 'Create', icon: Plus, href: '/create' },
     { id: 'portfolio', label: 'Portfolio', icon: TrendingUp, href: '/author' },
     { id: 'profile', label: 'Profile', icon: User, href: '/edit-profile' }
-  ];
+  ], []);
 
   const menuItems = [
     { label: 'Dashboard', icon: Activity, href: '/author' },
@@ -50,8 +50,7 @@ const MobileNavigation: React.FC = () => {
     if (tab) {
       setActiveTab(tab.id);
     }
-    // mainTabs is static and does not change, so it is safe to omit it from dependencies.
-  }, []);
+  }, [mainTabs]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
