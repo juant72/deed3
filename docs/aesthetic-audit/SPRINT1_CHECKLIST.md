@@ -37,9 +37,9 @@
   - Loader/Spinner
 - [x] Migrar Header/NavBar al nuevo sistema de diseño
 - [x] Migrar Footer
-- [ ] Migrar Card de propiedad/inmueble
-- [ ] Migrar Modal/Dialog
-- [ ] Migrar Formulario de login/autenticación
+- [x] Migrar Card de propiedad/inmueble
+- [x] Migrar Modal/Dialog
+- [x] Migrar Formulario de login/autenticación
 - [ ] Migrar Listado de propiedades (PropertyList)
 - [ ] Migrar Loader/Spinner
 
@@ -50,5 +50,5 @@ _Actualizar este checklist conforme avance el sprint._
 **Última actualización:** 30/06/2025
 
 **Notas:**
-- Footer migrado y validado visualmente.
-- Siguiente paso: migrar Card de propiedad/inmueble al nuevo sistema de diseño.
+- Formulario de login migrado e integrado.
+- Siguiente paso: migrar Listado de propiedades (PropertyList) al nuevo sistema de diseño.

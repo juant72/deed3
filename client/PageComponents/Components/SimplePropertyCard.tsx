@@ -28,9 +28,9 @@ const SimplePropertyCard: React.FC<SimplePropertyCardProps> = ({ property, index
       <div className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-blue-400/50 transition-all duration-300 group-hover:transform group-hover:scale-105">
         <div className="relative">
           <Link href={`/detail?id=${property.id}`} className="block">
-            <img 
-              src={property.images?.[0] || '/portfolio/portfolio-01.jpg'} 
-              alt={property.title || 'Property'} 
+            <img
+              src={property.images?.[0] || '/portfolio/portfolio-01.jpg'}
+              alt={property.title || 'Property'}
               className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
@@ -38,13 +38,13 @@ const SimplePropertyCard: React.FC<SimplePropertyCardProps> = ({ property, index
               }}
             />
           </Link>
-          
+
           <div className="absolute top-4 right-4">
             <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
               {property.category}
             </span>
           </div>
-          
+
           {property.isActive && (
             <div className="absolute top-4 left-4">
               <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">
@@ -53,7 +53,7 @@ const SimplePropertyCard: React.FC<SimplePropertyCardProps> = ({ property, index
             </div>
           )}
         </div>
-        
+
         <div className="p-6">
           <div className="mb-4">
             <h6 className="text-white font-bold text-lg mb-2 line-clamp-1">
@@ -63,14 +63,14 @@ const SimplePropertyCard: React.FC<SimplePropertyCardProps> = ({ property, index
               {property.description}
             </p>
           </div>
-          
+
           <div className="flex items-center text-gray-400 text-sm mb-4">
             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
             </svg>
             <span className="truncate">{property.location}</span>
           </div>
-          
+
           <div className="flex items-center justify-between mb-4">
             <div className="flex flex-col">
               <span className="text-gray-400 text-xs">Price</span>
@@ -85,7 +85,7 @@ const SimplePropertyCard: React.FC<SimplePropertyCardProps> = ({ property, index
               </span>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-3">
             <Link
               href={`/detail?id=${property.id}`}
