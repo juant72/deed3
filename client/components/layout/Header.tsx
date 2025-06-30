@@ -272,19 +272,19 @@ const Header: React.FC = () => {
                           </li>
                         </ul>
                         <div className="mb-4">
-                          <a className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 text-center block" href="/connect">
+                          <Link href="/connect" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 text-center block">
                             Add Your More Funds
-                          </a>
+                          </Link>
                         </div>
                         <ul className="space-y-2">
                           <li>
-                            <a href="/author" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">My Profile</a>
+                            <Link href="/author" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">My Profile</Link>
                           </li>
                           <li>
-                            <a href="/edit-profile" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">Edit Profile</a>
+                            <Link href="/edit-profile" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">Edit Profile</Link>
                           </li>
                           <li>
-                            <a href="/connect" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">Manage funds</a>
+                            <Link href="/connect" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 rounded transition-colors">Manage funds</Link>
                           </li>
                         </ul>
                       </div>
@@ -312,7 +312,7 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between p-4 border-b border-white/10">
             <div className="flex items-center">
               <Link href="/">
-                <img src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" />
+                <Image src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" width={32} height={32} />
               </Link>
             </div>
             <div>
@@ -324,30 +324,30 @@ const Header: React.FC = () => {
           <nav className="flex-1 p-4">
             <ul className="space-y-4">
               <li>
-                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/">
+                <Link className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className="block text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
+                <Link href="/about" className="block text-gray-300 hover:text-blue-400 transition-colors font-medium">About</Link>
               </li>
               <li>
-                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/explor">
+                <Link className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/explor">
                   Explore
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/">
+                <Link className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/">
                   Pages
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/blog">
+                <Link className="block text-gray-300 hover:text-blue-400 transition-colors font-medium" href="/blog">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="block text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
+                <Link href="/contact" className="block text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</Link>
               </li>
             </ul>
           </nav>

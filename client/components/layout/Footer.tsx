@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
@@ -10,13 +11,13 @@ const Footer: React.FC = () => {
             <div className="space-y-6">
               <div>
                 <div className="mb-6">
-                  <a href="/" className="flex items-center space-x-3">
+                  <Link href="/" className="flex items-center space-x-3">
                     <Image src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" width={32} height={32} />
                     <div className="flex flex-col">
                       <span className="text-white text-lg font-bold leading-none">Encrypia</span>
                       <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
                     </div>
-                  </a>
+                  </Link>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
                   Encrypia Deeds3: The institutional-grade platform for Web3 real estate tokenization and investment.
