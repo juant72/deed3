@@ -2,7 +2,7 @@ import React from "react";
 import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import Layout from "../components/layout/Layout";
 import {
   Banner,
   Action,
@@ -13,16 +13,13 @@ import {
 
 const About: React.FC = () => {
   return (
-    <div className="template-color-1 nft-body-connect">
-      <Header />
+    <Layout>
       <Banner />
       <Action />
       <Blog />
       <Quote />
       <Statistick />
-      <Footer />
-      <Copyright />
-    </div>
+    </Layout>
   );
 };
 

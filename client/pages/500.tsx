@@ -1,13 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-//INTERNAL IMPORT
-import { Header, Footer, Copyright } from "../PageComponents/Components";
-
 const ServerError: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
-      <Header />
       <div className="rn-not-found-area rn-section-gapTop">
         <div className="container">
           <div className="row">
@@ -24,8 +20,6 @@ const ServerError: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
-      <Copyright />
     </div>
   );
 };

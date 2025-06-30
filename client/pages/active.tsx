@@ -2,8 +2,8 @@ import React, { useEffect, useState, useCallback } from "react";
 import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
+import { Header, Footer, Copyright } from "../components/layout";
 import { Activity } from "../PageComponents/ActivityPage";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
 import { useStateContext } from "../context";
 
 interface RealEstateProperty {
@@ -41,14 +41,11 @@ const Active: React.FC = () => {
 
   return (
     <div className="template-color-1 nft-body-connect">
-      <Header />
       <Activity
         properties={properties}
         totalReviews={totalReviews}
         popular={getHighestRatedProduct}
       />
-      <Footer />
-      <Copyright />
     </div>
   );
 };
