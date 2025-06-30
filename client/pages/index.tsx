@@ -3,17 +3,16 @@ import type { NextPage } from "next";
 
 ///INTERNAL IMPORT
 import {
-    Header,
     ModernHero,
     TokenomicsSection,
-    MobileNavigation,
-    SearchAndFilters,
-    Service,
-    Product,
-    Collection,
-    Footer,
-    Copyright,
 } from "../PageComponents/Components";
+
+import SearchAndFilters from "../PageComponents/Components/SearchAndFilters";
+import Service from "../PageComponents/Components/Service";
+import Product from "../PageComponents/Components/Product";
+import Collection from "../PageComponents/Components/Collection";
+
+import { Header, Footer, Copyright, MobileNavigation } from "../components/layout";
 
 import LiveFixed from "../PageComponents/Components/LiveFixed";
 

@@ -1,12 +1,4 @@
-
-import Header from "./Header";
-import Footer from "./Footer";
-import Copyright from "./Copyright";
-import MobileNavigation from "./MobileNavigation";
-
-export {
-    Header,
-    Footer,
-    Copyright,
-    MobileNavigation
-}
+export { default as Header } from './Header';
+export { default as Footer } from './Footer';
+export { default as Copyright } from './Copyright';
+export { default as MobileNavigation } from './MobileNavigation';
