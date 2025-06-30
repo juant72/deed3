@@ -11,7 +11,7 @@ import {
   Footer,
   Copyright,
 } from "../components/layout";
-import { Loader, GlobalLoder } from "../PageComponents/Components";
+import { Loader } from "../PageComponents/Components";
 import { useStateContext } from "../context";
 
 const categories = [
@@ -123,38 +123,34 @@ const Update: React.FC = () => {
     <div className="template-color-1 nft-body-connect">
       <Header />
       <CreateOne title="Update Property" />
-      <div className="creat-collection-area pt--80">
-        <div className="container">
-          <div className="row g-5 ">
-            <div className="col-lg-3 offset-1 ml_md--0 ml_sm--0">
-              <div className="collection-single-wized banner">
-                <label className="title required">Logo image</label>
-
-                <div className="create-collection-input logo-image">
-                  <div className="logo-c-image logo">
+      <div className="pt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-1">
+              <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <label className="block text-lg font-medium text-white mb-2">Logo image</label>
+                <div className="flex flex-col items-center">
+                  <div className="relative w-48 h-48 rounded-full overflow-hidden">
                     <Image
                       id="rbtinput1"
                       src={diplayImg || "/profile/profile-01.jpg"}
                       alt="Profile-NFT"
                       width={200}
                       height={200}
-                      style={{ objectFit: 'cover' }}
+                      className="object-cover"
                     />
-                    <label htmlFor="fatima" title="No File Choosen">
-                      <span className="text-center color-white">
-                        <i className="feather-edit"></i>
-                      </span>
+                    <label htmlFor="fatima" className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white">
+                      <i className="feather-edit"></i>
                     </label>
                   </div>
-                  <div className="button-area">
-                    <div className="brows-file-wrapper">
-                      <input
-                        name="fatima"
-                        id="fatima"
-                        type="file"
-                        onChange={retrieveFile}
-                      />
-                    </div>
+                  <div className="mt-4">
+                    <input
+                      name="fatima"
+                      id="fatima"
+                      type="file"
+                      onChange={retrieveFile}
+                      className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                    />
                   </div>
                 </div>
                 {file && (
@@ -348,7 +344,7 @@ const Update: React.FC = () => {
       </div>
       <Footer />
       <Copyright />
-      {loader && <GlobalLoder />}
+      {loader && <Loader />}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import axios from "axios";
 
 //INTERNAL IMPORT
-import { Loader, GlobalLoder } from "../Components";
+import { Loader } from "../Components";
 import { CreateThree } from ".";
 import { useStateContext } from "../../context";
 import { checkIfImage } from "../../utils";
@@ -391,7 +391,7 @@ const CreateTwo: React.FC = () => {
         </div>
       </div>
       <CreateThree data={form} handleSubmit={handleSubmit} />
-      {loader && <GlobalLoder />}
+      {loader && <Loader />}
     </>
   );
 };
