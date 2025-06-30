@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import { useStateContext } from "../../context";
-import AdvancedWalletConnect from "./AdvancedWalletConnect";
+import AdvancedWalletConnect from "../../PageComponents/Components/AdvancedWalletConnect";
 
 const Header: React.FC = () => {
   const { currentAccount, connectWallet, userBlance } = useStateContext();
