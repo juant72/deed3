@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import FooterNew from "./FooterNew";
 
 const Footer: React.FC = () => {
   return (
@@ -175,4 +176,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default FooterNew;

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { RealEstateProperty } from "../../types/global";
+import PropertyCard from "../../components/property/PropertyCard";
 
 interface SimplePropertyCardProps {
   property: RealEstateProperty;
@@ -102,4 +103,4 @@ const SimplePropertyCard: React.FC<SimplePropertyCardProps> = ({ property, index
   );
 };
 
-export default SimplePropertyCard;
+export default PropertyCard;

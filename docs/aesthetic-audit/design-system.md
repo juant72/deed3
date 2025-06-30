@@ -397,6 +397,35 @@ UI Elements:
 
 ---
 
+# Breakpoints y Layout Global
+
+## Breakpoints recomendados (mobile-first)
+
+- `xs`: 475px (móviles pequeños)
+- `sm`: 640px (móviles estándar)
+- `md`: 768px (tablets)
+- `lg`: 1024px (laptops)
+- `xl`: 1280px (desktops)
+- `2xl`: 1536px (pantallas grandes)
+
+Estos breakpoints están alineados con los estándares de diseño 2025 y permiten una experiencia fluida en todos los dispositivos.
+
+## Layout global
+- Usar utilidades de Tailwind para grid y flexbox.
+- Contenedores centrados y padding responsivo (`container`, `px-4`, `md:px-8`, etc).
+- Grid de 8px para espaciados y consistencia visual.
+- Evitar estilos legacy y priorizar tokens/utilidades del sistema de diseño.
+
+**Recomendación:**
+- Auditar y limpiar estilos antiguos en `style.css`.
+- Asegurar que todos los layouts principales usen los breakpoints y utilidades documentados.
+
+---
+
+_Para detalles técnicos, ver `tailwind.config.js` y `design-tokens.ts`._
+
+---
+
 ## ♿ ACCESIBILIDAD
 
 ### Contrast Ratios

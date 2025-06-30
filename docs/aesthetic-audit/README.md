@@ -7,6 +7,19 @@
 
 ---
 
+# SPRINT 1: Fundamentos en marcha
+
+- Se han creado y ampliado los tokens de diseño en `client/lib/design-tokens.ts` (paleta extendida, tipografía responsiva, espaciados, radios y sombras).
+- Se han implementado los componentes base (`Button`, `Input`, `Card`) en `client/components/ui/` siguiendo el nuevo sistema de diseño.
+- Se documentaron las guidelines de uso en `COMPONENTS_GUIDELINES.md`.
+- Se añadieron roles y atributos ARIA en los componentes base para accesibilidad.
+- Se validó accesibilidad básica con axe y Lighthouse: sin errores críticos en los componentes base.
+- Se revisaron y documentaron los breakpoints y layout global mobile-first (ver checklist y design-system.md).
+- Checklist de implementación actualizado en `SPRINT1_CHECKLIST.md`.
+- Próximos pasos: preparar estructura PWA y migrar componentes core prioritarios.
+
+---
+
 ## 📋 ÍNDICE DE DOCUMENTOS
 
 ### 1. 📊 [INFORME PRINCIPAL DE AUDITORÍA](./AESTHETIC_AUDIT_REPORT.md)

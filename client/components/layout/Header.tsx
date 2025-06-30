@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useStateContext } from "../../context";
 import AdvancedWalletConnect from "../../PageComponents/Components/AdvancedWalletConnect";
 
+import HeaderNew from "./HeaderNew";
+
 const Header: React.FC = () => {
   const { currentAccount, userBlance } = useStateContext();
 
@@ -357,4 +359,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default HeaderNew;
