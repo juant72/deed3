@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Menu, 
-  X, 
-  Home, 
-  Search, 
-  TrendingUp, 
-  User, 
-  Bell, 
+import {
+  Menu,
+  X,
+  Home,
+  Search,
+  TrendingUp,
+  User,
+  Bell,
   Settings,
   LogOut,
   Wallet,
@@ -22,7 +22,7 @@ import { useStateContext } from '../../context';
 const MobileNavigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
-  const [notifications, setNotifications] = useState(3);
+  const [notifications] = useState(3);
   const { currentAccount } = useStateContext();
 
   const mainTabs = [
@@ -50,6 +50,7 @@ const MobileNavigation: React.FC = () => {
     if (tab) {
       setActiveTab(tab.id);
     }
+    // mainTabs is static and does not change, so it is safe to omit it from dependencies.
   }, []);
 
   const toggleMenu = () => {
@@ -69,14 +70,13 @@ const MobileNavigation: React.FC = () => {
           {mainTabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
-            
+
             return (
               <Link key={tab.id} href={tab.href}>
                 <motion.button
                   onClick={() => handleTabClick(tab.id)}
-                  className={`flex flex-col items-center space-y-1 px-3 py-2 transition-colors ${
-                    isActive ? 'text-blue-400' : 'text-gray-500'
-                  }`}
+                  className={`flex flex-col items-center space-y-1 px-3 py-2 transition-colors ${isActive ? 'text-blue-400' : 'text-gray-500'
+                    }`}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="relative">

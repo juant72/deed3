@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const Footer: React.FC = () => {
               <div>
                 <div className="mb-6">
                   <a href="/" className="flex items-center space-x-3">
-                    <img src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" />
+                    <Image src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" width={32} height={32} />
                     <div className="flex flex-col">
                       <span className="text-white text-lg font-bold leading-none">Encrypia</span>
                       <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
@@ -37,7 +38,7 @@ const Footer: React.FC = () => {
                     Subscribe
                   </button>
                 </div>
-                <p className="text-gray-500 text-sm mt-3">Email is safe. We don't spam.</p>
+                <p className="text-gray-500 text-sm mt-3">Email is safe. We don&apos;t spam.</p>
               </div>
             </div>
           </div>
@@ -107,10 +108,12 @@ const Footer: React.FC = () => {
                 <li className="flex items-center space-x-3">
                   <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                     <a href="product-details.html">
-                      <img
+                      <Image
                         src="/portfolio/portfolio-01.jpg"
                         alt="Product Images"
                         className="w-full h-full object-cover"
+                        width={64}
+                        height={64}
                       />
                     </a>
                   </div>
@@ -125,10 +128,12 @@ const Footer: React.FC = () => {
                 <li className="flex items-center space-x-3">
                   <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                     <a href="product-details.html">
-                      <img
+                      <Image
                         src="/portfolio/portfolio-02.jpg"
                         alt="Product Images"
                         className="w-full h-full object-cover"
+                        width={64}
+                        height={64}
                       />
                     </a>
                   </div>
@@ -143,10 +148,12 @@ const Footer: React.FC = () => {
                 <li className="flex items-center space-x-3">
                   <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                     <a href="product-details.html">
-                      <img
+                      <Image
                         src="/portfolio/portfolio-03.jpg"
                         alt="Product Images"
                         className="w-full h-full object-cover"
+                        width={64}
+                        height={64}
                       />
                     </a>
                   </div>
