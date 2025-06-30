@@ -6,7 +6,7 @@ import {
   CreateOne,
   CreateTwo,
 } from "../PageComponents/CreatePage";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
 
 const Create: React.FC = () => {
   return (

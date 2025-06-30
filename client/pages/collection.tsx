@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { Title, Collection } from "../PageComponents/CollectionPage";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
 import { useStateContext } from "../context";
 
 interface RealEstateProperty {
@@ -41,8 +41,8 @@ const CollectionPage: React.FC = () => {
     <div className="template-color-1 nft-body-connect">
       <Header />
       <Title title="Collection" />
-      <Collection 
-        category={properties} 
+      <Collection
+        category={properties}
         isLoading={isLoading}
       />
       <Footer />

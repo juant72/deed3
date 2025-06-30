@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { ConnectOne, ConnectTwo } from "../PageComponents/ConnectPage";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
 
 const Connect: React.FC = () => {
   return (

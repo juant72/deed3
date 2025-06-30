@@ -8,7 +8,7 @@ import {
   ContactThree,
   ContactTwo,
 } from "../PageComponents/ContactPage";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
 
 const Contact: React.FC = () => {
   return (

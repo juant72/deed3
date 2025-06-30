@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 
 //INTERNAL IMPORT
 import { BlogDetailOne, BlogDetailTwo } from "../PageComponents/BlogDetail";
-import { Header, Footer, Copyright } from "../PageComponents/Components";
+import { Header, Footer, Copyright } from "../components/layout";
 
 const BlogDetail: React.FC = () => {
   return (

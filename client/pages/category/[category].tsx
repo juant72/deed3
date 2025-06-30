@@ -4,7 +4,7 @@ import { GetServerSideProps } from "next";
 
 ///INTERNAL IMPORT
 import { Title, Collection } from "../../PageComponents/CollectionPage";
-import { Header, Footer, Copyright } from "../../PageComponents/Components";
+import { Header, Footer, Copyright } from "../../components/layout";
 
 //INTERNAL IMPORT
 import { useStateContext } from "../../context";
@@ -47,11 +47,11 @@ const Category: React.FC = () => {
   return (
     <div className="template-color-1 nft-body-connect">
       <Header />
-      <Title 
+      <Title
         title={`Category: ${query.category || 'All'}`}
       />
-      <Collection 
-        category={properties} 
+      <Collection
+        category={properties}
         isLoading={isLoading}
       />
       <Footer />
