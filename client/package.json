@@ -1,28 +1,106 @@
 {
-  "name": "client",
+  "name": "encrypia-deeds3",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:nolint": "next build --no-lint",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true npm run build",
+    "build:performance": "npm run type-check && npm run lint && npm run build",
+    "clean": "rm -rf .next node_modules/.cache",
+    "setup:reown": "node scripts/setup-reown.js",
+    "optimize:reown": "node scripts/optimize-reown.js",
+    "migrate:rainbowkit": "node scripts/migrate-to-rainbowkit.js",
+    "decision:wallet": "node scripts/wallet-decision-helper.js",
+    "debug:reown": "echo \"Run npm run dev, then use debug helpers in browser console\"",
+    "health:reown": "echo \"Check browser console for connection health status\"",
+    "test": "jest"
   },
   "dependencies": {
-    "@next/font": "13.4.1",
+    "@axe-core/react": "^4.10.2",
+    "@heroicons/react": "^2.2.0",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-select": "^2.2.5",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@rainbow-me/rainbowkit": "^2.2.8",
+    "@rainbow-me/rainbowkit-siwe-next-auth": "^0.5.0",
+    "@reown/appkit": "^1.7.11",
+    "@reown/appkit-adapter-wagmi": "^1.7.11",
+    "@tanstack/react-query": "^5.81.5",
     "axios": "^1.4.0",
-    "dotenv": "^16.4.5",
-    "dotenv-expand": "^11.0.6",
-    "ethers": "^5.7.2",
-    "next": "13.4.1",
-    "react": "18.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "17.0.0",
+    "dotenv-expand": "12.0.2",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "ethers": "^6.14.4",
+    "framer-motion": "^12.19.2",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.4",
+    "next-auth": "^4.24.11",
+    "next-pwa": "^5.6.0",
+    "react": "19.1.0",
     "react-countdown": "^2.3.5",
-    "react-dom": "18.2.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "19.1.0",
     "react-hot-toast": "^2.4.1",
-    "web3modal": "^1.9.7"
+    "react-intersection-observer": "^9.16.0",
+    "react-spring": "^10.0.1",
+    "siwe": "^3.0.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "^2.31.4",
+    "wagmi": "^2.15.6",
+    "workbox-webpack-plugin": "^7.3.0"
   },
   "devDependencies": {
-    "eslint": "9.8.0",
-    "eslint-config-next": "14.2.5"
+    "@eslint/js": "^9.30.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.7",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.18",
+    "eslint-config-next": "^15.3.4",
+    "jest": "^30.0.3",
+    "jest-environment-jsdom": "^30.0.2",
+    "pino-pretty": "^13.0.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "use-sync-external-store": "^1.2.2"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "19"
+      }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@reown/appkit",
+      "@tailwindcss/oxide",
+      "bufferutil",
+      "keccak",
+      "sharp",
+      "unrs-resolver",
+      "utf-8-validate"
+    ]
   }
 }

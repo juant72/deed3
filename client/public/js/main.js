@@ -569,6 +569,10 @@
                 if ($('body')) {
                     const e = document.querySelector('.cursor-inner'),
                         t = document.querySelector('.cursor-outer');
+                    
+                    // Check if cursor elements exist before using them
+                    if (!e || !t) return;
+                    
                     let n, i = 0,
                         o = !1;
                     window.onmousemove = function(s) {
@@ -675,7 +679,8 @@
 
 
         darkLight: function() {
-            var styleMode = document.querySelector('meta[name="theme-style-mode"]').content;
+            var themeMeta = document.querySelector('meta[name="theme-style-mode"]');
+            var styleMode = themeMeta ? themeMeta.content : '1'; // Default to '1' if meta tag doesn't exist
             var cookieKey = styleMode == 1 ? 'client_dark_mode_style_cookie' : 'client_light_mode_style_cookie';
             if (Cookies.get(cookieKey) == 'dark') {
                 $('body').removeClass('active-light-mode');

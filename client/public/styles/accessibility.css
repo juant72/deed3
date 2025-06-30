@@ -1,0 +1,177 @@
+/* Accessibility Styles for DEED3 */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-color: #000000;
+    --bg-color: #ffffff;
+    --link-color: #0000ff;
+    --border-color: #000000;
+  }
+  
+  .bg-slate-900, .bg-slate-800 {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+  }
+  
+  .text-white, .text-gray-300 {
+    color: var(--text-color) !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable Framer Motion animations */
+  .motion-safe\:animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* Enhanced focus styles */
+*:focus {
+  outline: 2px solid #4f46e5 !important;
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Ensure text remains readable */
+.text-opacity-50,
+.text-opacity-60,
+.text-opacity-70 {
+  opacity: 1 !important;
+}
+
+/* High contrast borders */
+@media (prefers-contrast: high) {
+  .border-white\/10,
+  .border-gray-200,
+  .border-slate-700 {
+    border-color: var(--border-color) !important;
+    border-width: 2px !important;
+  }
+}
+
+/* Ensure interactive elements are large enough */
+button,
+a,
+input,
+textarea,
+select {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Custom focus for wallet connection buttons */
+.wallet-connect-button:focus {
+  outline: 3px solid #10b981 !important;
+  outline-offset: 2px;
+}
+
+/* Property card accessibility */
+.property-card:focus-within {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Mobile navigation accessibility */
+.mobile-nav-item:focus {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  outline: 2px solid #3b82f6 !important;
+}
+
+/* Form field accessibility */
+.form-field:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Notification accessibility */
+.notification[role="alert"] {
+  border: 2px solid currentColor;
+  font-weight: 500;
+}
+
+/* Status indicators */
+.status-success::before {
+  content: "✓ ";
+  color: #10b981;
+  font-weight: bold;
+}
+
+.status-error::before {
+  content: "✗ ";
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.status-warning::before {
+  content: "⚠ ";
+  color: #f59e0b;
+  font-weight: bold;
+}
+
+/* Ensure color is not the only way to convey information */
+.text-green-500::after,
+.text-emerald-500::after {
+  content: " (success)";
+  font-size: 0.875rem;
+}
+
+.text-red-500::after {
+  content: " (error)";
+  font-size: 0.875rem;
+}
+
+.text-yellow-500::after {
+  content: " (warning)";
+  font-size: 0.875rem;
+}

@@ -1,0 +1,7 @@
+/* SAL (Scroll Animation Library) CSS - Placeholder */
+/* This file was created to prevent 404 errors during migration */
+/* Add actual SAL animations here if needed */
+
+.sal-animate {
+  transition: opacity 0.3s ease;
+}

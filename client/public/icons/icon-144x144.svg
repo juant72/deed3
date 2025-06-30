@@ -1,0 +1,17 @@
+<svg width="144" height="144" viewBox="0 0 144 144" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="144" height="144" rx="16" fill="url(#bg)"/>
+  
+  <!-- House icon -->
+  <path d="M72 32L40 58V112H64V88H80V112H104V58L72 32Z" fill="white" stroke="white" stroke-width="2"/>
+  
+  <!-- DEED3 text -->
+  <text x="72" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">DEED3</text>
+</svg>

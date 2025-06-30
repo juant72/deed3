@@ -1,0 +1,291 @@
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useAccount, useBalance, useConnect, useDisconnect, useChainId, useSwitchChain } from 'wagmi';
+import { formatEther } from 'viem';
+
+const AdvancedWalletConnect = ({ onClose }) => {
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [connectionStep, setConnectionStep] = useState('wallet');
+  const [gasEstimate, setGasEstimate] = useState(null);
+  const [networkFees, setNetworkFees] = useState({});
+
+  const { address, isConnected } = useAccount();
+  const { data: balance } = useBalance({ address });
+  const { connect, connectors, error, isLoading, pendingConnector } = useConnect();
+  const { disconnect } = useDisconnect();
+  const chainId = useChainId();
+  const { switchChain, isLoading: isSwitchingNetwork } = useSwitchChain();
+
+  const supportedNetworks = [
+    { 
+      id: 137, 
+      name: 'Polygon', 
+      icon: '🟣', 
+      gasSymbol: 'MATIC',
+      avgGas: '0.001',
+      features: ['Low Fees', 'Fast Transactions', 'Eco-Friendly']
+    },
+    { 
+      id: 1, 
+      name: 'Ethereum', 
+      icon: '⟠', 
+      gasSymbol: 'ETH',
+      avgGas: '0.005',
+      features: ['Most Secure', 'Largest Ecosystem', 'DeFi Hub']
+    },
+    { 
+      id: 56, 
+      name: 'BSC', 
+      icon: '🟡', 
+      gasSymbol: 'BNB',
+      avgGas: '0.002',
+      features: ['Low Fees', 'Fast', 'Wide Adoption']
+    }
+  ];
+
+  const walletFeatures = [
+    { icon: '🔒', title: 'Bank-Level Security', desc: 'Military-grade encryption' },
+    { icon: '⚡', title: 'Instant Transactions', desc: 'Sub-second confirmations' },
+    { icon: '🌍', title: 'Multi-Chain Support', desc: '50+ blockchains supported' },
+    { icon: '💸', title: 'Gas Optimization', desc: 'Save up to 40% on fees' }
+  ];
+
+  const connectionSteps = [
+    { id: 'wallet', title: 'Choose Wallet', desc: 'Select your preferred wallet' },
+    { id: 'network', title: 'Select Network', desc: 'Choose blockchain network' },
+    { id: 'confirm', title: 'Confirm Connection', desc: 'Approve wallet connection' }
+  ];
+
+  useEffect(() => {
+    if (isConnected && address) {
+      setConnectionStep('connected');
+    }
+  }, [isConnected, address]);
+
+  const handleConnect = async (connector) => {
+    setIsConnecting(true);
+    try {
+      await connect({ connector });
+      setConnectionStep('network');
+    } catch (error) {
+      console.error('Connection failed:', error);
+    } finally {
+      setIsConnecting(false);
+    }
+  };
+
+  const handleNetworkSwitch = async (networkId) => {
+    if (switchChain) {
+      try {
+        await switchChain({ chainId: networkId });
+        setConnectionStep('confirm');
+      } catch (error) {
+        console.error('Network switch failed:', error);
+      }
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          className="bg-slate-800 rounded-3xl p-8 max-w-lg w-full border border-white/10 shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-bold text-white">
+                {connectionStep === 'connected' ? 'Wallet Connected' : 'Connect Wallet'}
+              </h2>
+              <p className="text-gray-400">
+                {connectionSteps.find(step => step.id === connectionStep)?.desc || 'Manage your wallet connection'}
+              </p>
+            </div>
+            <button 
+              onClick={onClose}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Connection Steps Progress */}
+          <div className="flex justify-between mb-8">
+            {connectionSteps.map((step, i) => (
+              <div key={step.id} className="flex items-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
+                  connectionStep === step.id ? 'bg-blue-600 text-white' :
+                  connectionSteps.findIndex(s => s.id === connectionStep) > i ? 'bg-emerald-600 text-white' :
+                  'bg-slate-700 text-gray-400'
+                }`}>
+                  {connectionSteps.findIndex(s => s.id === connectionStep) > i ? '✓' : i + 1}
+                </div>
+                {i < connectionSteps.length - 1 && (
+                  <div className={`w-12 h-1 mx-2 rounded transition-all ${
+                    connectionSteps.findIndex(s => s.id === connectionStep) > i ? 'bg-emerald-600' : 'bg-slate-700'
+                  }`} />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Step Content */}
+          {connectionStep === 'wallet' && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="space-y-4"
+            >
+              <h3 className="text-lg font-semibold text-white mb-4">Choose Your Wallet</h3>
+              {connectors.map((connector) => (
+                <button
+                  key={connector.id}
+                  onClick={() => handleConnect(connector)}
+                  disabled={!connector.ready || isConnecting}
+                  className="w-full flex items-center justify-between p-4 bg-slate-700/50 hover:bg-slate-700 rounded-xl border border-white/10 hover:border-blue-400/50 transition-all duration-300 group"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
+                      {connector.name[0]}
+                    </div>
+                    <div className="text-left">
+                      <div className="text-white font-medium">{connector.name}</div>
+                      <div className="text-gray-400 text-sm">
+                        {!connector.ready ? 'Not installed' : 'Ready to connect'}
+                      </div>
+                    </div>
+                  </div>
+                  {isConnecting && pendingConnector?.id === connector.id && (
+                    <div className="animate-spin w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full" />
+                  )}
+                </button>
+              ))}
+            </motion.div>
+          )}
+
+          {connectionStep === 'network' && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="space-y-4"
+            >
+              <h3 className="text-lg font-semibold text-white mb-4">Select Network</h3>
+              {supportedNetworks.map((network) => (
+                <button
+                  key={network.id}
+                  onClick={() => handleNetworkSwitch(network.id)}
+                  disabled={isSwitchingNetwork}
+                  className="w-full p-4 bg-slate-700/50 hover:bg-slate-700 rounded-xl border border-white/10 hover:border-blue-400/50 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">{network.icon}</span>
+                      <div className="text-left">
+                        <div className="text-white font-medium">{network.name}</div>
+                        <div className="text-gray-400 text-sm">~{network.avgGas} {network.gasSymbol} gas</div>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      {network.features.map((feature, i) => (
+                        <span key={i} className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded">
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </motion.div>
+          )}
+
+          {connectionStep === 'connected' && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center space-y-6"
+            >
+              <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">Successfully Connected!</h3>
+                <p className="text-gray-400">Your wallet is now connected to DEEDS3</p>
+              </div>
+
+              <div className="bg-slate-700/50 rounded-xl p-4 space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Address:</span>
+                  <span className="text-white font-mono">{address?.slice(0, 6)}...{address?.slice(-4)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Balance:</span>
+                  <span className="text-white">{balance ? `${parseFloat(formatEther(balance.value)).toFixed(4)} ${balance.symbol}` : 'Loading...'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Network:</span>
+                  <span className="text-white">{chainId ? `Chain ${chainId}` : 'Unknown'}</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <button 
+                  onClick={onClose}
+                  className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white py-3 px-6 rounded-xl font-medium transition-all duration-300"
+                >
+                  Start Trading
+                </button>
+                <button 
+                  onClick={() => disconnect()}
+                  className="bg-slate-700 hover:bg-slate-600 text-white py-3 px-6 rounded-xl font-medium transition-all duration-300"
+                >
+                  Disconnect
+                </button>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Features Footer */}
+          {connectionStep === 'wallet' && (
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <div className="grid grid-cols-2 gap-4">
+                {walletFeatures.map((feature, i) => (
+                  <div key={i} className="flex items-center space-x-2">
+                    <span className="text-xl">{feature.icon}</span>
+                    <div>
+                      <div className="text-white text-sm font-medium">{feature.title}</div>
+                      <div className="text-gray-400 text-xs">{feature.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Error Display */}
+          {error && (
+            <div className="mt-4 p-4 bg-red-600/20 border border-red-600/50 rounded-xl">
+              <p className="text-red-400 text-sm">{error.message}</p>
+            </div>
+          )}
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+export default AdvancedWalletConnect;

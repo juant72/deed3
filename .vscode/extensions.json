@@ -1,0 +1,41 @@
+{
+    "recommendations": [
+        // Essential for TypeScript/JavaScript development
+        "ms-vscode.vscode-typescript-next",
+        // GitHub Copilot (core AI assistance)
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        // Essential for React/Next.js
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        // Code quality (lightweight alternatives)
+        "dbaeumer.vscode-eslint",
+        "streetsidesoftware.code-spell-checker",
+        // Git integration (minimal)
+        "eamodio.gitlens",
+        // Utilities (performance-friendly)
+        "formulahendry.auto-close-tag",
+        "ms-vscode.vscode-json"
+    ],
+    "unwantedRecommendations": [
+        // Avoid heavy extensions that conflict with Copilot
+        "ms-python.python",
+        "ms-vscode.PowerShell",
+        "redhat.vscode-yaml",
+        "ms-vscode.sublime-keybindings",
+        "vscodevim.vim",
+        // Avoid duplicate functionality
+        "esbenp.prettier-vscode", // Using built-in TypeScript formatter
+        "ms-vscode.vscode-chrome-debug", // Using built-in debugging
+        "formulahendry.code-runner", // Can cause conflicts
+        // Avoid performance-heavy extensions
+        "ms-vscode.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-azuretools.vscode-azurefunctions",
+        // Avoid conflicting linters/formatters
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "hookyqr.beautify",
+        "HookyQR.beautify"
+    ]
+}
