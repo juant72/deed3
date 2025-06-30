@@ -29,11 +29,15 @@ describe('Header', () => {
         // Check for logo
         expect(screen.getByAltText('Encrypia Deeds3')).toBeInTheDocument();
 
-        // Check for navigation links
-        expect(screen.getByText('Home')).toBeInTheDocument();
-        expect(screen.getByText('About')).toBeInTheDocument();
-        expect(screen.getByText('Roadmap')).toBeInTheDocument();
-        expect(screen.getByText('Explore')).toBeInTheDocument();
-        expect(screen.getByText('Contact')).toBeInTheDocument();
+        // Check for navigation links (use getAllByText for potentially duplicated links)
+        expect(screen.getAllByText('Home')[0]).toBeInTheDocument();
+        expect(screen.getAllByText('About')[0]).toBeInTheDocument();
+        expect(screen.getByText('Roadmap')).toBeInTheDocument(); // This one is unique
+        expect(screen.getAllByText('Explore')[0]).toBeInTheDocument();
+        expect(screen.getAllByText('Contact')[0]).toBeInTheDocument();
     });
 });
+function expect(arg0: any) {
+    throw new Error('Function not implemented.');
+}
+

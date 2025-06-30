@@ -21,13 +21,13 @@ const Copyright: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-4">
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-blue-400 transition-colors">
                   <i className="feather-twitter"></i>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href="#" aria-label="Facebook" className="text-gray-400 hover:text-blue-400 transition-colors">
                   <i className="feather-facebook"></i>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href="#" aria-label="Instagram" className="text-gray-400 hover:text-blue-400 transition-colors">
                   <i className="feather-instagram"></i>
                 </a>
               </div>
