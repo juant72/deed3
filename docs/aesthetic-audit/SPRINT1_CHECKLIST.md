@@ -40,8 +40,8 @@
 - [x] Migrar Card de propiedad/inmueble
 - [x] Migrar Modal/Dialog
 - [x] Migrar Formulario de login/autenticación
-- [ ] Migrar Listado de propiedades (PropertyList)
-- [ ] Migrar Loader/Spinner
+- [x] Migrar Listado de propiedades (PropertyList)
+- [x] Migrar Loader/Spinner
 
 ---
 
@@ -50,5 +50,5 @@ _Actualizar este checklist conforme avance el sprint._
 **Última actualización:** 30/06/2025
 
 **Notas:**
-- Formulario de login migrado e integrado.
-- Siguiente paso: migrar Listado de propiedades (PropertyList) al nuevo sistema de diseño.
+- Loader/Spinner migrado e integrado.
+- Sprint completado exitosamente.

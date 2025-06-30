@@ -1,4 +1,5 @@
 import React from "react";
+import PropertyList from "../../components/property/PropertyList";
 
 const ExplorTwo: React.FC = () => {
   return (
@@ -1010,4 +1011,4 @@ const ExplorTwo: React.FC = () => {
   );
 };
 
-export default ExplorTwo;
+export default PropertyList;
