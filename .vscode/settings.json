@@ -1,0 +1,244 @@
+{
+  // ===========================================
+  // VS CODE CONFIGURATION FOR LARGE PROJECTS
+  // Optimized for Copilot Chat & AI Extensions
+  // ===========================================
+  // ========================================
+  // PERFORMANCE & MEMORY OPTIMIZATION
+  // ========================================
+  // Increase memory limits for large projects
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  "update.mode": "manual",
+  // Reduce file watching to prevent memory leaks
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.next/**": true,
+    "**/coverage/**": true,
+    "**/tmp/**": true,
+    "**/temp/**": true,
+    "**/.cache/**": true,
+    "**/logs/**": true,
+    "**/*.log": true,
+    "**/pnpm-lock.yaml": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true
+  },
+  // Exclude large directories from search
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/coverage": true,
+    "**/tmp": true,
+    "**/temp": true,
+    "**/.cache": true,
+    "**/logs": true,
+    "**/*.log": true,
+    "**/pnpm-lock.yaml": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true
+  },
+  // Limit file associations and language detection
+  "files.associations": {
+    "*.json": "jsonc",
+    "*.jsx": "javascriptreact",
+    "*.tsx": "typescriptreact"
+  },
+  // Disable heavy features
+  "editor.minimap.enabled": false,
+  "editor.hover.delay": 500,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.parameterHints.enabled": true,
+  "editor.wordBasedSuggestions": "off",
+  "editor.suggest.localityBonus": true,
+  "editor.suggest.shareSuggestSelections": false,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  // ========================================
+  // TYPESCRIPT & INTELLISENSE OPTIMIZATION
+  // ========================================
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.enabled": true,
+  "typescript.validate.enable": true,
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.preferences.useAliasesForRenames": false,
+  // Reduce TypeScript server memory usage
+  "typescript.tsserver.maxTsServerMemory": 8192,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "typescript.surveys.enabled": false,
+  "typescript.tsc.autoDetect": "off",
+  // JavaScript settings
+  "javascript.suggest.autoImports": true,
+  "javascript.validate.enable": true,
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  // ========================================
+  // COPILOT & AI OPTIMIZATION
+  // ========================================
+  // Copilot optimizations
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false
+  },
+  "github.copilot.advanced": {
+    "debug.overrideEngine": "",
+    "debug.testOverrideProxyUrl": "",
+    "debug.overrideProxyUrl": "",
+    "length": 500,
+    "temperature": ""
+  },
+  // Disable heavy language features that can conflict with Copilot
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.showToolbar": "onHover",
+  "diffEditor.experimental.showMoves": false,
+  "diffEditor.experimental.showEmptyDecorations": false,
+  // ========================================
+  // EDITOR OPTIMIZATIONS
+  // ========================================
+  // Visual optimizations
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.closeEmptyGroups": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  // Reduce animations
+  "workbench.reduceMotion": "on",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.smoothScrolling": false,
+  // File handling
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 5000,
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": false,
+  "files.trimFinalNewlines": false,
+  // ========================================
+  // TERMINAL & INTEGRATED TOOLS
+  // ========================================
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.gpuAcceleration": "off",
+  // Git optimizations
+  "git.enabled": true,
+  "git.autoRepositoryDetection": false,
+  "git.autoRefresh": false,
+  "git.autofetch": false,
+  "git.decorations.enabled": false,
+  "scm.diffDecorations": "none",
+  // ========================================
+  // EXTENSION SPECIFIC SETTINGS
+  // ========================================
+  // ESLint
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.codeAction.showDocumentation": {
+    "enable": false
+  },
+  // Prettier (using built-in TypeScript formatter since Prettier extension not available)
+  "editor.defaultFormatter": null,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  // Tailwind CSS
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "cva\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "cx\\(([^)]*)\\)",
+      "(?:'|\"|`)([^']*)(?:'|\"|`)"
+    ]
+  ],
+  // ========================================
+  // DEBUGGING & ERROR HANDLING
+  // ========================================
+  "debug.allowBreakpointsEverywhere": false,
+  "debug.openDebug": "neverOpen",
+  "debug.showInlineBreakpointCandidates": false,
+  "debug.toolBarLocation": "hidden",
+  // Error lens (if installed)
+  "errorLens.enabled": false,
+  "problems.showCurrentInStatus": false,
+  // ========================================
+  // NEXT.JS & REACT SPECIFIC
+  // ========================================
+  "emmet.includeLanguages": {
+    "typescript": "html",
+    "typescriptreact": "html",
+    "javascript": "html",
+    "javascriptreact": "html"
+  },
+  "emmet.triggerExpansionOnTab": false,
+  "emmet.showExpandedAbbreviation": "never",
+  // React snippets
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  // ========================================
+  // SECURITY & PRIVACY
+  // ========================================
+  "telemetry.telemetryLevel": "off",
+  "workbench.enableExperiments": false,
+  "npm.fetchOnlinePackageInfo": false,
+  // ========================================
+  // FINAL OPTIMIZATIONS
+  // ========================================
+  // Reduce CPU usage
+  "explorer.compactFolders": false,
+  "explorer.decorations.badges": false,
+  "explorer.decorations.colors": false,
+  "breadcrumbs.enabled": false,
+  // Disable unnecessary features
+  "workbench.tips.enabled": false,
+  "workbench.welcomePage.walkthroughs.openOnInstall": false,
+  "extensions.ignoreRecommendations": true,
+  "workbench.settings.editor": "json"
+}

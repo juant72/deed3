@@ -1,11 +1,62 @@
 {
-  "typescript.preferences.maxInlayHintLength": 30,
-  "typescript.suggest.maxSize": 5000,
+  // 🚀 ULTRA PERFORMANCE CONFIG FOR COPILOT CHAT STABILITY
+  // TypeScript optimizations for large projects
+  "typescript.preferences.maxInlayHintLength": 20,
+  "typescript.suggest.maxSize": 3000,
   "typescript.preferences.includePackageJsonAutoImports": "off",
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.preferences.includeCompletionsWithInsertText": false,
   "typescript.preferences.includeCompletionsForImportStatements": false,
-  
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "typescript.suggest.autoImports": false,
+  "typescript.suggest.paths": false,
+  "typescript.suggest.completeFunctionCalls": false,
+  "typescript.preferences.maximalWorkspaceSizeForInlayHints": 200,
+  // 💾 MEMORY OPTIMIZATIONS (Critical for Copilot)
+  "files.maxMemoryForLargeFilesMB": 16384,
+  "typescript.tsserver.maxTsServerMemory": 16384,
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  "extensions.ignoreRecommendations": true,
+  // 🎯 EDITOR PERFORMANCE (Disable heavy features)
+  "editor.maxTokenizationLineLength": 1000,
+  "editor.semanticHighlighting.enabled": false,
+  "editor.wordBasedSuggestions": "off",
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": false,
+  "editor.minimap.enabled": false,
+  "editor.folding": false,
+  "editor.glyphMargin": false,
+  "editor.lightbulb.enabled": "off",
+  "editor.parameterHints.enabled": false,
+  "editor.hover.enabled": false,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.tabCompletion": "off",
+  "editor.wordBasedSuggestionsMode": "allDocuments",
+  // 🔥 COPILOT OPTIMIZATIONS (Prevent memory leaks)
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "json": false,
+    "jsonc": false
+  },
+  "github.copilot.advanced": {
+    "listCount": 1,
+    "inlineSuggestCount": 1,
+    "length": 500
+  },
+  "github.copilot.chat.localeOverride": "en",
+  "github.copilot.chat.welcomeMessage": "never",
+  // 📁 FILE WATCHING (Reduce I/O load)
   "files.watcherExclude": {
     "**/node_modules/**": true,
     "**/.git/**": true,
@@ -15,9 +66,11 @@
     "**/coverage/**": true,
     "**/tmp/**": true,
     "**/.cache/**": true,
-    "**/*.log": true
+    "**/*.log": true,
+    "**/target/**": true,
+    "**/.vscode/**": true,
+    "**/public/**": true
   },
-  
   "search.exclude": {
     "**/node_modules": true,
     "**/dist": true,
@@ -26,27 +79,83 @@
     "**/coverage": true,
     "**/tmp": true,
     "**/.cache": true,
-    "**/*.log": true
+    "**/*.log": true,
+    "**/target": true,
+    "**/public": true
   },
-  
+  "files.watcherInclude": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  // 🛠️ TYPESCRIPT SERVER OPTIMIZATIONS
+  "typescript.tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "fixedPollingInterval",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": [
+      "**/node_modules",
+      "**/.git",
+      "**/.next",
+      "**/dist",
+      "**/build"
+    ]
+  },
+  // 🎨 WORKBENCH OPTIMIZATIONS (Reduce UI load)
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.enableExperiments": false,
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 5,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.activityBar.visible": false,
+  "workbench.statusBar.visible": true,
+  "workbench.sideBar.location": "right",
+  // 🔧 GIT OPTIMIZATIONS (Reduce background tasks)
+  "git.enabled": true,
+  "git.autorefresh": false,
+  "git.autofetch": false,
+  "git.autoStash": false,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": false,
+  "git.fetchOnPull": false,
+  "git.pruneOnFetch": false,
+  "git.showProgress": false,
+  // 🖥️ TERMINAL OPTIMIZATIONS
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.gpuAcceleration": "off",
+  "terminal.integrated.renderer": "dom",
+  "terminal.integrated.fontFamily": "Consolas",
+  "terminal.integrated.fontSize": 12,
+  // 📊 TELEMETRY & PRIVACY (Reduce network calls)
+  "telemetry.telemetryLevel": "off",
+  "update.mode": "none",
+  "npm.fetchOnlinePackageInfo": false,
+  // 🔍 SEARCH OPTIMIZATIONS
+  "search.useIgnoreFiles": true,
+  "search.useGlobalIgnoreFiles": true,
+  "search.followSymlinks": false,
+  "search.smartCase": false,
+  // 📝 FILE ASSOCIATIONS
   "files.associations": {
     "*.json": "jsonc"
   },
-  
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "typescript.suggest.autoImports": false,
-  "typescript.suggest.paths": false,
-  "typescript.suggest.completeFunctionCalls": false,
-  
-  "editor.maxTokenizationLineLength": 2000,
-  "editor.semanticHighlighting.enabled": false,
-  
-  "extensions.autoUpdate": false,
-  "extensions.autoCheckUpdates": false,
-  
-  "files.maxMemoryForLargeFilesMB": 4096,
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
-  
-  "workbench.settings.enableNaturalLanguageSearch": false,
-  "workbench.enableExperiments": false
+  // ⚡ EXPERIMENTAL PERFORMANCE FLAGS
+  "typescript.experimental.aiCodeActions": false,
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
+  "typescript.suggest.includeCompletionsForImportStatements": false,
+  "typescript.preferences.includeCompletionsWithSnippetText": false,
+  // 🧠 INTELLISENSE LIMITS (Critical for stability)
+  "typescript.inlayHints.parameterNames.enabled": "none",
+  "typescript.inlayHints.variableTypes.enabled": false,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+  // 🎯 FINAL PERFORMANCE TWEAKS
+  "problems.maxNumberOfProblems": 100,
+  "outline.problems.enabled": false,
+  "breadcrumbs.enabled": false,
+  "debug.console.fontSize": 12,
+  "debug.console.lineHeight": 16
 }

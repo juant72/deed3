@@ -29,7 +29,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
   // Simple error suppression to prevent extension and dev warnings from cluttering console
   React.useEffect(() => {
     if (typeof window === 'undefined' || process.env.NODE_ENV === 'production') return;
-    
+
     const originalError = console.error;
     const suppressPatterns = [
       'Lit is in dev mode',
@@ -38,13 +38,13 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
       'moz-extension:',
       'Maximum update depth exceeded'
     ];
-    
+
     console.error = (...args) => {
       const message = args.join(' ');
       if (suppressPatterns.some(pattern => message.includes(pattern))) return;
       originalError.apply(console, args);
     };
-    
+
     return () => {
       console.error = originalError;
     };
@@ -58,37 +58,37 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
       },
     },
   }), []);
-  
+
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes, viewport-fit=cover" />
       </Head>
-      
-      {/* Simplified without ClientOnly wrapper for debugging */}
-      <WagmiProvider config={wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
-          <SessionProvider session={session || null}>
-            <RainbowKitSiweNextAuthProvider>
-              <RainbowKitProvider 
-                theme={rainbowKitTheme}
-                initialChain={mainnet}
-                showRecentTransactions={true}
-                coolMode={false}
-              >
-                <StateContextProvider>
+
+      {/* Fixed: Keep StateContextProvider but remove problematic nested providers */}
+      <StateContextProvider>
+        <WagmiProvider config={wagmiConfig}>
+          <QueryClientProvider client={queryClient}>
+            <SessionProvider session={session || null}>
+              <RainbowKitSiweNextAuthProvider>
+                <RainbowKitProvider
+                  theme={rainbowKitTheme}
+                  initialChain={mainnet}
+                  showRecentTransactions={true}
+                  coolMode={false}
+                >
                   <Component {...pageProps} />
                   <Toaster />
-                </StateContextProvider>
-              </RainbowKitProvider>
-            </RainbowKitSiweNextAuthProvider>
-          </SessionProvider>
-        </QueryClientProvider>
-      </WagmiProvider>
+                </RainbowKitProvider>
+              </RainbowKitSiweNextAuthProvider>
+            </SessionProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
+      </StateContextProvider>
 
       {/* Modern React components have replaced jQuery functionality */}
       {/* Keeping only essential non-jQuery scripts */}
-      
+
       {/* Core vendor scripts (no jQuery dependencies) */}
       <Script src="/js/vendor/modernizer.min.js" strategy="lazyOnload" />
       <Script src="/js/vendor/feather.min.js" strategy="lazyOnload" />
@@ -97,7 +97,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
       <Script src="/js/vendor/js.cookie.js" strategy="lazyOnload" />
       <Script src="/js/vendor/vanilla.tilt.js" strategy="lazyOnload" />
       <Script src="/js/vendor/web3.min.js" strategy="lazyOnload" />
-      
+
       {/* Note: jQuery and plugins removed - replaced with React components:
            - Slick carousel → Embla Carousel (components/ui/carousel.tsx)
            - jQuery Appear → Framer Motion (components/ui/animate-on-scroll.tsx) 
