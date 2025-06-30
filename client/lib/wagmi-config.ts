@@ -4,6 +4,9 @@ import { metaMask, walletConnect, coinbaseWallet } from 'wagmi/connectors';
 
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
+// Prevent multiple WalletConnect initializations
+let walletConnectInitialized = false;
+
 // Get the correct base URL for the current environment
 const getBaseUrl = () => {
   if (typeof window !== 'undefined') {
@@ -20,9 +23,9 @@ export const wagmiConfig = createConfig({
   chains: [mainnet, polygon, arbitrum],
   connectors: [
     metaMask(),
-    // Only include WalletConnect if we have a valid project ID
-    ...(projectId && projectId !== 'demo' ? [
-      walletConnect({ 
+    // Only include WalletConnect if we have a valid project ID and it's not already initialized
+    ...(projectId && projectId !== 'demo' && !walletConnectInitialized ? [
+      walletConnect({
         projectId,
         metadata: {
           name: "Deeds3 - Real Estate NFT",
@@ -46,3 +49,5 @@ export const wagmiConfig = createConfig({
   ssr: false,
   multiInjectedProviderDiscovery: false,
 });
+
+walletConnectInitialized = true;
