@@ -11,8 +11,8 @@ jest.mock('../../context', () => ({
 // Mock next/link
 jest.mock('next/link', () => {
     return ({ children, href }: { children: React.ReactNode, href: string }) => {
-        return <a href={href}>{children}</a>
-    }
+        return <a href={href}>{children}</a>;
+    };
 });
 
 describe('Header', () => {
@@ -37,7 +37,4 @@ describe('Header', () => {
         expect(screen.getAllByText('Contact')[0]).toBeInTheDocument();
     });
 });
-function expect(arg0: any) {
-    throw new Error('Function not implemented.');
-}
 
