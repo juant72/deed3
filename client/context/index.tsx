@@ -2,7 +2,6 @@ import React, { useEffect, useState, createContext, useContext, ReactNode, useMe
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
 import toast from "react-hot-toast";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 import {
   PINATA_API_KEY,
@@ -16,12 +15,12 @@ import {
 import { AppContextType, RealEstateProperty, Review } from "../types/global";
 
 // Import mock data for development
-import { 
-  mockGetAllRealEstate, 
-  mockGetUserProperties, 
+import {
+  mockGetAllRealEstate,
+  mockGetUserProperties,
   mockGetPropertyReviews,
   mockTotalReviews,
-  mockAverageRating 
+  mockAverageRating
 } from "../lib/mock-data";
 
 // Development mode flag
@@ -85,18 +84,18 @@ const connectingWithSmartContract = async (client: any): Promise<ethers.Contract
 
     // Create ethers provider from wagmi client
     const provider = new ethers.BrowserProvider(client);
-    
+
     if (!provider) {
       throw new Error("No provider found");
     }
 
     const signer = await provider.getSigner();
-    
+
     if (!signer) {
       throw new Error("No valid signer");
     }
 
-    const contract = FETCH_CONTRACT(signer);    
+    const contract = FETCH_CONTRACT(signer);
 
     // Provider connected successfully
     return contract;
@@ -110,7 +109,7 @@ const connectingWithSmartContract = async (client: any): Promise<ethers.Contract
 const fetchAccountBalance = async (address: string): Promise<string | null> => {
   try {
     if (!address) return null;
-    
+
     if (typeof window !== 'undefined' && window.ethereum) {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const balance = await provider.getBalance(address);
@@ -162,7 +161,7 @@ const connectWallet = async (): Promise<string | undefined> => {
     if (accounts && accounts.length > 0) {
       return accounts[0];
     }
-    
+
     return undefined;
   } catch (error: any) {
     // Handle user rejection gracefully
@@ -170,7 +169,7 @@ const connectWallet = async (): Promise<string | undefined> => {
       // User cancelled the connection request
       return undefined;
     }
-    
+
     // For other errors, don't log to avoid extension noise
     return undefined;
   }
@@ -232,7 +231,7 @@ const createRealEstate = async (
 ): Promise<any> => {
   try {
     const contract = await connectingWithSmartContract(client);
-    
+
     const propertyPrice = ethers.parseUnits(price.toString(), "ether");
 
     const transaction = await (contract as any).createRealEstate(
@@ -248,7 +247,7 @@ const createRealEstate = async (
     await transaction.wait();
     // Debug log removed
     toast.success("Property created successfully!");
-    
+
     return transaction;
   } catch (error) {
     // Debug log removed
@@ -274,7 +273,7 @@ const getAllRealEstate = async (): Promise<RealEstateProperty[]> => {
     const contract = FETCH_CONTRACT(provider);
 
     const properties = await (contract as any).getAllRealEstate();
-    
+
     const parsedProperties: RealEstateProperty[] = properties.map((property: any, i: number) => ({
       id: i.toString(),
       price: ethers.formatEther(property.price.toString()),
@@ -304,7 +303,7 @@ const getAllRealEstate = async (): Promise<RealEstateProperty[]> => {
 const buyRealEstate = async (index: number, price: number, client: any): Promise<any> => {
   try {
     const contract = await connectingWithSmartContract(client);
-    
+
     const propertyPrice = ethers.parseUnits(price.toString(), "ether");
 
     const transaction = await (contract as any).buyRealEstate(index, {
@@ -314,7 +313,7 @@ const buyRealEstate = async (index: number, price: number, client: any): Promise
     await transaction.wait();
     // Debug log removed
     toast.success("Property purchased successfully!");
-    
+
     return transaction;
   } catch (error) {
     // Debug log removed
@@ -327,7 +326,7 @@ const buyRealEstate = async (index: number, price: number, client: any): Promise
 const updatePrice = async (index: number, newPrice: number, client: any): Promise<any> => {
   try {
     const contract = await connectingWithSmartContract(client);
-    
+
     const propertyPrice = ethers.parseUnits(newPrice.toString(), "ether");
 
     const transaction = await (contract as any).updatePrice(index, propertyPrice);
@@ -335,7 +334,7 @@ const updatePrice = async (index: number, newPrice: number, client: any): Promis
     await transaction.wait();
     // Debug log removed
     toast.success("Price updated successfully!");
-    
+
     return transaction;
   } catch (error) {
     // Debug log removed
@@ -354,7 +353,7 @@ const updateRealEstate = async (index: number, client: any): Promise<any> => {
     await transaction.wait();
     // Debug log removed
     toast.success("Property status updated successfully!");
-    
+
     return transaction;
   } catch (error) {
     // Debug log removed
@@ -473,14 +472,14 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
       // Production logic
       const allProperties = await getAllRealEstate();
       const currentAddress = userAddress || address;
-      
+
       if (!currentAddress) return [];
-      
+
       // Filter properties owned by the user
       const userProperties = allProperties.filter(
         property => property.owner?.toLowerCase() === currentAddress.toLowerCase()
       );
-      
+
       return userProperties;
     } catch (error) {
       // If Web3 fails in development, use mock data
@@ -522,10 +521,10 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
     try {
       // Only proceed if user explicitly requests connection
       const account = await connectWallet();
-      
+
       if (account) {
         setAddress(account);
-        
+
         // Fetch balance only after successful connection
         const balance = await fetchAccountBalance(account);
         setAccountBalance(balance || "");
@@ -550,7 +549,7 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
     accountBalance,
     currentAccount: address,
     userBlance: accountBalance,
-    
+
     // Functions
     connectWallet: connectWalletFunction,
     disconnectWallet,
@@ -572,15 +571,15 @@ export const StateContextProvider: React.FC<StateContextProviderProps> = ({ chil
     updateRealEstate,
     connectingWithSmartContract,
     fetchData,
-    
+
     // Contract info
     REAL_ESTATE_ADDRESS: REAL_ESTATE_ADDRESS || "",
     REAL_ESTATE_ABI,
-    
+
     // IPFS config
     PINATA_API_KEY: PINATA_API_KEY || "",
     PINATA_SECRECT_KEY: PINATA_SECRECT_KEY || "",
-    
+
     // UI state
     isLoading: loader,
     error: null,

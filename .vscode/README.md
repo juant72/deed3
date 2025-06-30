@@ -68,21 +68,75 @@ This folder contains optimizations specifically designed to prevent VS Code cras
 
 ## 🚀 Quick Start
 
-### Option 1: Automatic Optimization (Recommended)
+### ✅ **MÉTODO SIMPLE Y CONFIABLE** (Recomendado)
 ```powershell
-# Run from the .vscode directory
-.\optimize-vscode.ps1
+# 1. Ejecutar desde PowerShell EXTERNO (no desde VS Code)
+# 2. Navegar al directorio del proyecto
+cd "C:\Users\Juan\work\encrypia\labs\deed3"
+
+# 3. Cerrar VS Code completamente
+taskkill /f /im Code.exe 2>$null
+Start-Sleep -Seconds 3
+
+# 4. Limpiar cache (opcional)
+Remove-Item "$env:APPDATA\Code\User\workspaceStorage\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+# 5. Abrir VS Code con optimizaciones
+code . --disable-extension-auto-update --max-memory=8192
 ```
 
-### Option 2: Manual Steps
-1. **Close VS Code completely**
-2. **Clear cache** (optional):
-   ```powershell
-   Remove-Item "$env:APPDATA\Code\User\workspaceStorage" -Recurse -Force
-   ```
+### ❌ **Script Automático** (Problemático)
+~~`.\optimize-vscode.ps1`~~ - **NO USAR** - Falla constantemente
+
+### ⚡ **SOLUCIÓN RÁPIDA PARA CRASHES**
+```powershell
+# Si Copilot Chat sigue crasheando, ejecutar esto:
+taskkill /f /im Code.exe
+Remove-Item "$env:APPDATA\Code\logs" -Recurse -Force -ErrorAction SilentlyContinue
+code . --disable-extensions
+# Luego re-habilitar solo Copilot en Extensions panel
+```
 3. **Open VS Code** in the project root
 4. **Install recommended extensions** only
 5. **Reload window** if needed: `Ctrl+Shift+P` → "Developer: Reload Window"
+
+## 🆘 **EMERGENCY COPILOT FIX**
+
+Si Copilot Chat sigue crasheando:
+
+### Método 1: Restart Rápido (Recomendado)
+1. **Doble-click** en `restart-vscode.bat` (desde Explorador de Windows)
+2. **O ejecutar desde PowerShell EXTERNO:**
+   ```powershell
+   cd "C:\Users\Juan\work\encrypia\labs\deed3\.vscode"
+   .\simple-restart.ps1
+   ```
+
+### Método 2: Manual (Más Control)
+1. **Cerrar VS Code** completamente (`Alt+F4`)
+2. **Abrir Task Manager** (`Ctrl+Shift+Esc`)
+3. **Matar procesos** Code.exe si quedan
+4. **Abrir PowerShell** como Administrador
+5. **Ejecutar:**
+   ```powershell
+   cd "C:\Users\Juan\work\encrypia\labs\deed3"
+   code . --disable-extensions
+   ```
+6. **Re-habilitar solo Copilot** en Extensions panel
+
+### Método 3: Reset Completo (Último Recurso)
+```powershell
+# Cerrar VS Code
+taskkill /f /im Code.exe
+
+# Reset configuración
+Remove-Item "$env:APPDATA\Code\User\settings.json" -Force
+Remove-Item "$env:APPDATA\Code\User\extensions" -Recurse -Force
+
+# Reinstalar extensiones esenciales
+code --install-extension GitHub.copilot
+code --install-extension GitHub.copilot-chat
+```
 
 ## ⚙️ Key Settings Explained
 
