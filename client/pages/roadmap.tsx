@@ -1,4 +1,3 @@
-
 import React from "react";
 import { NextPage } from "next";
 import {
@@ -6,7 +5,7 @@ import {
     Footer,
     Copyright,
     MobileNavigation,
-} from "../PageComponents/Components";
+} from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { CheckCircle, Zap, Target } from "lucide-react";
 
