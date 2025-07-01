@@ -57,3 +57,5 @@
 /* Importar estilos legacy DESPUÉS de las sobrescrituras */
 @import url("./assets/css/plugins/feature.css");
 @import url("./assets/css/style.css");
+/* Import Professional Search Component Styles */
+@import './ProfessionalSearchAndFilters.css';
