@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import ProfessionalSearchAndFilters from '../components/ui/search/ProfessionalSearchAndFilters';
-import '../styles/ProfessionalSearchAndFilters.css';
 
 const SearchExamplePage: React.FC = () => {
     const [searchResults, setSearchResults] = useState<any[]>([]);
@@ -30,14 +29,14 @@ const SearchExamplePage: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-slate-900 py-8 px-4">
+        <div className="min-h-screen bg-slate-900 py-8 px-4">
             <div className="max-w-7xl mx-auto">
-                <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                        Property Search
+                <div className="mb-8 text-center">
+                    <h1 className="text-4xl font-bold text-white mb-4">
+                        Advanced Property Search
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400">
-                        Find your perfect property with our advanced search and filtering system
+                    <p className="text-slate-300">
+                        Professional search component with TypeScript
                     </p>
                 </div>
 

@@ -7,7 +7,7 @@ import {
     TokenomicsSection,
 } from "../PageComponents/Components";
 
-import SearchAndFilters from "../PageComponents/Components/SearchAndFilters";
+import ProfessionalSearchAndFilters from "../components/ui/search/ProfessionalSearchAndFilters";
 import Service from "../PageComponents/Components/Service";
 import Product from "../PageComponents/Components/Product";
 import Collection from "../PageComponents/Components/Collection";
@@ -95,9 +95,11 @@ const Home: NextPage = () => {
 
             {/* Enhanced Search and Filters Section */}
             <div className="container mx-auto px-4 py-8">
-                <SearchAndFilters
+                <ProfessionalSearchAndFilters
                     onSearchChange={handleSearchChange}
                     onFiltersChange={handleFiltersChange}
+                    isLoading={isLoading}
+                    resultCount={properties.length}
                 />
             </div>
 

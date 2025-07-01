@@ -312,10 +312,15 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
 
     return (
         <motion.div
-            className={`space-y-6 bg-white dark:bg-slate-900/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 dark:border-slate-700 p-6 ${className}`}
+            className={`space-y-6 bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-700/50 dark:border-slate-600/50 p-8 ${className}`}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            style={{
+                background: 'rgba(15, 23, 42, 0.95)',
+                backdropFilter: 'blur(20px)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(71, 85, 105, 0.3)'
+            }}
         >
             {/* Header Section */}
             <div className="space-y-4">
@@ -329,11 +334,15 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
                             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500 w-5 h-5 transition-colors" />
                             <input
                                 type="text"
-                                placeholder="Search by location, property type, or features..."
+                                placeholder="🔍 Search properties with advanced filters..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-12 pr-4 py-4 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 shadow-sm hover:shadow-md"
+                                className="w-full pl-12 pr-4 py-5 bg-slate-800/90 dark:bg-slate-800/90 border-2 border-slate-600/50 dark:border-slate-600/50 rounded-2xl text-white dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-xl text-lg font-medium"
                                 disabled={isLoading}
+                                style={{
+                                    background: 'rgba(30, 41, 59, 0.95)',
+                                    backdropFilter: 'blur(10px)'
+                                }}
                             />
                             {isLoading && (
                                 <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
@@ -347,18 +356,24 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
                             {/* Filter Toggle */}
                             <motion.button
                                 onClick={() => setShowFilters(!showFilters)}
-                                className={`relative p-3 rounded-xl border transition-all duration-200 ${showFilters || activeFiltersCount > 0
-                                    ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-500/25'
-                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:shadow-md'
+                                className={`relative p-4 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 ${showFilters || activeFiltersCount > 0
+                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 border-blue-500 text-white shadow-2xl shadow-blue-500/50'
+                                    : 'bg-slate-800/90 dark:bg-slate-800/90 border-slate-600/50 dark:border-slate-600/50 text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white hover:shadow-xl'
                                     }`}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 aria-label="Toggle filters"
+                                style={{
+                                    backdropFilter: 'blur(10px)',
+                                    boxShadow: showFilters || activeFiltersCount > 0
+                                        ? '0 20px 40px -12px rgba(59, 130, 246, 0.4)'
+                                        : '0 10px 20px -5px rgba(0, 0, 0, 0.3)'
+                                }}
                             >
-                                <Filter className="w-5 h-5" />
+                                <Filter className="w-6 h-6" />
                                 {activeFiltersCount > 0 && (
                                     <motion.span
-                                        className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-semibold"
+                                        className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-7 h-7 flex items-center justify-center font-bold shadow-lg"
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         transition={{ type: "spring", stiffness: 300 }}
@@ -369,28 +384,28 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
                             </motion.button>
 
                             {/* View Mode Toggle */}
-                            <div className="flex bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                            <div className="flex bg-slate-800/90 dark:bg-slate-800/90 border-2 border-slate-600/50 dark:border-slate-600/50 rounded-2xl overflow-hidden shadow-lg">
                                 <motion.button
                                     onClick={() => setViewMode('grid')}
-                                    className={`p-3 transition-all duration-200 ${viewMode === 'grid'
-                                        ? 'bg-blue-600 text-white shadow-md'
-                                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                    className={`p-4 transition-all duration-300 ${viewMode === 'grid'
+                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl'
+                                        : 'text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white hover:bg-slate-700 dark:hover:bg-slate-700'
                                         }`}
                                     whileTap={{ scale: 0.95 }}
                                     aria-label="Grid view"
                                 >
-                                    <Grid3X3 className="w-5 h-5" />
+                                    <Grid3X3 className="w-6 h-6" />
                                 </motion.button>
                                 <motion.button
                                     onClick={() => setViewMode('map')}
-                                    className={`p-3 transition-all duration-200 ${viewMode === 'map'
-                                        ? 'bg-blue-600 text-white shadow-md'
-                                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                    className={`p-4 transition-all duration-300 ${viewMode === 'map'
+                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl'
+                                        : 'text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white hover:bg-slate-700 dark:hover:bg-slate-700'
                                         }`}
                                     whileTap={{ scale: 0.95 }}
                                     aria-label="Map view"
                                 >
-                                    <Map className="w-5 h-5" />
+                                    <Map className="w-6 h-6" />
                                 </motion.button>
                             </div>
                         </div>
