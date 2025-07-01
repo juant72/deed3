@@ -66,5 +66,9 @@ _Actualizar este checklist conforme avance el sprint._
   - Búsqueda y filtrado avanzado para propiedades
   - Soporte completo de accesibilidad (ARIA, contraste, navegación por teclado)
 - Se ha configurado react-dnd para la funcionalidad de arrastrar y soltar.
-- Se han migrado todos los archivos de configuración de Jest de JavaScript a TypeScript.
+- Se han migrado todos los archivos de configuración de Jest de JavaScript a TypeScript:
+  - `jest.config.js` → `jest.config.ts`
+  - `jest.setup.js` → `jest.setup.ts`
+  - `__mocks__/fileMock.js` → `__mocks__/fileMock.ts`
 - Se ha creado un documento de estándares de código que establece el uso exclusivo de TypeScript (`docs/CODING_STANDARDS.md`).
+- Las pruebas ahora corren usando la configuración en TypeScript.
