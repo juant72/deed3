@@ -11,7 +11,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'web3';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   loading?: boolean;
-  asChild?: boolean;
 }
 
 // Button variants using design tokens
@@ -59,12 +58,32 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
     loading = false,
     children,
     className,
-    asChild,
     ...rest
   } = props;
 
-  // Extraer props ARIA y HTML relevantes
-  const { 'aria-label': ariaLabel, disabled, ...motionProps } = rest;
+  // Extraer solo las props compatibles con motion.button
+  const {
+    'aria-label': ariaLabel,
+    disabled,
+    // Eliminar eventos que causan conflictos con framer-motion (se ignoran intencionalmente)
+    onAnimationStart: _onAnimationStart,
+    onAnimationEnd: _onAnimationEnd,
+    onAnimationIteration: _onAnimationIteration,
+    onTransitionEnd: _onTransitionEnd,
+    onDrag: _onDrag,
+    onDragStart: _onDragStart,
+    onDragEnd: _onDragEnd,
+    onDragOver: _onDragOver,
+    onDragEnter: _onDragEnter,
+    onDragLeave: _onDragLeave,
+    onDrop: _onDrop,
+    onDragExit: _onDragExit,
+    onTouchStart: _onTouchStart,
+    onTouchEnd: _onTouchEnd,
+    onTouchMove: _onTouchMove,
+    onTouchCancel: _onTouchCancel,
+    ...motionProps
+  } = rest;
 
   return (
     <motion.button

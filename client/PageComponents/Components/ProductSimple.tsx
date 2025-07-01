@@ -46,8 +46,7 @@ const ProductSimple: React.FC<ProductSimpleProps> = ({ properties = [] }) => {
             {filteredProperties.map((property, index) => (
               <SimplePropertyCard 
                 key={property.id || index} 
-                property={property} 
-                index={index} 
+                property={property}
               />
             ))}
           </div>

@@ -1011,4 +1011,4 @@ const ExplorTwo: React.FC = () => {
   );
 };
 
-export default PropertyList;
+export default ExplorTwo;
