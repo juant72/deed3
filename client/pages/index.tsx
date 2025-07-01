@@ -12,7 +12,7 @@ import Service from "../PageComponents/Components/Service";
 import Product from "../PageComponents/Components/Product";
 import Collection from "../PageComponents/Components/Collection";
 
-import { Header, Footer, Copyright, MobileNavigation } from "../components/layout";
+import { Header, Footer, MobileNavigation } from "../components/layout";
 
 import LiveFixed from "../PageComponents/Components/LiveFixed";
 
@@ -244,7 +244,6 @@ const Home: NextPage = () => {
 
             <LiveFixed properties={properties} />
             <Footer />
-            <Copyright />
         </div>
     );
 };
