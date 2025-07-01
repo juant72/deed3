@@ -17,10 +17,11 @@ const Header: React.FC = () => {
               <div className="relative pr-8 mr-4 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-9 after:bg-white/10">
                 <Link className="block" href="/">
                   <div className="flex items-center space-x-3">
-                    <Image src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" width={32} height={32} />
-                    <div className="flex flex-col">
-                      <span className="text-white text-lg font-bold leading-none">Encrypia</span>
-                      <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
+                    <div className="flex flex-col justify-center">
+                      <span className="text-2xl font-bold leading-none">
+                        <span className="text-blue-400">Encrypia</span>
+                        <span className="text-white ml-2">Deeds3</span>
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -312,7 +313,12 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between p-4 border-b border-white/10">
             <div className="flex items-center">
               <Link href="/">
-                <Image src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" width={32} height={32} />
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl font-bold">
+                    <span className="text-blue-400">Encrypia</span>
+                    <span className="text-white ml-2">Deeds3</span>
+                  </span>
+                </div>
               </Link>
             </div>
             <div>

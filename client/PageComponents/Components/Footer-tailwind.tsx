@@ -10,15 +10,18 @@ const Footer: React.FC = () => {
               <div>
                 <div className="mb-6">
                   <a href="index.html">
-                    <img src="/logo/logo-white.png" alt="nft-logo" className="h-8 w-auto" />
+                    <span className="text-2xl font-bold leading-none">
+                      <span className="text-blue-400">Encrypia</span>
+                      <span className="text-white ml-2">Deeds3</span>
+                    </span>
                   </a>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
-                  Transform your real estate into digital assets with Deeds3: Your gateway to NFT property
+                  Transform your real estate into digital assets with Encrypia Deeds3: Your gateway to NFT property
                 </p>
               </div>
               <div className="pt-6 border-t border-white/10">
-                <h6 className="text-white font-semibold mb-4">Get The Latest Deeds3 Updates</h6>
+                <h6 className="text-white font-semibold mb-4">Get The Latest Encrypia Deeds3 Updates</h6>
                 <div className="flex">
                   <input
                     type="text"
@@ -40,7 +43,7 @@ const Footer: React.FC = () => {
 
           <div className="lg:col-span-1">
             <div>
-              <h6 className="text-white font-semibold mb-6">Deeds3</h6>
+              <h6 className="text-white font-semibold mb-6">Encrypia Deeds3</h6>
               <ul className="space-y-3">
                 <li>
                   <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">Protocol Explore</a>

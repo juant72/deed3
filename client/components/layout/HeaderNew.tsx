@@ -25,10 +25,11 @@ const HeaderNew: React.FC = () => {
             <nav className="container mx-auto flex items-center justify-between px-4 py-3" aria-label="Main navigation">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Ir a inicio">
-                    <Image src="/logo/logo-white.png" alt="Encrypia Deeds3" width={32} height={32} className="h-8 w-auto" />
-                    <span className="flex flex-col">
-                        <span className="text-white text-lg font-bold leading-none">Encrypia</span>
-                        <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
+                    <span className="flex flex-col justify-center">
+                        <span className="text-2xl font-bold leading-none">
+                            <span className="text-blue-400">Encrypia</span>
+                            <span className="text-white ml-2">Deeds3</span>
+                        </span>
                     </span>
                 </Link>
                 {/* Desktop Nav */}

@@ -12,10 +12,11 @@ const Footer: React.FC = () => {
               <div>
                 <div className="mb-6">
                   <Link href="/" className="flex items-center space-x-3">
-                    <Image src="/logo/logo-white.png" alt="Encrypia Deeds3" className="h-8 w-auto" width={32} height={32} />
                     <div className="flex flex-col">
-                      <span className="text-white text-lg font-bold leading-none">Encrypia</span>
-                      <span className="text-blue-400 text-xs font-medium leading-none">Deeds3</span>
+                      <span className="text-2xl font-bold leading-none">
+                        <span className="text-blue-400">Encrypia</span>
+                        <span className="text-white ml-2">Deeds3</span>
+                      </span>
                     </div>
                   </Link>
                 </div>
@@ -46,7 +47,7 @@ const Footer: React.FC = () => {
 
           <div className="lg:col-span-1">
             <div>
-              <h6 className="text-white font-semibold mb-6">Deeds3</h6>
+              <h6 className="text-white font-semibold mb-6">Encrypia Deeds3</h6>
               <ul className="space-y-3">
                 <li>
                   <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">Protocol Explore</a>

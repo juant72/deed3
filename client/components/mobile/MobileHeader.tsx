@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Menu, 
-  X, 
-  Search, 
-  Bell, 
-  User, 
-  Home, 
-  Bookmark, 
+import {
+  Menu,
+  X,
+  Search,
+  Bell,
+  User,
+  Home,
+  Bookmark,
   TrendingUp,
   Settings,
   LogOut,
@@ -64,21 +64,21 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) 
 
   const headerVariants = {
     hidden: { y: -100, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
       transition: { duration: shouldReduceMotion ? 0 : 0.3 }
     }
   };
 
   const menuVariants = {
-    closed: { 
-      x: "-100%", 
+    closed: {
+      x: "-100%",
       opacity: 0,
       transition: { duration: shouldReduceMotion ? 0 : 0.3 }
     },
-    open: { 
-      x: 0, 
+    open: {
+      x: 0,
       opacity: 1,
       transition: { duration: shouldReduceMotion ? 0 : 0.3 }
     }
@@ -86,8 +86,8 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) 
 
   const searchVariants = {
     closed: { height: 0, opacity: 0 },
-    open: { 
-      height: "auto", 
+    open: {
+      height: "auto",
       opacity: 1,
       transition: { duration: shouldReduceMotion ? 0 : 0.2 }
     }
@@ -114,14 +114,14 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ user, notifications = 0 }) 
           </motion.button>
 
           {/* Center: Logo */}
-          <motion.div 
+          <motion.div
             className="flex items-center space-x-2"
             whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">D3</span>
-            </div>
-            <span className="text-white font-semibold text-lg">Deeds3</span>
+            <span className="text-white font-semibold text-lg">
+              <span className="text-blue-400">Encrypia</span>
+              <span className="text-white ml-2">Deeds3</span>
+            </span>
           </motion.div>
 
           {/* Right: Actions */}
