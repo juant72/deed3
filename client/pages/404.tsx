@@ -14,10 +14,8 @@ const PageNotFound: React.FC = () => {
           <p className="text-gray-600 mt-2">
             The page you are looking for is not available.
           </p>
-          <Link href="/">
-            <a className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-              Go Back To Home
-            </a>
+          <Link href="/" className="inline-block mt-6 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+            Go Back To Home
           </Link>
         </div>
       </div>

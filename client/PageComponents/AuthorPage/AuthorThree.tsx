@@ -98,9 +98,9 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                             </a>
                           ))}
                           {property.reviewers.length !== 0 && (
-                            <a className="more-author-text" href="#">
+                            <span className="more-author-text cursor-pointer">
                               Interested Users
-                            </a>
+                            </span>
                           )}
                         </div>
                       </div>
@@ -179,9 +179,9 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                             </a>
                           ))}
                           {property.reviewers.length !== 0 && (
-                            <a className="more-author-text" href="#">
+                            <span className="more-author-text cursor-pointer">
                               Interested Users
-                            </a>
+                            </span>
                           )}
                         </div>
                       </div>
@@ -250,15 +250,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-2.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Ali">
+                    <span  className="avatar" data-tooltip="Ali" className="cursor-pointer">
                       <img src="/client/client-3.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sadikur">
+                    </span>
+                    <span  className="avatar" data-tooltip="Sadikur" className="cursor-pointer">
                       <img src="/client/client-4.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       9+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -351,15 +351,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Jack">
+                    <span  className="avatar" data-tooltip="Jack" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Updane">
+                    </span>
+                    <span  className="avatar" data-tooltip="Updane" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       10+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -459,12 +459,12 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sadika">
+                    <span  className="avatar" data-tooltip="Sadika" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       10+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -550,9 +550,9 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                 </div>
                 <div className="product-share-wrapper">
                   <div className="profile-share">
-                    <a href="author.html" className="avatar" data-tooltip="Saladin">
+                    <span  className="avatar" data-tooltip="Saladin" className="cursor-pointer">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
-                    </a>
+                    </span>
                     <a
                       href="author.html"
                       className="avatar"
@@ -560,12 +560,12 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="David">
+                    <span  className="avatar" data-tooltip="David" className="cursor-pointer">
                       <img src="/client/client-9.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       21+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -658,15 +658,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Jope">
+                    <span  className="avatar" data-tooltip="Jope" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Baiden">
+                    </span>
+                    <span  className="avatar" data-tooltip="Baiden" className="cursor-pointer">
                       <img src="/client/client-9.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       12+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -759,15 +759,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Tawhid">
+                    <span  className="avatar" data-tooltip="Tawhid" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sabir">
+                    </span>
+                    <span  className="avatar" data-tooltip="Sabir" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       5+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -860,15 +860,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Total">
+                    <span  className="avatar" data-tooltip="Total" className="cursor-pointer">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Mars">
+                    </span>
+                    <span  className="avatar" data-tooltip="Mars" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       9+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -961,15 +961,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Worner">
+                    <span  className="avatar" data-tooltip="Worner" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="David">
+                    </span>
+                    <span  className="avatar" data-tooltip="David" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       16+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1062,15 +1062,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sobuj">
+                    <span  className="avatar" data-tooltip="Sobuj" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Shaikh">
+                    </span>
+                    <span  className="avatar" data-tooltip="Shaikh" className="cursor-pointer">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       22+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1163,15 +1163,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="MArk">
+                    <span  className="avatar" data-tooltip="MArk" className="cursor-pointer">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Jone">
+                    </span>
+                    <span  className="avatar" data-tooltip="Jone" className="cursor-pointer">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       13+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1270,15 +1270,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Tawhid">
+                    <span  className="avatar" data-tooltip="Tawhid" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sabir">
+                    </span>
+                    <span  className="avatar" data-tooltip="Sabir" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       5+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1371,15 +1371,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Total">
+                    <span  className="avatar" data-tooltip="Total" className="cursor-pointer">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Mars">
+                    </span>
+                    <span  className="avatar" data-tooltip="Mars" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       9+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1472,15 +1472,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Worner">
+                    <span  className="avatar" data-tooltip="Worner" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="David">
+                    </span>
+                    <span  className="avatar" data-tooltip="David" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       16+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1573,15 +1573,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sobuj">
+                    <span  className="avatar" data-tooltip="Sobuj" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Shaikh">
+                    </span>
+                    <span  className="avatar" data-tooltip="Shaikh" className="cursor-pointer">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       22+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1674,15 +1674,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="MArk">
+                    <span  className="avatar" data-tooltip="MArk" className="cursor-pointer">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Jone">
+                    </span>
+                    <span  className="avatar" data-tooltip="Jone" className="cursor-pointer">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       13+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1775,15 +1775,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Tawhid">
+                    <span  className="avatar" data-tooltip="Tawhid" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sabir">
+                    </span>
+                    <span  className="avatar" data-tooltip="Sabir" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       5+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1876,15 +1876,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-6.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Total">
+                    <span  className="avatar" data-tooltip="Total" className="cursor-pointer">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Mars">
+                    </span>
+                    <span  className="avatar" data-tooltip="Mars" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       9+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -1977,15 +1977,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-1.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Worner">
+                    <span  className="avatar" data-tooltip="Worner" className="cursor-pointer">
                       <img src="/client/client-10.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="David">
+                    </span>
+                    <span  className="avatar" data-tooltip="David" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       16+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -2078,15 +2078,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-10.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="Sobuj">
+                    <span  className="avatar" data-tooltip="Sobuj" className="cursor-pointer">
                       <img src="/client/client-11.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Shaikh">
+                    </span>
+                    <span  className="avatar" data-tooltip="Shaikh" className="cursor-pointer">
                       <img src="/client/client-1.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       22+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button
@@ -2179,15 +2179,15 @@ const AuthorThree: React.FC<{ properties, author }> = ({ properties, author }) =
                     >
                       <img src="/client/client-4.png" alt="Nft_Profile" />
                     </a>
-                    <a href="author.html" className="avatar" data-tooltip="MArk">
+                    <span  className="avatar" data-tooltip="MArk" className="cursor-pointer">
                       <img src="/client/client-5.png" alt="Nft_Profile" />
-                    </a>
-                    <a href="author.html" className="avatar" data-tooltip="Jone">
+                    </span>
+                    <span  className="avatar" data-tooltip="Jone" className="cursor-pointer">
                       <img src="/client/client-8.png" alt="Nft_Profile" />
-                    </a>
-                    <a className="more-author-text" href="#">
+                    </span>
+                    <span className="more-author-text cursor-pointer">
                       13+ Place Bit.
-                    </a>
+                    </span>
                   </div>
                   <div className="share-btn share-btn-activation dropdown">
                     <button

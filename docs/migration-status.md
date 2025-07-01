@@ -94,6 +94,11 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 - Requieren configuración OAuth en cada plataforma
 - URLs de callback deben configurarse
 
+### 4. Next.js Link Component ✅ RESUELTO
+- Problema: Error "Invalid <Link> with <a> child" en varios componentes
+- Solución: Actualización a la nueva API de Link en Next.js
+- Documentación: Ver `/docs/NEXTJS_LINK_MIGRATION.md` para detalles completos
+
 ## 📝 Comandos Útiles
 
 ```bash
