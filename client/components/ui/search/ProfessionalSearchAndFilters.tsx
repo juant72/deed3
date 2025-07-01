@@ -312,14 +312,14 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
 
     return (
         <motion.div
-            className={`space-y-6 bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-700/50 dark:border-slate-600/50 p-8 ${className}`}
+            className={`space-y-6 professional-realestate-search rounded-3xl shadow-2xl p-8 ${className}`}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             style={{
-                background: 'rgba(15, 23, 42, 0.95)',
+                background: 'linear-gradient(135deg, #0B1426 0%, #1F2937 50%, #374151 100%)',
                 backdropFilter: 'blur(20px)',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(71, 85, 105, 0.3)'
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(37, 99, 235, 0.1)'
             }}
         >
             {/* Header Section */}
@@ -334,13 +334,14 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
                             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500 w-5 h-5 transition-colors" />
                             <input
                                 type="text"
-                                placeholder="🔍 Search properties with advanced filters..."
+                                placeholder="🔍 Type to search properties (automatic search as you type)..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-12 pr-4 py-5 bg-slate-800/90 dark:bg-slate-800/90 border-2 border-slate-600/50 dark:border-slate-600/50 rounded-2xl text-white dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-xl text-lg font-medium"
+                                className="w-full pl-12 pr-4 py-5 professional-search-input rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-xl text-lg font-medium professional-focus-ring"
                                 disabled={isLoading}
                                 style={{
-                                    background: 'rgba(30, 41, 59, 0.95)',
+                                    background: 'rgba(17, 24, 39, 0.95)',
+                                    borderColor: 'rgba(107, 114, 128, 0.3)',
                                     backdropFilter: 'blur(10px)'
                                 }}
                             />
@@ -357,17 +358,20 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
                             <motion.button
                                 onClick={() => setShowFilters(!showFilters)}
                                 className={`relative p-4 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 ${showFilters || activeFiltersCount > 0
-                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 border-blue-500 text-white shadow-2xl shadow-blue-500/50'
-                                    : 'bg-slate-800/90 dark:bg-slate-800/90 border-slate-600/50 dark:border-slate-600/50 text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white hover:shadow-xl'
+                                    ? 'professional-button-primary text-white shadow-2xl'
+                                    : 'professional-button-secondary text-gray-300 hover:text-white hover:shadow-xl'
                                     }`}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 aria-label="Toggle filters"
                                 style={{
                                     backdropFilter: 'blur(10px)',
-                                    boxShadow: showFilters || activeFiltersCount > 0
-                                        ? '0 20px 40px -12px rgba(59, 130, 246, 0.4)'
-                                        : '0 10px 20px -5px rgba(0, 0, 0, 0.3)'
+                                    background: showFilters || activeFiltersCount > 0
+                                        ? 'linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%)'
+                                        : 'rgba(31, 41, 55, 0.9)',
+                                    borderColor: showFilters || activeFiltersCount > 0
+                                        ? '#2563EB'
+                                        : 'rgba(107, 114, 128, 0.5)'
                                 }}
                             >
                                 <Filter className="w-6 h-6" />
@@ -384,26 +388,41 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
                             </motion.button>
 
                             {/* View Mode Toggle */}
-                            <div className="flex bg-slate-800/90 dark:bg-slate-800/90 border-2 border-slate-600/50 dark:border-slate-600/50 rounded-2xl overflow-hidden shadow-lg">
+                            <div className="flex professional-button-secondary rounded-2xl overflow-hidden shadow-lg"
+                                style={{
+                                    background: 'rgba(31, 41, 55, 0.9)',
+                                    border: '1px solid rgba(107, 114, 128, 0.5)'
+                                }}
+                            >
                                 <motion.button
                                     onClick={() => setViewMode('grid')}
                                     className={`p-4 transition-all duration-300 ${viewMode === 'grid'
-                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl'
-                                        : 'text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white hover:bg-slate-700 dark:hover:bg-slate-700'
+                                        ? 'professional-button-primary text-white'
+                                        : 'text-gray-300 hover:text-white hover:bg-slate-700'
                                         }`}
                                     whileTap={{ scale: 0.95 }}
                                     aria-label="Grid view"
+                                    style={{
+                                        background: viewMode === 'grid'
+                                            ? 'linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%)'
+                                            : 'transparent'
+                                    }}
                                 >
                                     <Grid3X3 className="w-6 h-6" />
                                 </motion.button>
                                 <motion.button
                                     onClick={() => setViewMode('map')}
                                     className={`p-4 transition-all duration-300 ${viewMode === 'map'
-                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl'
-                                        : 'text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white hover:bg-slate-700 dark:hover:bg-slate-700'
+                                        ? 'professional-button-primary text-white'
+                                        : 'text-gray-300 hover:text-white hover:bg-slate-700'
                                         }`}
                                     whileTap={{ scale: 0.95 }}
                                     aria-label="Map view"
+                                    style={{
+                                        background: viewMode === 'map'
+                                            ? 'linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%)'
+                                            : 'transparent'
+                                    }}
                                 >
                                     <Map className="w-6 h-6" />
                                 </motion.button>
@@ -458,9 +477,14 @@ const ProfessionalSearchAndFilters: React.FC<SearchAndFiltersProps> = ({
                                 <span className="font-semibold text-gray-900 dark:text-white">{resultCount.toLocaleString()}</span> properties found
                             </>
                         ) : (
-                            'Search for properties...'
+                            'Type in the search box above to find properties'
                         )}
                     </span>
+                    {searchTerm === '' && (
+                        <span className="text-blue-400 text-xs ml-2">
+                            💡 No search button needed - results appear as you type!
+                        </span>
+                    )}
                 </div>
 
                 <div className="flex items-center justify-between md:justify-end space-x-4">

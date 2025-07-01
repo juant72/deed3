@@ -1,0 +1,189 @@
+/* Professional Real Estate Web3 Color Palette */
+/* Based on PWC, A16Z, and UX Industry Standards */
+
+:root {
+    /* Primary Brand Colors - Trust & Luxury */
+    --primary-deep-blue: #0B1426;
+    --primary-royal-blue: #1E3A8A;
+    --primary-trust-blue: #2563EB;
+    --primary-cyan: #06B6D4;
+    
+    /* Secondary Luxury Colors */
+    --secondary-gold: #F59E0B;
+    --secondary-platinum: #E5E7EB;
+    --secondary-emerald: #059669;
+    --secondary-purple: #7C3AED;
+    
+    /* Neutral Premium Colors */
+    --neutral-charcoal: #111827;
+    --neutral-slate: #1F2937;
+    --neutral-graphite: #374151;
+    --neutral-silver: #6B7280;
+    --neutral-pearl: #9CA3AF;
+    --neutral-white: #FFFFFF;
+    
+    /* Accent Colors */
+    --accent-success: #10B981;
+    --accent-warning: #F59E0B;
+    --accent-error: #EF4444;
+    --accent-info: #3B82F6;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #0B1426 0%, #1E3A8A 50%, #2563EB 100%);
+    --gradient-luxury: linear-gradient(135deg, #111827 0%, #1F2937 50%, #374151 100%);
+    --gradient-accent: linear-gradient(135deg, #059669 0%, #06B6D4 100%);
+    
+    /* Shadows */
+    --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-elegant: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    
+    /* Real Estate Specific */
+    --property-verified: #10B981;
+    --property-premium: #F59E0B;
+    --property-tokenized: #7C3AED;
+    --property-sold: #6B7280;
+}
+
+/* Professional Real Estate Web3 Components */
+.professional-realestate-search {
+    background: var(--gradient-luxury);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-premium);
+}
+
+.professional-search-input {
+    background: rgba(17, 24, 39, 0.95);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    color: var(--neutral-white);
+    transition: all 0.3s ease;
+}
+
+.professional-search-input:focus {
+    border-color: var(--primary-trust-blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.professional-button-primary {
+    background: var(--gradient-primary);
+    border: 1px solid var(--primary-trust-blue);
+    color: var(--neutral-white);
+    box-shadow: var(--shadow-elegant);
+    transition: all 0.3s ease;
+}
+
+.professional-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-premium);
+}
+
+.professional-button-secondary {
+    background: rgba(31, 41, 55, 0.9);
+    border: 1px solid rgba(107, 114, 128, 0.5);
+    color: var(--neutral-pearl);
+    backdrop-filter: blur(10px);
+}
+
+.professional-button-secondary:hover {
+    background: rgba(55, 65, 81, 0.9);
+    color: var(--neutral-white);
+    border-color: var(--primary-trust-blue);
+}
+
+.professional-filter-badge {
+    background: var(--gradient-accent);
+    color: var(--neutral-white);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+.professional-property-card {
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    backdrop-filter: blur(15px);
+    transition: all 0.4s ease;
+}
+
+.professional-property-card:hover {
+    border-color: var(--primary-trust-blue);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-premium);
+}
+
+/* Status Indicators */
+.status-verified {
+    background: var(--property-verified);
+    color: white;
+}
+
+.status-premium {
+    background: var(--property-premium);
+    color: white;
+}
+
+.status-tokenized {
+    background: var(--property-tokenized);
+    color: white;
+}
+
+/* Typography */
+.professional-heading {
+    color: var(--neutral-white);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.professional-subtext {
+    color: var(--neutral-pearl);
+    font-weight: 400;
+}
+
+.professional-price {
+    color: var(--primary-cyan);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .professional-realestate-search {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+/* Accessibility Enhancements */
+.professional-focus-ring:focus {
+    outline: 2px solid var(--primary-trust-blue);
+    outline-offset: 2px;
+}
+
+/* Animation Enhancements */
+.professional-fade-in {
+    animation: professionalFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes professionalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.professional-pulse {
+    animation: professionalPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes professionalPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
