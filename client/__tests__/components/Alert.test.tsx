@@ -48,7 +48,8 @@ describe('Alert Component', () => {
         );
 
         alert = screen.getByRole('alert');
-        expect(alert).toHaveClass('border-red-500', { exact: false });
+        const alertContentError = alert.querySelector('div');
+        expect(alertContentError).toHaveClass('border-red-500', { exact: false });
 
         // Check warning styling
         rerender(
@@ -59,7 +60,8 @@ describe('Alert Component', () => {
         );
 
         alert = screen.getByRole('alert');
-        expect(alert).toHaveClass('border-amber-500', { exact: false });
+        const alertContent2 = alert.querySelector('div');
+        expect(alertContent2).toHaveClass('border-amber-500', { exact: false });
 
         // Check info styling
         rerender(
@@ -70,7 +72,8 @@ describe('Alert Component', () => {
         );
 
         alert = screen.getByRole('alert');
-        expect(alert).toHaveClass('border-blue-500', { exact: false });
+        const alertContent3 = alert.querySelector('div');
+        expect(alertContent3).toHaveClass('border-blue-500', { exact: false });
     });
 
     test('calls onClose when close button is clicked', () => {
