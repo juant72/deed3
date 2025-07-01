@@ -43,16 +43,16 @@ const Banner: React.FC = () => {
             <div className="relative group">
               <div className="relative overflow-hidden rounded-2xl">
                 <div className="relative">
-                  <a className="block">
+                  <span className="block">
                     <img
                       className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                       src="/portfolio/portfolio-11.jpg"
                       alt="NFT_portfolio"
                     />
-                  </a>
+                  </span>
                   <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg p-4">
                     <h5 className="text-white font-semibold text-lg mb-1">
-                      <a className="hover:text-blue-400 transition-colors">@encrypia</a>
+                      <span className="hover:text-blue-400 transition-colors cursor-pointer">@encrypia</span>
                     </h5>
                     <span className="text-blue-400 text-sm">Join Membership</span>
                   </div>
@@ -83,7 +83,7 @@ const Banner: React.FC = () => {
                     </div>
                     <div className="p-4">
                       <h5 className="text-white font-semibold text-lg mb-2">
-                        <Link href="#" className="hover:text-blue-400 transition-colors">{el.name}</Link>
+                        <span className="hover:text-blue-400 transition-colors cursor-pointer">{el.name}</span>
                       </h5>
                       <span className="text-gray-400">{el.worth} MATIC</span>
                     </div>

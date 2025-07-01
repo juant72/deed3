@@ -24,7 +24,7 @@ const Collection: React.FC<{ housing, rental, farmhouse, office }> = ({ housing,
       item: rental,
     },
   ];
-  
+
   return (
     <div className="py-20 bg-slate-900/50">
       <div className="container mx-auto px-4">
@@ -35,9 +35,9 @@ const Collection: React.FC<{ housing, rental, farmhouse, office }> = ({ housing,
             </h3>
           </div>
           <div>
-            <a className="inline-flex items-center px-6 py-3 bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-lg transition-all duration-300 font-medium" href="#">
+            <Link href="#" className="inline-flex items-center px-6 py-3 bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-lg transition-all duration-300 font-medium">
               VIEW ALL
-            </a>
+            </Link>
           </div>
         </div>
 
