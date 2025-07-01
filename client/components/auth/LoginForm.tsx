@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
@@ -51,10 +52,10 @@ const LoginForm: React.FC = () => {
                 <p className="text-gray-400 text-center text-sm mb-4">O inicia sesión con</p>
                 <div className="flex flex-col gap-2">
                     <Button type="button" variant="outline" className="w-full" aria-label="Iniciar sesión con Google">
-                        <img src="/assets/images/icons/google.png" alt="Google" className="inline-block w-5 h-5 mr-2 align-middle" /> Google
+                        <Image src="/assets/images/icons/google.png" alt="Google" width={20} height={20} className="inline-block w-5 h-5 mr-2 align-middle" /> Google
                     </Button>
                     <Button type="button" variant="outline" className="w-full" aria-label="Iniciar sesión con Facebook">
-                        <img src="/assets/images/icons/facebook.png" alt="Facebook" className="inline-block w-5 h-5 mr-2 align-middle" /> Facebook
+                        <Image src="/assets/images/icons/facebook.png" alt="Facebook" width={20} height={20} className="inline-block w-5 h-5 mr-2 align-middle" /> Facebook
                     </Button>
                 </div>
             </div>

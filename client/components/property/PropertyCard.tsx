@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Card } from "../ui/card";
+import Image from "next/image";
 
 interface PropertyCardProps {
     property: {
@@ -36,11 +37,13 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
         <Card className="group overflow-hidden border border-border bg-slate-800/50 backdrop-blur-sm rounded-2xl hover:border-primary/50 transition-all duration-300">
             <div className="relative">
                 <Link href={`/detail?id=${property.id}`} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label={`Ver detalles de ${property.title}`}>
-                    <img
+                    <Image
                         src={property.images?.[0] || '/portfolio/portfolio-01.jpg'}
                         alt={property.title || 'Property'}
+                        width={500} // Example width
+                        height={300} // Example height
                         className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                        onError={e => {
+                        onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.src = '/portfolio/portfolio-01.jpg';
                         }}

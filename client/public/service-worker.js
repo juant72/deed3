@@ -1,6 +1,16 @@
-// service-worker.js básico para PWA
+// service-worker.js avanzado para PWA
 self.addEventListener('install', event => {
     self.skipWaiting();
+    event.waitUntil(
+        caches.open('static-v1').then(cache => {
+            return cache.addAll([
+                '/',
+                '/index.html',
+                '/styles.css',
+                '/script.js',
+            ]);
+        })
+    );
 });
 
 self.addEventListener('activate', event => {
