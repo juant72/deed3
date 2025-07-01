@@ -99,6 +99,11 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 - Solución: Actualización a la nueva API de Link en Next.js
 - Documentación: Ver `/docs/NEXTJS_LINK_MIGRATION.md` para detalles completos
 
+### 5. Tailwind CSS Styling Issues ✅ RESUELTO
+- Problema: Problemas graves de estilo después de la migración de Link, con UI descuadrada
+- Solución: Corrección de configuración de PostCSS, directivas de Tailwind y dependencias
+- Documentación: Ver `/docs/fixes/TAILWIND_STYLING_FIX.md` para detalles completos
+
 ## 📝 Comandos Útiles
 
 ```bash

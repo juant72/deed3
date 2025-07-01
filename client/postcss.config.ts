@@ -2,7 +2,7 @@ import type { Config } from 'postcss';
 
 const config: Config = {
     plugins: {
-        "@tailwindcss/postcss": {},
+        "tailwindcss": {},
         autoprefixer: {
             // Configuración optimizada para evitar warnings
             overrideBrowserslist: ['> 1%', 'last 2 versions'],

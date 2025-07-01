@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import url("./assets/css/plugins/feature.css");
 /* jQuery CSS imports removed - replaced with modern React components */

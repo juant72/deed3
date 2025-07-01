@@ -13,6 +13,7 @@
     "analyze": "ANALYZE=true npm run build",
     "build:performance": "npm run type-check && npm run lint && npm run build",
     "clean": "rm -rf .next node_modules/.cache",
+    "validate:tailwind": "node scripts/validate-tailwind.js",
     "setup:reown": "ts-node scripts/setup-reown.ts",
     "optimize:reown": "ts-node scripts/optimize-reown.ts",
     "migrate:rainbowkit": "ts-node scripts/migrate-to-rainbowkit.ts",
@@ -71,7 +72,6 @@
   "devDependencies": {
     "@eslint/js": "^9.30.0",
     "@lhci/cli": "^0.15.1",
-    "@tailwindcss/postcss": "^4.1.11",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
