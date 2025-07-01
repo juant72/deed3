@@ -27,13 +27,13 @@ declare global {
 }
 
 // Tab key command
-Cypress.Commands.add('tabKey', () => {
+Cypress.Commands.add('tabKey', (): void => {
     cy.focused().trigger('keydown', { keyCode: 9, which: 9 });
-    return cy.document().trigger('keyup', { keyCode: 9, which: 9 });
+    cy.document().trigger('keyup', { keyCode: 9, which: 9 });
 });
 
 // Focus trap command for accessibility testing
-Cypress.Commands.add('checkFocusTrap', (selector) => {
+Cypress.Commands.add('checkFocusTrap', (selector: string): void => {
     const focusableSelectors = 'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
 
     cy.get(selector).find(focusableSelectors).first().as('firstFocusable');
@@ -44,8 +44,6 @@ Cypress.Commands.add('checkFocusTrap', (selector) => {
 
     // Should cycle back to first element
     cy.get('@firstFocusable').should('be.focused');
-
-    return cy.wrap(true);
 });
 
 export { };

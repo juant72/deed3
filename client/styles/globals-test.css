@@ -1,0 +1,27 @@
+/* Importación de Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* Sobrescrituras específicas para el menú */
+#sideNav {
+  display: block !important;
+  width: auto !important;
+}
+
+#sideNav ul {
+  display: flex !important;
+  flex-direction: row !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+#sideNav ul li {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+.mainmenu-wrapper {
+  display: block !important;
+  width: auto !important;
+}

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 export interface AlertProps {
     title?: string;
@@ -27,14 +27,14 @@ const Alert: React.FC<AlertProps> = ({
     const [progress, setProgress] = useState(100);
 
     // Handle alert close
-    const closeAlert = () => {
+    const closeAlert = useCallback(() => {
         setIsVisible(false);
         if (onClose) {
             setTimeout(() => {
                 onClose();
             }, 300); // Wait for fade out animation
         }
-    };
+    }, [onClose]);
 
     // Handle auto-close with progress bar
     useEffect(() => {
