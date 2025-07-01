@@ -40,19 +40,28 @@
   - [x] Crear Dashboard.test.tsx
   - [x] Configurar entorno Jest para ejecución de pruebas (jest.config.ts, jest.setup.ts)
   - [x] Instalar dependencias de pruebas (@testing-library/react, @testing-library/jest-dom, ts-jest)
-- [ ] Configurar pruebas E2E with Cypress
-- [ ] Validar rendimiento con Lighthouse
+- [x] Configurar pruebas E2E with Cypress
+  - [x] Crear cypress.config.ts con configuración TypeScript
+  - [x] Implementar test para home page (home.cy.ts)
+  - [x] Implementar test para accesibilidad (accessibility.cy.ts)
+  - [x] Implementar pruebas de auditoría con axe-core (a11y-audit.cy.ts)
+  - [x] Añadir comandos personalizados para testing de accesibilidad
+- [x] Validar rendimiento con Lighthouse
+  - [x] Configurar Lighthouse CI con lighthouserc.js
+  - [x] Implementar script de Puppeteer para pruebas automatizadas
+  - [x] Añadir scripts para ejecución en dispositivos desktop y mobile
 - [x] Documentar resultados de pruebas y mejoras (DASHBOARD_UPGRADES.md)
 - [x] Migrar archivos de configuración de pruebas a TypeScript:
   - [x] Migrar jest.config.js a jest.config.ts
   - [x] Migrar jest.setup.js a jest.setup.ts
   - [x] Migrar __mocks__/fileMock.js a __mocks__/fileMock.ts
+  - [x] Crear tipos personalizados para Cypress (cypress/types/cypress-axe.d.ts)
 
 ---
 
 _Actualizar este checklist conforme avance el sprint._
 
-**Última actualización:** 01/07/2025
+**Última actualización:** 05/07/2025
 
 **Notas:**
 - PWA desactivado temporalmente por problemas de configuración en Next.js 15. Reactivar y testear en dispositivos reales cuando se resuelva el conflicto.
@@ -72,3 +81,11 @@ _Actualizar este checklist conforme avance el sprint._
   - `__mocks__/fileMock.js` → `__mocks__/fileMock.ts`
 - Se ha creado un documento de estándares de código que establece el uso exclusivo de TypeScript (`docs/CODING_STANDARDS.md`).
 - Las pruebas ahora corren usando la configuración en TypeScript.
+- Se han configurado pruebas E2E con Cypress:
+  - Creación de `cypress.config.ts` en TypeScript
+  - Implementación de pruebas para home page, accesibilidad y auditoría con axe-core
+  - Creación de comandos personalizados para testing de accesibilidad
+- Se ha configurado Lighthouse CI para validar el rendimiento:
+  - Configuración en `lighthouserc.js` para pruebas automatizadas
+  - Scripts para ejecutar pruebas en dispositivos desktop y mobile
+  - Integración con Puppeteer para testing avanzado

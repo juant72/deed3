@@ -39,8 +39,14 @@
 
 ## Testing
 
-- All test files should use `.test.ts` or `.test.tsx` extensions.
-- All test configuration files should be in TypeScript format.
+- All test files should use `.test.ts` or `.test.tsx` extensions for Jest unit tests.
+- Cypress E2E test files should use `.cy.ts` extension.
+- All test configuration files should be in TypeScript format:
+  - Jest: `jest.config.ts`, `jest.setup.ts`
+  - Cypress: `cypress.config.ts`
+  - Lighthouse: `lighthouserc.ts`, `lighthouse/puppeteer-script.ts`
+- Custom types for testing libraries should be defined in appropriate `.d.ts` files.
+- For accessibility testing, use axe-core with Cypress.
 
 ## Migration Guidance
 
