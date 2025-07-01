@@ -25,7 +25,7 @@ const Service: React.FC = () => {
       stats: "50,000+ Connected"
     },
     {
-      step: "02", 
+      step: "02",
       title: "Create Portfolio",
       subtitle: "Curated Collections",
       description: "Build sophisticated real estate portfolios with advanced analytics, risk assessment, and diversification tools powered by AI.",
@@ -64,10 +64,10 @@ const Service: React.FC = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
-      
+
       {/* Animated Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:60px_60px] animate-pulse"></div>
-      
+
       {/* Floating Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
@@ -91,7 +91,7 @@ const Service: React.FC = () => {
             <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse mr-3"></div>
             <span className="text-blue-400 font-medium text-sm">WORLD-CLASS PLATFORM</span>
           </div>
-          
+
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
             Create & Trade
             <br />
@@ -99,11 +99,11 @@ const Service: React.FC = () => {
               Property NFTs
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             The institutional-grade platform for real estate tokenization, powered by advanced blockchain technology and trusted by global investors.
           </p>
-          
+
           {/* Stats Bar */}
           <div className="flex justify-center items-center space-x-8 mt-10">
             <div className="text-center">
@@ -128,9 +128,8 @@ const Service: React.FC = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group cursor-pointer transition-all duration-700 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`group cursor-pointer transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               style={{ transitionDelay: `${index * 200}ms` }}
               onMouseEnter={() => setActiveStep(index)}
             >
@@ -139,7 +138,7 @@ const Service: React.FC = () => {
                 transition-all duration-500 group-hover:border-blue-400/50 group-hover:bg-slate-800/60
                 ${activeStep === index ? 'border-blue-400/70 bg-slate-800/70 scale-105 shadow-2xl shadow-blue-500/25' : ''}
               `}>
-                
+
                 {/* Glow Effect */}
                 <div className={`
                   absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500
@@ -152,8 +151,8 @@ const Service: React.FC = () => {
                   <div className={`
                     w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-bold
                     transition-all duration-300
-                    ${activeStep === index 
-                      ? 'bg-blue-500 border-blue-400 text-white scale-110' 
+                    ${activeStep === index
+                      ? 'bg-blue-500 border-blue-400 text-white scale-110'
                       : 'bg-slate-800 border-slate-600 text-gray-400 group-hover:border-blue-500 group-hover:text-blue-400'
                     }
                   `}>
@@ -206,8 +205,8 @@ const Service: React.FC = () => {
                     {/* CTA Button */}
                     <button className={`
                       group/btn relative overflow-hidden px-6 py-3 rounded-xl font-medium transition-all duration-300
-                      ${activeStep === index 
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25' 
+                      ${activeStep === index
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25'
                         : 'bg-slate-700 text-gray-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 hover:text-white'
                       }
                     `}>
