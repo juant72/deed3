@@ -1,0 +1,30 @@
+/* 
+This file contains overrides for specific components that might be affected by legacy CSS.
+These styles will have higher specificity than the legacy styles.
+*/
+
+/* Menu specific overrides */
+#sideNav {
+  display: block !important;
+  width: auto !important;
+}
+
+#sideNav ul {
+  display: flex !important;
+  flex-direction: row !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#sideNav ul li {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+.mainmenu-wrapper {
+  display: block !important;
+  width: auto !important;
+}
+
+/* Add more specific overrides as needed */

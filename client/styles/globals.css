@@ -1,39 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Importación de Tailwind CSS v4 - nueva sintaxis */
+@import "tailwindcss";
 
+/* Importar estilos legacy con menor especificidad */
 @import url("./assets/css/plugins/feature.css");
-/* jQuery CSS imports removed - replaced with modern React components */
 @import url("./assets/css/style.css");
 
-/* ??LOADER */
+/* Importar sobrescrituras específicas para componentes */
+@import url("./component-overrides.css");
+
+/* Estilos personalizados usando CSS estándar en lugar de @apply */
 .custom-loader-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(1, 0, 0, 0.259); /* semi-transparent white */
+  background: rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 50;
 }
 
 .custom-loader {
-  border: 16px solid #21212138; /* Light grey */
-  border-top: 16px solid #00a3ff; /* Blue */
+  border: 16px solid rgba(229, 231, 235, 0.2);
+  border-top: 16px solid #3b82f6;
   border-radius: 50%;
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
 }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/* END LOADER */

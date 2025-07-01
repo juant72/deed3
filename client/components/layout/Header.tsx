@@ -25,19 +25,19 @@ const Header: React.FC = () => {
                   </div>
                 </Link>
               </div>
-              <div className="mainmenu-wrapper">
-                <nav id="sideNav" className="hidden xl:block">
-                  <ul className="flex items-center space-x-2">
-                    <li className="relative group">
+              <div className="mainmenu-wrapper !block !w-auto">
+                <nav id="sideNav" className="hidden xl:block !w-auto">
+                  <ul className="flex items-center space-x-2 !flex-row !m-0 !p-0">
+                    <li className="relative group !inline-block">
                       <Link href="/" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Home</Link>
                     </li>
-                    <li className="relative group">
+                    <li className="relative group !inline-block">
                       <Link href="/about" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">About</Link>
                     </li>
-                    <li className="relative group">
+                    <li className="relative group !inline-block">
                       <Link href="/roadmap" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Roadmap</Link>
                     </li>
-                    <li className="relative group">
+                    <li className="relative group !inline-block">
                       <a className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors cursor-pointer">Explore</a>
                       <ul className="absolute left-0 top-full min-w-[230px] bg-slate-800 border border-white/10 rounded-b-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <li>
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
                     <li className="relative group">
                       <Link href="/contact" className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors">Contact</Link>
                     </li>
-                    <li className="relative group">
+                    <li className="relative group !inline-block">
                       <a className="block px-3 py-7 text-gray-300 font-medium hover:text-blue-400 transition-colors cursor-pointer">Other Pages</a>
                       <ul className="absolute left-0 top-full min-w-[230px] bg-slate-800 border border-white/10 rounded-b-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <li>

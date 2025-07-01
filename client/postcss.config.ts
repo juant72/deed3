@@ -1,15 +1,11 @@
-import type { Config } from 'postcss';
+// Configuración PostCSS para Tailwind CSS v4
+// Esta configuración es compatible con Next.js 15 y Tailwind CSS v4
 
-const config: Config = {
+/** @type {import('postcss').Config} */
+const config = {
     plugins: {
-        "tailwindcss": {},
-        autoprefixer: {
-            // Configuración optimizada para evitar warnings
-            overrideBrowserslist: ['> 1%', 'last 2 versions'],
-            ignoreUnknownVersions: true,
-            cascade: false,
-            remove: false,
-        },
+        // Plugin oficial de Tailwind CSS v4 para PostCSS
+        "@tailwindcss/postcss": {},
     },
 };
 
