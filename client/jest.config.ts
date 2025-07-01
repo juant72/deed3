@@ -18,6 +18,10 @@ const customJestConfig: Config = {
         '^@/lib/(.*)$': '<rootDir>/lib/$1',
         '^@/context/(.*)$': '<rootDir>/context/$1',
         '^@/hooks/(.*)$': '<rootDir>/hooks/$1',
+        // Handle CSS imports
+        '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+        // Handle image imports
+        '^.+\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.ts',
     },
     testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
     transform: {

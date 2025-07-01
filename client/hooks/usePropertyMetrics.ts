@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 
 interface PropertyMetrics {
   tokenPrice: number;
@@ -13,8 +13,20 @@ interface PropertyMetrics {
   lastUpdate: Date | null;
 }
 
+interface Property {
+  id: string;
+  title: string;
+  type: string;
+  status: string;
+  price: string;
+  location: string;
+  views: number;
+  likes: number;
+  image: string;
+}
+
 // Hook para métricas de propiedades en tiempo real
-export const usePropertyMetrics = (propertyId: string) => {
+export const usePropertyMetrics = (propertyId?: string) => {
   const [metrics, setMetrics] = useState<PropertyMetrics>({
     tokenPrice: 0,
     priceChange24h: 0,
@@ -29,6 +41,66 @@ export const usePropertyMetrics = (propertyId: string) => {
   });
 
   const [isConnected, setIsConnected] = useState(false);
+
+  // Analyze property data and calculate metrics
+  const getTotalViews = useCallback((properties: Property[]): number => {
+    return properties.reduce((total, property) => total + property.views, 0);
+  }, []);
+
+  const getTotalLikes = useCallback((properties: Property[]): number => {
+    return properties.reduce((total, property) => total + property.likes, 0);
+  }, []);
+
+  const getAveragePrice = useCallback((properties: Property[]): string => {
+    if (properties.length === 0) return '$0';
+    
+    const totalPrice = properties.reduce((total, property) => {
+      // Remove $ and comma and parse as float
+      const price = parseFloat(property.price.replace('$', '').replace(/,/g, ''));
+      return total + price;
+    }, 0);
+    
+    const avgPrice = totalPrice / properties.length;
+    return new Intl.NumberFormat('en-US', { 
+      style: 'currency', 
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }).format(avgPrice);
+  }, []);
+
+  const getEngagementRate = useCallback((properties: Property[]): string => {
+    if (properties.length === 0) return '0%';
+    
+    const totalViews = getTotalViews(properties);
+    const totalLikes = getTotalLikes(properties);
+    
+    if (totalViews === 0) return '0%';
+    
+    const engagementRate = (totalLikes / totalViews) * 100;
+    return `${engagementRate.toFixed(1)}%`;
+  }, [getTotalViews, getTotalLikes]);
+
+  const getTopPerformingProperty = useCallback((properties: Property[]): Property | null => {
+    if (properties.length === 0) return null;
+    
+    return properties.reduce((top, property) => {
+      return property.views > top.views ? property : top;
+    }, properties[0]);
+  }, []);
+
+  const getPropertiesByType = useCallback((properties: Property[]): Record<string, number> => {
+    return properties.reduce((types, property) => {
+      types[property.type] = (types[property.type] || 0) + 1;
+      return types;
+    }, {} as Record<string, number>);
+  }, []);
+
+  const getPropertiesByStatus = useCallback((properties: Property[]): Record<string, number> => {
+    return properties.reduce((statuses, property) => {
+      statuses[property.status] = (statuses[property.status] || 0) + 1;
+      return statuses;
+    }, {} as Record<string, number>);
+  }, []);
 
   useEffect(() => {
     // Simular conexión WebSocket para datos en tiempo real
@@ -90,10 +162,42 @@ export const usePropertyMetrics = (propertyId: string) => {
     };
   }, [metrics]);
 
+  // Generate historical data for charts
+  const generateHistoricalData = useCallback((days: number) => {
+    const now = new Date();
+    const data = [];
+    
+    let lastValue = metrics.tokenPrice * 1000; // Convert to base value
+    
+    for (let i = days; i >= 0; i--) {
+      const date = new Date(now);
+      date.setDate(now.getDate() - i);
+      
+      // Add some randomness but keep a trend
+      const change = (Math.random() * 0.08) - 0.03; // -3% to +5% daily change
+      lastValue = lastValue * (1 + change);
+      
+      data.push({
+        date: date.toISOString().split('T')[0],
+        value: lastValue.toFixed(2)
+      });
+    }
+    
+    return data;
+  }, [metrics.tokenPrice]);
+
   return {
     metrics: calculatedMetrics,
     isConnected,
-    refreshMetrics: () => setMetrics(prev => ({ ...prev, lastUpdate: new Date() }))
+    refreshMetrics: () => setMetrics(prev => ({ ...prev, lastUpdate: new Date() })),
+    getTotalViews,
+    getTotalLikes,
+    getAveragePrice,
+    getEngagementRate,
+    getTopPerformingProperty,
+    getPropertiesByType,
+    getPropertiesByStatus,
+    generateHistoricalData
   };
 };
 
