@@ -37,6 +37,8 @@
   },
   "include": [
     "next-env.d.ts",
+    "types/**/*.ts",
+    "types/**/*.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
@@ -50,6 +52,9 @@
     ".next",
     "coverage",
     "tmp",
-    ".cache"
+    ".cache",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "__tests__/**/*"
   ]
 }
