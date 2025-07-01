@@ -1,13 +1,13 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 
 // Utility function for class merging (simple version)
 const cn = (...classes: (string | undefined | null | boolean)[]) => {
   return classes.filter(Boolean).join(' ');
 };
 
-// Button prop types
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+// Combine React button props with Framer Motion props, omitting conflicting keys
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & MotionProps & {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'web3';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   loading?: boolean;
@@ -61,29 +61,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
     ...rest
   } = props;
 
-  // Extraer solo las props compatibles con motion.button
-  const {
-    'aria-label': ariaLabel,
-    disabled,
-    // Eliminar eventos que causan conflictos con framer-motion (se ignoran intencionalmente)
-    onAnimationStart: _onAnimationStart,
-    onAnimationEnd: _onAnimationEnd,
-    onAnimationIteration: _onAnimationIteration,
-    onTransitionEnd: _onTransitionEnd,
-    onDrag: _onDrag,
-    onDragStart: _onDragStart,
-    onDragEnd: _onDragEnd,
-    onDragOver: _onDragOver,
-    onDragEnter: _onDragEnter,
-    onDragLeave: _onDragLeave,
-    onDrop: _onDrop,
-    onDragExit: _onDragExit,
-    onTouchStart: _onTouchStart,
-    onTouchEnd: _onTouchEnd,
-    onTouchMove: _onTouchMove,
-    onTouchCancel: _onTouchCancel,
-    ...motionProps
-  } = rest;
+  // Extraer props ARIA y HTML relevantes
+  const { 'aria-label': ariaLabel, disabled, ...motionProps } = rest;
+
+  // Lista de props a eliminar que no son compatibles con motion.button
+  const incompatibleProps = [
+    'onAnimationStart', 'onAnimationEnd', 'onAnimationIteration', 'onTransitionEnd',
+    'onDrag', 'onDragStart', 'onDragEnd', 'onDragOver', 'onDragEnter', 'onDragLeave', 'onDrop', 'onDragExit',
+    'onTouchStart', 'onTouchEnd', 'onTouchMove', 'onTouchCancel'
+  ];
+
+  // Eliminar las props incompatibles para evitar warnings y errores de tipo
+  incompatibleProps.forEach(prop => {
+    if (prop in motionProps) {
+      delete (motionProps as any)[prop];
+    }
+  });
+
 
   return (
     <motion.button

@@ -19,8 +19,45 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, title, children, ariaLabel
         } else {
             document.body.style.overflow = '';
         }
-        return () => { document.body.style.overflow = ''; };
-    }, [open]);
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                onClose();
+                return;
+            }
+
+            if (e.key === 'Tab') {
+                const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+                    'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+                );
+                if (!focusableElements) return;
+
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        };
+
+        if (open) {
+            document.addEventListener('keydown', handleKeyDown);
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [open, onClose]);
 
     if (!open) return null;
 
@@ -32,7 +69,6 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, title, children, ariaLabel
             aria-label={ariaLabel || title || 'Modal'}
             tabIndex={-1}
             ref={dialogRef}
-            onKeyDown={e => { if (e.key === 'Escape') onClose(); }}
         >
             <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg max-w-lg w-full p-8 relative outline-none" role="document">
                 <Button
